@@ -17,8 +17,8 @@ class DependencyProcess(Process):
     """Base class for morphosyntactic processes."""
 
 
-class ChatGPTDependencyProcess(DependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class OpenAIDependencyProcess(DependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     @cached_property
     def algorithm(self) -> Callable[[Doc], Doc]:
@@ -45,909 +45,897 @@ class ChatGPTDependencyProcess(DependencyProcess):
         return output_doc
 
 
-class CuneiformLuwianChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class CuneiformLuwianOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "cune1239"
-    description: str = "Default process for ChatGPT for the Cuneiform Luwian language."
-    authorship_info: str = "CuneiformLuwianChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Cuneiform Luwian language."
+    authorship_info: str = "CuneiformLuwianOpenAIProcess using OpenAI GPT models."
 
 
-class HieroglyphicLuwianChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class HieroglyphicLuwianOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "hier1240"
     description: str = (
-        "Default process for ChatGPT for the Hieroglyphic Luwian language."
+        "Default process for OpenAI for the Hieroglyphic Luwian language."
     )
-    authorship_info: str = "HieroglyphicLuwianChatGPTProcess using OpenAI GPT models."
+    authorship_info: str = "HieroglyphicLuwianOpenAIProcess using OpenAI GPT models."
 
 
-class OldPrussianChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class OldPrussianOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "prus1238"
-    description: str = "Default process for ChatGPT for the Old Prussian language."
-    authorship_info: str = "OldPrussianChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Old Prussian language."
+    authorship_info: str = "OldPrussianOpenAIProcess using OpenAI GPT models."
 
 
-class LithuanianChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class LithuanianOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "lith1251"
-    description: str = "Default process for ChatGPT for the Lithuanian language."
-    authorship_info: str = "LithuanianChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Lithuanian language."
+    authorship_info: str = "LithuanianOpenAIProcess using OpenAI GPT models."
 
 
-class LatvianChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class LatvianOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "latv1249"
-    description: str = "Default process for ChatGPT for the Latvian language."
-    authorship_info: str = "LatvianChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Latvian language."
+    authorship_info: str = "LatvianOpenAIProcess using OpenAI GPT models."
 
 
-class AlbanianChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class AlbanianOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "gheg1238"
-    description: str = "Default process for ChatGPT for the Albanian language."
-    authorship_info: str = "AlbanianChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Albanian language."
+    authorship_info: str = "AlbanianOpenAIProcess using OpenAI GPT models."
 
 
-class AkkadianChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class AkkadianOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "akka1240"
-    description: str = "Default process for ChatGPT for the Akkadian language."
-    authorship_info: str = "AkkadianChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Akkadian language."
+    authorship_info: str = "AkkadianOpenAIProcess using OpenAI GPT models."
 
 
-class AncientGreekChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class AncientGreekOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "anci1242"
-    description: str = "Default process for ChatGPT for the Ancient Greek language."
-    authorship_info: str = "Ancient GreekChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Ancient Greek language."
+    authorship_info: str = "Ancient GreekOpenAIProcess using OpenAI GPT models."
 
 
-class BiblicalHebrewChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class BiblicalHebrewOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "anci1244"
-    description: str = "Default process for ChatGPT for the Biblical Hebrew language."
-    authorship_info: str = "Biblical HebrewChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Biblical Hebrew language."
+    authorship_info: str = "Biblical HebrewOpenAIProcess using OpenAI GPT models."
 
 
-class ClassicalArabicChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class ClassicalArabicOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "clas1259"
-    description: str = "Default process for ChatGPT for the Classical Arabic language."
-    authorship_info: str = "ClassicalArabicChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Classical Arabic language."
+    authorship_info: str = "ClassicalArabicOpenAIProcess using OpenAI GPT models."
 
 
-class AvestanChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class AvestanOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "aves1237"
-    description: str = "Default process for ChatGPT for the Avestan language."
-    authorship_info: str = "AvestanChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Avestan language."
+    authorship_info: str = "AvestanOpenAIProcess using OpenAI GPT models."
 
 
-class BactrianChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class BactrianOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "bact1239"
-    description: str = "Default process for ChatGPT for the Bactrian language."
-    authorship_info: str = "BactrianChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Bactrian language."
+    authorship_info: str = "BactrianOpenAIProcess using OpenAI GPT models."
 
 
-class SogdianChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class SogdianOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "sogd1245"
-    description: str = "Default process for ChatGPT for the Sogdian language."
-    authorship_info: str = "SogdianChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Sogdian language."
+    authorship_info: str = "SogdianOpenAIProcess using OpenAI GPT models."
 
 
-class BengaliChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class BengaliOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "beng1280"
-    description: str = "Default process for ChatGPT for the Bengali language."
-    authorship_info: str = "BengaliChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Bengali language."
+    authorship_info: str = "BengaliOpenAIProcess using OpenAI GPT models."
 
 
-class CarianChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class CarianOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "cari1274"
-    description: str = "Default process for ChatGPT for the Carian language."
-    authorship_info: str = "CarianChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Carian language."
+    authorship_info: str = "CarianOpenAIProcess using OpenAI GPT models."
 
 
-class ChurchSlavicChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class ChurchSlavicOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "chur1257"
-    description: str = "Default process for ChatGPT for the Church Slavic language."
-    authorship_info: str = "Church SlavicChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Church Slavic language."
+    authorship_info: str = "Church SlavicOpenAIProcess using OpenAI GPT models."
 
 
-class ClassicalArmenianChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class ClassicalArmenianOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "clas1256"
-    description: str = (
-        "Default process for ChatGPT for the Classical Armenian language."
-    )
-    authorship_info: str = "Classical ArmenianChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Classical Armenian language."
+    authorship_info: str = "Classical ArmenianOpenAIProcess using OpenAI GPT models."
 
 
-class ClassicalMandaicChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class ClassicalMandaicOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "clas1253"
-    description: str = "Default process for ChatGPT for the Classical Mandaic language."
-    authorship_info: str = "Classical MandaicChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Classical Mandaic language."
+    authorship_info: str = "Classical MandaicOpenAIProcess using OpenAI GPT models."
 
 
-class ClassicalMongolianChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class ClassicalMongolianOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "mong1331"
     description: str = (
-        "Default process for ChatGPT for the Classical Mongolian language."
+        "Default process for OpenAI for the Classical Mongolian language."
     )
-    authorship_info: str = "Classical MongolianChatGPTProcess using OpenAI GPT models."
+    authorship_info: str = "Classical MongolianOpenAIProcess using OpenAI GPT models."
 
 
-class ClassicalSyriacChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class ClassicalSyriacOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "clas1252"
-    description: str = "Default process for ChatGPT for the Classical Syriac language."
-    authorship_info: str = "Classical SyriacChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Classical Syriac language."
+    authorship_info: str = "Classical SyriacOpenAIProcess using OpenAI GPT models."
 
 
-class ClassicalTibetanChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class ClassicalTibetanOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "clas1254"
-    description: str = "Default process for ChatGPT for the Classical Tibetan language."
-    authorship_info: str = "Classical TibetanChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Classical Tibetan language."
+    authorship_info: str = "Classical TibetanOpenAIProcess using OpenAI GPT models."
 
 
-class CopticChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class CopticOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "copt1239"
-    description: str = "Default process for ChatGPT for the Coptic language."
-    authorship_info: str = "CopticChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Coptic language."
+    authorship_info: str = "CopticOpenAIProcess using OpenAI GPT models."
 
 
-class DemoticChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class DemoticOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "demo1234"
-    description: str = "Default process for ChatGPT for the Demotic language."
-    authorship_info: str = "DemoticChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Demotic language."
+    authorship_info: str = "DemoticOpenAIProcess using OpenAI GPT models."
 
 
-class EasternPanjabiChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class EasternPanjabiOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "panj1256"
-    description: str = "Default process for ChatGPT for the Eastern Panjabi language."
-    authorship_info: str = "Eastern PanjabiChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Eastern Panjabi language."
+    authorship_info: str = "Eastern PanjabiOpenAIProcess using OpenAI GPT models."
 
 
-class EdomiteChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class EdomiteOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "edom1234"
-    description: str = "Default process for ChatGPT for the Edomite language."
-    authorship_info: str = "EdomiteChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Edomite language."
+    authorship_info: str = "EdomiteOpenAIProcess using OpenAI GPT models."
 
 
-class GeezChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class GeezOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "geez1241"
-    description: str = "Default process for ChatGPT for the Geez language."
-    authorship_info: str = "GeezChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Geez language."
+    authorship_info: str = "GeezOpenAIProcess using OpenAI GPT models."
 
 
-class GothicChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class GothicOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "goth1244"
-    description: str = "Default process for ChatGPT for the Gothic language."
-    authorship_info: str = "GothicChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Gothic language."
+    authorship_info: str = "GothicOpenAIProcess using OpenAI GPT models."
 
 
-class GujaratiChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class GujaratiOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "guja1252"
-    description: str = "Default process for ChatGPT for the Gujarati language."
-    authorship_info: str = "GujaratiChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Gujarati language."
+    authorship_info: str = "GujaratiOpenAIProcess using OpenAI GPT models."
 
 
-class HindiChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class HindiOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "hind1269"
-    description: str = "Default process for ChatGPT for the Hindi language."
-    authorship_info: str = "HindiChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Hindi language."
+    authorship_info: str = "HindiOpenAIProcess using OpenAI GPT models."
 
 
-class KhariBoliChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class KhariBoliOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "khad1239"
-    description: str = (
-        "Default process for ChatGPT for the Khari Boli dialect of Hindi."
-    )
-    authorship_info: str = "KhariBoliChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Khari Boli dialect of Hindi."
+    authorship_info: str = "KhariBoliOpenAIProcess using OpenAI GPT models."
 
 
-class BrajChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class BrajOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "braj1242"
-    description: str = "Default process for ChatGPT for the Braj Bhasha language."
-    authorship_info: str = "BrajChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Braj Bhasha language."
+    authorship_info: str = "BrajOpenAIProcess using OpenAI GPT models."
 
 
-class AwadhiChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class AwadhiOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "awad1243"
-    description: str = "Default process for ChatGPT for the Awadhi language."
-    authorship_info: str = "AwadhiChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Awadhi language."
+    authorship_info: str = "AwadhiOpenAIProcess using OpenAI GPT models."
 
 
-class HittiteChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class HittiteOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "hitt1242"
-    description: str = "Default process for ChatGPT for the Hittite language."
-    authorship_info: str = "HittiteChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Hittite language."
+    authorship_info: str = "HittiteOpenAIProcess using OpenAI GPT models."
 
 
-class KhotaneseChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class KhotaneseOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "khot1251"
-    description: str = "Default process for ChatGPT for the Khotanese language."
-    authorship_info: str = "KhotaneseChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Khotanese language."
+    authorship_info: str = "KhotaneseOpenAIProcess using OpenAI GPT models."
 
 
-class TumshuqeseChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class TumshuqeseOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "tums1237"
-    description: str = "Default process for ChatGPT for the Tumshuqese language."
-    authorship_info: str = "TumshuqeseChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Tumshuqese language."
+    authorship_info: str = "TumshuqeseOpenAIProcess using OpenAI GPT models."
 
 
-class LateEgyptianChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class LateEgyptianOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "late1256"
-    description: str = "Default process for ChatGPT for the Late Egyptian language."
-    authorship_info: str = "Late Egyptian ChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Late Egyptian language."
+    authorship_info: str = "Late Egyptian OpenAIProcess using OpenAI GPT models."
 
 
-class LatinChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class LatinOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "lati1261"
-    description: str = "Default process for ChatGPT for the Latin language."
-    authorship_info: str = "LatinChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Latin language."
+    authorship_info: str = "LatinOpenAIProcess using OpenAI GPT models."
 
 
-class LiteraryChineseChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class LiteraryChineseOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "lite1248"
-    description: str = "Default process for ChatGPT for the Literary Chinese language."
-    authorship_info: str = "Literary ChineseChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Literary Chinese language."
+    authorship_info: str = "Literary ChineseOpenAIProcess using OpenAI GPT models."
 
 
-class LycianAChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class LycianAOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "lyci1241"
-    description: str = "Default process for ChatGPT for the Lycian A language."
-    authorship_info: str = "Lycian AChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Lycian A language."
+    authorship_info: str = "Lycian AOpenAIProcess using OpenAI GPT models."
 
 
-class LydianChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class LydianOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "lydi1241"
-    description: str = "Default process for ChatGPT for the Lydian language."
-    authorship_info: str = "LydianChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Lydian language."
+    authorship_info: str = "LydianOpenAIProcess using OpenAI GPT models."
 
 
-class MaharastriPrakritChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class MaharastriPrakritOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "maha1305"
-    description: str = (
-        "Default process for ChatGPT for the Maharastri Prakrit language."
-    )
-    authorship_info: str = "MaharastriPrakritChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Maharastri Prakrit language."
+    authorship_info: str = "MaharastriPrakritOpenAIProcess using OpenAI GPT models."
 
 
-class MiddleArmenianChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class MiddleArmenianOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "midd1364"
-    description: str = "Default process for ChatGPT for the Middle Armenian language."
-    authorship_info: str = "Middle ArmenianChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Middle Armenian language."
+    authorship_info: str = "Middle ArmenianOpenAIProcess using OpenAI GPT models."
 
 
-class MiddleBretonChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class MiddleBretonOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "oldb1244"
-    description: str = "Default process for ChatGPT for the Middle Breton language."
-    authorship_info: str = "Middle BretonChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Middle Breton language."
+    authorship_info: str = "Middle BretonOpenAIProcess using OpenAI GPT models."
 
 
-class MiddleChineseChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class MiddleChineseOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "midd1344"
-    description: str = "Default process for ChatGPT for the Middle Chinese language."
-    authorship_info: str = "Middle ChineseChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Middle Chinese language."
+    authorship_info: str = "Middle ChineseOpenAIProcess using OpenAI GPT models."
 
 
-class MiddleCornishChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class MiddleCornishOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "corn1251"
-    description: str = "Default process for ChatGPT for the Middle Cornish language."
-    authorship_info: str = "Middle CornishChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Middle Cornish language."
+    authorship_info: str = "Middle CornishOpenAIProcess using OpenAI GPT models."
 
 
-class MiddleEgyptianChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class MiddleEgyptianOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "midd1369"
-    description: str = "Default process for ChatGPT for the Middle Egyptian language."
-    authorship_info: str = "Middle Egyptian ChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Middle Egyptian language."
+    authorship_info: str = "Middle Egyptian OpenAIProcess using OpenAI GPT models."
 
 
-class MiddleEnglishChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class MiddleEnglishOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "midd1317"
-    description: str = "Default process for ChatGPT for the Middle English language."
-    authorship_info: str = "Middle EnglishChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Middle English language."
+    authorship_info: str = "Middle EnglishOpenAIProcess using OpenAI GPT models."
 
 
-class MiddleFrenchChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class MiddleFrenchOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "midd1316"
-    description: str = "Default process for ChatGPT for the Middle French language."
-    authorship_info: str = "Middle FrenchChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Middle French language."
+    authorship_info: str = "Middle FrenchOpenAIProcess using OpenAI GPT models."
 
 
-class MiddleHighGermanChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class MiddleHighGermanOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "midd1343"
-    description: str = (
-        "Default process for ChatGPT for the Middle High German language."
-    )
-    authorship_info: str = "Middle High GermanChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Middle High German language."
+    authorship_info: str = "Middle High GermanOpenAIProcess using OpenAI GPT models."
 
 
-class MiddleMongolChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class MiddleMongolOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "mong1329"
-    description: str = "Default process for ChatGPT for the Middle Mongol language."
-    authorship_info: str = "Middle MongolChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Middle Mongol language."
+    authorship_info: str = "Middle MongolOpenAIProcess using OpenAI GPT models."
 
 
-class MoabiteChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class MoabiteOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "moab1234"
-    description: str = "Default process for ChatGPT for the Moabite language."
-    authorship_info: str = "MoabiteChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Moabite language."
+    authorship_info: str = "MoabiteOpenAIProcess using OpenAI GPT models."
 
 
-class OdiaChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class OdiaOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "oriy1255"
-    description: str = "Default process for ChatGPT for the Odia language."
-    authorship_info: str = "OdiaChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Odia language."
+    authorship_info: str = "OdiaOpenAIProcess using OpenAI GPT models."
 
 
-class OfficialAramaicChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class OfficialAramaicOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "impe1235"
     description: str = (
-        "Default process for ChatGPT for the Official Aramaic (700-300 BCE) language."
+        "Default process for OpenAI for the Official Aramaic (700-300 BCE) language."
     )
     authorship_info: str = (
-        "Official Aramaic (700-300 BCE) ChatGPTProcess using OpenAI GPT models."
+        "Official Aramaic (700-300 BCE) OpenAIProcess using OpenAI GPT models."
     )
 
 
-class OldBurmeseChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class OldBurmeseOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "oldb1235"
-    description: str = "Default process for ChatGPT for the Old Burmese language."
-    authorship_info: str = "Old BurmeseChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Old Burmese language."
+    authorship_info: str = "Old BurmeseOpenAIProcess using OpenAI GPT models."
 
 
-class OldChineseChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class OldChineseOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "oldc1244"
-    description: str = "Default process for ChatGPT for the Old Chinese language."
-    authorship_info: str = "Old ChineseChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Old Chinese language."
+    authorship_info: str = "Old ChineseOpenAIProcess using OpenAI GPT models."
 
 
-class BaihuaChineseChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class BaihuaChineseOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "clas1255"
     description: str = (
-        "Default process for ChatGPT for Early Vernacular Chinese (Baihua)."
+        "Default process for OpenAI for Early Vernacular Chinese (Baihua)."
     )
-    authorship_info: str = "BaihuaChineseChatGPTProcess using OpenAI GPT models."
+    authorship_info: str = "BaihuaChineseOpenAIProcess using OpenAI GPT models."
 
 
-class ClassicalBurmeseChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class ClassicalBurmeseOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "nucl1310"
-    description: str = "Default process for ChatGPT for the Classical Burmese language."
-    authorship_info: str = "ClassicalBurmeseChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Classical Burmese language."
+    authorship_info: str = "ClassicalBurmeseOpenAIProcess using OpenAI GPT models."
 
 
-class TangutChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class TangutOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "tang1334"
-    description: str = "Default process for ChatGPT for the Tangut (Xixia) language."
-    authorship_info: str = "TangutChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Tangut (Xixia) language."
+    authorship_info: str = "TangutOpenAIProcess using OpenAI GPT models."
 
 
-class NewarChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class NewarOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "newa1246"
     description: str = (
-        "Default process for ChatGPT for the Newar (Classical Nepal Bhasa) language."
+        "Default process for OpenAI for the Newar (Classical Nepal Bhasa) language."
     )
-    authorship_info: str = "NewarChatGPTProcess using OpenAI GPT models."
+    authorship_info: str = "NewarOpenAIProcess using OpenAI GPT models."
 
 
-class MeiteiChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class MeiteiOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "mani1292"
     description: str = (
-        "Default process for ChatGPT for the Meitei (Classical Manipuri) language."
+        "Default process for OpenAI for the Meitei (Classical Manipuri) language."
     )
-    authorship_info: str = "MeiteiChatGPTProcess using OpenAI GPT models."
+    authorship_info: str = "MeiteiOpenAIProcess using OpenAI GPT models."
 
 
-class SgawKarenChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class SgawKarenOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "sgaw1245"
-    description: str = "Default process for ChatGPT for the Sgaw Karen language."
-    authorship_info: str = "SgawKarenChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Sgaw Karen language."
+    authorship_info: str = "SgawKarenOpenAIProcess using OpenAI GPT models."
 
 
-class MogholiChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class MogholiOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "mogh1245"
-    description: str = "Default process for ChatGPT for the Mogholi (Moghol) language."
-    authorship_info: str = "MogholiChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Mogholi (Moghol) language."
+    authorship_info: str = "MogholiOpenAIProcess using OpenAI GPT models."
 
 
-class NumidianChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class NumidianOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "numi1241"
     description: str = (
-        "Default process for ChatGPT for the Numidian (Ancient Berber) language."
+        "Default process for OpenAI for the Numidian (Ancient Berber) language."
     )
-    authorship_info: str = "NumidianChatGPTProcess using OpenAI GPT models."
+    authorship_info: str = "NumidianOpenAIProcess using OpenAI GPT models."
 
 
-class TaitaChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class TaitaOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "tait1247"
-    description: str = "Default process for ChatGPT for the Cushitic Taita language."
-    authorship_info: str = "TaitaChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Cushitic Taita language."
+    authorship_info: str = "TaitaOpenAIProcess using OpenAI GPT models."
 
 
-class HausaChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class HausaOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "haus1257"
-    description: str = "Default process for ChatGPT for the Hausa language."
-    authorship_info: str = "HausaChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Hausa language."
+    authorship_info: str = "HausaOpenAIProcess using OpenAI GPT models."
 
 
-class OldJurchenChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class OldJurchenOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "jurc1239"
-    description: str = "Default process for ChatGPT for the Old Jurchen language."
-    authorship_info: str = "OldJurchenChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Old Jurchen language."
+    authorship_info: str = "OldJurchenOpenAIProcess using OpenAI GPT models."
 
 
-class OldJapaneseChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class OldJapaneseOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "japo1237"
-    description: str = "Default process for ChatGPT for the Old Japanese language."
-    authorship_info: str = "OldJapaneseChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Old Japanese language."
+    authorship_info: str = "OldJapaneseOpenAIProcess using OpenAI GPT models."
 
 
-class OldHungarianChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class OldHungarianOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "oldh1242"
-    description: str = "Default process for ChatGPT for the Old Hungarian language."
-    authorship_info: str = "OldHungarianChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Old Hungarian language."
+    authorship_info: str = "OldHungarianOpenAIProcess using OpenAI GPT models."
 
 
-class ChagataiChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class ChagataiOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "chag1247"
-    description: str = "Default process for ChatGPT for the Chagatai language."
-    authorship_info: str = "ChagataiChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Chagatai language."
+    authorship_info: str = "ChagataiOpenAIProcess using OpenAI GPT models."
 
 
-class OldTurkicChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class OldTurkicOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "oldu1238"
-    description: str = "Default process for ChatGPT for the Old Turkic language."
-    authorship_info: str = "OldTurkicChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Old Turkic language."
+    authorship_info: str = "OldTurkicOpenAIProcess using OpenAI GPT models."
 
 
-class OldTamilChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class OldTamilOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "oldt1248"
-    description: str = "Default process for ChatGPT for the Old Tamil language."
-    authorship_info: str = "OldTamilChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Old Tamil language."
+    authorship_info: str = "OldTamilOpenAIProcess using OpenAI GPT models."
 
 
-class AmmoniteChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class AmmoniteOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "ammo1234"
-    description: str = "Default process for ChatGPT for the Ammonite language."
-    authorship_info: str = "AmmoniteChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Ammonite language."
+    authorship_info: str = "AmmoniteOpenAIProcess using OpenAI GPT models."
 
 
-class OldAramaicChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class OldAramaicOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "olda1246"
     description: str = (
-        "Default process for ChatGPT for the Old Aramaic (up to 700 BCE) language."
+        "Default process for OpenAI for the Old Aramaic (up to 700 BCE) language."
     )
-    authorship_info: str = "OldAramaicChatGPTProcess using OpenAI GPT models."
+    authorship_info: str = "OldAramaicOpenAIProcess using OpenAI GPT models."
 
 
-class OldAramaicSamalianChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class OldAramaicSamalianOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "olda1245"
     description: str = (
-        "Default process for ChatGPT for the Old Aramaic–Samʾalian language."
+        "Default process for OpenAI for the Old Aramaic–Samʾalian language."
     )
-    authorship_info: str = "OldAramaicSamalianChatGPTProcess using OpenAI GPT models."
+    authorship_info: str = "OldAramaicSamalianOpenAIProcess using OpenAI GPT models."
 
 
-class MiddleAramaicChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class MiddleAramaicOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "midd1366"
-    description: str = "Default process for ChatGPT for the Middle Aramaic language."
-    authorship_info: str = "MiddleAramaicChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Middle Aramaic language."
+    authorship_info: str = "MiddleAramaicOpenAIProcess using OpenAI GPT models."
 
 
-class HatranChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class HatranOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "hatr1234"
-    description: str = "Default process for ChatGPT for the Hatran language."
-    authorship_info: str = "HatranChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Hatran language."
+    authorship_info: str = "HatranOpenAIProcess using OpenAI GPT models."
 
 
-class JewishBabylonianAramaicChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class JewishBabylonianAramaicOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "jewi1240"
     description: str = (
-        "Default process for ChatGPT for the Jewish Babylonian Aramaic language."
+        "Default process for OpenAI for the Jewish Babylonian Aramaic language."
     )
     authorship_info: str = (
-        "JewishBabylonianAramaicChatGPTProcess using OpenAI GPT models."
+        "JewishBabylonianAramaicOpenAIProcess using OpenAI GPT models."
     )
 
 
-class SamalianChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class SamalianOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "sama1234"
-    description: str = "Default process for ChatGPT for the Samʾalian language."
-    authorship_info: str = "SamalianChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Samʾalian language."
+    authorship_info: str = "SamalianOpenAIProcess using OpenAI GPT models."
 
 
-class OldEgyptianChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class OldEgyptianOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "olde1242"
-    description: str = "Default process for ChatGPT for the Old Egyptian language."
-    authorship_info: str = "Old Egyptian ChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Old Egyptian language."
+    authorship_info: str = "Old Egyptian OpenAIProcess using OpenAI GPT models."
 
 
-class OldEnglishChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class OldEnglishOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "olde1238"
     description: str = (
-        "Default process for ChatGPT for the Old English (ca. 450-1100) language."
+        "Default process for OpenAI for the Old English (ca. 450-1100) language."
     )
     authorship_info: str = (
-        "Old English (ca. 450-1100)ChatGPTProcess using OpenAI GPT models."
+        "Old English (ca. 450-1100)OpenAIProcess using OpenAI GPT models."
     )
 
 
-class OldFrenchChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class OldFrenchOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "oldf1239"
     description: str = (
-        "Default process for ChatGPT for the Old French (842-ca. 1400) language."
+        "Default process for OpenAI for the Old French (842-ca. 1400) language."
     )
     authorship_info: str = (
-        "Old French (842-ca. 1400)ChatGPTProcess using OpenAI GPT models."
+        "Old French (842-ca. 1400)OpenAIProcess using OpenAI GPT models."
     )
 
 
-class OldHighGermanChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class OldHighGermanOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "oldh1241"
     description: str = (
-        "Default process for ChatGPT for the Old High German (ca. 750-1050) language."
+        "Default process for OpenAI for the Old High German (ca. 750-1050) language."
     )
     authorship_info: str = (
-        "Old High German (ca. 750-1050)ChatGPTProcess using OpenAI GPT models."
+        "Old High German (ca. 750-1050)OpenAIProcess using OpenAI GPT models."
     )
 
 
-class EarlyIrishChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class EarlyIrishOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "oldi1245"
-    description: str = "Default process for ChatGPT for the Old Irish language."
-    authorship_info: str = "Old IrishChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Old Irish language."
+    authorship_info: str = "Old IrishOpenAIProcess using OpenAI GPT models."
 
 
-class MarathiChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class MarathiOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "mara1378"
-    description: str = "Default process for ChatGPT for the Marathi language."
-    authorship_info: str = "MarathiChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Marathi language."
+    authorship_info: str = "MarathiOpenAIProcess using OpenAI GPT models."
 
 
-class OldNorseChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class OldNorseOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "oldn1244"
-    description: str = "Default process for ChatGPT for the Old Norse language."
-    authorship_info: str = "Old NorseChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Old Norse language."
+    authorship_info: str = "Old NorseOpenAIProcess using OpenAI GPT models."
 
 
-class OldPersianChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class OldPersianOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "oldp1254"
     description: str = (
-        "Default process for ChatGPT for the Old Persian (ca. 600-400 B.C.) language."
+        "Default process for OpenAI for the Old Persian (ca. 600-400 B.C.) language."
     )
     authorship_info: str = (
-        "Old Persian (ca. 600-400 B.C.)ChatGPTProcess using OpenAI GPT models."
+        "Old Persian (ca. 600-400 B.C.)OpenAIProcess using OpenAI GPT models."
     )
 
 
-class OldMiddleWelshChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class OldMiddleWelshOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "oldw1239"
-    description: str = "Default process for ChatGPT for the Old-Middle Welsh language."
-    authorship_info: str = "Old-Middle WelshChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Old-Middle Welsh language."
+    authorship_info: str = "Old-Middle WelshOpenAIProcess using OpenAI GPT models."
 
 
-class ParthianChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class ParthianOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "part1239"
-    description: str = "Default process for ChatGPT for the Parthian language."
-    authorship_info: str = "ParthianChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Parthian language."
+    authorship_info: str = "ParthianOpenAIProcess using OpenAI GPT models."
 
 
-class MiddlePersianChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class MiddlePersianOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "pahl1241"
-    description: str = "Default process for ChatGPT for the Middle Persian language."
-    authorship_info: str = "MiddlePersianChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Middle Persian language."
+    authorship_info: str = "MiddlePersianOpenAIProcess using OpenAI GPT models."
 
 
-class PalaicChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class PalaicOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "pala1331"
-    description: str = "Default process for ChatGPT for the Palaic language."
-    authorship_info: str = "PalaicChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Palaic language."
+    authorship_info: str = "PalaicOpenAIProcess using OpenAI GPT models."
 
 
-class PaliChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class PaliOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "pali1273"
-    description: str = "Default process for ChatGPT for the Pali language."
-    authorship_info: str = "PaliChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Pali language."
+    authorship_info: str = "PaliOpenAIProcess using OpenAI GPT models."
 
 
-class PhoenicianChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class PhoenicianOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "phoe1239"
-    description: str = "Default process for ChatGPT for the Phoenician language."
-    authorship_info: str = "PhoenicianChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Phoenician language."
+    authorship_info: str = "PhoenicianOpenAIProcess using OpenAI GPT models."
 
 
-class PunjabiChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class PunjabiOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "panj1256"
-    description: str = "Default process for ChatGPT for the Punjabi language."
-    authorship_info: str = "PunjabiChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Punjabi language."
+    authorship_info: str = "PunjabiOpenAIProcess using OpenAI GPT models."
 
 
-class AssameseChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class AssameseOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "assa1263"
-    description: str = "Default process for ChatGPT for the Assamese language."
-    authorship_info: str = "AssameseChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Assamese language."
+    authorship_info: str = "AssameseOpenAIProcess using OpenAI GPT models."
 
 
-class SinhalaChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class SinhalaOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "sinh1246"
-    description: str = "Default process for ChatGPT for the Sinhala language."
-    authorship_info: str = "SinhalaChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Sinhala language."
+    authorship_info: str = "SinhalaOpenAIProcess using OpenAI GPT models."
 
 
-class SindhiChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class SindhiOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "sind1272"
-    description: str = "Default process for ChatGPT for the Sindhi language."
-    authorship_info: str = "SindhiChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Sindhi language."
+    authorship_info: str = "SindhiOpenAIProcess using OpenAI GPT models."
 
 
-class KashmiriChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class KashmiriOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "kash1277"
-    description: str = "Default process for ChatGPT for the Kashmiri language."
-    authorship_info: str = "KashmiriChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Kashmiri language."
+    authorship_info: str = "KashmiriOpenAIProcess using OpenAI GPT models."
 
 
-class BagriChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class BagriOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "bagr1243"
-    description: str = (
-        "Default process for ChatGPT for the Bagri (Rajasthani) language."
-    )
-    authorship_info: str = "BagriChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Bagri (Rajasthani) language."
+    authorship_info: str = "BagriOpenAIProcess using OpenAI GPT models."
 
 
-class ClassicalSanskritChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class ClassicalSanskritOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "clas1258"
-    description: str = (
-        "Default process for ChatGPT for the Classical Sanskrit language."
-    )
-    authorship_info: str = "ClassicalSanskritChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Classical Sanskrit language."
+    authorship_info: str = "ClassicalSanskritOpenAIProcess using OpenAI GPT models."
 
 
-class VedicSanskritChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class VedicSanskritOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "vedi1234"
-    description: str = "Default process for ChatGPT for the Vedic Sanskrit language."
-    authorship_info: str = "VedicSanskritChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Vedic Sanskrit language."
+    authorship_info: str = "VedicSanskritOpenAIProcess using OpenAI GPT models."
 
 
-class TokharianAChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class TokharianAOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "toch1238"
-    description: str = "Default process for ChatGPT for the Tokharian A language."
-    authorship_info: str = "Tokharian AChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Tokharian A language."
+    authorship_info: str = "Tokharian AOpenAIProcess using OpenAI GPT models."
 
 
-class TokharianBChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class TokharianBOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "toch1237"
-    description: str = "Default process for ChatGPT for the Tokharian B language."
-    authorship_info: str = "Tokharian BChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Tokharian B language."
+    authorship_info: str = "Tokharian BOpenAIProcess using OpenAI GPT models."
 
 
-class UgariticChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class UgariticOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "ugar1238"
-    description: str = "Default process for ChatGPT for the Ugaritic language."
-    authorship_info: str = "UgariticChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Ugaritic language."
+    authorship_info: str = "UgariticOpenAIProcess using OpenAI GPT models."
 
 
-class UrduChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class UrduOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "urdu1245"
-    description: str = "Default process for ChatGPT for the Urdu language."
-    authorship_info: str = "UrduChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Urdu language."
+    authorship_info: str = "UrduOpenAIProcess using OpenAI GPT models."
 
 
-class SauraseniPrakritChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class SauraseniPrakritOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "saur1252"
-    description: str = "Default process for ChatGPT for the Sauraseni Prakrit language."
-    authorship_info: str = "SauraseniPrakritChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Sauraseni Prakrit language."
+    authorship_info: str = "SauraseniPrakritOpenAIProcess using OpenAI GPT models."
 
 
-class MagadhiPrakritChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class MagadhiPrakritOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "maga1260"
-    description: str = "Default process for ChatGPT for the Magadhi Prakrit language."
-    authorship_info: str = "MagadhiPrakritChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Magadhi Prakrit language."
+    authorship_info: str = "MagadhiPrakritOpenAIProcess using OpenAI GPT models."
 
 
-class GandhariChatGPTDependencyProcess(ChatGPTDependencyProcess):
-    """Language-specific dependency process using ChatGPT."""
+class GandhariOpenAIDependencyProcess(OpenAIDependencyProcess):
+    """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "gand1259"
-    description: str = "Default process for ChatGPT for the Gandhari language."
-    authorship_info: str = "GandhariChatGPTProcess using OpenAI GPT models."
+    description: str = "Default process for OpenAI for the Gandhari language."
+    authorship_info: str = "GandhariOpenAIProcess using OpenAI GPT models."

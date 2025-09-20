@@ -243,7 +243,7 @@ SUGGESTED_OLLAMA_MODELS: list[str] = [
     # Gemma 2 family
     "gemma2:9b",
     "gemma2:27b",
-    # ChatGPT family
+    # OpenAI family
     "gpt-oss:20b",
     "gpt-oss:120b",
     # DeepSeek

@@ -21,8 +21,8 @@ from cltk.core.data_types import (
 )
 from cltk.core.exceptions import CLTKException
 from cltk.core.logging_utils import bind_from_doc
-from cltk.genai.chatgpt import AsyncChatGPTConnection, ChatGPTConnection
 from cltk.genai.ollama import AsyncOllamaConnection, OllamaConnection
+from cltk.genai.openai import AsyncOpenAIConnection, OpenAIConnection
 from cltk.genai.prompts import morphosyntax_prompt
 from cltk.morphosyntax.ud_features import UDFeatureTagSet, convert_pos_features_to_ud
 from cltk.morphosyntax.ud_pos import UDPartOfSpeechTag
@@ -63,11 +63,11 @@ def generate_pos(
         sentence_idx: Optional sentence index for logging/aggregation.
         max_retries: Number of attempts if the model fails to return a TSV
         code block.
-        client: Optional ChatGPT connection instance for making API calls.
+        client: Optional OpenAI connection instance for making API calls.
 
     Returns:
         The same ``Doc`` instance with ``words`` and per‑call usage appended
-        to ``doc.chatgpt``.
+        to ``doc.openai``.
 
     Raises:
         OpenAIInferenceError: If the API call fails.
@@ -117,7 +117,7 @@ def generate_pos(
     log.debug(prompt)
     # code_blocks: list[Any] = []
     if not doc.backend:
-        msg_no_backend: str = "Doc must have `.backend` set to 'chatgpt', 'ollama', or 'ollama-cloud' to use generate_pos."
+        msg_no_backend: str = "Doc must have `.backend` set to 'openai', 'ollama', or 'ollama-cloud' to use generate_pos."
         log.error(msg_no_backend)
         raise CLTKException(msg_no_backend)
     if not doc.model:
@@ -138,7 +138,7 @@ def generate_pos(
             openai_model: AVAILABLE_OPENAI_MODELS = cast(
                 AVAILABLE_OPENAI_MODELS, doc.model
             )
-            client = ChatGPTConnection(model=openai_model)
+            client = OpenAIConnection(model=openai_model)
     elif doc.backend in ("ollama", "ollama-cloud"):
         if not client:
             client = OllamaConnection(
@@ -147,18 +147,18 @@ def generate_pos(
             )
     else:
         raise CLTKException(
-            f"Unsupported backend for generate_pos: {doc.backend}. Use 'chatgpt', 'ollama', or 'ollama-cloud'."
+            f"Unsupported backend for generate_pos: {doc.backend}. Use 'openai', 'ollama', or 'ollama-cloud'."
         )
-    chatgpt_res_obj: CLTKGenAIResponse = client.generate(
+    openai_res_obj: CLTKGenAIResponse = client.generate(
         prompt=prompt, max_retries=max_retries
     )
-    chatgpt_res: str = chatgpt_res_obj.response
-    chatgpt_usage: dict[str, int] = chatgpt_res_obj.usage
-    if not doc.chatgpt:
-        doc.chatgpt = list()
-    doc.chatgpt.append(chatgpt_usage)
+    openai_res: str = openai_res_obj.response
+    openai_usage: dict[str, int] = openai_res_obj.usage
+    if not doc.openai:
+        doc.openai = list()
+    doc.openai.append(openai_usage)
 
-    parsed_pos_tags: list[dict[str, str]] = _parse_tsv_table(chatgpt_res)
+    parsed_pos_tags: list[dict[str, str]] = _parse_tsv_table(openai_res)
     log.debug(f"Parsed POS tags:\n{parsed_pos_tags}")
     cleaned_pos_tags: list[dict[str, Optional[str]]] = [
         {k: (None if v == "_" else v) for k, v in d.items()} for d in parsed_pos_tags
@@ -179,7 +179,7 @@ def generate_pos(
                 )
         else:
             log.error(f"Missing 'upos' field in POS dict: {pos_dict}.")
-            log.error(f"`code_block` from LLM: {chatgpt_res}")
+            log.error(f"`code_block` from LLM: {openai_res}")
         word: Word = Word(
             string=pos_dict.get("form", None),
             index_token=word_idx,
@@ -267,7 +267,7 @@ def generate_gpt_morphosyntax(doc: Doc) -> Doc:
                 f"Doc has unsupported `.model`: {doc.model}. Supported: {get_args(AVAILABLE_OPENAI_MODELS)}."
             )
         openai_model: AVAILABLE_OPENAI_MODELS = cast(AVAILABLE_OPENAI_MODELS, doc.model)
-        client = ChatGPTConnection(model=openai_model)
+        client = OpenAIConnection(model=openai_model)
     elif doc.backend in ("ollama", "ollama-cloud"):
         client = OllamaConnection(
             model=str(doc.model),
@@ -275,7 +275,7 @@ def generate_gpt_morphosyntax(doc: Doc) -> Doc:
         )
     else:
         raise CLTKException(
-            f"Unsupported backend for morphosyntax: {doc.backend}. Use 'chatgpt', 'ollama', or 'ollama-cloud'."
+            f"Unsupported backend for morphosyntax: {doc.backend}. Use 'openai', 'ollama', or 'ollama-cloud'."
         )
     if not doc.normalized_text:
         msg = "Input document must have either `.normalized_text`."
@@ -287,7 +287,7 @@ def generate_gpt_morphosyntax(doc: Doc) -> Doc:
         enumerate(doc.sentence_strings),
         total=len(doc.sentence_strings),
         desc=Fore.GREEN
-        + "Processing sentences with ChatGPT for UD features"
+        + "Processing sentences with OpenAI for UD features"
         + Style.RESET_ALL,
         unit="sentence",
     ):
@@ -314,20 +314,20 @@ def generate_gpt_morphosyntax(doc: Doc) -> Doc:
             word.index_token = token_counter
             all_words.append(word)
             token_counter += 1
-    # Concat ChatGPT token counts
-    # Aggregate ChatGPT token counts across all tmp_docs
-    chatgpt_total_tokens = {"input": 0, "output": 0, "total": 0}
+    # Concat OpenAI token counts
+    # Aggregate OpenAI token counts across all tmp_docs
+    openai_total_tokens = {"input": 0, "output": 0, "total": 0}
     for doc in tmp_docs:
-        if doc.chatgpt and isinstance(doc.chatgpt[0], dict):
-            for k in chatgpt_total_tokens:
-                chatgpt_total_tokens[k] += doc.chatgpt[0].get(k, 0)
+        if doc.openai and isinstance(doc.openai[0], dict):
+            for k in openai_total_tokens:
+                openai_total_tokens[k] += doc.openai[0].get(k, 0)
         else:
             msg_bad_tokens: str = (
-                "Failed to get ChatGPT tokens usage field from POS tagging."
+                "Failed to get OpenAI tokens usage field from POS tagging."
             )
             log.error(msg_bad_tokens)
             raise CLTKException(msg_bad_tokens)
-    _update_doc_chatgpt_stage(doc, stage="pos", stage_tokens=chatgpt_total_tokens)
+    _update_doc_openai_stage(doc, stage="pos", stage_tokens=openai_total_tokens)
     log.debug(
         f"Combined {len(all_words)} words from all tmp_docs and updated token indices."
     )
@@ -350,7 +350,7 @@ async def generate_gpt_morphosyntax_async(
     """Async variant of ``generate_gpt_morphosyntax`` with concurrency.
 
     Runs one request per sentence concurrently (bounded by ``max_concurrency``)
-    using :class:`AsyncChatGPTConnection`. Keeps the one‑sentence‑per‑request
+    using :class:`AsyncOpenAIConnection`. Keeps the one‑sentence‑per‑request
     contract for simpler parsing and error isolation while reducing wall‑clock
     time for long documents.
 
@@ -360,7 +360,7 @@ async def generate_gpt_morphosyntax_async(
         max_retries: Per‑request retry budget.
 
     Returns:
-        The input ``doc`` enriched with ``words`` and aggregated ``chatgpt``
+        The input ``doc`` enriched with ``words`` and aggregated ``openai``
         usage across all sentence calls.
 
     Raises:
@@ -388,7 +388,7 @@ async def generate_gpt_morphosyntax_async(
                 f"Doc has unsupported `.model`: {doc.model}. Supported: {get_args(AVAILABLE_OPENAI_MODELS)}."
             )
         openai_model: AVAILABLE_OPENAI_MODELS = cast(AVAILABLE_OPENAI_MODELS, doc.model)
-        conn: Any = AsyncChatGPTConnection(model=openai_model)
+        conn: Any = AsyncOpenAIConnection(model=openai_model)
     elif doc.backend in ("ollama", "ollama-cloud"):
         conn = AsyncOllamaConnection(
             model=str(doc.model),
@@ -521,7 +521,7 @@ async def generate_gpt_morphosyntax_async(
             token_counter += 1
 
     doc.words = all_words
-    _update_doc_chatgpt_stage(doc, stage="pos", stage_tokens=aggregated_usage)
+    _update_doc_openai_stage(doc, stage="pos", stage_tokens=aggregated_usage)
     log.info(
         "[async] Completed morphosyntax generation: %d tokens across %d sentences",
         len(all_words),
@@ -590,10 +590,10 @@ def generate_gpt_morphosyntax_concurrent(
             return result
 
 
-def _update_doc_chatgpt_stage(
+def _update_doc_openai_stage(
     doc: Doc, *, stage: str, stage_tokens: dict[str, int]
 ) -> None:
-    """Update doc.chatgpt with stage-specific and overall totals.
+    """Update doc.openai with stage-specific and overall totals.
 
     Keeps one entry per stage (e.g., "pos", "dep") and a single "overall" sum.
     """
@@ -603,7 +603,7 @@ def _update_doc_chatgpt_stage(
     tot_tokens = int(stage_tokens.get("total", 0))
 
     entries: list[dict[str, Any]] = []
-    for e in doc.chatgpt or []:
+    for e in doc.openai or []:
         if isinstance(e, dict):
             s = str(e.get("stage", "")).lower()
             if s and s not in {stage_norm, "overall"}:
@@ -630,4 +630,4 @@ def _update_doc_chatgpt_stage(
             except Exception:
                 pass
     entries.append({"stage": "overall", **overall})
-    doc.chatgpt = entries
+    doc.openai = entries

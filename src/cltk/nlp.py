@@ -82,7 +82,7 @@ class NLP:
             load_env_file()
             self.api_key: Optional[str] = os.getenv("OPENAI_API_KEY")
             if not self.api_key:
-                msg: str = "API key for ChatGPT not found."
+                msg: str = "API key for OpenAI not found."
                 logger.error(msg)
                 raise ValueError(msg)
             # Default model if none provided

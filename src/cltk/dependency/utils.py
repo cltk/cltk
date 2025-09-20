@@ -14,11 +14,11 @@ from cltk.core.data_types import (
 )
 from cltk.core.exceptions import CLTKException
 from cltk.core.logging_utils import bind_from_doc
-from cltk.genai.chatgpt import AsyncChatGPTConnection, ChatGPTConnection
 from cltk.genai.ollama import AsyncOllamaConnection, OllamaConnection
+from cltk.genai.openai import AsyncOpenAIConnection, OpenAIConnection
 from cltk.morphosyntax.ud_deprels import UDDeprelTag, get_ud_deprel_tag
 from cltk.morphosyntax.ud_features import UDFeatureTagSet
-from cltk.morphosyntax.utils import _update_doc_chatgpt_stage
+from cltk.morphosyntax.utils import _update_doc_openai_stage
 
 
 def _parse_dep_tsv_table(tsv_string: str) -> list[dict[str, str]]:
@@ -82,11 +82,11 @@ def generate_dependency_tree(
         sentence_idx: Optional sentence index for logging/aggregation.
         max_retries: Number of attempts if the model fails to return a TSV
         code block.
-        client: Optional ChatGPT connection instance for making API calls.
+        client: Optional OpenAI connection instance for making API calls.
 
     Returns:
         The same ``Doc`` instance with ``words`` and per‑call usage appended
-        to ``doc.chatgpt``.
+        to ``doc.openai``.
 
     Raises:
         OpenAIInferenceError: If the API call fails.
@@ -131,7 +131,7 @@ def generate_dependency_tree(
     log.debug(prompt)
     # code_blocks: list[Any] = []
     if not doc.backend:
-        msg_no_backend: str = "Doc must have `.backend` set to 'chatgpt', 'ollama', or 'ollama-cloud' to use generate_dependency_tree."
+        msg_no_backend: str = "Doc must have `.backend` set to 'openai', 'ollama', or 'ollama-cloud' to use generate_dependency_tree."
         log.error(msg_no_backend)
         raise CLTKException(msg_no_backend)
     if not doc.model:
@@ -150,7 +150,7 @@ def generate_dependency_tree(
             openai_model: AVAILABLE_OPENAI_MODELS = cast(
                 AVAILABLE_OPENAI_MODELS, doc.model
             )
-            client = ChatGPTConnection(model=openai_model)
+            client = OpenAIConnection(model=openai_model)
     elif doc.backend in ("ollama", "ollama-cloud"):
         if not client:
             client = OllamaConnection(
@@ -161,16 +161,16 @@ def generate_dependency_tree(
         raise CLTKException(
             f"Unsupported backend for dependency generation: {doc.backend}."
         )
-    chatgpt_res_obj: CLTKGenAIResponse = client.generate(
+    openai_res_obj: CLTKGenAIResponse = client.generate(
         prompt=prompt, max_retries=max_retries
     )
-    chatgpt_res: str = chatgpt_res_obj.response
-    chatgpt_usage: dict[str, int] = chatgpt_res_obj.usage
-    if not doc.chatgpt:
-        doc.chatgpt = list()
-    doc.chatgpt.append(chatgpt_usage)
+    openai_res: str = openai_res_obj.response
+    openai_usage: dict[str, int] = openai_res_obj.usage
+    if not doc.openai:
+        doc.openai = list()
+    doc.openai.append(openai_usage)
 
-    rows = _parse_dep_tsv_table(chatgpt_res)
+    rows = _parse_dep_tsv_table(openai_res)
     log.debug(f"[dep] Parsed rows:\n{rows}")
     # If we already have words, update them in place; otherwise, create fresh Word objects
     words: list[Word] = list(doc.words) if doc.words else []
@@ -274,7 +274,7 @@ def generate_gpt_dependency(doc: Doc) -> Doc:
                 f"Doc has unsupported `.model`: {doc.model}. Supported: {get_args(AVAILABLE_OPENAI_MODELS)}."
             )
         openai_model: AVAILABLE_OPENAI_MODELS = cast(AVAILABLE_OPENAI_MODELS, doc.model)
-        client = ChatGPTConnection(model=openai_model)
+        client = OpenAIConnection(model=openai_model)
     elif doc.backend in ("ollama", "ollama-cloud"):
         client = OllamaConnection(
             model=str(doc.model),
@@ -294,7 +294,7 @@ def generate_gpt_dependency(doc: Doc) -> Doc:
         enumerate(doc.sentence_strings),
         total=len(doc.sentence_strings),
         desc=Fore.GREEN
-        + "Processing sentences with ChatGPT for UD features"
+        + "Processing sentences with OpenAI for UD features"
         + Style.RESET_ALL,
         unit="sentence",
     ):
@@ -330,31 +330,27 @@ def generate_gpt_dependency(doc: Doc) -> Doc:
             word.index_token = token_counter
             all_words.append(word)
             token_counter += 1
-    # Concat ChatGPT token counts
-    # Aggregate ChatGPT token counts across all tmp_docs
-    chatgpt_total_tokens = {"input": 0, "output": 0, "total": 0}
+    # Concat OpenAI token counts
+    # Aggregate OpenAI token counts across all tmp_docs
+    openai_total_tokens = {"input": 0, "output": 0, "total": 0}
     for doc in tmp_docs:
-        if doc.chatgpt and isinstance(doc.chatgpt[0], dict):
-            for k in chatgpt_total_tokens:
-                chatgpt_total_tokens[k] += doc.chatgpt[0].get(k, 0)
+        if doc.openai and isinstance(doc.openai[0], dict):
+            for k in openai_total_tokens:
+                openai_total_tokens[k] += doc.openai[0].get(k, 0)
         else:
             msg_bad_tokens: str = (
-                "Failed to get ChatGPT tokens usage field from POS tagging."
+                "Failed to get OpenAI tokens usage field from POS tagging."
             )
             log.error(msg_bad_tokens)
             raise CLTKException(msg_bad_tokens)
     # Merge with any existing totals (e.g., from prior processes)
     combined_tokens = {"input": 0, "output": 0, "total": 0}
-    if (
-        isinstance(doc.chatgpt, list)
-        and doc.chatgpt
-        and isinstance(doc.chatgpt[0], dict)
-    ):
+    if isinstance(doc.openai, list) and doc.openai and isinstance(doc.openai[0], dict):
         for k in combined_tokens:
-            combined_tokens[k] += int(doc.chatgpt[0].get(k, 0))
+            combined_tokens[k] += int(doc.openai[0].get(k, 0))
     for k in combined_tokens:
-        combined_tokens[k] += int(chatgpt_total_tokens.get(k, 0))
-    _update_doc_chatgpt_stage(doc, stage="dep", stage_tokens=chatgpt_total_tokens)
+        combined_tokens[k] += int(openai_total_tokens.get(k, 0))
+    _update_doc_openai_stage(doc, stage="dep", stage_tokens=openai_total_tokens)
     log.debug(
         f"Combined {len(all_words)} words from all tmp_docs and updated token indices."
     )
@@ -377,7 +373,7 @@ async def generate_gpt_dependency_async(
     """Async variant of ``generate_gpt_dependency`` with concurrency.
 
     Runs one request per sentence concurrently (bounded by ``max_concurrency``)
-    using :class:`AsyncChatGPTConnection`. Keeps the one‑sentence‑per‑request
+    using :class:`AsyncOpenAIConnection`. Keeps the one‑sentence‑per‑request
     contract for simpler parsing and error isolation while reducing wall‑clock
     time for long documents.
 
@@ -387,7 +383,7 @@ async def generate_gpt_dependency_async(
         max_retries: Per‑request retry budget.
 
     Returns:
-        The input ``doc`` enriched with ``words`` and aggregated ``chatgpt``
+        The input ``doc`` enriched with ``words`` and aggregated ``openai``
         usage across all sentence calls.
 
     Raises:
@@ -415,7 +411,7 @@ async def generate_gpt_dependency_async(
                 f"Doc has unsupported `.model`: {doc.model}. Supported: {get_args(AVAILABLE_OPENAI_MODELS)}."
             )
         openai_model: AVAILABLE_OPENAI_MODELS = cast(AVAILABLE_OPENAI_MODELS, doc.model)
-        conn: Any = AsyncChatGPTConnection(model=openai_model)
+        conn: Any = AsyncOpenAIConnection(model=openai_model)
     elif doc.backend in ("ollama", "ollama-cloud"):
         conn = AsyncOllamaConnection(
             model=str(doc.model),
@@ -570,7 +566,7 @@ async def generate_gpt_dependency_async(
             token_counter += 1
 
     doc.words = all_words
-    _update_doc_chatgpt_stage(doc, stage="dep", stage_tokens=aggregated_usage)
+    _update_doc_openai_stage(doc, stage="dep", stage_tokens=aggregated_usage)
     log.info(
         "[async-dep] Completed dependency generation: %d tokens across %d sentences",
         len(all_words),

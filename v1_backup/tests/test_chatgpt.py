@@ -5,7 +5,7 @@ import pytest
 
 from cltk import NLP
 from cltk.core.data_types import Doc
-from cltk.genai.chatgpt import ChatGPTV1
+from cltk.genai.openai import ChatGPTV1
 from cltk.languages.example_texts import get_example_text
 from cltk.languages.pipelines import AncientGreekChatGPTPipeline
 
@@ -64,8 +64,8 @@ class TestChatGPTNLP(unittest.TestCase):
         if doc.words is not None:
             self.assertGreater(len(doc.words), 0)
         self.assertTrue(hasattr(doc, "chatgpt"))
-        self.assertIsInstance(doc.chatgpt, dict)
+        self.assertIsInstance(doc.openai, dict)
         # Print for manual inspection (optional)
         print(doc)
         print("Words:", [w.string for w in doc.words] if doc.words is not None else [])
-        print("ChatGPT metadata:", doc.chatgpt)
+        print("ChatGPT metadata:", doc.openai)

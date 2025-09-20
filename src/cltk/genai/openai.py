@@ -1,8 +1,8 @@
-"""ChatGPT integration for CLTK.
+"""OpenAI integration for CLTK.
 
 # Internal; no stability guarantees
 
-This module provides a small wrapper class (:class:`ChatGPT`) around the
+This module provides a small wrapper class (:class:`OpenAIConnection`) around the
 OpenAI client and high‑level helpers to generate linguistic annotations from
 LLMs for a given language (resolved by Glottolog ID).
 """
@@ -45,7 +45,7 @@ except Exception:  # pragma: no cover - fallback
 OpenAIError = _OpenAIError
 
 
-class ChatGPTConnection:
+class OpenAIConnection:
     """Thin wrapper around the OpenAI client for CLTK use cases.
 
     Args:
@@ -96,7 +96,7 @@ class ChatGPTConnection:
     ) -> CLTKGenAIResponse:
         self.log.debug(prompt)
         code_block: Optional[str] = None
-        chatgpt_response: Optional[Any] = None
+        openai_response: Optional[Any] = None
         attempt: Optional[int] = None
         # Accumulate tokens across attempts (including failed ones)
         agg_tokens: dict[str, int] = {"input": 0, "output": 0, "total": 0}
@@ -105,11 +105,11 @@ class ChatGPTConnection:
             try:
                 # TODO: Disable 4.1
                 if "4.1" in self.model:
-                    chatgpt_response = self.client.responses.create(
+                    openai_response = self.client.responses.create(
                         model=self.model, input=prompt, temperature=self.temperature
                     )
                 elif "-5" in self.model:
-                    chatgpt_response = self.client.responses.create(
+                    openai_response = self.client.responses.create(
                         model=self.model,
                         input=prompt,
                         # TODO: Add params for these
@@ -122,18 +122,16 @@ class ChatGPTConnection:
                 raise OpenAIInferenceError(
                     f"An error from OpenAI occurred: {openai_error}"
                 )
-            self.log.debug(f"Raw response from OpenAI: {chatgpt_response.output_text}")
+            self.log.debug(f"Raw response from OpenAI: {openai_response.output_text}")
             # Add usage from this attempt even if parsing fails
             try:
-                tok = self._chatgpt_response_tokens(chatgpt_response)
+                tok = self._openai_response_tokens(openai_response)
                 for k in ("input", "output", "total"):
                     agg_tokens[k] += tok.get(k, 0)
             except Exception:
                 pass
             try:
-                code_block = self._extract_code_blocks(
-                    text=chatgpt_response.output_text
-                )
+                code_block = self._extract_code_blocks(text=openai_response.output_text)
             except Exception as e:
                 # TODO: Count tokens used for failed attempts, too
                 self.log.error(f"Error extracting code block: {e}")
@@ -142,35 +140,33 @@ class ChatGPTConnection:
                 break  # Success, exit retry loop
             else:
                 self.log.warning(
-                    f"Attempt {attempt}: No code block found in ChatGPT response. Retrying..."
+                    f"Attempt {attempt}: No code block found in OpenAI response. Retrying..."
                 )
                 if attempt == max_retries:
-                    final_err = (
-                        "No code blocks found in ChatGPT response after retries."
-                    )
+                    final_err = "No code blocks found in OpenAI response after retries."
                     self.log.error(final_err)
-                    # logger.error(raw_chatgpt_response_normalized)
+                    # logger.error(raw_openai_response_normalized)
                     raise CLTKException(final_err)
                     # return doc
                 # Optionally, you could modify the prompt or add a delay here
-        assert chatgpt_response
+        assert openai_response
         # Use the accumulated usage across all attempts
-        chatgpt_usage: dict[str, int] = agg_tokens
-        raw_chatgpt_response_normalized: str = cltk_normalize(
-            text=chatgpt_response.output_text
+        openai_usage: dict[str, int] = agg_tokens
+        raw_openai_response_normalized: str = cltk_normalize(
+            text=openai_response.output_text
         )
         self.log.debug(
-            f"raw_chatgpt_response_normalized:\n{raw_chatgpt_response_normalized}"
+            f"raw_openai_response_normalized:\n{raw_openai_response_normalized}"
         )
         self.log.debug(f"Completed generation() after {attempt} attempts")
-        # return {"response": raw_chatgpt_response_normalized, "usage": chatgpt_usage}
+        # return {"response": raw_openai_response_normalized, "usage": openai_usage}
         return CLTKGenAIResponse(
-            response=raw_chatgpt_response_normalized, usage=chatgpt_usage
+            response=raw_openai_response_normalized, usage=openai_usage
         )
         # logger.error(f"Exceeded maximum retries: {max_retries}")
         # raise RuntimeError("Failed to generate response after multiple attempts.")
 
-    def _chatgpt_response_tokens(self, response: Any) -> dict[str, int]:
+    def _openai_response_tokens(self, response: Any) -> dict[str, int]:
         """Extract token usage information from an OpenAI response.
 
         Args:
@@ -188,7 +184,7 @@ class ChatGPTConnection:
             self.log.warning(
                 "No usage information found in response. Tokens used may not be available."
             )
-            self.log.info(f"ChatGPT usage: {tokens}")
+            self.log.info(f"OpenAI usage: {tokens}")
             return tokens
 
         # Normalize key names across OpenAI endpoints
@@ -220,7 +216,7 @@ class ChatGPTConnection:
             self.log.warning(
                 "No tokens used reported in response. This may indicate an issue with the API call."
             )
-        self.log.info(f"ChatGPT usage: {tokens}")
+        self.log.info(f"OpenAI usage: {tokens}")
         return tokens
 
     def _extract_code_blocks(self, text: str) -> str:
@@ -233,8 +229,8 @@ class ChatGPTConnection:
         return code_block
 
 
-class AsyncChatGPTConnection:
-    """Asynchronous variant of :class:`ChatGPTConnection`.
+class AsyncOpenAIConnection:
+    """Asynchronous variant of :class:`OpenAIConnection`.
 
     Provides an ``async`` ``generate_async()`` method and uses the
     ``AsyncOpenAI`` client under the hood. Mirrors the behavior and logging of
@@ -282,19 +278,19 @@ class AsyncChatGPTConnection:
     ) -> CLTKGenAIResponse:
         self.log.debug("[async] Prompt being sent to OpenAI:\n%s", prompt)
         code_block: Optional[str] = None
-        chatgpt_response: Optional[Any] = None
+        openai_response: Optional[Any] = None
         agg_tokens: dict[str, int] = {"input": 0, "output": 0, "total": 0}
         for attempt in range(1, max_retries + 1):
             self.log.debug("[async] Attempt %s of %s", attempt, max_retries)
             try:
                 if "4.1" in self.model:
-                    chatgpt_response = await self.client.responses.create(
+                    openai_response = await self.client.responses.create(
                         model=self.model,
                         input=prompt,
                         temperature=self.temperature,
                     )
                 elif "-5" in self.model:
-                    chatgpt_response = await self.client.responses.create(
+                    openai_response = await self.client.responses.create(
                         model=self.model,
                         input=prompt,
                         reasoning={"effort": "low"},
@@ -313,17 +309,17 @@ class AsyncChatGPTConnection:
                 continue
 
             self.log.debug(
-                "[async] Raw response from OpenAI: %s", chatgpt_response.output_text
+                "[async] Raw response from OpenAI: %s", openai_response.output_text
             )
             # Track usage for this attempt (even if parsing fails)
             try:
-                tok = self._chatgpt_response_tokens(chatgpt_response)
+                tok = self._openai_response_tokens(openai_response)
                 for k in ("input", "output", "total"):
                     agg_tokens[k] += tok.get(k, 0)
             except Exception:
                 pass
             try:
-                code_block = self._extract_code_blocks(chatgpt_response.output_text)
+                code_block = self._extract_code_blocks(openai_response.output_text)
             except Exception as e:  # pragma: no cover - defensive
                 self.log.error("[async] Error extracting code block: %s", e)
                 code_block = None
@@ -334,13 +330,13 @@ class AsyncChatGPTConnection:
                 attempt,
             )
 
-        assert chatgpt_response is not None
+        assert openai_response is not None
         usage = agg_tokens
-        raw_normalized: str = cltk_normalize(text=chatgpt_response.output_text)
+        raw_normalized: str = cltk_normalize(text=openai_response.output_text)
         self.log.debug("[async] Normalized output text:\n%s", raw_normalized)
         return CLTKGenAIResponse(response=raw_normalized, usage=usage)
 
-    def _chatgpt_response_tokens(self, response: Any) -> dict[str, int]:
+    def _openai_response_tokens(self, response: Any) -> dict[str, int]:
         usage = getattr(response, "usage", None)
         tokens: dict[str, int] = {"input": 0, "output": 0, "total": 0}
         if not usage:
@@ -370,7 +366,7 @@ class AsyncChatGPTConnection:
             usage, "output_tokens", "completion_tokens", "completion_token_count"
         )
         tokens["total"] = _get(usage, "total_tokens", "total_token_count")
-        self.log.info("[async] ChatGPT usage: %s", tokens)
+        self.log.info("[async] OpenAI usage: %s", tokens)
         return tokens
 
     def _extract_code_blocks(self, text: str) -> str:

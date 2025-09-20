@@ -1,7 +1,7 @@
 """Language pipelines and mappings.
 
 This module defines many language‑specific pipeline classes (mostly
-ChatGPT‑backed) and central mappings from Glottolog codes to default pipelines.
+OpenAI‑backed) and central mappings from Glottolog codes to default pipelines.
 Pipelines are lightweight containers that list a small sequence of processes
 such as normalization, sentence splitting, and generative annotation.
 """
@@ -13,220 +13,220 @@ from pydantic import Field
 from cltk.core.data_types import Pipeline
 from cltk.core.logging_utils import plog
 from cltk.dependency.processes import (
-    AkkadianChatGPTDependencyProcess,
-    AlbanianChatGPTDependencyProcess,
-    AmmoniteChatGPTDependencyProcess,
-    AncientGreekChatGPTDependencyProcess,
-    AssameseChatGPTDependencyProcess,
-    AvestanChatGPTDependencyProcess,
-    AwadhiChatGPTDependencyProcess,
-    BactrianChatGPTDependencyProcess,
-    BagriChatGPTDependencyProcess,
-    BaihuaChineseChatGPTDependencyProcess,
-    BengaliChatGPTDependencyProcess,
-    BiblicalHebrewChatGPTDependencyProcess,
-    BrajChatGPTDependencyProcess,
-    CarianChatGPTDependencyProcess,
-    ChagataiChatGPTDependencyProcess,
-    ChurchSlavicChatGPTDependencyProcess,
-    ClassicalArabicChatGPTDependencyProcess,
-    ClassicalArmenianChatGPTDependencyProcess,
-    ClassicalBurmeseChatGPTDependencyProcess,
-    ClassicalMandaicChatGPTDependencyProcess,
-    ClassicalMongolianChatGPTDependencyProcess,
-    ClassicalSanskritChatGPTDependencyProcess,
-    ClassicalSyriacChatGPTDependencyProcess,
-    ClassicalTibetanChatGPTDependencyProcess,
-    CopticChatGPTDependencyProcess,
-    CuneiformLuwianChatGPTDependencyProcess,
-    DemoticChatGPTDependencyProcess,
-    EarlyIrishChatGPTDependencyProcess,
-    EasternPanjabiChatGPTDependencyProcess,
-    EdomiteChatGPTDependencyProcess,
-    GandhariChatGPTDependencyProcess,
-    GeezChatGPTDependencyProcess,
-    GothicChatGPTDependencyProcess,
-    GujaratiChatGPTDependencyProcess,
-    HatranChatGPTDependencyProcess,
-    HausaChatGPTDependencyProcess,
-    HieroglyphicLuwianChatGPTDependencyProcess,
-    HindiChatGPTDependencyProcess,
-    HittiteChatGPTDependencyProcess,
-    JewishBabylonianAramaicChatGPTDependencyProcess,
-    KashmiriChatGPTDependencyProcess,
-    KhariBoliChatGPTDependencyProcess,
-    KhotaneseChatGPTDependencyProcess,
-    LateEgyptianChatGPTDependencyProcess,
-    LatinChatGPTDependencyProcess,
-    LatvianChatGPTDependencyProcess,
-    LiteraryChineseChatGPTDependencyProcess,
-    LithuanianChatGPTDependencyProcess,
-    LycianAChatGPTDependencyProcess,
-    LydianChatGPTDependencyProcess,
-    MagadhiPrakritChatGPTDependencyProcess,
-    MaharastriPrakritChatGPTDependencyProcess,
-    MarathiChatGPTDependencyProcess,
-    MeiteiChatGPTDependencyProcess,
-    MiddleAramaicChatGPTDependencyProcess,
-    MiddleArmenianChatGPTDependencyProcess,
-    MiddleBretonChatGPTDependencyProcess,
-    MiddleChineseChatGPTDependencyProcess,
-    MiddleCornishChatGPTDependencyProcess,
-    MiddleEgyptianChatGPTDependencyProcess,
-    MiddleEnglishChatGPTDependencyProcess,
-    MiddleFrenchChatGPTDependencyProcess,
-    MiddleHighGermanChatGPTDependencyProcess,
-    MiddleMongolChatGPTDependencyProcess,
-    MiddlePersianChatGPTDependencyProcess,
-    MoabiteChatGPTDependencyProcess,
-    MogholiChatGPTDependencyProcess,
-    NewarChatGPTDependencyProcess,
-    NumidianChatGPTDependencyProcess,
-    OdiaChatGPTDependencyProcess,
-    OfficialAramaicChatGPTDependencyProcess,
-    OldAramaicChatGPTDependencyProcess,
-    OldAramaicSamalianChatGPTDependencyProcess,
-    OldBurmeseChatGPTDependencyProcess,
-    OldChineseChatGPTDependencyProcess,
-    OldEgyptianChatGPTDependencyProcess,
-    OldEnglishChatGPTDependencyProcess,
-    OldFrenchChatGPTDependencyProcess,
-    OldHighGermanChatGPTDependencyProcess,
-    OldHungarianChatGPTDependencyProcess,
-    OldJapaneseChatGPTDependencyProcess,
-    OldJurchenChatGPTDependencyProcess,
-    OldMiddleWelshChatGPTDependencyProcess,
-    OldNorseChatGPTDependencyProcess,
-    OldPersianChatGPTDependencyProcess,
-    OldPrussianChatGPTDependencyProcess,
-    OldTamilChatGPTDependencyProcess,
-    OldTurkicChatGPTDependencyProcess,
-    PalaicChatGPTDependencyProcess,
-    PaliChatGPTDependencyProcess,
-    ParthianChatGPTDependencyProcess,
-    PhoenicianChatGPTDependencyProcess,
-    SamalianChatGPTDependencyProcess,
-    SauraseniPrakritChatGPTDependencyProcess,
-    SgawKarenChatGPTDependencyProcess,
-    SindhiChatGPTDependencyProcess,
-    SinhalaChatGPTDependencyProcess,
-    SogdianChatGPTDependencyProcess,
-    TaitaChatGPTDependencyProcess,
-    TangutChatGPTDependencyProcess,
-    TokharianAChatGPTDependencyProcess,
-    TokharianBChatGPTDependencyProcess,
-    TumshuqeseChatGPTDependencyProcess,
-    UgariticChatGPTDependencyProcess,
-    UrduChatGPTDependencyProcess,
-    VedicSanskritChatGPTDependencyProcess,
+    AkkadianOpenAIDependencyProcess,
+    AlbanianOpenAIDependencyProcess,
+    AmmoniteOpenAIDependencyProcess,
+    AncientGreekOpenAIDependencyProcess,
+    AssameseOpenAIDependencyProcess,
+    AvestanOpenAIDependencyProcess,
+    AwadhiOpenAIDependencyProcess,
+    BactrianOpenAIDependencyProcess,
+    BagriOpenAIDependencyProcess,
+    BaihuaChineseOpenAIDependencyProcess,
+    BengaliOpenAIDependencyProcess,
+    BiblicalHebrewOpenAIDependencyProcess,
+    BrajOpenAIDependencyProcess,
+    CarianOpenAIDependencyProcess,
+    ChagataiOpenAIDependencyProcess,
+    ChurchSlavicOpenAIDependencyProcess,
+    ClassicalArabicOpenAIDependencyProcess,
+    ClassicalArmenianOpenAIDependencyProcess,
+    ClassicalBurmeseOpenAIDependencyProcess,
+    ClassicalMandaicOpenAIDependencyProcess,
+    ClassicalMongolianOpenAIDependencyProcess,
+    ClassicalSanskritOpenAIDependencyProcess,
+    ClassicalSyriacOpenAIDependencyProcess,
+    ClassicalTibetanOpenAIDependencyProcess,
+    CopticOpenAIDependencyProcess,
+    CuneiformLuwianOpenAIDependencyProcess,
+    DemoticOpenAIDependencyProcess,
+    EarlyIrishOpenAIDependencyProcess,
+    EasternPanjabiOpenAIDependencyProcess,
+    EdomiteOpenAIDependencyProcess,
+    GandhariOpenAIDependencyProcess,
+    GeezOpenAIDependencyProcess,
+    GothicOpenAIDependencyProcess,
+    GujaratiOpenAIDependencyProcess,
+    HatranOpenAIDependencyProcess,
+    HausaOpenAIDependencyProcess,
+    HieroglyphicLuwianOpenAIDependencyProcess,
+    HindiOpenAIDependencyProcess,
+    HittiteOpenAIDependencyProcess,
+    JewishBabylonianAramaicOpenAIDependencyProcess,
+    KashmiriOpenAIDependencyProcess,
+    KhariBoliOpenAIDependencyProcess,
+    KhotaneseOpenAIDependencyProcess,
+    LateEgyptianOpenAIDependencyProcess,
+    LatinOpenAIDependencyProcess,
+    LatvianOpenAIDependencyProcess,
+    LiteraryChineseOpenAIDependencyProcess,
+    LithuanianOpenAIDependencyProcess,
+    LycianAOpenAIDependencyProcess,
+    LydianOpenAIDependencyProcess,
+    MagadhiPrakritOpenAIDependencyProcess,
+    MaharastriPrakritOpenAIDependencyProcess,
+    MarathiOpenAIDependencyProcess,
+    MeiteiOpenAIDependencyProcess,
+    MiddleAramaicOpenAIDependencyProcess,
+    MiddleArmenianOpenAIDependencyProcess,
+    MiddleBretonOpenAIDependencyProcess,
+    MiddleChineseOpenAIDependencyProcess,
+    MiddleCornishOpenAIDependencyProcess,
+    MiddleEgyptianOpenAIDependencyProcess,
+    MiddleEnglishOpenAIDependencyProcess,
+    MiddleFrenchOpenAIDependencyProcess,
+    MiddleHighGermanOpenAIDependencyProcess,
+    MiddleMongolOpenAIDependencyProcess,
+    MiddlePersianOpenAIDependencyProcess,
+    MoabiteOpenAIDependencyProcess,
+    MogholiOpenAIDependencyProcess,
+    NewarOpenAIDependencyProcess,
+    NumidianOpenAIDependencyProcess,
+    OdiaOpenAIDependencyProcess,
+    OfficialAramaicOpenAIDependencyProcess,
+    OldAramaicOpenAIDependencyProcess,
+    OldAramaicSamalianOpenAIDependencyProcess,
+    OldBurmeseOpenAIDependencyProcess,
+    OldChineseOpenAIDependencyProcess,
+    OldEgyptianOpenAIDependencyProcess,
+    OldEnglishOpenAIDependencyProcess,
+    OldFrenchOpenAIDependencyProcess,
+    OldHighGermanOpenAIDependencyProcess,
+    OldHungarianOpenAIDependencyProcess,
+    OldJapaneseOpenAIDependencyProcess,
+    OldJurchenOpenAIDependencyProcess,
+    OldMiddleWelshOpenAIDependencyProcess,
+    OldNorseOpenAIDependencyProcess,
+    OldPersianOpenAIDependencyProcess,
+    OldPrussianOpenAIDependencyProcess,
+    OldTamilOpenAIDependencyProcess,
+    OldTurkicOpenAIDependencyProcess,
+    PalaicOpenAIDependencyProcess,
+    PaliOpenAIDependencyProcess,
+    ParthianOpenAIDependencyProcess,
+    PhoenicianOpenAIDependencyProcess,
+    SamalianOpenAIDependencyProcess,
+    SauraseniPrakritOpenAIDependencyProcess,
+    SgawKarenOpenAIDependencyProcess,
+    SindhiOpenAIDependencyProcess,
+    SinhalaOpenAIDependencyProcess,
+    SogdianOpenAIDependencyProcess,
+    TaitaOpenAIDependencyProcess,
+    TangutOpenAIDependencyProcess,
+    TokharianAOpenAIDependencyProcess,
+    TokharianBOpenAIDependencyProcess,
+    TumshuqeseOpenAIDependencyProcess,
+    UgariticOpenAIDependencyProcess,
+    UrduOpenAIDependencyProcess,
+    VedicSanskritOpenAIDependencyProcess,
 )
 from cltk.morphosyntax.processes import (
-    AkkadianChatGPTMorphosyntaxProcess,
-    AlbanianChatGPTMorphosyntaxProcess,
-    AmmoniteChatGPTMorphosyntaxProcess,
-    AncientGreekChatGPTMorphosyntaxProcess,
-    AssameseChatGPTMorphosyntaxProcess,
-    AvestanChatGPTMorphosyntaxProcess,
-    AwadhiChatGPTMorphosyntaxProcess,
-    BactrianChatGPTMorphosyntaxProcess,
-    BagriChatGPTMorphosyntaxProcess,
-    BaihuaChineseChatGPTMorphosyntaxProcess,
-    BengaliChatGPTMorphosyntaxProcess,
-    BiblicalHebrewChatGPTMorphosyntaxProcess,
-    BrajChatGPTMorphosyntaxProcess,
-    CarianChatGPTMorphosyntaxProcess,
-    ChagataiChatGPTMorphosyntaxProcess,
-    ChurchSlavicChatGPTMorphosyntaxProcess,
-    ClassicalArabicChatGPTMorphosyntaxProcess,
-    ClassicalArmenianChatGPTMorphosyntaxProcess,
-    ClassicalBurmeseChatGPTMorphosyntaxProcess,
-    ClassicalMandaicChatGPTMorphosyntaxProcess,
-    ClassicalMongolianChatGPTMorphosyntaxProcess,
-    ClassicalSanskritChatGPTMorphosyntaxProcess,
-    ClassicalSyriacChatGPTMorphosyntaxProcess,
-    ClassicalTibetanChatGPTMorphosyntaxProcess,
-    CopticChatGPTMorphosyntaxProcess,
-    CuneiformLuwianChatGPTMorphosyntaxProcess,
-    DemoticChatGPTMorphosyntaxProcess,
-    EarlyIrishChatGPTMorphosyntaxProcess,
-    EasternPanjabiChatGPTMorphosyntaxProcess,
-    EdomiteChatGPTMorphosyntaxProcess,
-    GandhariChatGPTMorphosyntaxProcess,
-    GeezChatGPTMorphosyntaxProcess,
-    GothicChatGPTMorphosyntaxProcess,
-    GujaratiChatGPTMorphosyntaxProcess,
-    HatranChatGPTMorphosyntaxProcess,
-    HausaChatGPTMorphosyntaxProcess,
-    HieroglyphicLuwianChatGPTMorphosyntaxProcess,
-    HindiChatGPTMorphosyntaxProcess,
-    HittiteChatGPTMorphosyntaxProcess,
-    JewishBabylonianAramaicChatGPTMorphosyntaxProcess,
-    KashmiriChatGPTMorphosyntaxProcess,
-    KhariBoliChatGPTMorphosyntaxProcess,
-    KhotaneseChatGPTMorphosyntaxProcess,
-    LateEgyptianChatGPTMorphosyntaxProcess,
-    LatinChatGPTMorphosyntaxProcess,
-    LatvianChatGPTMorphosyntaxProcess,
-    LiteraryChineseChatGPTMorphosyntaxProcess,
-    LithuanianChatGPTMorphosyntaxProcess,
-    LycianAChatGPTMorphosyntaxProcess,
-    LydianChatGPTMorphosyntaxProcess,
-    MagadhiPrakritChatGPTMorphosyntaxProcess,
-    MaharastriPrakritChatGPTMorphosyntaxProcess,
-    MarathiChatGPTMorphosyntaxProcess,
-    MeiteiChatGPTMorphosyntaxProcess,
-    MiddleAramaicChatGPTMorphosyntaxProcess,
-    MiddleArmenianChatGPTMorphosyntaxProcess,
-    MiddleBretonChatGPTMorphosyntaxProcess,
-    MiddleChineseChatGPTMorphosyntaxProcess,
-    MiddleCornishChatGPTMorphosyntaxProcess,
-    MiddleEgyptianChatGPTMorphosyntaxProcess,
-    MiddleEnglishChatGPTMorphosyntaxProcess,
-    MiddleFrenchChatGPTMorphosyntaxProcess,
-    MiddleHighGermanChatGPTMorphosyntaxProcess,
-    MiddleMongolChatGPTMorphosyntaxProcess,
-    MiddlePersianChatGPTMorphosyntaxProcess,
-    MoabiteChatGPTMorphosyntaxProcess,
-    MogholiChatGPTMorphosyntaxProcess,
-    NewarChatGPTMorphosyntaxProcess,
-    NumidianChatGPTMorphosyntaxProcess,
-    OdiaChatGPTMorphosyntaxProcess,
-    OfficialAramaicChatGPTMorphosyntaxProcess,
-    OldAramaicChatGPTMorphosyntaxProcess,
-    OldAramaicSamalianChatGPTMorphosyntaxProcess,
-    OldBurmeseChatGPTMorphosyntaxProcess,
-    OldChineseChatGPTMorphosyntaxProcess,
-    OldEgyptianChatGPTMorphosyntaxProcess,
-    OldEnglishChatGPTMorphosyntaxProcess,
-    OldFrenchChatGPTMorphosyntaxProcess,
-    OldHighGermanChatGPTMorphosyntaxProcess,
-    OldHungarianChatGPTMorphosyntaxProcess,
-    OldJapaneseChatGPTMorphosyntaxProcess,
-    OldJurchenChatGPTMorphosyntaxProcess,
-    OldMiddleWelshChatGPTMorphosyntaxProcess,
-    OldNorseChatGPTMorphosyntaxProcess,
-    OldPersianChatGPTMorphosyntaxProcess,
-    OldPrussianChatGPTMorphosyntaxProcess,
-    OldTamilChatGPTMorphosyntaxProcess,
-    OldTurkicChatGPTMorphosyntaxProcess,
-    PalaicChatGPTMorphosyntaxProcess,
-    PaliChatGPTMorphosyntaxProcess,
-    ParthianChatGPTMorphosyntaxProcess,
-    PhoenicianChatGPTMorphosyntaxProcess,
-    SamalianChatGPTMorphosyntaxProcess,
-    SauraseniPrakritChatGPTMorphosyntaxProcess,
-    SgawKarenChatGPTMorphosyntaxProcess,
-    SindhiChatGPTMorphosyntaxProcess,
-    SinhalaChatGPTMorphosyntaxProcess,
-    SogdianChatGPTMorphosyntaxProcess,
-    TaitaChatGPTMorphosyntaxProcess,
-    TangutChatGPTMorphosyntaxProcess,
-    TokharianAChatGPTMorphosyntaxProcess,
-    TokharianBChatGPTMorphosyntaxProcess,
-    TumshuqeseChatGPTMorphosyntaxProcess,
-    UgariticChatGPTMorphosyntaxProcess,
-    UrduChatGPTMorphosyntaxProcess,
-    VedicSanskritChatGPTMorphosyntaxProcess,
+    AkkadianOpenAIMorphosyntaxProcess,
+    AlbanianOpenAIMorphosyntaxProcess,
+    AmmoniteOpenAIMorphosyntaxProcess,
+    AncientGreekOpenAIMorphosyntaxProcess,
+    AssameseOpenAIMorphosyntaxProcess,
+    AvestanOpenAIMorphosyntaxProcess,
+    AwadhiOpenAIMorphosyntaxProcess,
+    BactrianOpenAIMorphosyntaxProcess,
+    BagriOpenAIMorphosyntaxProcess,
+    BaihuaChineseOpenAIMorphosyntaxProcess,
+    BengaliOpenAIMorphosyntaxProcess,
+    BiblicalHebrewOpenAIMorphosyntaxProcess,
+    BrajOpenAIMorphosyntaxProcess,
+    CarianOpenAIMorphosyntaxProcess,
+    ChagataiOpenAIMorphosyntaxProcess,
+    ChurchSlavicOpenAIMorphosyntaxProcess,
+    ClassicalArabicOpenAIMorphosyntaxProcess,
+    ClassicalArmenianOpenAIMorphosyntaxProcess,
+    ClassicalBurmeseOpenAIMorphosyntaxProcess,
+    ClassicalMandaicOpenAIMorphosyntaxProcess,
+    ClassicalMongolianOpenAIMorphosyntaxProcess,
+    ClassicalSanskritOpenAIMorphosyntaxProcess,
+    ClassicalSyriacOpenAIMorphosyntaxProcess,
+    ClassicalTibetanOpenAIMorphosyntaxProcess,
+    CopticOpenAIMorphosyntaxProcess,
+    CuneiformLuwianOpenAIMorphosyntaxProcess,
+    DemoticOpenAIMorphosyntaxProcess,
+    EarlyIrishOpenAIMorphosyntaxProcess,
+    EasternPanjabiOpenAIMorphosyntaxProcess,
+    EdomiteOpenAIMorphosyntaxProcess,
+    GandhariOpenAIMorphosyntaxProcess,
+    GeezOpenAIMorphosyntaxProcess,
+    GothicOpenAIMorphosyntaxProcess,
+    GujaratiOpenAIMorphosyntaxProcess,
+    HatranOpenAIMorphosyntaxProcess,
+    HausaOpenAIMorphosyntaxProcess,
+    HieroglyphicLuwianOpenAIMorphosyntaxProcess,
+    HindiOpenAIMorphosyntaxProcess,
+    HittiteOpenAIMorphosyntaxProcess,
+    JewishBabylonianAramaicOpenAIMorphosyntaxProcess,
+    KashmiriOpenAIMorphosyntaxProcess,
+    KhariBoliOpenAIMorphosyntaxProcess,
+    KhotaneseOpenAIMorphosyntaxProcess,
+    LateEgyptianOpenAIMorphosyntaxProcess,
+    LatinOpenAIMorphosyntaxProcess,
+    LatvianOpenAIMorphosyntaxProcess,
+    LiteraryChineseOpenAIMorphosyntaxProcess,
+    LithuanianOpenAIMorphosyntaxProcess,
+    LycianAOpenAIMorphosyntaxProcess,
+    LydianOpenAIMorphosyntaxProcess,
+    MagadhiPrakritOpenAIMorphosyntaxProcess,
+    MaharastriPrakritOpenAIMorphosyntaxProcess,
+    MarathiOpenAIMorphosyntaxProcess,
+    MeiteiOpenAIMorphosyntaxProcess,
+    MiddleAramaicOpenAIMorphosyntaxProcess,
+    MiddleArmenianOpenAIMorphosyntaxProcess,
+    MiddleBretonOpenAIMorphosyntaxProcess,
+    MiddleChineseOpenAIMorphosyntaxProcess,
+    MiddleCornishOpenAIMorphosyntaxProcess,
+    MiddleEgyptianOpenAIMorphosyntaxProcess,
+    MiddleEnglishOpenAIMorphosyntaxProcess,
+    MiddleFrenchOpenAIMorphosyntaxProcess,
+    MiddleHighGermanOpenAIMorphosyntaxProcess,
+    MiddleMongolOpenAIMorphosyntaxProcess,
+    MiddlePersianOpenAIMorphosyntaxProcess,
+    MoabiteOpenAIMorphosyntaxProcess,
+    MogholiOpenAIMorphosyntaxProcess,
+    NewarOpenAIMorphosyntaxProcess,
+    NumidianOpenAIMorphosyntaxProcess,
+    OdiaOpenAIMorphosyntaxProcess,
+    OfficialAramaicOpenAIMorphosyntaxProcess,
+    OldAramaicOpenAIMorphosyntaxProcess,
+    OldAramaicSamalianOpenAIMorphosyntaxProcess,
+    OldBurmeseOpenAIMorphosyntaxProcess,
+    OldChineseOpenAIMorphosyntaxProcess,
+    OldEgyptianOpenAIMorphosyntaxProcess,
+    OldEnglishOpenAIMorphosyntaxProcess,
+    OldFrenchOpenAIMorphosyntaxProcess,
+    OldHighGermanOpenAIMorphosyntaxProcess,
+    OldHungarianOpenAIMorphosyntaxProcess,
+    OldJapaneseOpenAIMorphosyntaxProcess,
+    OldJurchenOpenAIMorphosyntaxProcess,
+    OldMiddleWelshOpenAIMorphosyntaxProcess,
+    OldNorseOpenAIMorphosyntaxProcess,
+    OldPersianOpenAIMorphosyntaxProcess,
+    OldPrussianOpenAIMorphosyntaxProcess,
+    OldTamilOpenAIMorphosyntaxProcess,
+    OldTurkicOpenAIMorphosyntaxProcess,
+    PalaicOpenAIMorphosyntaxProcess,
+    PaliOpenAIMorphosyntaxProcess,
+    ParthianOpenAIMorphosyntaxProcess,
+    PhoenicianOpenAIMorphosyntaxProcess,
+    SamalianOpenAIMorphosyntaxProcess,
+    SauraseniPrakritOpenAIMorphosyntaxProcess,
+    SgawKarenOpenAIMorphosyntaxProcess,
+    SindhiOpenAIMorphosyntaxProcess,
+    SinhalaOpenAIMorphosyntaxProcess,
+    SogdianOpenAIMorphosyntaxProcess,
+    TaitaOpenAIMorphosyntaxProcess,
+    TangutOpenAIMorphosyntaxProcess,
+    TokharianAOpenAIMorphosyntaxProcess,
+    TokharianBOpenAIMorphosyntaxProcess,
+    TumshuqeseOpenAIMorphosyntaxProcess,
+    UgariticOpenAIMorphosyntaxProcess,
+    UrduOpenAIMorphosyntaxProcess,
+    VedicSanskritOpenAIMorphosyntaxProcess,
 )
 from cltk.sentence.processes import (
     AkkadianSentenceSplittingProcess,
@@ -401,7 +401,7 @@ class AncientGreekStanzaPipeline(Pipeline):
         plog(self).info("AncientGreekStanzaPipeline created.")
 
 
-class AkkadianChatGPTPipeline(Pipeline):
+class AkkadianOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Akkadian."""
 
     description: Optional[str] = "Pipeline for the Akkadian language"
@@ -410,20 +410,20 @@ class AkkadianChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             AkkadianSentenceSplittingProcess,
-            AkkadianChatGPTMorphosyntaxProcess,
-            AkkadianChatGPTDependencyProcess,
+            AkkadianOpenAIMorphosyntaxProcess,
+            AkkadianOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         assert self.language, "Language not found"
         plog(self).debug(
-            f"Initializing AkkadianChatGPTPipeline with language: {self.language.name}"
+            f"Initializing AkkadianOpenAIPipeline with language: {self.language.name}"
         )
-        plog(self).info("AkkadianChatGPTPipeline created.")
+        plog(self).info("AkkadianOpenAIPipeline created.")
 
 
-class ClassicalArabicChatGPTPipeline(Pipeline):
+class ClassicalArabicOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Arabic."""
 
     description: Optional[str] = "Pipeline for the Arabic language"
@@ -432,20 +432,20 @@ class ClassicalArabicChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             ClassicalArabicSentenceSplittingProcess,
-            ClassicalArabicChatGPTMorphosyntaxProcess,
-            ClassicalArabicChatGPTDependencyProcess,
+            ClassicalArabicOpenAIMorphosyntaxProcess,
+            ClassicalArabicOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing ArabicChatGPTPipeline with language: {self.language}"
+            f"Initializing ArabicOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("ArabicChatGPTPipeline created.")
+        plog(self).info("ArabicOpenAIPipeline created.")
 
 
 #
-class ClassicalSyriacChatGPTPipeline(Pipeline):
+class ClassicalSyriacOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Classical Syriac."""
 
     description: Optional[str] = "Pipeline for the Classical Syriac language"
@@ -454,17 +454,17 @@ class ClassicalSyriacChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             ClassicalSyriacSentenceSplittingProcess,
-            ClassicalSyriacChatGPTMorphosyntaxProcess,
-            ClassicalSyriacChatGPTDependencyProcess,
+            ClassicalSyriacOpenAIMorphosyntaxProcess,
+            ClassicalSyriacOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         assert self.language, "Language not found"
         plog(self).debug(
-            f"Initializing ClassicalSyriacChatGPTPipeline with language: {self.language.name}"
+            f"Initializing ClassicalSyriacOpenAIPipeline with language: {self.language.name}"
         )
-        plog(self).info("ClassicalSyriacChatGPTPipeline created.")
+        plog(self).info("ClassicalSyriacOpenAIPipeline created.")
 
 
 # ClassicalTibetanPipeline
@@ -477,35 +477,35 @@ class ClassicalTibetanPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             ClassicalTibetanSentenceSplittingProcess,
-            ClassicalTibetanChatGPTMorphosyntaxProcess,
-            ClassicalTibetanChatGPTDependencyProcess,
+            ClassicalTibetanOpenAIMorphosyntaxProcess,
+            ClassicalTibetanOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         assert self.language, "Language not found"
         plog(self).debug(
-            f"Initializing ClassicalTibetanChatGPTPipeline with language: {self.language.name}"
+            f"Initializing ClassicalTibetanOpenAIPipeline with language: {self.language.name}"
         )
-        plog(self).info("ClassicalTibetanChatGPTPipeline created.")
+        plog(self).info("ClassicalTibetanOpenAIPipeline created.")
 
 
-class CopticChatGPTPipeline(Pipeline):
+class CopticOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Coptic."""
 
-    description: Optional[str] = "ChatGPT Pipeline for the Coptic language."
+    description: Optional[str] = "OpenAI Pipeline for the Coptic language."
     glottolog_id: Optional[str] = "copt1239"
     processes: Optional[list[Any]] = Field(
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             CopticSentenceSplittingProcess,
-            CopticChatGPTMorphosyntaxProcess,
-            CopticChatGPTDependencyProcess,
+            CopticOpenAIMorphosyntaxProcess,
+            CopticOpenAIDependencyProcess,
         ]
     )
 
 
-class GothicChatGPTPipeline(Pipeline):
+class GothicOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Gothic."""
 
     description: Optional[str] = "Pipeline for the Gothic language"
@@ -514,41 +514,41 @@ class GothicChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             GothicSentenceSplittingProcess,
-            GothicChatGPTMorphosyntaxProcess,
-            GothicChatGPTDependencyProcess,
+            GothicOpenAIMorphosyntaxProcess,
+            GothicOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing GothicChatGPTPipeline with language: {self.language}"
+            f"Initializing GothicOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("GothicChatGPTPipeline created.")
+        plog(self).info("GothicOpenAIPipeline created.")
 
 
-class AncientGreekChatGPTPipeline(Pipeline):
-    """Pipeline for Ancient Greek using normalization and ChatGPT annotation only."""
+class AncientGreekOpenAIPipeline(Pipeline):
+    """Pipeline for Ancient Greek using normalization and OpenAI annotation only."""
 
-    description: Optional[str] = "Pipeline for Ancient Greek with ChatGPT annotation"
+    description: Optional[str] = "Pipeline for Ancient Greek with OpenAI annotation"
     glottolog_id: Optional[str] = "anci1242"
     processes: Optional[list[Any]] = Field(
         default_factory=lambda: [
             # AncientGreekNormalizeProcess,
             MultilingualNormalizeProcess,
             AncientGreekSentenceSplittingProcess,
-            AncientGreekChatGPTMorphosyntaxProcess,
-            AncientGreekChatGPTDependencyProcess,
+            AncientGreekOpenAIMorphosyntaxProcess,
+            AncientGreekOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing GreekChatGPTPipeline with language: {self.language}"
+            f"Initializing GreekOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("GreekChatGPTPipeline created.")
+        plog(self).info("GreekOpenAIPipeline created.")
 
 
-class BiblicalHebrewChatGPTPipeline(Pipeline):
+class BiblicalHebrewOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Ancient Hebrew."""
 
     description: Optional[str] = "Pipeline for the Ancient Hebrew language."
@@ -557,8 +557,8 @@ class BiblicalHebrewChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             AncientHebrewSentenceSplittingProcess,
-            BiblicalHebrewChatGPTMorphosyntaxProcess,
-            BiblicalHebrewChatGPTDependencyProcess,
+            BiblicalHebrewOpenAIMorphosyntaxProcess,
+            BiblicalHebrewOpenAIDependencyProcess,
         ]
     )
 
@@ -567,18 +567,18 @@ class BiblicalHebrewChatGPTPipeline(Pipeline):
         plog(self).info("LatinPipeline created.")
 
 
-class LatinChatGPTPipeline(Pipeline):
+class LatinOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Latin."""
 
-    description: Optional[str] = "ChatGPT Pipeline for the Latin language."
+    description: Optional[str] = "OpenAI Pipeline for the Latin language."
     glottolog_id: Optional[str] = "lati1261"
     processes: Optional[list[Any]] = Field(
         default_factory=lambda: [
             # LatinNormalizeProcess,
             MultilingualNormalizeProcess,
             LatinSentenceSplittingProcess,
-            LatinChatGPTMorphosyntaxProcess,
-            LatinChatGPTDependencyProcess,
+            LatinOpenAIMorphosyntaxProcess,
+            LatinOpenAIDependencyProcess,
         ]
     )
 
@@ -587,7 +587,7 @@ class LatinChatGPTPipeline(Pipeline):
         plog(self).info("LatinPipeline created.")
 
 
-class MiddleEnglishChatGPTPipeline(Pipeline):
+class MiddleEnglishOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Middle English."""
 
     description: Optional[str] = "Pipeline for the Middle English language"
@@ -596,19 +596,19 @@ class MiddleEnglishChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             MiddleEnglishSentenceSplittingProcess,
-            MiddleEnglishChatGPTMorphosyntaxProcess,
-            MiddleEnglishChatGPTDependencyProcess,
+            MiddleEnglishOpenAIMorphosyntaxProcess,
+            MiddleEnglishOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing MiddleEnglishChatGPTPipeline with language: {self.language}"
+            f"Initializing MiddleEnglishOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("MiddleEnglishChatGPTPipeline created.")
+        plog(self).info("MiddleEnglishOpenAIPipeline created.")
 
 
-class MiddleFrenchChatGPTPipeline(Pipeline):
+class MiddleFrenchOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Middle French."""
 
     description: Optional[str] = "Pipeline for the Middle French language"
@@ -617,19 +617,19 @@ class MiddleFrenchChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             MiddleFrenchSentenceSplittingProcess,
-            MiddleFrenchChatGPTMorphosyntaxProcess,
-            MiddleFrenchChatGPTDependencyProcess,
+            MiddleFrenchOpenAIMorphosyntaxProcess,
+            MiddleFrenchOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing MiddleFrenchChatGPTPipeline with language: {self.language}"
+            f"Initializing MiddleFrenchOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("MiddleFrenchChatGPTPipeline created.")
+        plog(self).info("MiddleFrenchOpenAIPipeline created.")
 
 
-class MiddlePersianChatGPTPipeline(Pipeline):
+class MiddlePersianOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Middle Persian (Pahlavi)."""
 
     description: Optional[str] = "Pipeline for the Middle Persian (Pahlavi) language"
@@ -638,34 +638,34 @@ class MiddlePersianChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             MiddlePersianSentenceSplittingProcess,
-            MiddlePersianChatGPTMorphosyntaxProcess,
-            MiddlePersianChatGPTDependencyProcess,
+            MiddlePersianOpenAIMorphosyntaxProcess,
+            MiddlePersianOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing MiddlePersianChatGPTPipeline with language: {self.language}"
+            f"Initializing MiddlePersianOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("MiddlePersianChatGPTPipeline created.")
+        plog(self).info("MiddlePersianOpenAIPipeline created.")
 
 
-class ImperialAramaicChatGPTPipeline(Pipeline):
+class ImperialAramaicOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Official Aramaic."""
 
-    description: Optional[str] = "ChatGPT Pipeline for the Official Aramaic language."
+    description: Optional[str] = "OpenAI Pipeline for the Official Aramaic language."
     glottolog_id: Optional[str] = "impe1235"
     processes: Optional[list[Any]] = Field(
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             OfficialAramaicSentenceSplittingProcess,
-            OfficialAramaicChatGPTMorphosyntaxProcess,
-            OfficialAramaicChatGPTDependencyProcess,
+            OfficialAramaicOpenAIMorphosyntaxProcess,
+            OfficialAramaicOpenAIDependencyProcess,
         ]
     )
 
 
-class ChurchSlavonicChatGPTPipeline(Pipeline):
+class ChurchSlavonicOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for (Old) Church Slavonic."""
 
     description: Optional[str] = "Pipeline for the Church Slavonic language"
@@ -674,19 +674,19 @@ class ChurchSlavonicChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             ChurchSlavonicSentenceSplittingProcess,
-            ChurchSlavicChatGPTMorphosyntaxProcess,
-            ChurchSlavicChatGPTDependencyProcess,
+            ChurchSlavicOpenAIMorphosyntaxProcess,
+            ChurchSlavicOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing ChurchSlavonicChatGPTPipeline with language: {self.language}"
+            f"Initializing ChurchSlavonicOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("ChurchSlavonicChatGPTPipeline")
+        plog(self).info("ChurchSlavonicOpenAIPipeline")
 
 
-class OldEnglishChatGPTPipeline(Pipeline):
+class OldEnglishOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Old English."""
 
     description: Optional[str] = "Pipeline for the Old English language"
@@ -695,20 +695,20 @@ class OldEnglishChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             OldEnglishSentenceSplittingProcess,
-            OldEnglishChatGPTMorphosyntaxProcess,
-            OldEnglishChatGPTDependencyProcess,
+            OldEnglishOpenAIMorphosyntaxProcess,
+            OldEnglishOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         assert self.language, "Language not found"
         plog(self).debug(
-            f"Initializing OldEnglishChatGPTPipeline with language: {self.language.name}"
+            f"Initializing OldEnglishOpenAIPipeline with language: {self.language.name}"
         )
-        plog(self).info("OldEnglishChatGPTPipeline created.")
+        plog(self).info("OldEnglishOpenAIPipeline created.")
 
 
-class OldFrenchChatGPTPipeline(Pipeline):
+class OldFrenchOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Old French."""
 
     description: Optional[str] = "Pipeline for the Old French language"
@@ -717,19 +717,19 @@ class OldFrenchChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             OldFrenchSentenceSplittingProcess,
-            OldFrenchChatGPTMorphosyntaxProcess,
-            OldFrenchChatGPTDependencyProcess,
+            OldFrenchOpenAIMorphosyntaxProcess,
+            OldFrenchOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing OldFrenchChatGPTPipeline with language: {self.language}"
+            f"Initializing OldFrenchOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("OldFrenchChatGPTPipeline created.")
+        plog(self).info("OldFrenchOpenAIPipeline created.")
 
 
-class OldNorseChatGPTPipeline(Pipeline):
+class OldNorseOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Old Norse."""
 
     description: Optional[str] = "Pipeline for the Old Norse language"
@@ -738,19 +738,19 @@ class OldNorseChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             OldNorseSentenceSplittingProcess,
-            OldNorseChatGPTMorphosyntaxProcess,
-            OldNorseChatGPTDependencyProcess,
+            OldNorseOpenAIMorphosyntaxProcess,
+            OldNorseOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing OldNorseChatGPTPipeline with language: {self.language}"
+            f"Initializing OldNorseOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("OldNorseChatGPTPipeline created.")
+        plog(self).info("OldNorseOpenAIPipeline created.")
 
 
-class PaliChatGPTPipeline(Pipeline):
+class PaliOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Pali."""
 
     description: Optional[str] = "Pipeline for the Pali language"
@@ -759,8 +759,8 @@ class PaliChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             PaliSentenceSplittingProcess,
-            PaliChatGPTMorphosyntaxProcess,
-            PaliChatGPTDependencyProcess,
+            PaliOpenAIMorphosyntaxProcess,
+            PaliOpenAIDependencyProcess,
         ]
     )
 
@@ -769,7 +769,7 @@ class PaliChatGPTPipeline(Pipeline):
         plog(self).info("PaliPipeline created.")
 
 
-class ClassicalSanskritChatGPTPipeline(Pipeline):
+class ClassicalSanskritOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Classical Sanskrit."""
 
     description: Optional[str] = "Pipeline for the Classical Sanskrit language"
@@ -778,19 +778,19 @@ class ClassicalSanskritChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             ClassicalSanskritSentenceSplittingProcess,
-            ClassicalSanskritChatGPTMorphosyntaxProcess,
-            ClassicalSanskritChatGPTDependencyProcess,
+            ClassicalSanskritOpenAIMorphosyntaxProcess,
+            ClassicalSanskritOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing ClassicalSanskritChatGPTPipeline with language: {self.language}"
+            f"Initializing ClassicalSanskritOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("ClassicalSanskritChatGPTPipeline created.")
+        plog(self).info("ClassicalSanskritOpenAIPipeline created.")
 
 
-class VedicSanskritChatGPTPipeline(Pipeline):
+class VedicSanskritOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Vedic Sanskrit."""
 
     description: Optional[str] = "Pipeline for the Vedic Sanskrit language"
@@ -799,19 +799,19 @@ class VedicSanskritChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             VedicSanskritSentenceSplittingProcess,
-            VedicSanskritChatGPTMorphosyntaxProcess,
-            VedicSanskritChatGPTDependencyProcess,
+            VedicSanskritOpenAIMorphosyntaxProcess,
+            VedicSanskritOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing VedicSanskritChatGPTPipeline with language: {self.language}"
+            f"Initializing VedicSanskritOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("VedicSanskritChatGPTPipeline created.")
+        plog(self).info("VedicSanskritOpenAIPipeline created.")
 
 
-class OldHighGermanChatGPTPipeline(Pipeline):
+class OldHighGermanOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Old High German."""
 
     description: Optional[str] = "Pipeline for the Old High German language"
@@ -821,19 +821,19 @@ class OldHighGermanChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             # MiddleHighGermanTokenizationProcess,  # Substitute with OldHighGermanTokenizationProcess if available
             OldHighGermanSentenceSplittingProcess,
-            OldHighGermanChatGPTMorphosyntaxProcess,
-            OldHighGermanChatGPTDependencyProcess,
+            OldHighGermanOpenAIMorphosyntaxProcess,
+            OldHighGermanOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing OldHighGermanChatGPTPipeline with language: {self.language}"
+            f"Initializing OldHighGermanOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("OldHighGermanChatGPTPipeline created.")
+        plog(self).info("OldHighGermanOpenAIPipeline created.")
 
 
-class MiddleHighGermanChatGPTPipeline(Pipeline):
+class MiddleHighGermanOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Middle High German."""
 
     description: Optional[str] = "Pipeline for the Middle High German language"
@@ -842,19 +842,19 @@ class MiddleHighGermanChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             MiddleHighGermanSentenceSplittingProcess,
-            MiddleHighGermanChatGPTMorphosyntaxProcess,
-            MiddleHighGermanChatGPTDependencyProcess,
+            MiddleHighGermanOpenAIMorphosyntaxProcess,
+            MiddleHighGermanOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing MiddleHighGermanChatGPTPipeline with language: {self.language}"
+            f"Initializing MiddleHighGermanOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("MiddleHighGermanChatGPTPipeline created.")
+        plog(self).info("MiddleHighGermanOpenAIPipeline created.")
 
 
-class LiteraryChineseChatGPTPipeline(Pipeline):
+class LiteraryChineseOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Literary (or Classical) Chinese."""
 
     description: Optional[str] = (
@@ -865,16 +865,16 @@ class LiteraryChineseChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             LiteraryChineseSentenceSplittingProcess,
-            LiteraryChineseChatGPTMorphosyntaxProcess,
-            LiteraryChineseChatGPTDependencyProcess,
+            LiteraryChineseOpenAIMorphosyntaxProcess,
+            LiteraryChineseOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing LiteraryChineseChatGPTPipeline with language: {self.language}"
+            f"Initializing LiteraryChineseOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("LiteraryChineseChatGPTPipeline created.")
+        plog(self).info("LiteraryChineseOpenAIPipeline created.")
 
 
 class ChurchSlavonicStanzaPipeline(Pipeline):
@@ -1084,7 +1084,7 @@ class OldRussianStanzaPipeline(Pipeline):
         plog(self).info("OldRussianStanzaPipeline created.")
 
 
-class DemoticChatGPTPipeline(Pipeline):
+class DemoticOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Demotic Egyptian."""
 
     description: Optional[str] = "Pipeline for the Demotic Egyptian language"
@@ -1093,19 +1093,19 @@ class DemoticChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             DemoticSentenceSplittingProcess,
-            DemoticChatGPTMorphosyntaxProcess,
-            DemoticChatGPTDependencyProcess,
+            DemoticOpenAIMorphosyntaxProcess,
+            DemoticOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing DemoticChatGPTPipeline with language: {self.language}"
+            f"Initializing DemoticOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("DemoticChatGPTPipeline created.")
+        plog(self).info("DemoticOpenAIPipeline created.")
 
 
-class HittiteChatGPTPipeline(Pipeline):
+class HittiteOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Hittite."""
 
     description: Optional[str] = "Pipeline for the Hittite language"
@@ -1114,19 +1114,19 @@ class HittiteChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             HittiteSentenceSplittingProcess,
-            HittiteChatGPTMorphosyntaxProcess,
-            HittiteChatGPTDependencyProcess,
+            HittiteOpenAIMorphosyntaxProcess,
+            HittiteOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing HittiteChatGPTPipeline with language: {self.language}"
+            f"Initializing HittiteOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("HittiteChatGPTPipeline created.")
+        plog(self).info("HittiteOpenAIPipeline created.")
 
 
-class TocharianAChatGPTPipeline(Pipeline):
+class TocharianAOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Tocharian A."""
 
     description: Optional[str] = "Pipeline for the Tocharian A language"
@@ -1135,19 +1135,19 @@ class TocharianAChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             TocharianASentenceSplittingProcess,
-            TokharianAChatGPTMorphosyntaxProcess,
-            TokharianAChatGPTDependencyProcess,
+            TokharianAOpenAIMorphosyntaxProcess,
+            TokharianAOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing TocharianAChatGPTPipeline with language: {self.language}"
+            f"Initializing TocharianAOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("TocharianAChatGPTPipeline created.")
+        plog(self).info("TocharianAOpenAIPipeline created.")
 
 
-class TocharianBChatGPTPipeline(Pipeline):
+class TocharianBOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Tocharian B."""
 
     description: Optional[str] = "Pipeline for the Tocharian B language"
@@ -1156,19 +1156,19 @@ class TocharianBChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             TocharianBSentenceSplittingProcess,
-            TokharianBChatGPTMorphosyntaxProcess,
-            TokharianBChatGPTDependencyProcess,
+            TokharianBOpenAIMorphosyntaxProcess,
+            TokharianBOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing TocharianBChatGPTPipeline with language: {self.language}"
+            f"Initializing TocharianBOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("TocharianBChatGPTPipeline created.")
+        plog(self).info("TocharianBOpenAIPipeline created.")
 
 
-class AvestanChatGPTPipeline(Pipeline):
+class AvestanOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Avestan."""
 
     description: Optional[str] = "Pipeline for the Avestan language"
@@ -1177,19 +1177,19 @@ class AvestanChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             AvestanSentenceSplittingProcess,
-            AvestanChatGPTMorphosyntaxProcess,
-            AvestanChatGPTDependencyProcess,
+            AvestanOpenAIMorphosyntaxProcess,
+            AvestanOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing AvestanChatGPTPipeline with language: {self.language}"
+            f"Initializing AvestanOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("AvestanChatGPTPipeline created.")
+        plog(self).info("AvestanOpenAIPipeline created.")
 
 
-class BactrianChatGPTPipeline(Pipeline):
+class BactrianOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Bactrian."""
 
     description: Optional[str] = "Pipeline for the Bactrian language"
@@ -1198,19 +1198,19 @@ class BactrianChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             BactrianSentenceSplittingProcess,
-            BactrianChatGPTMorphosyntaxProcess,
-            BactrianChatGPTDependencyProcess,
+            BactrianOpenAIMorphosyntaxProcess,
+            BactrianOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing BactrianChatGPTPipeline with language: {self.language}"
+            f"Initializing BactrianOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("BactrianChatGPTPipeline created.")
+        plog(self).info("BactrianOpenAIPipeline created.")
 
 
-class SogdianChatGPTPipeline(Pipeline):
+class SogdianOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Sogdian."""
 
     description: Optional[str] = "Pipeline for the Sogdian language"
@@ -1219,19 +1219,19 @@ class SogdianChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             SogdianSentenceSplittingProcess,
-            SogdianChatGPTMorphosyntaxProcess,
-            SogdianChatGPTDependencyProcess,
+            SogdianOpenAIMorphosyntaxProcess,
+            SogdianOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing SogdianChatGPTPipeline with language: {self.language}"
+            f"Initializing SogdianOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("SogdianChatGPTPipeline created.")
+        plog(self).info("SogdianOpenAIPipeline created.")
 
 
-class KhotaneseChatGPTPipeline(Pipeline):
+class KhotaneseOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Khotanese."""
 
     description: Optional[str] = "Pipeline for the Khotanese language"
@@ -1240,19 +1240,19 @@ class KhotaneseChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             KhotaneseSentenceSplittingProcess,
-            KhotaneseChatGPTMorphosyntaxProcess,
-            KhotaneseChatGPTDependencyProcess,
+            KhotaneseOpenAIMorphosyntaxProcess,
+            KhotaneseOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing KhotaneseChatGPTPipeline with language: {self.language}"
+            f"Initializing KhotaneseOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("KhotaneseChatGPTPipeline created.")
+        plog(self).info("KhotaneseOpenAIPipeline created.")
 
 
-class TumshuqeseChatGPTPipeline(Pipeline):
+class TumshuqeseOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Tumshuqese."""
 
     description: Optional[str] = "Pipeline for the Tumshuqese language"
@@ -1261,19 +1261,19 @@ class TumshuqeseChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             TumshuqeseSentenceSplittingProcess,
-            TumshuqeseChatGPTMorphosyntaxProcess,
-            TumshuqeseChatGPTDependencyProcess,
+            TumshuqeseOpenAIMorphosyntaxProcess,
+            TumshuqeseOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing TumshuqeseChatGPTPipeline with language: {self.language}"
+            f"Initializing TumshuqeseOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("TumshuqeseChatGPTPipeline created.")
+        plog(self).info("TumshuqeseOpenAIPipeline created.")
 
 
-class OldPersianChatGPTPipeline(Pipeline):
+class OldPersianOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Old Persian."""
 
     description: Optional[str] = "Pipeline for the Old Persian language"
@@ -1282,19 +1282,19 @@ class OldPersianChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             OldPersianSentenceSplittingProcess,
-            OldPersianChatGPTMorphosyntaxProcess,
-            OldPersianChatGPTDependencyProcess,
+            OldPersianOpenAIMorphosyntaxProcess,
+            OldPersianOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing OldPersianChatGPTPipeline with language: {self.language}"
+            f"Initializing OldPersianOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("OldPersianChatGPTPipeline created.")
+        plog(self).info("OldPersianOpenAIPipeline created.")
 
 
-class EarlyIrishChatGPTPipeline(Pipeline):
+class EarlyIrishOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Old Irish."""
 
     description: Optional[str] = "Pipeline for the Old Irish language"
@@ -1303,19 +1303,19 @@ class EarlyIrishChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             EarlyIrishSentenceSplittingProcess,
-            EarlyIrishChatGPTMorphosyntaxProcess,
-            EarlyIrishChatGPTDependencyProcess,
+            EarlyIrishOpenAIMorphosyntaxProcess,
+            EarlyIrishOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing OldIrishChatGPTPipeline with language: {self.language}"
+            f"Initializing OldIrishOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("OldIrishChatGPTPipeline created.")
+        plog(self).info("OldIrishOpenAIPipeline created.")
 
 
-class UgariticChatGPTPipeline(Pipeline):
+class UgariticOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Ugaritic."""
 
     description: Optional[str] = "Pipeline for the Ugaritic language"
@@ -1324,19 +1324,19 @@ class UgariticChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             UgariticSentenceSplittingProcess,
-            UgariticChatGPTMorphosyntaxProcess,
-            UgariticChatGPTDependencyProcess,
+            UgariticOpenAIMorphosyntaxProcess,
+            UgariticOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing UgariticChatGPTPipeline with language: {self.language}"
+            f"Initializing UgariticOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("UgariticChatGPTPipeline created.")
+        plog(self).info("UgariticOpenAIPipeline created.")
 
 
-class PhoenicianChatGPTPipeline(Pipeline):
+class PhoenicianOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Phoenician (Punic)."""
 
     description: Optional[str] = "Pipeline for the Phoenician (Punic) language"
@@ -1345,19 +1345,19 @@ class PhoenicianChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             PhoenicianSentenceSplittingProcess,
-            PhoenicianChatGPTMorphosyntaxProcess,
-            PhoenicianChatGPTDependencyProcess,
+            PhoenicianOpenAIMorphosyntaxProcess,
+            PhoenicianOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing PhoenicianChatGPTPipeline with language: {self.language}"
+            f"Initializing PhoenicianOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("PhoenicianChatGPTPipeline created.")
+        plog(self).info("PhoenicianOpenAIPipeline created.")
 
 
-class GeezChatGPTPipeline(Pipeline):
+class GeezOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Geʿez (Classical Ethiopic)."""
 
     description: Optional[str] = "Pipeline for the Geʿez (Classical Ethiopic) language"
@@ -1366,19 +1366,19 @@ class GeezChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             GeezSentenceSplittingProcess,
-            GeezChatGPTMorphosyntaxProcess,
-            GeezChatGPTDependencyProcess,
+            GeezOpenAIMorphosyntaxProcess,
+            GeezOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing GeezChatGPTPipeline with language: {self.language}"
+            f"Initializing GeezOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("GeezChatGPTPipeline created.")
+        plog(self).info("GeezOpenAIPipeline created.")
 
 
-class MiddleEgyptianChatGPTPipeline(Pipeline):
+class MiddleEgyptianOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Middle Egyptian."""
 
     description: Optional[str] = "Pipeline for the Middle Egyptian language"
@@ -1387,19 +1387,19 @@ class MiddleEgyptianChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             MiddleEgyptianSentenceSplittingProcess,
-            MiddleEgyptianChatGPTMorphosyntaxProcess,
-            MiddleEgyptianChatGPTDependencyProcess,
+            MiddleEgyptianOpenAIMorphosyntaxProcess,
+            MiddleEgyptianOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing MiddleEgyptianChatGPTPipeline with language: {self.language}"
+            f"Initializing MiddleEgyptianOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("MiddleEgyptianChatGPTPipeline created.")
+        plog(self).info("MiddleEgyptianOpenAIPipeline created.")
 
 
-class OldEgyptianChatGPTPipeline(Pipeline):
+class OldEgyptianOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Old Egyptian."""
 
     description: Optional[str] = "Pipeline for the Old Egyptian language"
@@ -1408,19 +1408,19 @@ class OldEgyptianChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             OldEgyptianSentenceSplittingProcess,
-            OldEgyptianChatGPTMorphosyntaxProcess,
-            OldEgyptianChatGPTDependencyProcess,
+            OldEgyptianOpenAIMorphosyntaxProcess,
+            OldEgyptianOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing OldEgyptianChatGPTPipeline with language: {self.language}"
+            f"Initializing OldEgyptianOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("OldEgyptianChatGPTPipeline created.")
+        plog(self).info("OldEgyptianOpenAIPipeline created.")
 
 
-class LateEgyptianChatGPTPipeline(Pipeline):
+class LateEgyptianOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Late Egyptian."""
 
     description: Optional[str] = "Pipeline for the Late Egyptian language"
@@ -1429,19 +1429,19 @@ class LateEgyptianChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             LateEgyptianSentenceSplittingProcess,
-            LateEgyptianChatGPTMorphosyntaxProcess,
-            LateEgyptianChatGPTDependencyProcess,
+            LateEgyptianOpenAIMorphosyntaxProcess,
+            LateEgyptianOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing LateEgyptianChatGPTPipeline with language: {self.language}"
+            f"Initializing LateEgyptianOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("LateEgyptianChatGPTPipeline created.")
+        plog(self).info("LateEgyptianOpenAIPipeline created.")
 
 
-class ParthianChatGPTPipeline(Pipeline):
+class ParthianOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Parthian."""
 
     description: Optional[str] = "Pipeline for the Parthian language"
@@ -1450,19 +1450,19 @@ class ParthianChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             ParthianSentenceSplittingProcess,
-            ParthianChatGPTMorphosyntaxProcess,
-            ParthianChatGPTDependencyProcess,
+            ParthianOpenAIMorphosyntaxProcess,
+            ParthianOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing LateEgyptianChatGPTPipeline with language: {self.language}"
+            f"Initializing LateEgyptianOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("LateEgyptianChatGPTPipeline created.")
+        plog(self).info("LateEgyptianOpenAIPipeline created.")
 
 
-class OldMiddleWelshChatGPTPipeline(Pipeline):
+class OldMiddleWelshOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Middle Welsh."""
 
     description: Optional[str] = "Pipeline for the Middle Welsh language"
@@ -1471,19 +1471,19 @@ class OldMiddleWelshChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             OldMiddleWelshSentenceSplittingProcess,
-            OldMiddleWelshChatGPTMorphosyntaxProcess,
-            OldMiddleWelshChatGPTDependencyProcess,
+            OldMiddleWelshOpenAIMorphosyntaxProcess,
+            OldMiddleWelshOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing MiddleWelshChatGPTPipeline with language: {self.language}"
+            f"Initializing MiddleWelshOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("MiddleWelshChatGPTPipeline created.")
+        plog(self).info("MiddleWelshOpenAIPipeline created.")
 
 
-class MiddleBretonChatGPTPipeline(Pipeline):
+class MiddleBretonOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Middle Breton."""
 
     description: Optional[str] = "Pipeline for the Middle Breton language"
@@ -1492,19 +1492,19 @@ class MiddleBretonChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             MiddleBretonSentenceSplittingProcess,
-            MiddleBretonChatGPTMorphosyntaxProcess,
-            MiddleBretonChatGPTDependencyProcess,
+            MiddleBretonOpenAIMorphosyntaxProcess,
+            MiddleBretonOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing MiddleBretonChatGPTPipeline with language: {self.language}"
+            f"Initializing MiddleBretonOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("MiddleBretonChatGPTPipeline created.")
+        plog(self).info("MiddleBretonOpenAIPipeline created.")
 
 
-class CornishChatGPTPipeline(Pipeline):
+class CornishOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Cornish."""
 
     description: Optional[str] = "Pipeline for the Cornish language"
@@ -1513,19 +1513,19 @@ class CornishChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             MiddleCornishSentenceSplittingProcess,
-            MiddleCornishChatGPTMorphosyntaxProcess,
-            MiddleCornishChatGPTDependencyProcess,
+            MiddleCornishOpenAIMorphosyntaxProcess,
+            MiddleCornishOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing CornishChatGPTPipeline with language: {self.language}"
+            f"Initializing CornishOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("CornishChatGPTPipeline created.")
+        plog(self).info("CornishOpenAIPipeline created.")
 
 
-class OldPrussianChatGPTPipeline(Pipeline):
+class OldPrussianOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Old Prussian."""
 
     description: Optional[str] = "Pipeline for the Old Prussian language"
@@ -1534,19 +1534,19 @@ class OldPrussianChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             OldPrussianSentenceSplittingProcess,
-            OldPrussianChatGPTMorphosyntaxProcess,
-            OldPrussianChatGPTDependencyProcess,
+            OldPrussianOpenAIMorphosyntaxProcess,
+            OldPrussianOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing OldPrussianChatGPTPipeline with language: {self.language}"
+            f"Initializing OldPrussianOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("OldPrussianChatGPTPipeline created.")
+        plog(self).info("OldPrussianOpenAIPipeline created.")
 
 
-class LithuanianChatGPTPipeline(Pipeline):
+class LithuanianOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Lithuanian."""
 
     description: Optional[str] = "Pipeline for the Lithuanian language"
@@ -1555,19 +1555,19 @@ class LithuanianChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             LithuanianSentenceSplittingProcess,
-            LithuanianChatGPTMorphosyntaxProcess,
-            LithuanianChatGPTDependencyProcess,
+            LithuanianOpenAIMorphosyntaxProcess,
+            LithuanianOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing LithuanianChatGPTPipeline with language: {self.language}"
+            f"Initializing LithuanianOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("LithuanianChatGPTPipeline created.")
+        plog(self).info("LithuanianOpenAIPipeline created.")
 
 
-class LatvianChatGPTPipeline(Pipeline):
+class LatvianOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Latvian."""
 
     description: Optional[str] = "Pipeline for the Latvian language"
@@ -1576,19 +1576,19 @@ class LatvianChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             LatvianSentenceSplittingProcess,
-            LatvianChatGPTMorphosyntaxProcess,
-            LatvianChatGPTDependencyProcess,
+            LatvianOpenAIMorphosyntaxProcess,
+            LatvianOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing LatvianChatGPTPipeline with language: {self.language}"
+            f"Initializing LatvianOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("LatvianChatGPTPipeline created.")
+        plog(self).info("LatvianOpenAIPipeline created.")
 
 
-class AlbanianChatGPTPipeline(Pipeline):
+class AlbanianOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Albanian."""
 
     description: Optional[str] = "Pipeline for the Albanian language"
@@ -1597,19 +1597,19 @@ class AlbanianChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             AlbanianSentenceSplittingProcess,
-            AlbanianChatGPTMorphosyntaxProcess,
-            AlbanianChatGPTDependencyProcess,
+            AlbanianOpenAIMorphosyntaxProcess,
+            AlbanianOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing AlbanianChatGPTPipeline with language: {self.language}"
+            f"Initializing AlbanianOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("AlbanianChatGPTPipeline created.")
+        plog(self).info("AlbanianOpenAIPipeline created.")
 
 
-class ClassicalArmenianChatGPTPipeline(Pipeline):
+class ClassicalArmenianOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Classical Armenian."""
 
     description: Optional[str] = "Pipeline for the Classical Armenian language"
@@ -1618,19 +1618,19 @@ class ClassicalArmenianChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             ClassicalArmenianSentenceSplittingProcess,
-            ClassicalArmenianChatGPTMorphosyntaxProcess,
-            ClassicalArmenianChatGPTDependencyProcess,
+            ClassicalArmenianOpenAIMorphosyntaxProcess,
+            ClassicalArmenianOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing ClassicalArmenianChatGPTPipeline with language: {self.language}"
+            f"Initializing ClassicalArmenianOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("ClassicalArmenianChatGPTPipeline created.")
+        plog(self).info("ClassicalArmenianOpenAIPipeline created.")
 
 
-class MiddleArmenianChatGPTPipeline(Pipeline):
+class MiddleArmenianOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Middle Armenian."""
 
     description: Optional[str] = "Pipeline for the Middle Armenian language"
@@ -1639,18 +1639,18 @@ class MiddleArmenianChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             MiddleArmenianSentenceSplittingProcess,
-            MiddleArmenianChatGPTMorphosyntaxProcess,
-            MiddleArmenianChatGPTDependencyProcess,
+            MiddleArmenianOpenAIMorphosyntaxProcess,
+            MiddleArmenianOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing MiddleArmenianChatGPTPipeline with language: {self.language}"
+            f"Initializing MiddleArmenianOpenAIPipeline with language: {self.language}"
         )
 
 
-class CuneiformLuwianChatGPTPipeline(Pipeline):
+class CuneiformLuwianOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Cuneiform Luwian."""
 
     description: Optional[str] = "Pipeline for the Cuneiform Luwian language"
@@ -1659,19 +1659,19 @@ class CuneiformLuwianChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             CuneiformLuwianSentenceSplittingProcess,
-            CuneiformLuwianChatGPTMorphosyntaxProcess,
-            CuneiformLuwianChatGPTDependencyProcess,
+            CuneiformLuwianOpenAIMorphosyntaxProcess,
+            CuneiformLuwianOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing CuneiformLuwianChatGPTPipeline with language: {self.language}"
+            f"Initializing CuneiformLuwianOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("CuneiformLuwianChatGPTPipeline created.")
+        plog(self).info("CuneiformLuwianOpenAIPipeline created.")
 
 
-class HieroglyphicLuwianChatGPTPipeline(Pipeline):
+class HieroglyphicLuwianOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Hieroglyphic Luwian."""
 
     description: Optional[str] = "Pipeline for the Hieroglyphic Luwian language"
@@ -1680,19 +1680,19 @@ class HieroglyphicLuwianChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             HieroglyphicLuwianSentenceSplittingProcess,
-            HieroglyphicLuwianChatGPTMorphosyntaxProcess,
-            HieroglyphicLuwianChatGPTDependencyProcess,
+            HieroglyphicLuwianOpenAIMorphosyntaxProcess,
+            HieroglyphicLuwianOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing HieroglyphicLuwianChatGPTPipeline with language: {self.language}"
+            f"Initializing HieroglyphicLuwianOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("HieroglyphicLuwianChatGPTPipeline created.")
+        plog(self).info("HieroglyphicLuwianOpenAIPipeline created.")
 
 
-class LycianAChatGPTPipeline(Pipeline):
+class LycianAOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Lycian."""
 
     description: Optional[str] = "Pipeline for the Lycian language"
@@ -1701,19 +1701,19 @@ class LycianAChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             LycianASentenceSplittingProcess,
-            LycianAChatGPTMorphosyntaxProcess,
-            LycianAChatGPTDependencyProcess,
+            LycianAOpenAIMorphosyntaxProcess,
+            LycianAOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing LycianChatGPTPipeline with language: {self.language}"
+            f"Initializing LycianOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("LycianChatGPTPipeline created.")
+        plog(self).info("LycianOpenAIPipeline created.")
 
 
-class LydianChatGPTPipeline(Pipeline):
+class LydianOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Lydian."""
 
     description: Optional[str] = "Pipeline for the Lydian language"
@@ -1722,19 +1722,19 @@ class LydianChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             LydianSentenceSplittingProcess,
-            LydianChatGPTMorphosyntaxProcess,
-            LydianChatGPTDependencyProcess,
+            LydianOpenAIMorphosyntaxProcess,
+            LydianOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing LydianChatGPTPipeline with language: {self.language}"
+            f"Initializing LydianOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("LydianChatGPTPipeline created.")
+        plog(self).info("LydianOpenAIPipeline created.")
 
 
-class PalaicChatGPTPipeline(Pipeline):
+class PalaicOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Palaic."""
 
     description: Optional[str] = "Pipeline for the Palaic language"
@@ -1743,19 +1743,19 @@ class PalaicChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             PalaicSentenceSplittingProcess,
-            PalaicChatGPTMorphosyntaxProcess,
-            PalaicChatGPTDependencyProcess,
+            PalaicOpenAIMorphosyntaxProcess,
+            PalaicOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing PalaicChatGPTPipeline with language: {self.language}"
+            f"Initializing PalaicOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("PalaicChatGPTPipeline created.")
+        plog(self).info("PalaicOpenAIPipeline created.")
 
 
-class CarianChatGPTPipeline(Pipeline):
+class CarianOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Carian."""
 
     description: Optional[str] = "Pipeline for the Carian language"
@@ -1764,18 +1764,18 @@ class CarianChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             CarianSentenceSplittingProcess,
-            CarianChatGPTMorphosyntaxProcess,
-            CarianChatGPTDependencyProcess,
+            CarianOpenAIMorphosyntaxProcess,
+            CarianOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing CarianChatGPTPipeline with language: {self.language}"
+            f"Initializing CarianOpenAIPipeline with language: {self.language}"
         )
 
 
-class SauraseniPrakritChatGPTPipeline(Pipeline):
+class SauraseniPrakritOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Sauraseni Prakrit."""
 
     description: Optional[str] = "Pipeline for the Sauraseni Prakrit language"
@@ -1784,19 +1784,19 @@ class SauraseniPrakritChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             SauraseniPrakritSentenceSplittingProcess,
-            SauraseniPrakritChatGPTMorphosyntaxProcess,
-            SauraseniPrakritChatGPTDependencyProcess,
+            SauraseniPrakritOpenAIMorphosyntaxProcess,
+            SauraseniPrakritOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing SauraseniPrakritChatGPTPipeline with language: {self.language}"
+            f"Initializing SauraseniPrakritOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("SauraseniPrakritChatGPTPipeline created.")
+        plog(self).info("SauraseniPrakritOpenAIPipeline created.")
 
 
-class MaharastriPrakritChatGPTPipeline(Pipeline):
+class MaharastriPrakritOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Maharastri Prakrit."""
 
     description: Optional[str] = "Pipeline for the Maharastri Prakrit language"
@@ -1805,19 +1805,19 @@ class MaharastriPrakritChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             MaharastriPrakritSentenceSplittingProcess,
-            MaharastriPrakritChatGPTMorphosyntaxProcess,
-            MaharastriPrakritChatGPTDependencyProcess,
+            MaharastriPrakritOpenAIMorphosyntaxProcess,
+            MaharastriPrakritOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing MaharastriPrakritChatGPTPipeline with language: {self.language}"
+            f"Initializing MaharastriPrakritOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("MaharastriPrakritChatGPTPipeline created.")
+        plog(self).info("MaharastriPrakritOpenAIPipeline created.")
 
 
-class MagadhiPrakritChatGPTPipeline(Pipeline):
+class MagadhiPrakritOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Magadhi Prakrit."""
 
     description: Optional[str] = "Pipeline for the Magadhi Prakrit language"
@@ -1826,19 +1826,19 @@ class MagadhiPrakritChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             MagadhiPrakritSentenceSplittingProcess,
-            MagadhiPrakritChatGPTMorphosyntaxProcess,
-            MagadhiPrakritChatGPTDependencyProcess,
+            MagadhiPrakritOpenAIMorphosyntaxProcess,
+            MagadhiPrakritOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing MagadhiPrakritChatGPTPipeline with language: {self.language}"
+            f"Initializing MagadhiPrakritOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("MagadhiPrakritChatGPTPipeline created.")
+        plog(self).info("MagadhiPrakritOpenAIPipeline created.")
 
 
-class GandhariChatGPTPipeline(Pipeline):
+class GandhariOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Gandhari."""
 
     description: Optional[str] = "Pipeline for the Gandhari language"
@@ -1847,20 +1847,20 @@ class GandhariChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             GandhariSentenceSplittingProcess,
-            GandhariChatGPTMorphosyntaxProcess,
-            GandhariChatGPTDependencyProcess,
+            GandhariOpenAIMorphosyntaxProcess,
+            GandhariOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing GandhariChatGPTPipeline with language: {self.language}"
+            f"Initializing GandhariOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("GandhariChatGPTPipeline created.")
+        plog(self).info("GandhariOpenAIPipeline created.")
 
 
 # Hindi and closely related lects
-class HindiChatGPTPipeline(Pipeline):
+class HindiOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Hindi (glottocode hind1269)."""
 
     description: Optional[str] = "Pipeline for the Hindi language"
@@ -1869,19 +1869,19 @@ class HindiChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             HindiSentenceSplittingProcess,
-            HindiChatGPTMorphosyntaxProcess,
-            HindiChatGPTDependencyProcess,
+            HindiOpenAIMorphosyntaxProcess,
+            HindiOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing HindiChatGPTPipeline with language: {self.language}"
+            f"Initializing HindiOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("HindiChatGPTPipeline created.")
+        plog(self).info("HindiOpenAIPipeline created.")
 
 
-class KhariBoliChatGPTPipeline(Pipeline):
+class KhariBoliOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Khari Boli (Hindi dialect)."""
 
     description: Optional[str] = "Pipeline for the Khari Boli dialect of Hindi"
@@ -1890,19 +1890,19 @@ class KhariBoliChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             KhariBoliSentenceSplittingProcess,
-            KhariBoliChatGPTMorphosyntaxProcess,
-            KhariBoliChatGPTDependencyProcess,
+            KhariBoliOpenAIMorphosyntaxProcess,
+            KhariBoliOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing KhariBoliChatGPTPipeline with language: {self.language}"
+            f"Initializing KhariBoliOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("KhariBoliChatGPTPipeline created.")
+        plog(self).info("KhariBoliOpenAIPipeline created.")
 
 
-class BrajChatGPTPipeline(Pipeline):
+class BrajOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Braj Bhasha."""
 
     description: Optional[str] = "Pipeline for the Braj Bhasha language"
@@ -1911,19 +1911,19 @@ class BrajChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             BrajSentenceSplittingProcess,
-            BrajChatGPTMorphosyntaxProcess,
-            BrajChatGPTDependencyProcess,
+            BrajOpenAIMorphosyntaxProcess,
+            BrajOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing BrajChatGPTPipeline with language: {self.language}"
+            f"Initializing BrajOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("BrajChatGPTPipeline created.")
+        plog(self).info("BrajOpenAIPipeline created.")
 
 
-class AwadhiChatGPTPipeline(Pipeline):
+class AwadhiOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Awadhi."""
 
     description: Optional[str] = "Pipeline for the Awadhi language"
@@ -1932,19 +1932,19 @@ class AwadhiChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             AwadhiSentenceSplittingProcess,
-            AwadhiChatGPTMorphosyntaxProcess,
-            AwadhiChatGPTDependencyProcess,
+            AwadhiOpenAIMorphosyntaxProcess,
+            AwadhiOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing AwadhiChatGPTPipeline with language: {self.language}"
+            f"Initializing AwadhiOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("AwadhiChatGPTPipeline created.")
+        plog(self).info("AwadhiOpenAIPipeline created.")
 
 
-class UrduChatGPTPipeline(Pipeline):
+class UrduOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Urdu."""
 
     description: Optional[str] = "Pipeline for the Urdu language"
@@ -1953,20 +1953,20 @@ class UrduChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             UrduSentenceSplittingProcess,
-            UrduChatGPTMorphosyntaxProcess,
-            UrduChatGPTDependencyProcess,
+            UrduOpenAIMorphosyntaxProcess,
+            UrduOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing UrduChatGPTPipeline with language: {self.language}"
+            f"Initializing UrduOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("UrduChatGPTPipeline created.")
+        plog(self).info("UrduOpenAIPipeline created.")
 
 
 # Eastern Indo-Aryan and Western IA additions
-class BengaliChatGPTPipeline(Pipeline):
+class BengaliOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Bengali."""
 
     description: Optional[str] = "Pipeline for the Bengali language"
@@ -1975,19 +1975,19 @@ class BengaliChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             BengaliSentenceSplittingProcess,
-            BengaliChatGPTMorphosyntaxProcess,
-            BengaliChatGPTDependencyProcess,
+            BengaliOpenAIMorphosyntaxProcess,
+            BengaliOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing BengaliChatGPTPipeline with language: {self.language}"
+            f"Initializing BengaliOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("BengaliChatGPTPipeline created.")
+        plog(self).info("BengaliOpenAIPipeline created.")
 
 
-class OdiaChatGPTPipeline(Pipeline):
+class OdiaOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Odia (Oriya)."""
 
     description: Optional[str] = "Pipeline for the Odia language"
@@ -1996,19 +1996,19 @@ class OdiaChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             OdiaSentenceSplittingProcess,
-            OdiaChatGPTMorphosyntaxProcess,
-            OdiaChatGPTDependencyProcess,
+            OdiaOpenAIMorphosyntaxProcess,
+            OdiaOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing OdiaChatGPTPipeline with language: {self.language}"
+            f"Initializing OdiaOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("OdiaChatGPTPipeline created.")
+        plog(self).info("OdiaOpenAIPipeline created.")
 
 
-class AssameseChatGPTPipeline(Pipeline):
+class AssameseOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Assamese."""
 
     description: Optional[str] = "Pipeline for the Assamese language"
@@ -2017,19 +2017,19 @@ class AssameseChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             AssameseSentenceSplittingProcess,
-            AssameseChatGPTMorphosyntaxProcess,
-            AssameseChatGPTDependencyProcess,
+            AssameseOpenAIMorphosyntaxProcess,
+            AssameseOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing AssameseChatGPTPipeline with language: {self.language}"
+            f"Initializing AssameseOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("AssameseChatGPTPipeline created.")
+        plog(self).info("AssameseOpenAIPipeline created.")
 
 
-class GujaratiChatGPTPipeline(Pipeline):
+class GujaratiOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Gujarati."""
 
     description: Optional[str] = "Pipeline for the Gujarati language"
@@ -2038,19 +2038,19 @@ class GujaratiChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             GujaratiSentenceSplittingProcess,
-            GujaratiChatGPTMorphosyntaxProcess,
-            GujaratiChatGPTDependencyProcess,
+            GujaratiOpenAIMorphosyntaxProcess,
+            GujaratiOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing GujaratiChatGPTPipeline with language: {self.language}"
+            f"Initializing GujaratiOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("GujaratiChatGPTPipeline created.")
+        plog(self).info("GujaratiOpenAIPipeline created.")
 
 
-class MarathiChatGPTPipeline(Pipeline):
+class MarathiOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Marathi."""
 
     description: Optional[str] = "Pipeline for the Marathi language"
@@ -2059,19 +2059,19 @@ class MarathiChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             MarathiSentenceSplittingProcess,
-            MarathiChatGPTMorphosyntaxProcess,
-            MarathiChatGPTDependencyProcess,
+            MarathiOpenAIMorphosyntaxProcess,
+            MarathiOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing MarathiChatGPTPipeline with language: {self.language}"
+            f"Initializing MarathiOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("MarathiChatGPTPipeline created.")
+        plog(self).info("MarathiOpenAIPipeline created.")
 
 
-class SinhalaChatGPTPipeline(Pipeline):
+class SinhalaOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Sinhala."""
 
     description: Optional[str] = "Pipeline for the Sinhala language"
@@ -2080,19 +2080,19 @@ class SinhalaChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             SinhalaSentenceSplittingProcess,
-            SinhalaChatGPTMorphosyntaxProcess,
-            SinhalaChatGPTDependencyProcess,
+            SinhalaOpenAIMorphosyntaxProcess,
+            SinhalaOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing SinhalaChatGPTPipeline with language: {self.language}"
+            f"Initializing SinhalaOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("SinhalaChatGPTPipeline created.")
+        plog(self).info("SinhalaOpenAIPipeline created.")
 
 
-class EasternPanjabiChatGPTPipeline(Pipeline):
+class EasternPanjabiOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Eastern Panjabi."""
 
     description: Optional[str] = "Pipeline for the Eastern Panjabi language"
@@ -2101,19 +2101,19 @@ class EasternPanjabiChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             PanjabiSentenceSplittingProcess,
-            EasternPanjabiChatGPTMorphosyntaxProcess,
-            EasternPanjabiChatGPTDependencyProcess,
+            EasternPanjabiOpenAIMorphosyntaxProcess,
+            EasternPanjabiOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing EasternPanjabiChatGPTPipeline with language: {self.language}"
+            f"Initializing EasternPanjabiOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("EasternPanjabiChatGPTPipeline created.")
+        plog(self).info("EasternPanjabiOpenAIPipeline created.")
 
 
-class SindhiChatGPTPipeline(Pipeline):
+class SindhiOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Sindhi."""
 
     description: Optional[str] = "Pipeline for the Sindhi language"
@@ -2122,19 +2122,19 @@ class SindhiChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             SindhiSentenceSplittingProcess,
-            SindhiChatGPTMorphosyntaxProcess,
-            SindhiChatGPTDependencyProcess,
+            SindhiOpenAIMorphosyntaxProcess,
+            SindhiOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing SindhiChatGPTPipeline with language: {self.language}"
+            f"Initializing SindhiOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("SindhiChatGPTPipeline created.")
+        plog(self).info("SindhiOpenAIPipeline created.")
 
 
-class KashmiriChatGPTPipeline(Pipeline):
+class KashmiriOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Kashmiri."""
 
     description: Optional[str] = "Pipeline for the Kashmiri language"
@@ -2143,20 +2143,20 @@ class KashmiriChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             KashmiriSentenceSplittingProcess,
-            KashmiriChatGPTMorphosyntaxProcess,
-            KashmiriChatGPTDependencyProcess,
+            KashmiriOpenAIMorphosyntaxProcess,
+            KashmiriOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing KashmiriChatGPTPipeline with language: {self.language}"
+            f"Initializing KashmiriOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("KashmiriChatGPTPipeline created.")
+        plog(self).info("KashmiriOpenAIPipeline created.")
 
 
 # Sino-Tibetan additions
-class OldChineseChatGPTPipeline(Pipeline):
+class OldChineseOpenAIPipeline(Pipeline):
     """Pipeline for Old Chinese."""
 
     description: Optional[str] = "Pipeline for Old Chinese"
@@ -2165,13 +2165,13 @@ class OldChineseChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             OldChineseSentenceSplittingProcess,
-            OldChineseChatGPTMorphosyntaxProcess,
-            OldChineseChatGPTDependencyProcess,
+            OldChineseOpenAIMorphosyntaxProcess,
+            OldChineseOpenAIDependencyProcess,
         ]
     )
 
 
-class MiddleChineseChatGPTPipeline(Pipeline):
+class MiddleChineseOpenAIPipeline(Pipeline):
     """Pipeline for Middle Chinese."""
 
     description: Optional[str] = "Pipeline for Middle Chinese"
@@ -2180,13 +2180,13 @@ class MiddleChineseChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             MiddleChineseSentenceSplittingProcess,
-            MiddleChineseChatGPTMorphosyntaxProcess,
-            MiddleChineseChatGPTDependencyProcess,
+            MiddleChineseOpenAIMorphosyntaxProcess,
+            MiddleChineseOpenAIDependencyProcess,
         ]
     )
 
 
-class BaihuaChineseChatGPTPipeline(Pipeline):
+class BaihuaChineseOpenAIPipeline(Pipeline):
     """Pipeline for Early Vernacular Chinese (Baihua)."""
 
     description: Optional[str] = "Pipeline for Early Vernacular Chinese (Baihua)"
@@ -2195,13 +2195,13 @@ class BaihuaChineseChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             BaihuaChineseSentenceSplittingProcess,
-            BaihuaChineseChatGPTMorphosyntaxProcess,
-            BaihuaChineseChatGPTDependencyProcess,
+            BaihuaChineseOpenAIMorphosyntaxProcess,
+            BaihuaChineseOpenAIDependencyProcess,
         ]
     )
 
 
-class OldBurmeseChatGPTPipeline(Pipeline):
+class OldBurmeseOpenAIPipeline(Pipeline):
     """Pipeline for Old Burmese."""
 
     description: Optional[str] = "Pipeline for Old Burmese"
@@ -2210,13 +2210,13 @@ class OldBurmeseChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             OldBurmeseSentenceSplittingProcess,
-            OldBurmeseChatGPTMorphosyntaxProcess,
-            OldBurmeseChatGPTDependencyProcess,
+            OldBurmeseOpenAIMorphosyntaxProcess,
+            OldBurmeseOpenAIDependencyProcess,
         ]
     )
 
 
-class ClassicalBurmeseChatGPTPipeline(Pipeline):
+class ClassicalBurmeseOpenAIPipeline(Pipeline):
     """Pipeline for Classical/Nuclear Burmese."""
 
     description: Optional[str] = "Pipeline for Classical Burmese"
@@ -2225,13 +2225,13 @@ class ClassicalBurmeseChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             ClassicalBurmeseSentenceSplittingProcess,
-            ClassicalBurmeseChatGPTMorphosyntaxProcess,
-            ClassicalBurmeseChatGPTDependencyProcess,
+            ClassicalBurmeseOpenAIMorphosyntaxProcess,
+            ClassicalBurmeseOpenAIDependencyProcess,
         ]
     )
 
 
-class TangutChatGPTPipeline(Pipeline):
+class TangutOpenAIPipeline(Pipeline):
     """Pipeline for Tangut (Xixia)."""
 
     description: Optional[str] = "Pipeline for the Tangut language"
@@ -2240,13 +2240,13 @@ class TangutChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             TangutSentenceSplittingProcess,
-            TangutChatGPTMorphosyntaxProcess,
-            TangutChatGPTDependencyProcess,
+            TangutOpenAIMorphosyntaxProcess,
+            TangutOpenAIDependencyProcess,
         ]
     )
 
 
-class NewarChatGPTPipeline(Pipeline):
+class NewarOpenAIPipeline(Pipeline):
     """Pipeline for Newar (Classical Nepal Bhasa)."""
 
     description: Optional[str] = "Pipeline for the Newar language"
@@ -2255,13 +2255,13 @@ class NewarChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             NewarSentenceSplittingProcess,
-            NewarChatGPTMorphosyntaxProcess,
-            NewarChatGPTDependencyProcess,
+            NewarOpenAIMorphosyntaxProcess,
+            NewarOpenAIDependencyProcess,
         ]
     )
 
 
-class MeiteiChatGPTPipeline(Pipeline):
+class MeiteiOpenAIPipeline(Pipeline):
     """Pipeline for Meitei (Classical Manipuri)."""
 
     description: Optional[str] = "Pipeline for the Meitei (Classical Manipuri) language"
@@ -2270,13 +2270,13 @@ class MeiteiChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             MeiteiSentenceSplittingProcess,
-            MeiteiChatGPTMorphosyntaxProcess,
-            MeiteiChatGPTDependencyProcess,
+            MeiteiOpenAIMorphosyntaxProcess,
+            MeiteiOpenAIDependencyProcess,
         ]
     )
 
 
-class SgawKarenChatGPTPipeline(Pipeline):
+class SgawKarenOpenAIPipeline(Pipeline):
     """Pipeline for Sgaw Karen."""
 
     description: Optional[str] = "Pipeline for the Sgaw Karen language"
@@ -2285,13 +2285,13 @@ class SgawKarenChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             SgawKarenSentenceSplittingProcess,
-            SgawKarenChatGPTMorphosyntaxProcess,
-            SgawKarenChatGPTDependencyProcess,
+            SgawKarenOpenAIMorphosyntaxProcess,
+            SgawKarenOpenAIDependencyProcess,
         ]
     )
 
 
-class MiddleMongolChatGPTPipeline(Pipeline):
+class MiddleMongolOpenAIPipeline(Pipeline):
     """Pipeline for Middle Mongol."""
 
     description: Optional[str] = "Pipeline for the Middle Mongol language"
@@ -2300,13 +2300,13 @@ class MiddleMongolChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             MiddleMongolSentenceSplittingProcess,
-            MiddleMongolChatGPTMorphosyntaxProcess,
-            MiddleMongolChatGPTDependencyProcess,
+            MiddleMongolOpenAIMorphosyntaxProcess,
+            MiddleMongolOpenAIDependencyProcess,
         ]
     )
 
 
-class ClassicalMongolianChatGPTPipeline(Pipeline):
+class ClassicalMongolianOpenAIPipeline(Pipeline):
     """Pipeline for Classical Mongolian."""
 
     description: Optional[str] = "Pipeline for the Classical Mongolian language"
@@ -2315,13 +2315,13 @@ class ClassicalMongolianChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             ClassicalMongolianSentenceSplittingProcess,
-            ClassicalMongolianChatGPTMorphosyntaxProcess,
-            ClassicalMongolianChatGPTDependencyProcess,
+            ClassicalMongolianOpenAIMorphosyntaxProcess,
+            ClassicalMongolianOpenAIDependencyProcess,
         ]
     )
 
 
-class MogholiChatGPTPipeline(Pipeline):
+class MogholiOpenAIPipeline(Pipeline):
     """Pipeline for Mogholi (Moghol)."""
 
     description: Optional[str] = "Pipeline for the Mogholi (Moghol) language"
@@ -2330,13 +2330,13 @@ class MogholiChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             MogholiSentenceSplittingProcess,
-            MogholiChatGPTMorphosyntaxProcess,
-            MogholiChatGPTDependencyProcess,
+            MogholiOpenAIMorphosyntaxProcess,
+            MogholiOpenAIDependencyProcess,
         ]
     )
 
 
-class BagriChatGPTPipeline(Pipeline):
+class BagriOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Bagri (Rajasthani)."""
 
     description: Optional[str] = "Pipeline for the Bagri (Rajasthani) language"
@@ -2345,20 +2345,20 @@ class BagriChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             BagriSentenceSplittingProcess,
-            BagriChatGPTMorphosyntaxProcess,
-            BagriChatGPTDependencyProcess,
+            BagriOpenAIMorphosyntaxProcess,
+            BagriOpenAIDependencyProcess,
         ]
     )
 
     def __post_init__(self) -> None:
         plog(self).debug(
-            f"Initializing BagriChatGPTPipeline with language: {self.language}"
+            f"Initializing BagriOpenAIPipeline with language: {self.language}"
         )
-        plog(self).info("BagriChatGPTPipeline created.")
+        plog(self).info("BagriOpenAIPipeline created.")
 
 
 # Additional Afroasiatic, Altaic-adjacent, Uralic, Turkic, Dravidian pipelines
-class NumidianChatGPTPipeline(Pipeline):
+class NumidianOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Numidian (Ancient Berber)."""
 
     description: Optional[str] = "Pipeline for the Numidian (Ancient Berber) language"
@@ -2367,13 +2367,13 @@ class NumidianChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             NumidianSentenceSplittingProcess,
-            NumidianChatGPTMorphosyntaxProcess,
-            NumidianChatGPTDependencyProcess,
+            NumidianOpenAIMorphosyntaxProcess,
+            NumidianOpenAIDependencyProcess,
         ]
     )
 
 
-class TaitaChatGPTPipeline(Pipeline):
+class TaitaOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Taita (Cushitic)."""
 
     description: Optional[str] = "Pipeline for the Cushitic Taita language"
@@ -2382,13 +2382,13 @@ class TaitaChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             TaitaSentenceSplittingProcess,
-            TaitaChatGPTMorphosyntaxProcess,
-            TaitaChatGPTDependencyProcess,
+            TaitaOpenAIMorphosyntaxProcess,
+            TaitaOpenAIDependencyProcess,
         ]
     )
 
 
-class HausaChatGPTPipeline(Pipeline):
+class HausaOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Hausa."""
 
     description: Optional[str] = "Pipeline for the Hausa language"
@@ -2397,13 +2397,13 @@ class HausaChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             HausaSentenceSplittingProcess,
-            HausaChatGPTMorphosyntaxProcess,
-            HausaChatGPTDependencyProcess,
+            HausaOpenAIMorphosyntaxProcess,
+            HausaOpenAIDependencyProcess,
         ]
     )
 
 
-class OldJurchenChatGPTPipeline(Pipeline):
+class OldJurchenOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Old Jurchen."""
 
     description: Optional[str] = "Pipeline for the Old Jurchen language"
@@ -2412,13 +2412,13 @@ class OldJurchenChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             OldJurchenSentenceSplittingProcess,
-            OldJurchenChatGPTMorphosyntaxProcess,
-            OldJurchenChatGPTDependencyProcess,
+            OldJurchenOpenAIMorphosyntaxProcess,
+            OldJurchenOpenAIDependencyProcess,
         ]
     )
 
 
-class OldJapaneseChatGPTPipeline(Pipeline):
+class OldJapaneseOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Old Japanese."""
 
     description: Optional[str] = "Pipeline for the Old Japanese language"
@@ -2427,13 +2427,13 @@ class OldJapaneseChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             OldJapaneseSentenceSplittingProcess,
-            OldJapaneseChatGPTMorphosyntaxProcess,
-            OldJapaneseChatGPTDependencyProcess,
+            OldJapaneseOpenAIMorphosyntaxProcess,
+            OldJapaneseOpenAIDependencyProcess,
         ]
     )
 
 
-class OldHungarianChatGPTPipeline(Pipeline):
+class OldHungarianOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Old Hungarian."""
 
     description: Optional[str] = "Pipeline for the Old Hungarian language"
@@ -2442,13 +2442,13 @@ class OldHungarianChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             OldHungarianSentenceSplittingProcess,
-            OldHungarianChatGPTMorphosyntaxProcess,
-            OldHungarianChatGPTDependencyProcess,
+            OldHungarianOpenAIMorphosyntaxProcess,
+            OldHungarianOpenAIDependencyProcess,
         ]
     )
 
 
-class ChagataiChatGPTPipeline(Pipeline):
+class ChagataiOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Chagatai."""
 
     description: Optional[str] = "Pipeline for the Chagatai language"
@@ -2457,13 +2457,13 @@ class ChagataiChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             ChagataiSentenceSplittingProcess,
-            ChagataiChatGPTMorphosyntaxProcess,
-            ChagataiChatGPTDependencyProcess,
+            ChagataiOpenAIMorphosyntaxProcess,
+            ChagataiOpenAIDependencyProcess,
         ]
     )
 
 
-class OldTurkicChatGPTPipeline(Pipeline):
+class OldTurkicOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Old Turkic."""
 
     description: Optional[str] = "Pipeline for the Old Turkic language"
@@ -2472,13 +2472,13 @@ class OldTurkicChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             OldTurkicSentenceSplittingProcess,
-            OldTurkicChatGPTMorphosyntaxProcess,
-            OldTurkicChatGPTDependencyProcess,
+            OldTurkicOpenAIMorphosyntaxProcess,
+            OldTurkicOpenAIDependencyProcess,
         ]
     )
 
 
-class OldTamilChatGPTPipeline(Pipeline):
+class OldTamilOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Old Tamil."""
 
     description: Optional[str] = "Pipeline for the Old Tamil language"
@@ -2487,14 +2487,14 @@ class OldTamilChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             OldTamilSentenceSplittingProcess,
-            OldTamilChatGPTMorphosyntaxProcess,
-            OldTamilChatGPTDependencyProcess,
+            OldTamilOpenAIMorphosyntaxProcess,
+            OldTamilOpenAIDependencyProcess,
         ]
     )
 
 
 # Northwest Semitic and Aramaic additions
-class MoabiteChatGPTPipeline(Pipeline):
+class MoabiteOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Moabite."""
 
     description: Optional[str] = "Pipeline for the Moabite language"
@@ -2503,13 +2503,13 @@ class MoabiteChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             MoabiteSentenceSplittingProcess,
-            MoabiteChatGPTMorphosyntaxProcess,
-            MoabiteChatGPTDependencyProcess,
+            MoabiteOpenAIMorphosyntaxProcess,
+            MoabiteOpenAIDependencyProcess,
         ]
     )
 
 
-class AmmoniteChatGPTPipeline(Pipeline):
+class AmmoniteOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Ammonite."""
 
     description: Optional[str] = "Pipeline for the Ammonite language"
@@ -2518,13 +2518,13 @@ class AmmoniteChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             AmmoniteSentenceSplittingProcess,
-            AmmoniteChatGPTMorphosyntaxProcess,
-            AmmoniteChatGPTDependencyProcess,
+            AmmoniteOpenAIMorphosyntaxProcess,
+            AmmoniteOpenAIDependencyProcess,
         ]
     )
 
 
-class EdomiteChatGPTPipeline(Pipeline):
+class EdomiteOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Edomite."""
 
     description: Optional[str] = "Pipeline for the Edomite language"
@@ -2533,13 +2533,13 @@ class EdomiteChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             EdomiteSentenceSplittingProcess,
-            EdomiteChatGPTMorphosyntaxProcess,
-            EdomiteChatGPTDependencyProcess,
+            EdomiteOpenAIMorphosyntaxProcess,
+            EdomiteOpenAIDependencyProcess,
         ]
     )
 
 
-class OldAramaicChatGPTPipeline(Pipeline):
+class OldAramaicOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Old Aramaic (up to 700 BCE)."""
 
     description: Optional[str] = "Pipeline for Old Aramaic (up to 700 BCE)"
@@ -2548,13 +2548,13 @@ class OldAramaicChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             OldAramaicSentenceSplittingProcess,
-            OldAramaicChatGPTMorphosyntaxProcess,
-            OldAramaicChatGPTDependencyProcess,
+            OldAramaicOpenAIMorphosyntaxProcess,
+            OldAramaicOpenAIDependencyProcess,
         ]
     )
 
 
-class OldAramaicSamalianChatGPTPipeline(Pipeline):
+class OldAramaicSamalianOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Old Aramaic–Samʾalian."""
 
     description: Optional[str] = "Pipeline for Old Aramaic–Samʾalian"
@@ -2563,13 +2563,13 @@ class OldAramaicSamalianChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             OldAramaicSamalianSentenceSplittingProcess,
-            OldAramaicSamalianChatGPTMorphosyntaxProcess,
-            OldAramaicSamalianChatGPTDependencyProcess,
+            OldAramaicSamalianOpenAIMorphosyntaxProcess,
+            OldAramaicSamalianOpenAIDependencyProcess,
         ]
     )
 
 
-class MiddleAramaicChatGPTPipeline(Pipeline):
+class MiddleAramaicOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Middle Aramaic."""
 
     description: Optional[str] = "Pipeline for Middle Aramaic"
@@ -2578,13 +2578,13 @@ class MiddleAramaicChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             MiddleAramaicSentenceSplittingProcess,
-            MiddleAramaicChatGPTMorphosyntaxProcess,
-            MiddleAramaicChatGPTDependencyProcess,
+            MiddleAramaicOpenAIMorphosyntaxProcess,
+            MiddleAramaicOpenAIDependencyProcess,
         ]
     )
 
 
-class ClassicalMandaicChatGPTPipeline(Pipeline):
+class ClassicalMandaicOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Classical Mandaic."""
 
     description: Optional[str] = "Pipeline for Classical Mandaic"
@@ -2593,13 +2593,13 @@ class ClassicalMandaicChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             ClassicalMandaicSentenceSplittingProcess,
-            ClassicalMandaicChatGPTMorphosyntaxProcess,
-            ClassicalMandaicChatGPTDependencyProcess,
+            ClassicalMandaicOpenAIMorphosyntaxProcess,
+            ClassicalMandaicOpenAIDependencyProcess,
         ]
     )
 
 
-class HatranChatGPTPipeline(Pipeline):
+class HatranOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Hatran."""
 
     description: Optional[str] = "Pipeline for Hatran"
@@ -2608,13 +2608,13 @@ class HatranChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             HatranSentenceSplittingProcess,
-            HatranChatGPTMorphosyntaxProcess,
-            HatranChatGPTDependencyProcess,
+            HatranOpenAIMorphosyntaxProcess,
+            HatranOpenAIDependencyProcess,
         ]
     )
 
 
-class JewishBabylonianAramaicChatGPTPipeline(Pipeline):
+class JewishBabylonianAramaicOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Jewish Babylonian Aramaic."""
 
     description: Optional[str] = "Pipeline for Jewish Babylonian Aramaic"
@@ -2623,13 +2623,13 @@ class JewishBabylonianAramaicChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             JewishBabylonianAramaicSentenceSplittingProcess,
-            JewishBabylonianAramaicChatGPTMorphosyntaxProcess,
-            JewishBabylonianAramaicChatGPTDependencyProcess,
+            JewishBabylonianAramaicOpenAIMorphosyntaxProcess,
+            JewishBabylonianAramaicOpenAIDependencyProcess,
         ]
     )
 
 
-class SamalianChatGPTPipeline(Pipeline):
+class SamalianOpenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Samʾalian."""
 
     description: Optional[str] = "Pipeline for Samʾalian"
@@ -2638,8 +2638,8 @@ class SamalianChatGPTPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             SamalianSentenceSplittingProcess,
-            SamalianChatGPTMorphosyntaxProcess,
-            SamalianChatGPTDependencyProcess,
+            SamalianOpenAIMorphosyntaxProcess,
+            SamalianOpenAIDependencyProcess,
         ]
     )
 
@@ -2666,108 +2666,108 @@ MAP_LANGUAGE_CODE_TO_SPACY_PIPELINE: dict[str, type[Pipeline]] = dict()
 MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, type[Pipeline]] = {
     # Indo-European family
     ## Italic
-    "lati1261": LatinChatGPTPipeline,
-    "oldf1239": OldFrenchChatGPTPipeline,
-    "midd1316": MiddleFrenchChatGPTPipeline,
+    "lati1261": LatinOpenAIPipeline,
+    "oldf1239": OldFrenchOpenAIPipeline,
+    "midd1316": MiddleFrenchOpenAIPipeline,
     # Other Romance languages
     ## Hellenic
-    "anci1242": AncientGreekChatGPTPipeline,
+    "anci1242": AncientGreekOpenAIPipeline,
     # Mycenaean Greek (Linear B tablets, ca. 1400–1200 BCE).
     # Medieval/Byzantine Greek
-    "oldi1245": EarlyIrishChatGPTPipeline,
-    "oldw1239": OldMiddleWelshChatGPTPipeline,
-    "bret1244": MiddleBretonChatGPTPipeline,
-    "corn1251": CornishChatGPTPipeline,
+    "oldi1245": EarlyIrishOpenAIPipeline,
+    "oldw1239": OldMiddleWelshOpenAIPipeline,
+    "bret1244": MiddleBretonOpenAIPipeline,
+    "corn1251": CornishOpenAIPipeline,
     ## Germanic
     # Proto-Norse
-    "goth1244": GothicChatGPTPipeline,
-    "oldh1241": OldHighGermanChatGPTPipeline,
-    "midd1343": MiddleHighGermanChatGPTPipeline,
-    "oldn1244": OldNorseChatGPTPipeline,
-    "olde1238": OldEnglishChatGPTPipeline,
-    "midd1317": MiddleEnglishChatGPTPipeline,
+    "goth1244": GothicOpenAIPipeline,
+    "oldh1241": OldHighGermanOpenAIPipeline,
+    "midd1343": MiddleHighGermanOpenAIPipeline,
+    "oldn1244": OldNorseOpenAIPipeline,
+    "olde1238": OldEnglishOpenAIPipeline,
+    "midd1317": MiddleEnglishOpenAIPipeline,
     ## Balto-Slavic
-    "chur1257": ChurchSlavonicChatGPTPipeline,
-    "prus1238": OldPrussianChatGPTPipeline,
-    "lith1251": LithuanianChatGPTPipeline,
-    "latv1249": LatvianChatGPTPipeline,
-    "gheg1238": AlbanianChatGPTPipeline,
+    "chur1257": ChurchSlavonicOpenAIPipeline,
+    "prus1238": OldPrussianOpenAIPipeline,
+    "lith1251": LithuanianOpenAIPipeline,
+    "latv1249": LatvianOpenAIPipeline,
+    "gheg1238": AlbanianOpenAIPipeline,
     ## Armenian, Earliest texts: 5th c. CE (Bible translation by Mesrop Mashtots, who created the script)
-    "clas1256": ClassicalArmenianChatGPTPipeline,
-    "midd1364": MiddleArmenianChatGPTPipeline,
+    "clas1256": ClassicalArmenianOpenAIPipeline,
+    "midd1364": MiddleArmenianOpenAIPipeline,
     # Note this is only a parent, not true languoid
     ## Anatolian
-    "hitt1242": HittiteChatGPTPipeline,
-    "cune1239": CuneiformLuwianChatGPTPipeline,
-    "hier1240": HieroglyphicLuwianChatGPTPipeline,
-    "lyci1241": LycianAChatGPTPipeline,
-    "lydi1241": LydianChatGPTPipeline,
-    "pala1331": PalaicChatGPTPipeline,
-    "cari1274": CarianChatGPTPipeline,
+    "hitt1242": HittiteOpenAIPipeline,
+    "cune1239": CuneiformLuwianOpenAIPipeline,
+    "hier1240": HieroglyphicLuwianOpenAIPipeline,
+    "lyci1241": LycianAOpenAIPipeline,
+    "lydi1241": LydianOpenAIPipeline,
+    "pala1331": PalaicOpenAIPipeline,
+    "cari1274": CarianOpenAIPipeline,
     ## Tocharian
-    "tokh1242": TocharianAChatGPTPipeline,
-    "tokh1243": TocharianBChatGPTPipeline,
+    "tokh1242": TocharianAOpenAIPipeline,
+    "tokh1243": TocharianBOpenAIPipeline,
     ## Indo-Iranian
     ## Iranian languages
     ### SW Iranian
-    "oldp1254": OldPersianChatGPTPipeline,
-    "pahl1241": MiddlePersianChatGPTPipeline,
+    "oldp1254": OldPersianOpenAIPipeline,
+    "pahl1241": MiddlePersianOpenAIPipeline,
     ### NW Iranian
-    "part1239": ParthianChatGPTPipeline,
+    "part1239": ParthianOpenAIPipeline,
     ### E Iranian
-    "aves1237": AvestanChatGPTPipeline,
-    "bact1239": BactrianChatGPTPipeline,
-    "sogd1245": SogdianChatGPTPipeline,
-    "khot1251": KhotaneseChatGPTPipeline,
-    "tums1237": TumshuqeseChatGPTPipeline,
+    "aves1237": AvestanOpenAIPipeline,
+    "bact1239": BactrianOpenAIPipeline,
+    "sogd1245": SogdianOpenAIPipeline,
+    "khot1251": KhotaneseOpenAIPipeline,
+    "tums1237": TumshuqeseOpenAIPipeline,
     # Indo-Aryan (Indic): Sanskrit (Vedic & Classical), Prakrits, Pali, later medieval languages (Hindi, Bengali, etc.)
     ## Old Indo-Aryan
-    "vedi1234": VedicSanskritChatGPTPipeline,
-    "clas1258": ClassicalSanskritChatGPTPipeline,
+    "vedi1234": VedicSanskritOpenAIPipeline,
+    "clas1258": ClassicalSanskritOpenAIPipeline,
     # Prakrits (Middle Indo-Aryan, ca. 500 BCE–500 CE)
-    "pali1273": PaliChatGPTPipeline,
+    "pali1273": PaliOpenAIPipeline,
     # Ardhamāgadhī, Śaurasenī, Mahārāṣṭrī, etc. — languages of Jain/Buddhist texts and early drama.
     # ? Glotto says alt_name for Pali; Ardhamāgadhī, literary language associated with Magadha (eastern India); Jain canonical texts (the Āgamas) are written primarily in Ardhamāgadhī
-    "saur1252": SauraseniPrakritChatGPTPipeline,
-    "maha1305": MaharastriPrakritChatGPTPipeline,
-    "maga1260": MagadhiPrakritChatGPTPipeline,
-    "gand1259": GandhariChatGPTPipeline,  ## Middle Indo-Aryan
+    "saur1252": SauraseniPrakritOpenAIPipeline,
+    "maha1305": MaharastriPrakritOpenAIPipeline,
+    "maga1260": MagadhiPrakritOpenAIPipeline,
+    "gand1259": GandhariOpenAIPipeline,  ## Middle Indo-Aryan
     # "Maithili": "mait1250"; Apabhraṃśa; "Apabhramsa" is alt_name; (500–1200 CE); Bridges Prakrits → New Indo-Aryan
     ## New Indo-Aryan
     ## Medieval languages (~1200 CE onward):
     # Early forms of Hindi, Bengali, Gujarati, Marathi, Punjabi, Oriya, Sinhala, etc
     # North-Western / Hindi Belt
-    "hind1269": HindiChatGPTPipeline,
-    "khad1239": KhariBoliChatGPTPipeline,
-    "braj1242": BrajChatGPTPipeline,
-    "awad1243": AwadhiChatGPTPipeline,
-    "urdu1245": UrduChatGPTPipeline,
+    "hind1269": HindiOpenAIPipeline,
+    "khad1239": KhariBoliOpenAIPipeline,
+    "braj1242": BrajOpenAIPipeline,
+    "awad1243": AwadhiOpenAIPipeline,
+    "urdu1245": UrduOpenAIPipeline,
     # Eastern Indo-Aryan
-    "beng1280": BengaliChatGPTPipeline,
-    "oriy1255": OdiaChatGPTPipeline,
-    "assa1263": AssameseChatGPTPipeline,
+    "beng1280": BengaliOpenAIPipeline,
+    "oriy1255": OdiaOpenAIPipeline,
+    "assa1263": AssameseOpenAIPipeline,
     # Western Indo-Aryan
-    "guja1252": GujaratiChatGPTPipeline,
-    "mara1378": MarathiChatGPTPipeline,
+    "guja1252": GujaratiOpenAIPipeline,
+    "mara1378": MarathiOpenAIPipeline,
     # Southern Indo-Aryan / adjacency
-    "sinh1246": SinhalaChatGPTPipeline,
+    "sinh1246": SinhalaOpenAIPipeline,
     # Northwestern frontier
-    "panj1256": EasternPanjabiChatGPTPipeline,
-    "sind1272": SindhiChatGPTPipeline,
-    "kash1277": KashmiriChatGPTPipeline,
-    "bagr1243": BagriChatGPTPipeline,
+    "panj1256": EasternPanjabiOpenAIPipeline,
+    "sind1272": SindhiOpenAIPipeline,
+    "kash1277": KashmiriOpenAIPipeline,
+    "bagr1243": BagriOpenAIPipeline,
     # Afroasiatic family
     ## Semitic languages
     ### East Semitic
-    "akka1240": AkkadianChatGPTPipeline,
+    "akka1240": AkkadianOpenAIPipeline,
     # Eblaite
     ### West Semitic
-    "ugar1238": UgariticChatGPTPipeline,
-    "phoe1239": PhoenicianChatGPTPipeline,
-    "moab1234": MoabiteChatGPTPipeline,
-    "ammo1234": AmmoniteChatGPTPipeline,
-    "edom1234": EdomiteChatGPTPipeline,
-    "anci1244": BiblicalHebrewChatGPTPipeline,
+    "ugar1238": UgariticOpenAIPipeline,
+    "phoe1239": PhoenicianOpenAIPipeline,
+    "moab1234": MoabiteOpenAIPipeline,
+    "ammo1234": AmmoniteOpenAIPipeline,
+    "edom1234": EdomiteOpenAIPipeline,
+    "anci1244": BiblicalHebrewOpenAIPipeline,
     # Medieval Hebrew: No Glottolog
     # "moab1234": Moabite
     # "ammo1234": Ammonite
@@ -2775,69 +2775,69 @@ MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, type[Pipeline]] = {
     # Old Aramaic (ca. 1000–700 BCE, inscriptions).
     # "olda1246": "Old Aramaic (up to 700 BCE)",
     # "Old Aramaic-Sam'alian": "olda1245"
-    "impe1235": ImperialAramaicChatGPTPipeline,
-    "olda1246": OldAramaicChatGPTPipeline,
-    "olda1245": OldAramaicSamalianChatGPTPipeline,
-    "midd1366": MiddleAramaicChatGPTPipeline,
-    "clas1253": ClassicalMandaicChatGPTPipeline,
-    "hatr1234": HatranChatGPTPipeline,
-    "jewi1240": JewishBabylonianAramaicChatGPTPipeline,
-    "sama1234": SamalianChatGPTPipeline,
+    "impe1235": ImperialAramaicOpenAIPipeline,
+    "olda1246": OldAramaicOpenAIPipeline,
+    "olda1245": OldAramaicSamalianOpenAIPipeline,
+    "midd1366": MiddleAramaicOpenAIPipeline,
+    "clas1253": ClassicalMandaicOpenAIPipeline,
+    "hatr1234": HatranOpenAIPipeline,
+    "jewi1240": JewishBabylonianAramaicOpenAIPipeline,
+    "sama1234": SamalianOpenAIPipeline,
     # "midd1366": Middle Aramaic (200 BCE – 700 CE), includes Biblical Aramaic, Palmyrene, Nabataean, Targumic Aramaic.
     # Eastern Middle Aramaic
     ##  Classical Mandaic, Hatran, Jewish Babylonian Aramaic dialects, and Classical Syriac
-    "clas1252": ClassicalSyriacChatGPTPipeline,
+    "clas1252": ClassicalSyriacOpenAIPipeline,
     ### NW Semitic
     ## South Semitic
     # Old South Arabian (OSA)
-    "geez1241": GeezChatGPTPipeline,
+    "geez1241": GeezOpenAIPipeline,
     ### Central Semitic (bridge between NW and South)
     # Pre-Islamic Arabic
-    "clas1259": ClassicalArabicChatGPTPipeline,  # Dialect
+    "clas1259": ClassicalArabicOpenAIPipeline,  # Dialect
     # Glotto doesn't have medieval arabic; Medieval Arabic: scientific, philosophical, historical works dominate much of the Islamic Golden Age corpus.
     ## Egyptian languages
-    "olde1242": OldEgyptianChatGPTPipeline,
-    "midd1369": MiddleEgyptianChatGPTPipeline,
-    "late1256": LateEgyptianChatGPTPipeline,
-    "demo1234": DemoticChatGPTPipeline,
-    "copt1239": CopticChatGPTPipeline,
+    "olde1242": OldEgyptianOpenAIPipeline,
+    "midd1369": MiddleEgyptianOpenAIPipeline,
+    "late1256": LateEgyptianOpenAIPipeline,
+    "demo1234": DemoticOpenAIPipeline,
+    "copt1239": CopticOpenAIPipeline,
     ## Berber
-    "numi1241": NumidianChatGPTPipeline,
-    "tait1247": TaitaChatGPTPipeline,
+    "numi1241": NumidianOpenAIPipeline,
+    "tait1247": TaitaOpenAIPipeline,
     ## Chadic
     # ; "haus1257": "Hausa"; Hausa; Essentially oral until medieval period, when Hausa is written in Ajami (Arabic script).
-    "haus1257": HausaChatGPTPipeline,
-    "lite1248": LiteraryChineseChatGPTPipeline,
+    "haus1257": HausaOpenAIPipeline,
+    "lite1248": LiteraryChineseOpenAIPipeline,
     "clas1254": ClassicalTibetanPipeline,
     # Sino-Tibetan family
     # | **Early Vernacular Chinese (Baihua)**   | ca. 10th – 18th c. CE | *(under `clas1255`)* |
     # | **Old Tibetan**                         | 7th – 10th c. CE     | *(not separately coded)* |
-    "oldc1244": OldChineseChatGPTPipeline,
-    "midd1344": MiddleChineseChatGPTPipeline,
-    "clas1255": BaihuaChineseChatGPTPipeline,
-    "oldb1235": OldBurmeseChatGPTPipeline,
-    "nucl1310": ClassicalBurmeseChatGPTPipeline,
-    "tang1334": TangutChatGPTPipeline,
-    "newa1246": NewarChatGPTPipeline,
-    "mani1292": MeiteiChatGPTPipeline,
-    "sgaw1245": SgawKarenChatGPTPipeline,
+    "oldc1244": OldChineseOpenAIPipeline,
+    "midd1344": MiddleChineseOpenAIPipeline,
+    "clas1255": BaihuaChineseOpenAIPipeline,
+    "oldb1235": OldBurmeseOpenAIPipeline,
+    "nucl1310": ClassicalBurmeseOpenAIPipeline,
+    "tang1334": TangutOpenAIPipeline,
+    "newa1246": NewarOpenAIPipeline,
+    "mani1292": MeiteiOpenAIPipeline,
+    "sgaw1245": SgawKarenOpenAIPipeline,
     # Mongolic family
-    "mong1329": MiddleMongolChatGPTPipeline,
-    "mong1331": ClassicalMongolianChatGPTPipeline,  #  TODO: No glottolog broken
-    "mogh1245": MogholiChatGPTPipeline,
+    "mong1329": MiddleMongolOpenAIPipeline,
+    "mong1331": ClassicalMongolianOpenAIPipeline,  #  TODO: No glottolog broken
+    "mogh1245": MogholiOpenAIPipeline,
     # Altaic-Adj.
-    "jurc1239": OldJurchenChatGPTPipeline,
+    "jurc1239": OldJurchenOpenAIPipeline,
     # Japonic
-    "japo1237": OldJapaneseChatGPTPipeline,
+    "japo1237": OldJapaneseOpenAIPipeline,
     # Uralic
-    "oldh1242": OldHungarianChatGPTPipeline,
+    "oldh1242": OldHungarianOpenAIPipeline,
     # Turkic
-    "chag1247": ChagataiChatGPTPipeline,
-    "oldu1238": OldTurkicChatGPTPipeline,
+    "chag1247": ChagataiOpenAIPipeline,
+    "oldu1238": OldTurkicOpenAIPipeline,
     # TODO: Make pipeline for Ottoman Turkish
-    # "otto1234": OttomanTurkishChatGPTPipeline,
+    # "otto1234": OttomanTurkishOpenAIPipeline,
     # Dravidian
-    "oldt1248": OldTamilChatGPTPipeline,
+    "oldt1248": OldTamilOpenAIPipeline,
     # Pre-Modern Literate Language Families (Non-Euro/Afroasiatic/Sino-Tibetan/Mongolic)
     # | Family         | Language / Stage           | Approx. Period      | Glottocode     |
     # |----------------|-----------------------------|----------------------|----------------|

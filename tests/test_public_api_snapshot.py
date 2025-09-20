@@ -39,7 +39,7 @@ def test_public_manifest_enforced() -> None:
 
 def test_morphosyntax_processes_subclasses_use_glottolog_ids() -> None:
     mod = importlib.import_module("cltk.morphosyntax.processes")
-    Base = getattr(mod, "ChatGPTMorphosyntaxProcess")
+    Base = getattr(mod, "OpenAIMorphosyntaxProcess")
     subclasses = Base.__subclasses__()
     assert len(subclasses) >= 80
 
@@ -54,7 +54,7 @@ def test_morphosyntax_processes_subclasses_use_glottolog_ids() -> None:
 
 def test_dependency_processes_subclasses_use_glottolog_ids() -> None:
     mod = importlib.import_module("cltk.dependency.processes")
-    Base = getattr(mod, "ChatGPTDependencyProcess")
+    Base = getattr(mod, "OpenAIDependencyProcess")
     subclasses = Base.__subclasses__()
     assert len(subclasses) >= 80
 
@@ -72,8 +72,8 @@ def test_process_run_signature() -> None:
     m = importlib.import_module("cltk.morphosyntax.processes")
     dep = importlib.import_module("cltk.dependency.processes")
     for base in (
-        getattr(m, "ChatGPTMorphosyntaxProcess"),
-        getattr(dep, "ChatGPTDependencyProcess"),
+        getattr(m, "OpenAIMorphosyntaxProcess"),
+        getattr(dep, "OpenAIDependencyProcess"),
     ):
         sig = inspect.signature(base.run)
         params = list(sig.parameters.values())

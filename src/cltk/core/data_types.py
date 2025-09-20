@@ -39,10 +39,10 @@ ScriptDir: TypeAlias = Literal["ltr", "rtl", "ttb", "btt"]
 
 
 class CLTKGenAIResponse(BaseModel):
-    """Response model for ChatGPT interactions in CLTK.
+    """Response model for OpenAI interactions in CLTK.
 
     Attributes:
-      response: The generated text response from ChatGPT.
+      response: The generated text response from OpenAI.
       usage: Token usage information (input, output, total).
 
     """
@@ -303,7 +303,7 @@ class Doc(CLTKBaseModel):
       discourse_relations: Discourse relation labels (if available).
       coreferences: Coreference links as (mention, antecedent, i, j).
       sentence_boundaries: List of (start, stop) character offsets.
-      chatgpt: List of usage/metadata dicts from model calls.
+      openai: List of usage/metadata dicts from model calls.
 
     """
 
@@ -320,9 +320,9 @@ class Doc(CLTKBaseModel):
     discourse_relations: list[str] = Field(default_factory=list)
     coreferences: list[tuple[str, str, int, int]] = Field(default_factory=list)
     sentence_boundaries: list[tuple[int, int]] = Field(default_factory=list)
-    chatgpt: list[dict[str, Any]] = Field(default_factory=list)
+    openai: list[dict[str, Any]] = Field(default_factory=list)
     backend: Optional[BACKEND_TYPES] = None
-    # Model alias/name for the selected backend. For ChatGPT this should be
+    # Model alias/name for the selected backend. For OpenAI this should be
     # one of AVAILABLE_OPENAI_MODELS; for Ollama any model string is accepted.
     model: Optional[Union[BACKEND_TYPES, str]] = None
     dialect: Optional[Dialect] = None
