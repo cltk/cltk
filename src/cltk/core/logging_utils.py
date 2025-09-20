@@ -47,12 +47,12 @@ def bind_from_doc(
     Binds the following fields when available:
       - doc_id: sha1 of ``normalized_text`` (or ``raw``) truncated to 10 chars
       - sentence_idx: provided by caller
-      - model: ``doc.backend_version`` string
+      - model: ``doc.model`` string
       - glottolog_id: from ``doc.dialect`` or ``doc.language``
       - prompt_version: provided by caller
     """
     doc_id = _maybe_hash(doc.normalized_text or doc.raw)
-    model = str(doc.backend_version) if getattr(doc, "backend_version", None) else None
+    model = str(doc.model) if getattr(doc, "model", None) else None
     gid = _glottolog_id_from_doc(doc)
     return bind_context(
         doc_id=doc_id,

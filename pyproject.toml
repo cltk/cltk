@@ -27,6 +27,9 @@ openai = [
 stanza = [
     "stanza (>=1.8.2,<2.0.0)",
 ]
+ollama = [
+    "ollama (>=0.3.0,<1.0.0)",
+]
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
@@ -148,5 +151,7 @@ module = [
   "colorama.*",
   "stanza",
   "stanza.*",
+  "ollama",
+  "ollama.*",
 ]
 ignore_missing_imports = true

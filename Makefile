@@ -28,6 +28,7 @@ install:
 installOptionals:
 	poetry install -E openai
 	poetry install -E stanza
+	poetry install -E ollama
 
 installDev:
 	poetry install

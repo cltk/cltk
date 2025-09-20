@@ -14,7 +14,6 @@ from colorama import Fore, Style
 import cltk
 from cltk.core.cltk_logger import bind_context, logger
 from cltk.core.data_types import (
-    AVAILABLE_OPENAI_MODELS,
     BACKEND_TYPES,
     Dialect,
     Doc,
@@ -59,6 +58,7 @@ class NLP:
         self,
         language_code: str,
         backend: BACKEND_TYPES = "stanza",
+        model: Optional[str] = None,
         custom_pipeline: Optional[Pipeline] = None,
         suppress_banner: bool = False,
     ) -> None:
@@ -75,23 +75,31 @@ class NLP:
         else:
             self.language_code = self.language.glottolog_id
         self.backend: BACKEND_TYPES = backend
-        if self.backend == "chatgpt":
+        self.model: Optional[str] = model
+        if self.backend == "openai":
             load_env_file()
             self.api_key: Optional[str] = os.getenv("OPENAI_API_KEY")
             if not self.api_key:
                 msg: str = "API key for ChatGPT not found."
                 logger.error(msg)
                 raise ValueError(msg)
-            # TODO: Make structured data model to hold ChatGPT/other config
-            self.backend_version: AVAILABLE_OPENAI_MODELS = "gpt-5-mini"
+            # Default model if none provided
+            self.model = self.model or "gpt-5-mini"
+        elif self.backend == "ollama":
+            # Default model if none provided
+            self.model = self.model or "llama3.1:8b"
+        elif self.backend == "stanza":
+            # Stanza models are bound to language pipelines; reject explicit model
+            if self.model is not None:
+                raise ValueError(
+                    "The 'stanza' backend does not accept a model parameter; models are hardcoded per language."
+                )
         self.pipeline: Pipeline = (
             custom_pipeline if custom_pipeline else self._get_pipeline()
         )
         bind_context(
             glottolog_id=self.language_code,
-            model=str(self.backend_version)
-            if getattr(self, "backend_version", None)
-            else None,
+            model=str(self.model) if getattr(self, "model", None) else None,
         ).debug(f"Pipeline selected: {self.pipeline}")
         if not suppress_banner:
             self._print_cltk_info()
@@ -120,7 +128,7 @@ class NLP:
             raise ValueError("Input text must be a non-empty string.")
         doc: Doc = Doc(language=self.language, raw=text)
         doc.backend = self.backend
-        doc.backend_version = getattr(self, "backend_version", None)
+        doc.model = getattr(self, "model", None)
         log = bind_from_doc(doc)
 
         processes: list[type[Process]] = cast(
@@ -274,7 +282,10 @@ class NLP:
             raise NotImplementedError(
                 f"Discriminative backend '{self.backend}' not yet reimplemented."
             )
-        elif self.backend == "chatgpt":
+        elif self.backend == "openai":
+            mapping = MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE
+        elif self.backend == "ollama":
+            # Reuse the same generative pipelines; lower layers pick the client by backend
             mapping = MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE
         else:
             raise NotImplementedError(f"Backend '{self.backend}' not available.")
@@ -286,8 +297,6 @@ class NLP:
             ) from e
         bind_context(
             glottolog_id=self.language_code,
-            model=str(self.backend_version)
-            if getattr(self, "backend_version", None)
-            else None,
+            model=str(self.model) if getattr(self, "model", None) else None,
         ).info(f"Using backend '{self.backend}' with pipeline {pipeline_cls.__name__}")
         return pipeline_cls()

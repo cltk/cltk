@@ -30,6 +30,42 @@ You can combine extras, for example:
 pip install "cltk[openai,stanza]"
 ```
 
+- Local LLMs via Ollama:
+
+Install the optional extra and ensure an Ollama server is running locally:
+
+```bash
+pip install "cltk[ollama]"
+```
+
+By default, when using `backend='ollama'`, CLTK uses the model `llama3.1:8b`. To choose a different local model, pass the `model` parameter to `NLP(...)`, e.g. `qwen2.5:14b`, `gemma2:27b`, `llama3.1:70b`, or any Ollama model string.
+
+### Choosing a model
+
+- OpenAI backend (GenAI in the cloud):
+
+```python
+from cltk.nlp import NLP
+
+# Default model is "gpt-5-mini" when backend='chatgpt'
+nlp = NLP('lati1261', backend='chatgpt')
+
+# Choose a specific model
+nlp_big = NLP('lati1261', backend='chatgpt', model='gpt-5')
+```
+
+- Ollama backend (local LLMs):
+
+```python
+from cltk.nlp import NLP
+
+# Default model is "llama3.1:8b" when backend='ollama'
+nlp_local = NLP('lati1261', backend='ollama')
+
+# Choose a specific local model (any installed/pullable Ollama model)
+nlp_qwen = NLP('lati1261', backend='ollama', model='qwen2.5:14b')
+```
+
 For more information, see [Installation docs](https://docs.cltk.org/en/latest/installation.html) or, to install from source, [Development](https://docs.cltk.org/en/latest/development.html).
 
 Pre-1.0 software remains available on the [branch v0.1.x](https://github.com/cltk/cltk/tree/v0.1.x) and docs at <https://legacy.cltk.org>. Install it with `pip install "cltk<1.0"`.

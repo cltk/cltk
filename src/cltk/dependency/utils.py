@@ -1,6 +1,6 @@
 import asyncio
 import concurrent.futures
-from typing import Optional, get_args
+from typing import Any, Optional, cast, get_args
 
 from colorama import Fore, Style
 from tqdm import tqdm
@@ -15,6 +15,7 @@ from cltk.core.data_types import (
 from cltk.core.exceptions import CLTKException
 from cltk.core.logging_utils import bind_from_doc
 from cltk.genai.chatgpt import AsyncChatGPTConnection, ChatGPTConnection
+from cltk.genai.ollama import AsyncOllamaConnection, OllamaConnection
 from cltk.morphosyntax.ud_deprels import UDDeprelTag, get_ud_deprel_tag
 from cltk.morphosyntax.ud_features import UDFeatureTagSet
 from cltk.morphosyntax.utils import _update_doc_chatgpt_stage
@@ -71,7 +72,7 @@ def generate_dependency_tree(
     doc: Doc,
     sentence_idx: Optional[int] = None,
     max_retries: int = 2,
-    client: Optional[ChatGPTConnection] = None,
+    client: Optional[Any] = None,
 ) -> Doc:
     """Call OpenAI and return UD dependency annotations for a short span.
 
@@ -130,21 +131,33 @@ def generate_dependency_tree(
     log.debug(prompt)
     # code_blocks: list[Any] = []
     if not doc.backend:
-        msg_no_backend: str = (
-            "Doc must have `.backend` set to 'chatgpt' to use generate_dependency_tree."
-        )
+        msg_no_backend: str = "Doc must have `.backend` set to 'chatgpt' or 'ollama' to use generate_dependency_tree."
         log.error(msg_no_backend)
         raise CLTKException(msg_no_backend)
-    if not doc.backend_version:
-        msg_no_backend_version: str = "Doc missing `.backend_version`. Setting to 'gpt-5.0' to use generate_dependency_tree."
+    if not doc.model:
+        msg_no_backend_version: str = "Doc missing `.model`. Set to a supported model to use generate_dependency_tree."
         log.info(msg_no_backend_version)
         raise CLTKException(msg_no_backend_version)
-    if doc.backend_version not in get_args(AVAILABLE_OPENAI_MODELS):
-        msg_unsupported_backend_version: str = f"Doc has unsupported `.backend_version`: {doc.backend_version}. Supported versions are: {get_args(AVAILABLE_OPENAI_MODELS)}."
-        log.error(msg_unsupported_backend_version)
-        raise CLTKException(msg_unsupported_backend_version)
-    if not client:
-        client = ChatGPTConnection(model=doc.backend_version)
+    if doc.backend == "openai":
+        if doc.model not in get_args(AVAILABLE_OPENAI_MODELS):
+            msg_unsupported_backend_version: str = (
+                f"Doc has unsupported `.model`: {doc.model}. "
+                f"Supported versions are: {get_args(AVAILABLE_OPENAI_MODELS)}."
+            )
+            log.error(msg_unsupported_backend_version)
+            raise CLTKException(msg_unsupported_backend_version)
+        if not client:
+            openai_model: AVAILABLE_OPENAI_MODELS = cast(
+                AVAILABLE_OPENAI_MODELS, doc.model
+            )
+            client = ChatGPTConnection(model=openai_model)
+    elif doc.backend == "ollama":
+        if not client:
+            client = OllamaConnection(model=str(doc.model))
+    else:
+        raise CLTKException(
+            f"Unsupported backend for dependency generation: {doc.backend}."
+        )
     chatgpt_res_obj: CLTKGenAIResponse = client.generate(
         prompt=prompt, max_retries=max_retries
     )
@@ -247,11 +260,24 @@ def generate_dependency_tree(
 
 def generate_gpt_dependency(doc: Doc) -> Doc:
     log = bind_from_doc(doc)
-    if not doc.backend_version:
-        msg: str = "Document backend version is not set."
+    if not doc.model:
+        msg: str = "Document model is not set."
         log.error(msg)
         raise ValueError(msg)
-    client: ChatGPTConnection = ChatGPTConnection(model=doc.backend_version)
+    client: Any
+    if doc.backend == "openai":
+        if doc.model not in get_args(AVAILABLE_OPENAI_MODELS):
+            raise CLTKException(
+                f"Doc has unsupported `.model`: {doc.model}. Supported: {get_args(AVAILABLE_OPENAI_MODELS)}."
+            )
+        openai_model: AVAILABLE_OPENAI_MODELS = cast(AVAILABLE_OPENAI_MODELS, doc.model)
+        client = ChatGPTConnection(model=openai_model)
+    elif doc.backend == "ollama":
+        client = OllamaConnection(model=str(doc.model))
+    else:
+        raise CLTKException(
+            f"Unsupported backend for dependency parsing: {doc.backend}."
+        )
     if not doc.normalized_text:
         msg = "Input document must have either `.normalized_text`."
         log.error(msg)
@@ -270,7 +296,7 @@ def generate_gpt_dependency(doc: Doc) -> Doc:
             language=doc.language,
             normalized_text=sentence_string,
             backend=doc.backend,
-            backend_version=doc.backend_version,
+            model=doc.model,
         )
         # Use existing morphosyntax tokens for this sentence if available
         if doc.words:
@@ -368,8 +394,8 @@ async def generate_gpt_dependency_async(
         "[async-dep] Starting dependency generation for %s sentences",
         len(doc.sentence_strings),
     )
-    if not doc.backend_version:
-        msg = "Document backend version is not set."
+    if not doc.model:
+        msg = "Document model is not set."
         log.error(msg)
         raise ValueError(msg)
     if not doc.normalized_text:
@@ -377,7 +403,19 @@ async def generate_gpt_dependency_async(
         log.error(msg)
         raise ValueError(msg)
 
-    conn = AsyncChatGPTConnection(model=doc.backend_version)
+    if doc.backend == "openai":
+        if doc.model not in get_args(AVAILABLE_OPENAI_MODELS):
+            raise CLTKException(
+                f"Doc has unsupported `.model`: {doc.model}. Supported: {get_args(AVAILABLE_OPENAI_MODELS)}."
+            )
+        openai_model: AVAILABLE_OPENAI_MODELS = cast(AVAILABLE_OPENAI_MODELS, doc.model)
+        conn: Any = AsyncChatGPTConnection(model=openai_model)
+    elif doc.backend == "ollama":
+        conn = AsyncOllamaConnection(model=str(doc.model))
+    else:
+        raise CLTKException(
+            f"Unsupported backend for async dependency parsing: {doc.backend}."
+        )
 
     # Prepare prompts per sentence
     lang_or_dialect_name = doc.dialect.name if doc.dialect else doc.language.name
@@ -425,7 +463,7 @@ async def generate_gpt_dependency_async(
             language=doc.language,
             normalized_text=sentence,
             backend=doc.backend,
-            backend_version=doc.backend_version,
+            model=doc.model,
         )
         # Parse TSV and update words in place if available
         parsed = _parse_dep_tsv_table(res.response)

@@ -6,7 +6,7 @@
 import asyncio
 import concurrent.futures
 import hashlib
-from typing import Any, Optional, get_args
+from typing import Any, Optional, cast, get_args
 
 from colorama import Fore, Style
 from pydantic_core._pydantic_core import ValidationError as PydanticValidationError
@@ -22,6 +22,7 @@ from cltk.core.data_types import (
 from cltk.core.exceptions import CLTKException
 from cltk.core.logging_utils import bind_from_doc
 from cltk.genai.chatgpt import AsyncChatGPTConnection, ChatGPTConnection
+from cltk.genai.ollama import AsyncOllamaConnection, OllamaConnection
 from cltk.genai.prompts import morphosyntax_prompt
 from cltk.morphosyntax.ud_features import UDFeatureTagSet, convert_pos_features_to_ud
 from cltk.morphosyntax.ud_pos import UDPartOfSpeechTag
@@ -52,7 +53,7 @@ def generate_pos(
     doc: Doc,
     sentence_idx: Optional[int] = None,
     max_retries: int = 2,
-    client: Optional[ChatGPTConnection] = None,
+    client: Optional[Any] = None,
 ) -> Doc:
     """Call OpenAI and return UD token annotations for a short span.
 
@@ -108,7 +109,7 @@ def generate_pos(
     log = bind_context(
         doc_id=doc_hash,
         sentence_idx=sentence_idx,
-        model=str(doc.backend_version) if doc.backend_version else None,
+        model=str(doc.model) if doc.model else None,
         glottolog_id=glottolog_id,
         prompt_version=str(pinfo.version),
     )
@@ -117,22 +118,36 @@ def generate_pos(
     # code_blocks: list[Any] = []
     if not doc.backend:
         msg_no_backend: str = (
-            "Doc must have `.backend` set to 'chatgpt' to use generate_pos."
+            "Doc must have `.backend` set to 'chatgpt' or 'ollama' to use generate_pos."
         )
         log.error(msg_no_backend)
         raise CLTKException(msg_no_backend)
-    if not doc.backend_version:
+    if not doc.model:
         msg_no_backend_version: str = (
-            "Doc missing `.backend_version`. Setting to 'gpt-5.0' to use generate_pos."
+            "Doc missing `.model`. Set to a supported model to use generate_pos."
         )
         log.info(msg_no_backend_version)
         raise CLTKException(msg_no_backend_version)
-    if doc.backend_version not in get_args(AVAILABLE_OPENAI_MODELS):
-        msg_unsupported_backend_version: str = f"Doc has unsupported `.backend_version`: {doc.backend_version}. Supported versions are: {get_args(AVAILABLE_OPENAI_MODELS)}."
-        log.error(msg_unsupported_backend_version)
-        raise CLTKException(msg_unsupported_backend_version)
-    if not client:
-        client = ChatGPTConnection(model=doc.backend_version)
+    if doc.backend == "openai":
+        if doc.model not in get_args(AVAILABLE_OPENAI_MODELS):
+            msg_unsupported_backend_version: str = (
+                f"Doc has unsupported `.model`: {doc.model}. "
+                f"Supported versions are: {get_args(AVAILABLE_OPENAI_MODELS)}."
+            )
+            log.error(msg_unsupported_backend_version)
+            raise CLTKException(msg_unsupported_backend_version)
+        if not client:
+            openai_model: AVAILABLE_OPENAI_MODELS = cast(
+                AVAILABLE_OPENAI_MODELS, doc.model
+            )
+            client = ChatGPTConnection(model=openai_model)
+    elif doc.backend == "ollama":
+        if not client:
+            client = OllamaConnection(model=str(doc.model))
+    else:
+        raise CLTKException(
+            f"Unsupported backend for generate_pos: {doc.backend}. Use 'chatgpt' or 'ollama'."
+        )
     chatgpt_res_obj: CLTKGenAIResponse = client.generate(
         prompt=prompt, max_retries=max_retries
     )
@@ -240,11 +255,24 @@ def generate_pos(
 
 def generate_gpt_morphosyntax(doc: Doc) -> Doc:
     log = bind_from_doc(doc)
-    if not doc.backend_version:
-        msg: str = "Document backend version is not set."
+    if not doc.model:
+        msg: str = "Document model is not set."
         log.error(msg)
         raise ValueError(msg)
-    client: ChatGPTConnection = ChatGPTConnection(model=doc.backend_version)
+    client: Any
+    if doc.backend == "openai":
+        if doc.model not in get_args(AVAILABLE_OPENAI_MODELS):
+            raise CLTKException(
+                f"Doc has unsupported `.model`: {doc.model}. Supported: {get_args(AVAILABLE_OPENAI_MODELS)}."
+            )
+        openai_model: AVAILABLE_OPENAI_MODELS = cast(AVAILABLE_OPENAI_MODELS, doc.model)
+        client = ChatGPTConnection(model=openai_model)
+    elif doc.backend == "ollama":
+        client = OllamaConnection(model=str(doc.model))
+    else:
+        raise CLTKException(
+            f"Unsupported backend for morphosyntax: {doc.backend}. Use 'chatgpt' or 'ollama'."
+        )
     if not doc.normalized_text:
         msg = "Input document must have either `.normalized_text`."
         log.error(msg)
@@ -263,7 +291,7 @@ def generate_gpt_morphosyntax(doc: Doc) -> Doc:
             language=doc.language,
             normalized_text=sentence_string,
             backend=doc.backend,
-            backend_version=doc.backend_version,
+            model=doc.model,
         )
         tmp_doc = generate_pos(
             doc=tmp_doc,
@@ -341,8 +369,8 @@ async def generate_gpt_morphosyntax_async(
         "[async] Starting morphosyntax generation for %s sentences",
         len(doc.sentence_strings),
     )
-    if not doc.backend_version:
-        msg = "Document backend version is not set."
+    if not doc.model:
+        msg = "Document model is not set."
         log.error(msg)
         raise ValueError(msg)
     if not doc.normalized_text:
@@ -350,7 +378,19 @@ async def generate_gpt_morphosyntax_async(
         log.error(msg)
         raise ValueError(msg)
 
-    conn = AsyncChatGPTConnection(model=doc.backend_version)
+    if doc.backend == "openai":
+        if doc.model not in get_args(AVAILABLE_OPENAI_MODELS):
+            raise CLTKException(
+                f"Doc has unsupported `.model`: {doc.model}. Supported: {get_args(AVAILABLE_OPENAI_MODELS)}."
+            )
+        openai_model: AVAILABLE_OPENAI_MODELS = cast(AVAILABLE_OPENAI_MODELS, doc.model)
+        conn: Any = AsyncChatGPTConnection(model=openai_model)
+    elif doc.backend == "ollama":
+        conn = AsyncOllamaConnection(model=str(doc.model))
+    else:
+        raise CLTKException(
+            f"Unsupported backend for async morphosyntax: {doc.backend}."
+        )
 
     # Prepare prompts per sentence
     lang_or_dialect_name = doc.dialect.name if doc.dialect else doc.language.name
@@ -392,7 +432,7 @@ async def generate_gpt_morphosyntax_async(
             language=doc.language,
             normalized_text=sentence,
             backend=doc.backend,
-            backend_version=doc.backend_version,
+            model=doc.model,
         )
         # Parse TSV and construct words (reuse sync logic pieces)
         parsed = _parse_tsv_table(res.response)

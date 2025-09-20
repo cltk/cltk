@@ -9,7 +9,7 @@ and render well in documentation.
 
 from abc import abstractmethod
 from datetime import date
-from typing import Any, Literal, Optional, TypeAlias
+from typing import Any, Literal, Optional, TypeAlias, Union
 
 import numpy as np
 from pydantic import AnyUrl, BaseModel, Field, model_validator
@@ -281,7 +281,7 @@ class Sentence(CLTKBaseModel):
     #     return len(self.words)
 
 
-BACKEND_TYPES: TypeAlias = Literal["chatgpt", "stanza", "spacy"]
+BACKEND_TYPES: TypeAlias = Literal["openai", "stanza", "spacy", "ollama"]
 AVAILABLE_OPENAI_MODELS: TypeAlias = Literal["gpt-5-nano", "gpt-5-mini", "gpt-5"]
 
 
@@ -320,9 +320,9 @@ class Doc(CLTKBaseModel):
     sentence_boundaries: list[tuple[int, int]] = Field(default_factory=list)
     chatgpt: list[dict[str, Any]] = Field(default_factory=list)
     backend: Optional[BACKEND_TYPES] = None
-    backend_version: Optional[AVAILABLE_OPENAI_MODELS] = (
-        None  # TODO: Implement for `backend` too with map
-    )
+    # Model alias/name for the selected backend. For ChatGPT this should be
+    # one of AVAILABLE_OPENAI_MODELS; for Ollama any model string is accepted.
+    model: Optional[Union[BACKEND_TYPES, str]] = None
     dialect: Optional[Dialect] = None
 
     @property
