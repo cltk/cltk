@@ -5,8 +5,9 @@ generating text responses used by CLTK's generative pipelines. It mirrors the
 shape of the OpenAI integration so higher layers can switch based on
 ``doc.backend``.
 
-Usage requires the optional dependency group ``cltk[ollama]`` and a running
-Ollama server (default host ``http://127.0.0.1:11434``).
+Usage requires the optional dependency group ``cltk[ollama]`` alongside either
+a running local Ollama server (default host ``http://127.0.0.1:11434``) or an
+Ollama Cloud API key.
 """
 
 from __future__ import annotations
@@ -17,6 +18,7 @@ from typing import Any, Optional
 from cltk.core.cltk_logger import bind_context
 from cltk.core.data_types import CLTKGenAIResponse
 from cltk.core.exceptions import CLTKException
+from cltk.utils.utils import load_env_file
 
 OLLAMA_HOST_ENV = "OLLAMA_HOST"
 
@@ -59,18 +61,41 @@ class OllamaConnection:
       model: Ollama model name (e.g., ``"llama3.1:8b"``). Any string accepted.
       host: Optional Ollama host URL. Defaults to ``$OLLAMA_HOST`` or
         ``http://127.0.0.1:11434``.
+      use_cloud: When true, use the hosted Ollama Cloud endpoint.
+      api_key: Optional explicit API key for the hosted endpoint.
 
     """
 
-    def __init__(self, model: str, host: Optional[str] = None) -> None:
+    def __init__(
+        self,
+        model: str,
+        host: Optional[str] = None,
+        *,
+        use_cloud: bool = False,
+        api_key: Optional[str] = None,
+    ) -> None:
         self.model = model
-        self.host = host or _default_host()
+        self.use_cloud = use_cloud
         self.log = bind_context(model=model)
+        self.host = host or ("https://ollama.com" if use_cloud else _default_host())
+        self.api_key = api_key
+        headers: Optional[dict[str, str]] = None
+        if self.use_cloud:
+            load_env_file()
+            self.api_key = self.api_key or os.environ.get("OLLAMA_CLOUD_API_KEY")
+            if not self.api_key:
+                raise ImportError(
+                    "Ollama Cloud API key not found. Set OLLAMA_CLOUD_API_KEY in your environment."
+                )
+            headers = {"Authorization": self.api_key}
         self._client: Any
         try:
             from ollama import Client as _Client
 
-            self._client = _Client(host=self.host)
+            if headers:
+                self._client = _Client(host=self.host, headers=headers)
+            else:
+                self._client = _Client(host=self.host)
         except Exception as e:  # pragma: no cover - optional dep
             raise ImportError(
                 "Ollama client not installed. Install with: pip install 'cltk[ollama]'"
@@ -82,6 +107,8 @@ class OllamaConnection:
         We optimistically try ``show`` to check presence; if unavailable or
         raises, we call ``pull``.
         """
+        if self.use_cloud:
+            return
         try:
             # Some client versions expose ``show(model=...)``
             show = getattr(self._client, "show", None)
@@ -124,21 +151,44 @@ class OllamaConnection:
 class AsyncOllamaConnection:
     """Async wrapper around the Ollama client for CLTK use cases."""
 
-    def __init__(self, model: str, host: Optional[str] = None) -> None:
+    def __init__(
+        self,
+        model: str,
+        host: Optional[str] = None,
+        *,
+        use_cloud: bool = False,
+        api_key: Optional[str] = None,
+    ) -> None:
         self.model = model
-        self.host = host or _default_host()
+        self.use_cloud = use_cloud
         self.log = bind_context(model=model)
+        self.host = host or ("https://ollama.com" if use_cloud else _default_host())
+        self.api_key = api_key
+        headers: Optional[dict[str, str]] = None
+        if self.use_cloud:
+            load_env_file()
+            self.api_key = self.api_key or os.environ.get("OLLAMA_CLOUD_API_KEY")
+            if not self.api_key:
+                raise ImportError(
+                    "Ollama Cloud API key not found. Set OLLAMA_CLOUD_API_KEY in your environment."
+                )
+            headers = {"Authorization": self.api_key}
         self._client: Any
         try:
             from ollama import AsyncClient as _AsyncClient
 
-            self._client = _AsyncClient(host=self.host)
+            if headers:
+                self._client = _AsyncClient(host=self.host, headers=headers)
+            else:
+                self._client = _AsyncClient(host=self.host)
         except Exception as e:  # pragma: no cover - optional dep
             raise ImportError(
                 "Ollama client not installed. Install with: pip install 'cltk[ollama]'"
             ) from e
 
     async def _pull_if_needed(self) -> None:
+        if self.use_cloud:
+            return
         try:
             show = getattr(self._client, "show", None)
             if callable(show):

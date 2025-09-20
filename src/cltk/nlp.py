@@ -77,6 +77,7 @@ class NLP:
             self.language_code = self.language.glottolog_id
         self.backend: BACKEND_TYPES = backend
         self.model: Optional[str] = model
+        self._ollama_cloud_api_key: Optional[str] = None
         if self.backend == "openai":
             load_env_file()
             self.api_key: Optional[str] = os.getenv("OPENAI_API_KEY")
@@ -86,7 +87,14 @@ class NLP:
                 raise ValueError(msg)
             # Default model if none provided
             self.model = self.model or "gpt-5-mini"
-        elif self.backend == "ollama":
+        elif self.backend in ("ollama", "ollama-cloud"):
+            if self.backend == "ollama-cloud":
+                load_env_file()
+                self._ollama_cloud_api_key = os.getenv("OLLAMA_CLOUD_API_KEY")
+                if not self._ollama_cloud_api_key:
+                    msg = "API key for Ollama Cloud not found."
+                    logger.error(msg)
+                    raise ValueError(msg)
             # Default model if none provided
             self.model = self.model or "llama3.1:8b"
         elif self.backend == "stanza":
@@ -285,7 +293,7 @@ class NLP:
             )
         elif self.backend == "openai":
             mapping = MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE
-        elif self.backend == "ollama":
+        elif self.backend in ("ollama", "ollama-cloud"):
             # Reuse the same generative pipelines; lower layers pick the client by backend
             mapping = MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE
         else:

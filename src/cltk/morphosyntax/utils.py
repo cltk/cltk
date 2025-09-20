@@ -117,9 +117,7 @@ def generate_pos(
     log.debug(prompt)
     # code_blocks: list[Any] = []
     if not doc.backend:
-        msg_no_backend: str = (
-            "Doc must have `.backend` set to 'chatgpt' or 'ollama' to use generate_pos."
-        )
+        msg_no_backend: str = "Doc must have `.backend` set to 'chatgpt', 'ollama', or 'ollama-cloud' to use generate_pos."
         log.error(msg_no_backend)
         raise CLTKException(msg_no_backend)
     if not doc.model:
@@ -141,12 +139,15 @@ def generate_pos(
                 AVAILABLE_OPENAI_MODELS, doc.model
             )
             client = ChatGPTConnection(model=openai_model)
-    elif doc.backend == "ollama":
+    elif doc.backend in ("ollama", "ollama-cloud"):
         if not client:
-            client = OllamaConnection(model=str(doc.model))
+            client = OllamaConnection(
+                model=str(doc.model),
+                use_cloud=doc.backend == "ollama-cloud",
+            )
     else:
         raise CLTKException(
-            f"Unsupported backend for generate_pos: {doc.backend}. Use 'chatgpt' or 'ollama'."
+            f"Unsupported backend for generate_pos: {doc.backend}. Use 'chatgpt', 'ollama', or 'ollama-cloud'."
         )
     chatgpt_res_obj: CLTKGenAIResponse = client.generate(
         prompt=prompt, max_retries=max_retries
@@ -267,11 +268,14 @@ def generate_gpt_morphosyntax(doc: Doc) -> Doc:
             )
         openai_model: AVAILABLE_OPENAI_MODELS = cast(AVAILABLE_OPENAI_MODELS, doc.model)
         client = ChatGPTConnection(model=openai_model)
-    elif doc.backend == "ollama":
-        client = OllamaConnection(model=str(doc.model))
+    elif doc.backend in ("ollama", "ollama-cloud"):
+        client = OllamaConnection(
+            model=str(doc.model),
+            use_cloud=doc.backend == "ollama-cloud",
+        )
     else:
         raise CLTKException(
-            f"Unsupported backend for morphosyntax: {doc.backend}. Use 'chatgpt' or 'ollama'."
+            f"Unsupported backend for morphosyntax: {doc.backend}. Use 'chatgpt', 'ollama', or 'ollama-cloud'."
         )
     if not doc.normalized_text:
         msg = "Input document must have either `.normalized_text`."
@@ -385,8 +389,11 @@ async def generate_gpt_morphosyntax_async(
             )
         openai_model: AVAILABLE_OPENAI_MODELS = cast(AVAILABLE_OPENAI_MODELS, doc.model)
         conn: Any = AsyncChatGPTConnection(model=openai_model)
-    elif doc.backend == "ollama":
-        conn = AsyncOllamaConnection(model=str(doc.model))
+    elif doc.backend in ("ollama", "ollama-cloud"):
+        conn = AsyncOllamaConnection(
+            model=str(doc.model),
+            use_cloud=doc.backend == "ollama-cloud",
+        )
     else:
         raise CLTKException(
             f"Unsupported backend for async morphosyntax: {doc.backend}."

@@ -281,7 +281,9 @@ class Sentence(CLTKBaseModel):
     #     return len(self.words)
 
 
-BACKEND_TYPES: TypeAlias = Literal["openai", "stanza", "spacy", "ollama"]
+BACKEND_TYPES: TypeAlias = Literal[
+    "openai", "stanza", "spacy", "ollama", "ollama-cloud"
+]
 AVAILABLE_OPENAI_MODELS: TypeAlias = Literal["gpt-5-nano", "gpt-5-mini", "gpt-5"]
 
 

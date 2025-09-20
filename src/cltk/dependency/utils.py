@@ -131,7 +131,7 @@ def generate_dependency_tree(
     log.debug(prompt)
     # code_blocks: list[Any] = []
     if not doc.backend:
-        msg_no_backend: str = "Doc must have `.backend` set to 'chatgpt' or 'ollama' to use generate_dependency_tree."
+        msg_no_backend: str = "Doc must have `.backend` set to 'chatgpt', 'ollama', or 'ollama-cloud' to use generate_dependency_tree."
         log.error(msg_no_backend)
         raise CLTKException(msg_no_backend)
     if not doc.model:
@@ -151,9 +151,12 @@ def generate_dependency_tree(
                 AVAILABLE_OPENAI_MODELS, doc.model
             )
             client = ChatGPTConnection(model=openai_model)
-    elif doc.backend == "ollama":
+    elif doc.backend in ("ollama", "ollama-cloud"):
         if not client:
-            client = OllamaConnection(model=str(doc.model))
+            client = OllamaConnection(
+                model=str(doc.model),
+                use_cloud=doc.backend == "ollama-cloud",
+            )
     else:
         raise CLTKException(
             f"Unsupported backend for dependency generation: {doc.backend}."
@@ -272,8 +275,11 @@ def generate_gpt_dependency(doc: Doc) -> Doc:
             )
         openai_model: AVAILABLE_OPENAI_MODELS = cast(AVAILABLE_OPENAI_MODELS, doc.model)
         client = ChatGPTConnection(model=openai_model)
-    elif doc.backend == "ollama":
-        client = OllamaConnection(model=str(doc.model))
+    elif doc.backend in ("ollama", "ollama-cloud"):
+        client = OllamaConnection(
+            model=str(doc.model),
+            use_cloud=doc.backend == "ollama-cloud",
+        )
     else:
         raise CLTKException(
             f"Unsupported backend for dependency parsing: {doc.backend}."
@@ -410,8 +416,11 @@ async def generate_gpt_dependency_async(
             )
         openai_model: AVAILABLE_OPENAI_MODELS = cast(AVAILABLE_OPENAI_MODELS, doc.model)
         conn: Any = AsyncChatGPTConnection(model=openai_model)
-    elif doc.backend == "ollama":
-        conn = AsyncOllamaConnection(model=str(doc.model))
+    elif doc.backend in ("ollama", "ollama-cloud"):
+        conn = AsyncOllamaConnection(
+            model=str(doc.model),
+            use_cloud=doc.backend == "ollama-cloud",
+        )
     else:
         raise CLTKException(
             f"Unsupported backend for async dependency parsing: {doc.backend}."
