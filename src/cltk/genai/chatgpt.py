@@ -83,7 +83,7 @@ class ChatGPTConnection:
                 from openai import OpenAI as _OpenAI
             except Exception as e:
                 raise ImportError(
-                    "OpenAI client not installed. Install with: pip install 'cltk[genai]'"
+                    "OpenAI client not installed. Install with: pip install 'cltk[openai]'"
                 ) from e
         self.client = _OpenAI(api_key=self.api_key)
         # Structured logger bound with model identifier
@@ -269,7 +269,7 @@ class AsyncChatGPTConnection:
                 from openai import AsyncOpenAI as _AsyncOpenAI
             except Exception as e:
                 raise ImportError(
-                    "OpenAI client not installed. Install with: pip install 'cltk[genai]'"
+                    "OpenAI client not installed. Install with: pip install 'cltk[openai]'"
                 ) from e
         self.client = _AsyncOpenAI(api_key=self.api_key)
         # Structured logger bound with model identifier

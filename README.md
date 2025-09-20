@@ -15,7 +15,7 @@ Optional extras
 - GenAI (OpenAI-backed annotation):
 
 ```bash
-pip install "cltk[genai]"
+pip install "cltk[openai]"
 ```
 
 - Stanza (discriminative NLP backends powered by Stanford Stanza):
@@ -27,7 +27,7 @@ pip install "cltk[stanza]"
 You can combine extras, for example:
 
 ```bash
-pip install "cltk[genai,stanza]"
+pip install "cltk[openai,stanza]"
 ```
 
 For more information, see [Installation docs](https://docs.cltk.org/en/latest/installation.html) or, to install from source, [Development](https://docs.cltk.org/en/latest/development.html).

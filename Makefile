@@ -26,7 +26,7 @@ install:
 	poetry install --only main
 
 installOptionals:
-	poetry install -E genai
+	poetry install -E openai
 	poetry install -E stanza
 
 installDev:
