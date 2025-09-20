@@ -17,12 +17,6 @@ from cltk.morphosyntax.ud_deprels import UDDeprelTag, get_ud_deprel_tag
 from cltk.morphosyntax.ud_features import UDFeatureTagSet, convert_pos_features_to_ud
 from cltk.morphosyntax.ud_pos import UDPartOfSpeechTag
 
-# _GLOTTO_TO_STANZA_LANG = {
-#     # Latin
-#     "lati1261": "la",
-#     # Ancient Greek
-#     "anci1242": "grc",
-# }
 _GLOTTO_TO_STANZA_LANG = {
     "chur1257": "Old_Church_Slavonic",
     "copt1239": "Coptic",
@@ -31,6 +25,10 @@ _GLOTTO_TO_STANZA_LANG = {
     "goth1244": "Gothic",
     "lati1261": "Latin",
     "lite1248": "Classical_Chinese",
+    "olde1238": "Old_English",
+    "otto1234": "Ottoman_Turkish",
+    "clas1256": "Classical_Armenian",
+    "oldr1238": "Old_East_Slavic",  # treebank names changed from Old Russian to Old East Slavic in 2.8
 }
 
 
@@ -56,7 +54,7 @@ class StanzaAnalyzeProcess(Process):
 
         # Optional dependency guard
         try:
-            import stanza  # type: ignore
+            import stanza
         except Exception as e:  # pragma: no cover - only when stanza missing
             raise ImportError(
                 "Stanza not installed. Install with: pip install 'cltk[stanza]'"

@@ -507,7 +507,24 @@ evaṃ ime sattā anekesu bhavesu saṃsarantā dukkhāni anubhavanti.
 """,
     # Urdu
     "urdu1245": """یہ اردو زبان کا ایک سادہ جملہ ہے۔ یہ مثال کے طور پر دی گئی ہے۔""",
-    # "": """""",
+    # Ottomaan Turkish, Tevârîh-i Âl-i Osmân (Chronicles of the House of Osman, 15th c.)
+    "otto1234": """اولق زماندا ايله ديرلر كه اَرطُغرل بك نين اوغلı عُثمان بك غازی اولدی.
+عُثمان بك نين دولت و اَزمتله بيرلَكده تركلر ايتبار و شوكت تاپدیلر.""",
+    # Late Middle Indo-Aryan, or Ashokan Prakrit, Pillar Edict 7
+    "midd1350": """iyaṃ dhaṃma-lipi devānaṃpi piyena piyadasinā rājena likhāpitä,
+sabbāpi pāṇāni mātu-pitu-susūsanāni gurusu ca susūsanāni
+mittesu ca saṃvibhāgāni, āriyesu ca saṃvibhāgāni,
+paṭisanthāro ca brāhmaṇa-śamaṇesu.
+""",
+    # Old Turkish, Kitâb-ı Gunya, a prose text written in Anatolia during the Seljuk → early Ottoman period
+    "anat1259": """بو کتاب كيم تصنيف اولندی، هر كس اوقسا و انلارسا و عمل قيلسا،
+جهانده عزّت و آخرتده نجات بولور.
+""",
+    # Old Russian, or Old East Slavic, Primary Chronicle (Повѣсть времѧньныхъ лѣтъ, early 12th c.)
+    "oldr1238": """Въ лѣто 6370. Почаша княжити в Киеве Игорь, сынъ Ольгинъ.
+И бѣша людие новгородьстии ропщюще на него, рекуще:
+«Не любо намъ Игореви княжити».
+""",
 }
 
 
