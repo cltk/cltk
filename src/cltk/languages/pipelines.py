@@ -355,21 +355,25 @@ except Exception:  # pragma: no cover - stanza optional
     _STANZA_AVAILABLE = False
 
 
+def ensure_stanza_available() -> None:
+    """Raise an informative error when stanza-backed processes are missing."""
+    if not _STANZA_AVAILABLE or RuntimeStanzaAnalyzeProcess is None:
+        msg = "Stanza backend requested but stanza is not installed. Install with: pip install 'cltk[stanza]'"
+        raise ImportError(msg)
+
+
+def _stanza_processes_default() -> list[Any]:
+    """Return the standard stanza pipeline processes, ensuring availability."""
+    ensure_stanza_available()
+    return [MultilingualNormalizeProcess, RuntimeStanzaAnalyzeProcess]
+
+
 class LatinStanzaPipeline(Pipeline):
     """Stanza-backed pipeline for Latin."""
 
     description: Optional[str] = "Stanza pipeline for the Latin language."
     glottolog_id: Optional[str] = "lati1261"
-    processes: Optional[list[Any]] = Field(
-        default_factory=lambda: [
-            *([MultilingualNormalizeProcess]),
-            *(
-                [RuntimeStanzaAnalyzeProcess]
-                if _STANZA_AVAILABLE and RuntimeStanzaAnalyzeProcess is not None
-                else []
-            ),
-        ]
-    )
+    processes: Optional[list[Any]] = Field(default_factory=_stanza_processes_default)
 
     def __post_init__(self) -> None:
         plog(self).debug(
@@ -383,16 +387,7 @@ class AncientGreekStanzaPipeline(Pipeline):
 
     description: Optional[str] = "Stanza pipeline for the Ancient Greek language."
     glottolog_id: Optional[str] = "anci1242"
-    processes: Optional[list[Any]] = Field(
-        default_factory=lambda: [
-            *([MultilingualNormalizeProcess]),
-            *(
-                [RuntimeStanzaAnalyzeProcess]
-                if _STANZA_AVAILABLE and RuntimeStanzaAnalyzeProcess is not None
-                else []
-            ),
-        ]
-    )
+    processes: Optional[list[Any]] = Field(default_factory=_stanza_processes_default)
 
     def __post_init__(self) -> None:
         plog(self).debug(
@@ -882,16 +877,7 @@ class ChurchSlavonicStanzaPipeline(Pipeline):
 
     description: Optional[str] = "Stanza pipeline for the Church Slavonic language."
     glottolog_id: Optional[str] = "chur1257"
-    processes: Optional[list[Any]] = Field(
-        default_factory=lambda: [
-            *([MultilingualNormalizeProcess]),
-            *(
-                [RuntimeStanzaAnalyzeProcess]
-                if _STANZA_AVAILABLE and RuntimeStanzaAnalyzeProcess is not None
-                else []
-            ),
-        ]
-    )
+    processes: Optional[list[Any]] = Field(default_factory=_stanza_processes_default)
 
     def __post_init__(self) -> None:
         plog(self).debug(
@@ -905,16 +891,7 @@ class OldFrenchStanzaPipeline(Pipeline):
 
     description: Optional[str] = "Stanza pipeline for the Old French language."
     glottolog_id: Optional[str] = "oldf1239"
-    processes: Optional[list[Any]] = Field(
-        default_factory=lambda: [
-            *([MultilingualNormalizeProcess]),
-            *(
-                [RuntimeStanzaAnalyzeProcess]
-                if _STANZA_AVAILABLE and RuntimeStanzaAnalyzeProcess is not None
-                else []
-            ),
-        ]
-    )
+    processes: Optional[list[Any]] = Field(default_factory=_stanza_processes_default)
 
     def __post_init__(self) -> None:
         plog(self).debug(
@@ -928,16 +905,7 @@ class GothicStanzaPipeline(Pipeline):
 
     description: Optional[str] = "Stanza pipeline for the Gothic language."
     glottolog_id: Optional[str] = "goth1244"
-    processes: Optional[list[Any]] = Field(
-        default_factory=lambda: [
-            *([MultilingualNormalizeProcess]),
-            *(
-                [RuntimeStanzaAnalyzeProcess]
-                if _STANZA_AVAILABLE and RuntimeStanzaAnalyzeProcess is not None
-                else []
-            ),
-        ]
-    )
+    processes: Optional[list[Any]] = Field(default_factory=_stanza_processes_default)
 
     def __post_init__(self) -> None:
         plog(self).debug(
@@ -951,16 +919,7 @@ class OldEnglishStanzaPipeline(Pipeline):
 
     description: Optional[str] = "Stanza pipeline for the Old English language."
     glottolog_id: Optional[str] = "olde1238"
-    processes: Optional[list[Any]] = Field(
-        default_factory=lambda: [
-            *([MultilingualNormalizeProcess]),
-            *(
-                [RuntimeStanzaAnalyzeProcess]
-                if _STANZA_AVAILABLE and RuntimeStanzaAnalyzeProcess is not None
-                else []
-            ),
-        ]
-    )
+    processes: Optional[list[Any]] = Field(default_factory=_stanza_processes_default)
 
     def __post_init__(self) -> None:
         plog(self).debug(
@@ -974,16 +933,7 @@ class LiteraryChineseStanzaPipeline(Pipeline):
 
     description: Optional[str] = "Stanza pipeline for the Literary Chinese language."
     glottolog_id: Optional[str] = "lite1248"
-    processes: Optional[list[Any]] = Field(
-        default_factory=lambda: [
-            *([MultilingualNormalizeProcess]),
-            *(
-                [RuntimeStanzaAnalyzeProcess]
-                if _STANZA_AVAILABLE and RuntimeStanzaAnalyzeProcess is not None
-                else []
-            ),
-        ]
-    )
+    processes: Optional[list[Any]] = Field(default_factory=_stanza_processes_default)
 
     def __post_init__(self) -> None:
         plog(self).debug(
@@ -997,16 +947,7 @@ class OttomanTurkishStanzaPipeline(Pipeline):
 
     description: Optional[str] = "Stanza pipeline for the Ottoman Turkish language."
     glottolog_id: Optional[str] = "otto1234"
-    processes: Optional[list[Any]] = Field(
-        default_factory=lambda: [
-            *([MultilingualNormalizeProcess]),
-            *(
-                [RuntimeStanzaAnalyzeProcess]
-                if _STANZA_AVAILABLE and RuntimeStanzaAnalyzeProcess is not None
-                else []
-            ),
-        ]
-    )
+    processes: Optional[list[Any]] = Field(default_factory=_stanza_processes_default)
 
     def __post_init__(self) -> None:
         plog(self).debug(
@@ -1020,16 +961,7 @@ class ClassicalArmenianStanzaPipeline(Pipeline):
 
     description: Optional[str] = "Stanza pipeline for the Classical Armenian language."
     glottolog_id: Optional[str] = "clas1256"
-    processes: Optional[list[Any]] = Field(
-        default_factory=lambda: [
-            *([MultilingualNormalizeProcess]),
-            *(
-                [RuntimeStanzaAnalyzeProcess]
-                if _STANZA_AVAILABLE and RuntimeStanzaAnalyzeProcess is not None
-                else []
-            ),
-        ]
-    )
+    processes: Optional[list[Any]] = Field(default_factory=_stanza_processes_default)
 
     def __post_init__(self) -> None:
         plog(self).debug(
@@ -1043,16 +975,7 @@ class CopticStanzaPipeline(Pipeline):
 
     description: Optional[str] = "Stanza pipeline for the Coptic language."
     glottolog_id: Optional[str] = "copt1239"
-    processes: Optional[list[Any]] = Field(
-        default_factory=lambda: [
-            *([MultilingualNormalizeProcess]),
-            *(
-                [RuntimeStanzaAnalyzeProcess]
-                if _STANZA_AVAILABLE and RuntimeStanzaAnalyzeProcess is not None
-                else []
-            ),
-        ]
-    )
+    processes: Optional[list[Any]] = Field(default_factory=_stanza_processes_default)
 
     def __post_init__(self) -> None:
         plog(self).debug(
@@ -1066,16 +989,7 @@ class OldRussianStanzaPipeline(Pipeline):
 
     description: Optional[str] = "Stanza pipeline for the Old Russian language."
     glottolog_id: Optional[str] = "oldr1238"
-    processes: Optional[list[Any]] = Field(
-        default_factory=lambda: [
-            *([MultilingualNormalizeProcess]),
-            *(
-                [RuntimeStanzaAnalyzeProcess]
-                if _STANZA_AVAILABLE and RuntimeStanzaAnalyzeProcess is not None
-                else []
-            ),
-        ]
-    )
+    processes: Optional[list[Any]] = Field(default_factory=_stanza_processes_default)
 
     def __post_init__(self) -> None:
         plog(self).debug(

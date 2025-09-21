@@ -3,10 +3,10 @@ from __future__ import annotations
 import importlib
 import importlib.util
 import inspect
-import re
-from typing import Any
 import json
+import re
 from pathlib import Path
+from typing import Any
 
 
 def test_top_level_api() -> None:

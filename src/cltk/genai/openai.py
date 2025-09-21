@@ -39,7 +39,7 @@ except Exception:  # pragma: no cover
 # Error type guard with alias to avoid mypy redefinition
 _OpenAIError: Any
 try:
-    from openai import OpenAIError as _OpenAIError
+    from openai import OpenAIError as _OpenAIError  # type: ignore[no-redef]
 except Exception:  # pragma: no cover - fallback
     _OpenAIError = Exception
 OpenAIError = _OpenAIError
@@ -80,7 +80,7 @@ class OpenAIConnection:
         _OpenAI = OpenAI
         if _OpenAI is None:  # pragma: no cover - import only if needed
             try:
-                from openai import OpenAI as _OpenAI
+                from openai import OpenAI as _OpenAI  # type: ignore[no-redef]
             except Exception as e:
                 raise ImportError(
                     "OpenAI client not installed. Install with: pip install 'cltk[openai]'"
@@ -262,7 +262,7 @@ class AsyncOpenAIConnection:
         _AsyncOpenAI = AsyncOpenAI
         if _AsyncOpenAI is None:  # pragma: no cover - import only if needed
             try:
-                from openai import AsyncOpenAI as _AsyncOpenAI
+                from openai import AsyncOpenAI as _AsyncOpenAI  # type: ignore[no-redef]
             except Exception as e:
                 raise ImportError(
                     "OpenAI client not installed. Install with: pip install 'cltk[openai]'"

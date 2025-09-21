@@ -29,6 +29,7 @@ from cltk.languages.pipelines import (  # MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELI
     MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE,
     MAP_LANGUAGE_CODE_TO_SPACY_PIPELINE,
     MAP_LANGUAGE_CODE_TO_STANZA_PIPELINE,
+    ensure_stanza_available,
 )
 from cltk.utils.utils import load_env_file
 
@@ -98,6 +99,11 @@ class NLP:
             # Default model if none provided
             self.model = self.model or "llama3.1:8b"
         elif self.backend == "stanza":
+            try:
+                ensure_stanza_available()
+            except ImportError as e:
+                logger.error(str(e))
+                raise
             # Stanza models are bound to language pipelines; reject explicit model
             if self.model is not None:
                 raise ValueError(

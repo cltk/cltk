@@ -58,7 +58,7 @@ def _format_feats(feats: Optional[UDFeatureTagSet]) -> str:
         if not feats or not getattr(feats, "features", None):
             return "_"
         items: list[str] = []
-        for f in feats.features:  # Xtype: ignore[attr-defined]
+        for f in feats.features:
             key = getattr(f, "key", None)
             val = getattr(f, "value", None)
             if key and val:
