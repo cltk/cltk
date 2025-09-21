@@ -9,23 +9,7 @@ from contextlib import contextmanager
 # from enum import EnumMeta, IntEnum
 from typing import Any, Iterator, Optional, Union
 
-import requests
 from dotenv import load_dotenv
-from tqdm import tqdm
-
-# class CLTKEnumMeta(EnumMeta):
-#     def __repr__(cls):
-#         return cls.__name__
-
-
-# class CLTKEnum(IntEnum, metaclass=CLTKEnumMeta):
-#     def __repr__(self):
-#         return f"{self._name_}"
-
-#     __str__ = __repr__
-
-#     def __eq__(self, other):
-#         return False if type(self) != type(other) else IntEnum.__eq__(self, other)
 
 
 def file_exists(file_path: str, is_dir: bool = False) -> bool:
@@ -249,38 +233,6 @@ def mk_dirs_for_file(file_path: str) -> None:
     except FileExistsError:
         # TODO: Log INFO level; it's OK if dir already exists
         return None
-
-
-def get_file_with_progress_bar(model_url: str, file_path: str) -> None:
-    """Download file with a progress bar.
-
-    Source: https://stackoverflow.com/a/37573701
-
-    Args:
-        model_url: URL from which to downloaded file.
-        file_path: Location at which to save file.
-
-    Raises:
-        IOError: If size of downloaded file differs from that in remote's ``content-length`` header.
-
-    Returns:
-        None
-
-    """
-    mk_dirs_for_file(file_path=file_path)
-    req_obj = requests.get(url=model_url, stream=True)
-    total_size = int(req_obj.headers.get("content-length", 0))
-    block_size = 1024  # 1 Kibibyte
-    progress_bar = tqdm(total=total_size, unit="iB", unit_scale=True)
-    with open(file_path, "wb") as file_open:
-        for data in req_obj.iter_content(block_size):
-            progress_bar.update(len(data))
-            file_open.write(data)
-    progress_bar.close()
-    if total_size != 0 and progress_bar.n != total_size:
-        raise IOError(
-            f"Expected downloaded file to be of size '{total_size}' however it is in fact '{progress_bar.n}'."
-        )
 
 
 def pascal_case(value: str) -> str:
