@@ -284,7 +284,7 @@ class Sentence(CLTKBaseModel):
 BACKEND_TYPES: TypeAlias = Literal[
     "openai", "stanza", "spacy", "ollama", "ollama-cloud"
 ]
-AVAILABLE_OPENAI_MODELS: TypeAlias = Literal["gpt-5-nano", "gpt-5-mini", "gpt-5"]
+AVAILABLE_OPENAI_MODELS: TypeAlias = Literal["gpt-5-mini", "gpt-5"]
 
 
 class Doc(CLTKBaseModel):
