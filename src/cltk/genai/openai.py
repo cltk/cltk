@@ -19,30 +19,44 @@ from cltk.core.exceptions import CLTKException, OpenAIInferenceError
 from cltk.text.utils import cltk_normalize
 from cltk.utils.utils import load_env_file
 
-OpenAI: Any
-AsyncOpenAI: Any
 
-try:  # optional dependency guard
-    from openai import OpenAI as _RuntimeOpenAI
+class _OpenAIErrorFallback(Exception):
+    """Fallback error raised when the OpenAI SDK is unavailable."""
 
-    OpenAI = _RuntimeOpenAI  # re-export for tests/monkeypatch
-except Exception:  # pragma: no cover - fallback when openai missing
-    OpenAI = None
 
-try:  # optional dependency guard (async)
-    from openai import AsyncOpenAI as _RuntimeAsyncOpenAI
+def _resolve_openai_classes() -> tuple[
+    Optional[type[Any]], Optional[type[Any]], type[BaseException]
+]:
+    """Import OpenAI client classes lazily, tolerating missing optional deps."""
+    sync_cls: Optional[type[Any]]
+    async_cls: Optional[type[Any]]
+    error_cls: type[BaseException]
 
-    AsyncOpenAI = _RuntimeAsyncOpenAI  # re-export for tests/monkeypatch
-except Exception:  # pragma: no cover
-    AsyncOpenAI = None
+    try:
+        from openai import OpenAI as imported_sync
+    except Exception:  # pragma: no cover - optional dependency
+        sync_cls = None
+    else:
+        sync_cls = imported_sync
 
-# Error type guard with alias to avoid mypy redefinition
-_OpenAIError: Any
-try:
-    from openai import OpenAIError as _OpenAIError  # type: ignore[no-redef]
-except Exception:  # pragma: no cover - fallback
-    _OpenAIError = Exception
-OpenAIError = _OpenAIError
+    try:
+        from openai import AsyncOpenAI as imported_async
+    except Exception:  # pragma: no cover - optional dependency
+        async_cls = None
+    else:
+        async_cls = imported_async
+
+    try:
+        from openai import OpenAIError as imported_error
+    except Exception:  # pragma: no cover - optional dependency
+        error_cls = _OpenAIErrorFallback
+    else:
+        error_cls = imported_error
+
+    return sync_cls, async_cls, error_cls
+
+
+OpenAI, AsyncOpenAI, OpenAIError = _resolve_openai_classes()
 
 
 class OpenAIConnection:
@@ -77,15 +91,16 @@ class OpenAIConnection:
             bind_context(model=str(model)).error(msg)
             raise ValueError(msg)
         # Use patched OpenAI if provided by tests; else import lazily
-        _OpenAI = OpenAI
-        if _OpenAI is None:  # pragma: no cover - import only if needed
+        openai_cls = OpenAI
+        if openai_cls is None:  # pragma: no cover - import only if needed
             try:
-                from openai import OpenAI as _OpenAI  # type: ignore[no-redef]
+                from openai import OpenAI as runtime_openai
             except Exception as e:
                 raise ImportError(
                     "OpenAI client not installed. Install with: pip install 'cltk[openai]'"
                 ) from e
-        self.client = _OpenAI(api_key=self.api_key)
+            openai_cls = runtime_openai
+        self.client = openai_cls(api_key=self.api_key)
         # Structured logger bound with model identifier
         self.log = bind_context(model=str(self.model))
 
@@ -259,15 +274,16 @@ class AsyncOpenAIConnection:
             msg: str = "OPENAI_API_KEY not found. Please set it in your environment or in a .env file."
             bind_context(model=str(model)).error(msg)
             raise ValueError(msg)
-        _AsyncOpenAI = AsyncOpenAI
-        if _AsyncOpenAI is None:  # pragma: no cover - import only if needed
+        async_openai_cls = AsyncOpenAI
+        if async_openai_cls is None:  # pragma: no cover - import only if needed
             try:
-                from openai import AsyncOpenAI as _AsyncOpenAI  # type: ignore[no-redef]
+                from openai import AsyncOpenAI as runtime_async_openai
             except Exception as e:
                 raise ImportError(
                     "OpenAI client not installed. Install with: pip install 'cltk[openai]'"
                 ) from e
-        self.client = _AsyncOpenAI(api_key=self.api_key)
+            async_openai_cls = runtime_async_openai
+        self.client = async_openai_cls(api_key=self.api_key)
         # Structured logger bound with model identifier
         self.log = bind_context(model=str(self.model))
 
