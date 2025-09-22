@@ -262,7 +262,7 @@ class AsyncOpenAIConnection:
         _AsyncOpenAI = AsyncOpenAI
         if _AsyncOpenAI is None:  # pragma: no cover - import only if needed
             try:
-                from openai import AsyncOpenAI as _AsyncOpenAI  # type: ignore
+                from openai import AsyncOpenAI as _AsyncOpenAI  # type: ignore[no-redef]
             except Exception as e:
                 raise ImportError(
                     "OpenAI client not installed. Install with: pip install 'cltk[openai]'"
