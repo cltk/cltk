@@ -1,9 +1,4 @@
-"""High-level NLP entry point for CLTK pipelines.
-
-The :class:`NLP` class resolves a language (by Glottolog/ISO/name), chooses an
-appropriate pipeline (discriminative or generative backends), and runs each
-process in order to produce a :class:`cltk.core.data_types.Doc`.
-"""
+"""High-level NLP entry point for CLTK pipelines."""
 
 import os
 import shutil
@@ -41,18 +36,23 @@ class NLP:
 
     Args:
       language_code: Language key (Glottolog code, ISO code, or exact name).
-      backend: Backend family: ``"disc"`` (discriminative), ``"gen-cloud"``
-        (cloud LLM), ``"gen-local"`` (local LLM), or ``"auto"`` (detect from
-        env; default).
+      backend: One of ``"stanza"`` (default), ``"openai"``, ``"ollama"``,
+        ``"ollama-cloud"``, or ``"spacy"``. The ``"spacy"`` backend is not
+        yet implemented and will raise ``NotImplementedError``.
+      model: Optional model name when using generative backends
+        (``"openai"``, ``"ollama"``, ``"ollama-cloud"``). Ignored for
+        ``"stanza"``.
       custom_pipeline: Optional pipeline to use instead of the default mapping.
       suppress_banner: If true, suppresses informational console output.
 
     Notes:
-      - ``backend="auto"`` resolves to:
-        1) ``gen-cloud`` if an API key is found (``OPENAI_API_KEY`` or
-           ``CLTK_GENAI_API_KEY``),
-        2) else ``gen-local`` if an Ollama server is detected,
-        3) else ``disc``.
+      - When ``backend == "openai"`` and no ``model`` is provided, defaults to
+        ``"gpt-5-mini"``. Requires ``OPENAI_API_KEY`` in the environment.
+      - When ``backend`` is ``"ollama"`` or ``"ollama-cloud"`` and no ``model``
+        is provided, defaults to ``"llama3.1:8b"``. ``"ollama-cloud"`` requires
+        ``OLLAMA_CLOUD_API_KEY`` in the environment.
+      - The ``"stanza"`` backend does not accept a ``model`` parameter; language
+        models are bound to the pipeline for each language.
 
     """
 
@@ -274,7 +274,12 @@ class NLP:
         """Select the default pipeline for the resolved language.
 
         If a custom pipeline was not provided, this looks up the mapping for
-        the chosen backend and glottolog code and returns an instance.
+        the chosen backend and glottolog code and returns an instance. The
+        ``"stanza"`` backend uses ``MAP_LANGUAGE_CODE_TO_STANZA_PIPELINE``.
+        The generative backends (``"openai"``, ``"ollama"``, ``"ollama-cloud"``)
+        use ``MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE``; the underlying client
+        is selected later based on ``doc.backend``. The ``"spacy"`` backend is
+        currently not implemented and raises ``NotImplementedError``.
 
         Examples:
             ```python
