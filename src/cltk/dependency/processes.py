@@ -17,7 +17,7 @@ class DependencyProcess(Process):
     """Base class for morphosyntactic processes."""
 
 
-class OpenAIDependencyProcess(DependencyProcess):
+class GenAIDependencyProcess(DependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     @cached_property
@@ -45,7 +45,7 @@ class OpenAIDependencyProcess(DependencyProcess):
         return output_doc
 
 
-class CuneiformLuwianOpenAIDependencyProcess(OpenAIDependencyProcess):
+class CuneiformLuwianGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "cune1239"
@@ -53,7 +53,7 @@ class CuneiformLuwianOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "CuneiformLuwianOpenAIProcess using OpenAI GPT models."
 
 
-class HieroglyphicLuwianOpenAIDependencyProcess(OpenAIDependencyProcess):
+class HieroglyphicLuwianGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "hier1240"
@@ -63,7 +63,7 @@ class HieroglyphicLuwianOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "HieroglyphicLuwianOpenAIProcess using OpenAI GPT models."
 
 
-class OldPrussianOpenAIDependencyProcess(OpenAIDependencyProcess):
+class OldPrussianGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "prus1238"
@@ -71,7 +71,7 @@ class OldPrussianOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "OldPrussianOpenAIProcess using OpenAI GPT models."
 
 
-class LithuanianOpenAIDependencyProcess(OpenAIDependencyProcess):
+class LithuanianGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "lith1251"
@@ -79,7 +79,7 @@ class LithuanianOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "LithuanianOpenAIProcess using OpenAI GPT models."
 
 
-class LatvianOpenAIDependencyProcess(OpenAIDependencyProcess):
+class LatvianGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "latv1249"
@@ -87,7 +87,7 @@ class LatvianOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "LatvianOpenAIProcess using OpenAI GPT models."
 
 
-class AlbanianOpenAIDependencyProcess(OpenAIDependencyProcess):
+class AlbanianGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "gheg1238"
@@ -95,7 +95,7 @@ class AlbanianOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "AlbanianOpenAIProcess using OpenAI GPT models."
 
 
-class AkkadianOpenAIDependencyProcess(OpenAIDependencyProcess):
+class AkkadianGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "akka1240"
@@ -103,7 +103,7 @@ class AkkadianOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "AkkadianOpenAIProcess using OpenAI GPT models."
 
 
-class AncientGreekOpenAIDependencyProcess(OpenAIDependencyProcess):
+class AncientGreekGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "anci1242"
@@ -111,7 +111,7 @@ class AncientGreekOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "Ancient GreekOpenAIProcess using OpenAI GPT models."
 
 
-class BiblicalHebrewOpenAIDependencyProcess(OpenAIDependencyProcess):
+class BiblicalHebrewGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "anci1244"
@@ -119,7 +119,7 @@ class BiblicalHebrewOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "Biblical HebrewOpenAIProcess using OpenAI GPT models."
 
 
-class ClassicalArabicOpenAIDependencyProcess(OpenAIDependencyProcess):
+class ClassicalArabicGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "clas1259"
@@ -127,7 +127,7 @@ class ClassicalArabicOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "ClassicalArabicOpenAIProcess using OpenAI GPT models."
 
 
-class AvestanOpenAIDependencyProcess(OpenAIDependencyProcess):
+class AvestanGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "aves1237"
@@ -135,7 +135,7 @@ class AvestanOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "AvestanOpenAIProcess using OpenAI GPT models."
 
 
-class BactrianOpenAIDependencyProcess(OpenAIDependencyProcess):
+class BactrianGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "bact1239"
@@ -143,7 +143,7 @@ class BactrianOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "BactrianOpenAIProcess using OpenAI GPT models."
 
 
-class SogdianOpenAIDependencyProcess(OpenAIDependencyProcess):
+class SogdianGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "sogd1245"
@@ -151,7 +151,7 @@ class SogdianOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "SogdianOpenAIProcess using OpenAI GPT models."
 
 
-class BengaliOpenAIDependencyProcess(OpenAIDependencyProcess):
+class BengaliGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "beng1280"
@@ -159,7 +159,7 @@ class BengaliOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "BengaliOpenAIProcess using OpenAI GPT models."
 
 
-class CarianOpenAIDependencyProcess(OpenAIDependencyProcess):
+class CarianGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "cari1274"
@@ -167,7 +167,7 @@ class CarianOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "CarianOpenAIProcess using OpenAI GPT models."
 
 
-class ChurchSlavicOpenAIDependencyProcess(OpenAIDependencyProcess):
+class ChurchSlavicGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "chur1257"
@@ -175,7 +175,7 @@ class ChurchSlavicOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "Church SlavicOpenAIProcess using OpenAI GPT models."
 
 
-class ClassicalArmenianOpenAIDependencyProcess(OpenAIDependencyProcess):
+class ClassicalArmenianGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "clas1256"
@@ -183,7 +183,7 @@ class ClassicalArmenianOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "Classical ArmenianOpenAIProcess using OpenAI GPT models."
 
 
-class ClassicalMandaicOpenAIDependencyProcess(OpenAIDependencyProcess):
+class ClassicalMandaicGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "clas1253"
@@ -191,7 +191,7 @@ class ClassicalMandaicOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "Classical MandaicOpenAIProcess using OpenAI GPT models."
 
 
-class ClassicalMongolianOpenAIDependencyProcess(OpenAIDependencyProcess):
+class ClassicalMongolianGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "mong1331"
@@ -201,7 +201,7 @@ class ClassicalMongolianOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "Classical MongolianOpenAIProcess using OpenAI GPT models."
 
 
-class ClassicalSyriacOpenAIDependencyProcess(OpenAIDependencyProcess):
+class ClassicalSyriacGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "clas1252"
@@ -209,7 +209,7 @@ class ClassicalSyriacOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "Classical SyriacOpenAIProcess using OpenAI GPT models."
 
 
-class ClassicalTibetanOpenAIDependencyProcess(OpenAIDependencyProcess):
+class ClassicalTibetanGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "clas1254"
@@ -217,7 +217,7 @@ class ClassicalTibetanOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "Classical TibetanOpenAIProcess using OpenAI GPT models."
 
 
-class CopticOpenAIDependencyProcess(OpenAIDependencyProcess):
+class CopticGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "copt1239"
@@ -225,7 +225,7 @@ class CopticOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "CopticOpenAIProcess using OpenAI GPT models."
 
 
-class DemoticOpenAIDependencyProcess(OpenAIDependencyProcess):
+class DemoticGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "demo1234"
@@ -233,7 +233,7 @@ class DemoticOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "DemoticOpenAIProcess using OpenAI GPT models."
 
 
-class EasternPanjabiOpenAIDependencyProcess(OpenAIDependencyProcess):
+class EasternPanjabiGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "panj1256"
@@ -241,7 +241,7 @@ class EasternPanjabiOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "Eastern PanjabiOpenAIProcess using OpenAI GPT models."
 
 
-class EdomiteOpenAIDependencyProcess(OpenAIDependencyProcess):
+class EdomiteGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "edom1234"
@@ -249,7 +249,7 @@ class EdomiteOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "EdomiteOpenAIProcess using OpenAI GPT models."
 
 
-class GeezOpenAIDependencyProcess(OpenAIDependencyProcess):
+class GeezGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "geez1241"
@@ -257,7 +257,7 @@ class GeezOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "GeezOpenAIProcess using OpenAI GPT models."
 
 
-class GothicOpenAIDependencyProcess(OpenAIDependencyProcess):
+class GothicGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "goth1244"
@@ -265,7 +265,7 @@ class GothicOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "GothicOpenAIProcess using OpenAI GPT models."
 
 
-class GujaratiOpenAIDependencyProcess(OpenAIDependencyProcess):
+class GujaratiGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "guja1252"
@@ -273,7 +273,7 @@ class GujaratiOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "GujaratiOpenAIProcess using OpenAI GPT models."
 
 
-class HindiOpenAIDependencyProcess(OpenAIDependencyProcess):
+class HindiGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "hind1269"
@@ -281,7 +281,7 @@ class HindiOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "HindiOpenAIProcess using OpenAI GPT models."
 
 
-class KhariBoliOpenAIDependencyProcess(OpenAIDependencyProcess):
+class KhariBoliGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "khad1239"
@@ -289,7 +289,7 @@ class KhariBoliOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "KhariBoliOpenAIProcess using OpenAI GPT models."
 
 
-class BrajOpenAIDependencyProcess(OpenAIDependencyProcess):
+class BrajGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "braj1242"
@@ -297,7 +297,7 @@ class BrajOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "BrajOpenAIProcess using OpenAI GPT models."
 
 
-class AwadhiOpenAIDependencyProcess(OpenAIDependencyProcess):
+class AwadhiGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "awad1243"
@@ -305,7 +305,7 @@ class AwadhiOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "AwadhiOpenAIProcess using OpenAI GPT models."
 
 
-class HittiteOpenAIDependencyProcess(OpenAIDependencyProcess):
+class HittiteGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "hitt1242"
@@ -313,7 +313,7 @@ class HittiteOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "HittiteOpenAIProcess using OpenAI GPT models."
 
 
-class KhotaneseOpenAIDependencyProcess(OpenAIDependencyProcess):
+class KhotaneseGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "khot1251"
@@ -321,7 +321,7 @@ class KhotaneseOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "KhotaneseOpenAIProcess using OpenAI GPT models."
 
 
-class TumshuqeseOpenAIDependencyProcess(OpenAIDependencyProcess):
+class TumshuqeseGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "tums1237"
@@ -329,7 +329,7 @@ class TumshuqeseOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "TumshuqeseOpenAIProcess using OpenAI GPT models."
 
 
-class LateEgyptianOpenAIDependencyProcess(OpenAIDependencyProcess):
+class LateEgyptianGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "late1256"
@@ -337,7 +337,7 @@ class LateEgyptianOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "Late Egyptian OpenAIProcess using OpenAI GPT models."
 
 
-class LatinOpenAIDependencyProcess(OpenAIDependencyProcess):
+class LatinGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "lati1261"
@@ -345,7 +345,7 @@ class LatinOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "LatinOpenAIProcess using OpenAI GPT models."
 
 
-class LiteraryChineseOpenAIDependencyProcess(OpenAIDependencyProcess):
+class LiteraryChineseGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "lite1248"
@@ -353,7 +353,7 @@ class LiteraryChineseOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "Literary ChineseOpenAIProcess using OpenAI GPT models."
 
 
-class LycianAOpenAIDependencyProcess(OpenAIDependencyProcess):
+class LycianAGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "lyci1241"
@@ -361,7 +361,7 @@ class LycianAOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "Lycian AOpenAIProcess using OpenAI GPT models."
 
 
-class LydianOpenAIDependencyProcess(OpenAIDependencyProcess):
+class LydianGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "lydi1241"
@@ -369,7 +369,7 @@ class LydianOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "LydianOpenAIProcess using OpenAI GPT models."
 
 
-class MaharastriPrakritOpenAIDependencyProcess(OpenAIDependencyProcess):
+class MaharastriPrakritGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "maha1305"
@@ -377,7 +377,7 @@ class MaharastriPrakritOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "MaharastriPrakritOpenAIProcess using OpenAI GPT models."
 
 
-class MiddleArmenianOpenAIDependencyProcess(OpenAIDependencyProcess):
+class MiddleArmenianGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "midd1364"
@@ -385,7 +385,7 @@ class MiddleArmenianOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "Middle ArmenianOpenAIProcess using OpenAI GPT models."
 
 
-class MiddleBretonOpenAIDependencyProcess(OpenAIDependencyProcess):
+class MiddleBretonGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "oldb1244"
@@ -393,7 +393,7 @@ class MiddleBretonOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "Middle BretonOpenAIProcess using OpenAI GPT models."
 
 
-class MiddleChineseOpenAIDependencyProcess(OpenAIDependencyProcess):
+class MiddleChineseGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "midd1344"
@@ -401,7 +401,7 @@ class MiddleChineseOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "Middle ChineseOpenAIProcess using OpenAI GPT models."
 
 
-class MiddleCornishOpenAIDependencyProcess(OpenAIDependencyProcess):
+class MiddleCornishGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "corn1251"
@@ -409,7 +409,7 @@ class MiddleCornishOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "Middle CornishOpenAIProcess using OpenAI GPT models."
 
 
-class MiddleEgyptianOpenAIDependencyProcess(OpenAIDependencyProcess):
+class MiddleEgyptianGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "midd1369"
@@ -417,7 +417,7 @@ class MiddleEgyptianOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "Middle Egyptian OpenAIProcess using OpenAI GPT models."
 
 
-class MiddleEnglishOpenAIDependencyProcess(OpenAIDependencyProcess):
+class MiddleEnglishGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "midd1317"
@@ -425,7 +425,7 @@ class MiddleEnglishOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "Middle EnglishOpenAIProcess using OpenAI GPT models."
 
 
-class MiddleFrenchOpenAIDependencyProcess(OpenAIDependencyProcess):
+class MiddleFrenchGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "midd1316"
@@ -433,7 +433,7 @@ class MiddleFrenchOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "Middle FrenchOpenAIProcess using OpenAI GPT models."
 
 
-class MiddleHighGermanOpenAIDependencyProcess(OpenAIDependencyProcess):
+class MiddleHighGermanGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "midd1343"
@@ -441,7 +441,7 @@ class MiddleHighGermanOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "Middle High GermanOpenAIProcess using OpenAI GPT models."
 
 
-class MiddleMongolOpenAIDependencyProcess(OpenAIDependencyProcess):
+class MiddleMongolGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "mong1329"
@@ -449,7 +449,7 @@ class MiddleMongolOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "Middle MongolOpenAIProcess using OpenAI GPT models."
 
 
-class MoabiteOpenAIDependencyProcess(OpenAIDependencyProcess):
+class MoabiteGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "moab1234"
@@ -457,7 +457,7 @@ class MoabiteOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "MoabiteOpenAIProcess using OpenAI GPT models."
 
 
-class OdiaOpenAIDependencyProcess(OpenAIDependencyProcess):
+class OdiaGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "oriy1255"
@@ -465,7 +465,7 @@ class OdiaOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "OdiaOpenAIProcess using OpenAI GPT models."
 
 
-class OfficialAramaicOpenAIDependencyProcess(OpenAIDependencyProcess):
+class OfficialAramaicGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "impe1235"
@@ -477,7 +477,7 @@ class OfficialAramaicOpenAIDependencyProcess(OpenAIDependencyProcess):
     )
 
 
-class OldBurmeseOpenAIDependencyProcess(OpenAIDependencyProcess):
+class OldBurmeseGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "oldb1235"
@@ -485,7 +485,7 @@ class OldBurmeseOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "Old BurmeseOpenAIProcess using OpenAI GPT models."
 
 
-class OldChineseOpenAIDependencyProcess(OpenAIDependencyProcess):
+class OldChineseGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "oldc1244"
@@ -493,7 +493,7 @@ class OldChineseOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "Old ChineseOpenAIProcess using OpenAI GPT models."
 
 
-class BaihuaChineseOpenAIDependencyProcess(OpenAIDependencyProcess):
+class BaihuaChineseGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "clas1255"
@@ -503,7 +503,7 @@ class BaihuaChineseOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "BaihuaChineseOpenAIProcess using OpenAI GPT models."
 
 
-class ClassicalBurmeseOpenAIDependencyProcess(OpenAIDependencyProcess):
+class ClassicalBurmeseGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "nucl1310"
@@ -511,7 +511,7 @@ class ClassicalBurmeseOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "ClassicalBurmeseOpenAIProcess using OpenAI GPT models."
 
 
-class TangutOpenAIDependencyProcess(OpenAIDependencyProcess):
+class TangutGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "tang1334"
@@ -519,7 +519,7 @@ class TangutOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "TangutOpenAIProcess using OpenAI GPT models."
 
 
-class NewarOpenAIDependencyProcess(OpenAIDependencyProcess):
+class NewarGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "newa1246"
@@ -529,7 +529,7 @@ class NewarOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "NewarOpenAIProcess using OpenAI GPT models."
 
 
-class MeiteiOpenAIDependencyProcess(OpenAIDependencyProcess):
+class MeiteiGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "mani1292"
@@ -539,7 +539,7 @@ class MeiteiOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "MeiteiOpenAIProcess using OpenAI GPT models."
 
 
-class SgawKarenOpenAIDependencyProcess(OpenAIDependencyProcess):
+class SgawKarenGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "sgaw1245"
@@ -547,7 +547,7 @@ class SgawKarenOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "SgawKarenOpenAIProcess using OpenAI GPT models."
 
 
-class MogholiOpenAIDependencyProcess(OpenAIDependencyProcess):
+class MogholiGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "mogh1245"
@@ -555,7 +555,7 @@ class MogholiOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "MogholiOpenAIProcess using OpenAI GPT models."
 
 
-class NumidianOpenAIDependencyProcess(OpenAIDependencyProcess):
+class NumidianGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "numi1241"
@@ -565,7 +565,7 @@ class NumidianOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "NumidianOpenAIProcess using OpenAI GPT models."
 
 
-class TaitaOpenAIDependencyProcess(OpenAIDependencyProcess):
+class TaitaGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "tait1247"
@@ -573,7 +573,7 @@ class TaitaOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "TaitaOpenAIProcess using OpenAI GPT models."
 
 
-class HausaOpenAIDependencyProcess(OpenAIDependencyProcess):
+class HausaGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "haus1257"
@@ -581,7 +581,7 @@ class HausaOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "HausaOpenAIProcess using OpenAI GPT models."
 
 
-class OldJurchenOpenAIDependencyProcess(OpenAIDependencyProcess):
+class OldJurchenGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "jurc1239"
@@ -589,7 +589,7 @@ class OldJurchenOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "OldJurchenOpenAIProcess using OpenAI GPT models."
 
 
-class OldJapaneseOpenAIDependencyProcess(OpenAIDependencyProcess):
+class OldJapaneseGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "japo1237"
@@ -597,7 +597,7 @@ class OldJapaneseOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "OldJapaneseOpenAIProcess using OpenAI GPT models."
 
 
-class OldHungarianOpenAIDependencyProcess(OpenAIDependencyProcess):
+class OldHungarianGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "oldh1242"
@@ -605,7 +605,7 @@ class OldHungarianOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "OldHungarianOpenAIProcess using OpenAI GPT models."
 
 
-class ChagataiOpenAIDependencyProcess(OpenAIDependencyProcess):
+class ChagataiGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "chag1247"
@@ -613,7 +613,7 @@ class ChagataiOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "ChagataiOpenAIProcess using OpenAI GPT models."
 
 
-class OldTurkicOpenAIDependencyProcess(OpenAIDependencyProcess):
+class OldTurkicGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "oldu1238"
@@ -621,7 +621,7 @@ class OldTurkicOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "OldTurkicOpenAIProcess using OpenAI GPT models."
 
 
-class OldTamilOpenAIDependencyProcess(OpenAIDependencyProcess):
+class OldTamilGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "oldt1248"
@@ -629,7 +629,7 @@ class OldTamilOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "OldTamilOpenAIProcess using OpenAI GPT models."
 
 
-class AmmoniteOpenAIDependencyProcess(OpenAIDependencyProcess):
+class AmmoniteGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "ammo1234"
@@ -637,7 +637,7 @@ class AmmoniteOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "AmmoniteOpenAIProcess using OpenAI GPT models."
 
 
-class OldAramaicOpenAIDependencyProcess(OpenAIDependencyProcess):
+class OldAramaicGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "olda1246"
@@ -647,7 +647,7 @@ class OldAramaicOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "OldAramaicOpenAIProcess using OpenAI GPT models."
 
 
-class OldAramaicSamalianOpenAIDependencyProcess(OpenAIDependencyProcess):
+class OldAramaicSamalianGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "olda1245"
@@ -657,7 +657,7 @@ class OldAramaicSamalianOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "OldAramaicSamalianOpenAIProcess using OpenAI GPT models."
 
 
-class MiddleAramaicOpenAIDependencyProcess(OpenAIDependencyProcess):
+class MiddleAramaicGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "midd1366"
@@ -665,7 +665,7 @@ class MiddleAramaicOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "MiddleAramaicOpenAIProcess using OpenAI GPT models."
 
 
-class HatranOpenAIDependencyProcess(OpenAIDependencyProcess):
+class HatranGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "hatr1234"
@@ -673,7 +673,7 @@ class HatranOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "HatranOpenAIProcess using OpenAI GPT models."
 
 
-class JewishBabylonianAramaicOpenAIDependencyProcess(OpenAIDependencyProcess):
+class JewishBabylonianAramaicGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "jewi1240"
@@ -685,7 +685,7 @@ class JewishBabylonianAramaicOpenAIDependencyProcess(OpenAIDependencyProcess):
     )
 
 
-class SamalianOpenAIDependencyProcess(OpenAIDependencyProcess):
+class SamalianGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "sama1234"
@@ -693,7 +693,7 @@ class SamalianOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "SamalianOpenAIProcess using OpenAI GPT models."
 
 
-class OldEgyptianOpenAIDependencyProcess(OpenAIDependencyProcess):
+class OldEgyptianGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "olde1242"
@@ -701,7 +701,7 @@ class OldEgyptianOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "Old Egyptian OpenAIProcess using OpenAI GPT models."
 
 
-class OldEnglishOpenAIDependencyProcess(OpenAIDependencyProcess):
+class OldEnglishGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "olde1238"
@@ -713,7 +713,7 @@ class OldEnglishOpenAIDependencyProcess(OpenAIDependencyProcess):
     )
 
 
-class OldFrenchOpenAIDependencyProcess(OpenAIDependencyProcess):
+class OldFrenchGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "oldf1239"
@@ -725,7 +725,7 @@ class OldFrenchOpenAIDependencyProcess(OpenAIDependencyProcess):
     )
 
 
-class OldHighGermanOpenAIDependencyProcess(OpenAIDependencyProcess):
+class OldHighGermanGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "oldh1241"
@@ -737,7 +737,7 @@ class OldHighGermanOpenAIDependencyProcess(OpenAIDependencyProcess):
     )
 
 
-class EarlyIrishOpenAIDependencyProcess(OpenAIDependencyProcess):
+class EarlyIrishGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "oldi1245"
@@ -745,7 +745,7 @@ class EarlyIrishOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "Old IrishOpenAIProcess using OpenAI GPT models."
 
 
-class MarathiOpenAIDependencyProcess(OpenAIDependencyProcess):
+class MarathiGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "mara1378"
@@ -753,7 +753,7 @@ class MarathiOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "MarathiOpenAIProcess using OpenAI GPT models."
 
 
-class OldNorseOpenAIDependencyProcess(OpenAIDependencyProcess):
+class OldNorseGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "oldn1244"
@@ -761,7 +761,7 @@ class OldNorseOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "Old NorseOpenAIProcess using OpenAI GPT models."
 
 
-class OldPersianOpenAIDependencyProcess(OpenAIDependencyProcess):
+class OldPersianGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "oldp1254"
@@ -773,7 +773,7 @@ class OldPersianOpenAIDependencyProcess(OpenAIDependencyProcess):
     )
 
 
-class OldMiddleWelshOpenAIDependencyProcess(OpenAIDependencyProcess):
+class OldMiddleWelshGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "oldw1239"
@@ -781,7 +781,7 @@ class OldMiddleWelshOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "Old-Middle WelshOpenAIProcess using OpenAI GPT models."
 
 
-class ParthianOpenAIDependencyProcess(OpenAIDependencyProcess):
+class ParthianGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "part1239"
@@ -789,7 +789,7 @@ class ParthianOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "ParthianOpenAIProcess using OpenAI GPT models."
 
 
-class MiddlePersianOpenAIDependencyProcess(OpenAIDependencyProcess):
+class MiddlePersianGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "pahl1241"
@@ -797,7 +797,7 @@ class MiddlePersianOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "MiddlePersianOpenAIProcess using OpenAI GPT models."
 
 
-class PalaicOpenAIDependencyProcess(OpenAIDependencyProcess):
+class PalaicGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "pala1331"
@@ -805,7 +805,7 @@ class PalaicOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "PalaicOpenAIProcess using OpenAI GPT models."
 
 
-class PaliOpenAIDependencyProcess(OpenAIDependencyProcess):
+class PaliGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "pali1273"
@@ -813,7 +813,7 @@ class PaliOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "PaliOpenAIProcess using OpenAI GPT models."
 
 
-class PhoenicianOpenAIDependencyProcess(OpenAIDependencyProcess):
+class PhoenicianGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "phoe1239"
@@ -821,7 +821,7 @@ class PhoenicianOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "PhoenicianOpenAIProcess using OpenAI GPT models."
 
 
-class PunjabiOpenAIDependencyProcess(OpenAIDependencyProcess):
+class PunjabiGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "panj1256"
@@ -829,7 +829,7 @@ class PunjabiOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "PunjabiOpenAIProcess using OpenAI GPT models."
 
 
-class AssameseOpenAIDependencyProcess(OpenAIDependencyProcess):
+class AssameseGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "assa1263"
@@ -837,7 +837,7 @@ class AssameseOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "AssameseOpenAIProcess using OpenAI GPT models."
 
 
-class SinhalaOpenAIDependencyProcess(OpenAIDependencyProcess):
+class SinhalaGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "sinh1246"
@@ -845,7 +845,7 @@ class SinhalaOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "SinhalaOpenAIProcess using OpenAI GPT models."
 
 
-class SindhiOpenAIDependencyProcess(OpenAIDependencyProcess):
+class SindhiGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "sind1272"
@@ -853,7 +853,7 @@ class SindhiOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "SindhiOpenAIProcess using OpenAI GPT models."
 
 
-class KashmiriOpenAIDependencyProcess(OpenAIDependencyProcess):
+class KashmiriGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "kash1277"
@@ -861,7 +861,7 @@ class KashmiriOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "KashmiriOpenAIProcess using OpenAI GPT models."
 
 
-class BagriOpenAIDependencyProcess(OpenAIDependencyProcess):
+class BagriGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "bagr1243"
@@ -869,7 +869,7 @@ class BagriOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "BagriOpenAIProcess using OpenAI GPT models."
 
 
-class ClassicalSanskritOpenAIDependencyProcess(OpenAIDependencyProcess):
+class ClassicalSanskritGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "clas1258"
@@ -877,7 +877,7 @@ class ClassicalSanskritOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "ClassicalSanskritOpenAIProcess using OpenAI GPT models."
 
 
-class VedicSanskritOpenAIDependencyProcess(OpenAIDependencyProcess):
+class VedicSanskritGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "vedi1234"
@@ -885,7 +885,7 @@ class VedicSanskritOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "VedicSanskritOpenAIProcess using OpenAI GPT models."
 
 
-class TokharianAOpenAIDependencyProcess(OpenAIDependencyProcess):
+class TokharianAGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "toch1238"
@@ -893,7 +893,7 @@ class TokharianAOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "Tokharian AOpenAIProcess using OpenAI GPT models."
 
 
-class TokharianBOpenAIDependencyProcess(OpenAIDependencyProcess):
+class TokharianBGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "toch1237"
@@ -901,7 +901,7 @@ class TokharianBOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "Tokharian BOpenAIProcess using OpenAI GPT models."
 
 
-class UgariticOpenAIDependencyProcess(OpenAIDependencyProcess):
+class UgariticGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "ugar1238"
@@ -909,7 +909,7 @@ class UgariticOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "UgariticOpenAIProcess using OpenAI GPT models."
 
 
-class UrduOpenAIDependencyProcess(OpenAIDependencyProcess):
+class UrduGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "urdu1245"
@@ -917,7 +917,7 @@ class UrduOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "UrduOpenAIProcess using OpenAI GPT models."
 
 
-class SauraseniPrakritOpenAIDependencyProcess(OpenAIDependencyProcess):
+class SauraseniPrakritGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "saur1252"
@@ -925,7 +925,7 @@ class SauraseniPrakritOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "SauraseniPrakritOpenAIProcess using OpenAI GPT models."
 
 
-class MagadhiPrakritOpenAIDependencyProcess(OpenAIDependencyProcess):
+class MagadhiPrakritGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "maga1260"
@@ -933,7 +933,7 @@ class MagadhiPrakritOpenAIDependencyProcess(OpenAIDependencyProcess):
     authorship_info: str = "MagadhiPrakritOpenAIProcess using OpenAI GPT models."
 
 
-class GandhariOpenAIDependencyProcess(OpenAIDependencyProcess):
+class GandhariGenAIDependencyProcess(GenAIDependencyProcess):
     """Language-specific dependency process using OpenAI."""
 
     glottolog_id: Optional[str] = "gand1259"

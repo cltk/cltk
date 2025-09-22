@@ -17,7 +17,7 @@ class MorphosyntaxProcess(Process):
     """Base class for morphosyntactic processes."""
 
 
-class OpenAIMorphosyntaxProcess(MorphosyntaxProcess):
+class GenAIMorphosyntaxProcess(MorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     @cached_property
@@ -45,7 +45,7 @@ class OpenAIMorphosyntaxProcess(MorphosyntaxProcess):
         return output_doc
 
 
-class CuneiformLuwianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class CuneiformLuwianGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "cune1239"
@@ -53,7 +53,7 @@ class CuneiformLuwianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "CuneiformLuwianOpenAIProcess using OpenAI GPT models."
 
 
-class HieroglyphicLuwianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class HieroglyphicLuwianGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "hier1240"
@@ -63,7 +63,7 @@ class HieroglyphicLuwianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "HieroglyphicLuwianOpenAIProcess using OpenAI GPT models."
 
 
-class OldPrussianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class OldPrussianGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "prus1238"
@@ -71,7 +71,7 @@ class OldPrussianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "OldPrussianOpenAIProcess using OpenAI GPT models."
 
 
-class LithuanianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class LithuanianGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "lith1251"
@@ -79,7 +79,7 @@ class LithuanianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "LithuanianOpenAIProcess using OpenAI GPT models."
 
 
-class LatvianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class LatvianGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "latv1249"
@@ -87,7 +87,7 @@ class LatvianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "LatvianOpenAIProcess using OpenAI GPT models."
 
 
-class AlbanianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class AlbanianGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "gheg1238"
@@ -95,7 +95,7 @@ class AlbanianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "AlbanianOpenAIProcess using OpenAI GPT models."
 
 
-class AkkadianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class AkkadianGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "akka1240"
@@ -103,7 +103,7 @@ class AkkadianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "AkkadianOpenAIProcess using OpenAI GPT models."
 
 
-class AncientGreekOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class AncientGreekGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "anci1242"
@@ -111,7 +111,7 @@ class AncientGreekOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "Ancient GreekOpenAIProcess using OpenAI GPT models."
 
 
-class BiblicalHebrewOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class BiblicalHebrewGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "anci1244"
@@ -119,7 +119,7 @@ class BiblicalHebrewOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "Biblical HebrewOpenAIProcess using OpenAI GPT models."
 
 
-class ClassicalArabicOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class ClassicalArabicGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "clas1259"
@@ -127,7 +127,7 @@ class ClassicalArabicOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "ClassicalArabicOpenAIProcess using OpenAI GPT models."
 
 
-class AvestanOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class AvestanGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "aves1237"
@@ -135,7 +135,7 @@ class AvestanOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "AvestanOpenAIProcess using OpenAI GPT models."
 
 
-class BactrianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class BactrianGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "bact1239"
@@ -143,7 +143,7 @@ class BactrianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "BactrianOpenAIProcess using OpenAI GPT models."
 
 
-class SogdianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class SogdianGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "sogd1245"
@@ -151,7 +151,7 @@ class SogdianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "SogdianOpenAIProcess using OpenAI GPT models."
 
 
-class BengaliOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class BengaliGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "beng1280"
@@ -159,7 +159,7 @@ class BengaliOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "BengaliOpenAIProcess using OpenAI GPT models."
 
 
-class CarianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class CarianGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "cari1274"
@@ -167,7 +167,7 @@ class CarianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "CarianOpenAIProcess using OpenAI GPT models."
 
 
-class ChurchSlavicOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class ChurchSlavicGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "chur1257"
@@ -175,7 +175,7 @@ class ChurchSlavicOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "Church SlavicOpenAIProcess using OpenAI GPT models."
 
 
-class ClassicalArmenianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class ClassicalArmenianGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "clas1256"
@@ -183,7 +183,7 @@ class ClassicalArmenianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "Classical ArmenianOpenAIProcess using OpenAI GPT models."
 
 
-class ClassicalMandaicOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class ClassicalMandaicGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "clas1253"
@@ -191,7 +191,7 @@ class ClassicalMandaicOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "Classical MandaicOpenAIProcess using OpenAI GPT models."
 
 
-class ClassicalMongolianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class ClassicalMongolianGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "mong1331"
@@ -201,7 +201,7 @@ class ClassicalMongolianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "Classical MongolianOpenAIProcess using OpenAI GPT models."
 
 
-class ClassicalSyriacOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class ClassicalSyriacGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "clas1252"
@@ -209,7 +209,7 @@ class ClassicalSyriacOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "Classical SyriacOpenAIProcess using OpenAI GPT models."
 
 
-class ClassicalTibetanOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class ClassicalTibetanGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "clas1254"
@@ -217,7 +217,7 @@ class ClassicalTibetanOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "Classical TibetanOpenAIProcess using OpenAI GPT models."
 
 
-class CopticOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class CopticGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "copt1239"
@@ -225,7 +225,7 @@ class CopticOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "CopticOpenAIProcess using OpenAI GPT models."
 
 
-class DemoticOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class DemoticGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "demo1234"
@@ -233,7 +233,7 @@ class DemoticOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "DemoticOpenAIProcess using OpenAI GPT models."
 
 
-class EasternPanjabiOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class EasternPanjabiGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "panj1256"
@@ -241,7 +241,7 @@ class EasternPanjabiOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "Eastern PanjabiOpenAIProcess using OpenAI GPT models."
 
 
-class EdomiteOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class EdomiteGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "edom1234"
@@ -249,7 +249,7 @@ class EdomiteOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "EdomiteOpenAIProcess using OpenAI GPT models."
 
 
-class GeezOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class GeezGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "geez1241"
@@ -257,7 +257,7 @@ class GeezOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "GeezOpenAIProcess using OpenAI GPT models."
 
 
-class GothicOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class GothicGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "goth1244"
@@ -265,7 +265,7 @@ class GothicOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "GothicOpenAIProcess using OpenAI GPT models."
 
 
-class GujaratiOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class GujaratiGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "guja1252"
@@ -273,7 +273,7 @@ class GujaratiOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "GujaratiOpenAIProcess using OpenAI GPT models."
 
 
-class HindiOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class HindiGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "hind1269"
@@ -281,7 +281,7 @@ class HindiOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "HindiOpenAIProcess using OpenAI GPT models."
 
 
-class KhariBoliOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class KhariBoliGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "khad1239"
@@ -289,7 +289,7 @@ class KhariBoliOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "KhariBoliOpenAIProcess using OpenAI GPT models."
 
 
-class BrajOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class BrajGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "braj1242"
@@ -297,7 +297,7 @@ class BrajOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "BrajOpenAIProcess using OpenAI GPT models."
 
 
-class AwadhiOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class AwadhiGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "awad1243"
@@ -305,7 +305,7 @@ class AwadhiOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "AwadhiOpenAIProcess using OpenAI GPT models."
 
 
-class HittiteOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class HittiteGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "hitt1242"
@@ -313,7 +313,7 @@ class HittiteOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "HittiteOpenAIProcess using OpenAI GPT models."
 
 
-class KhotaneseOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class KhotaneseGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "khot1251"
@@ -321,7 +321,7 @@ class KhotaneseOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "KhotaneseOpenAIProcess using OpenAI GPT models."
 
 
-class TumshuqeseOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class TumshuqeseGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "tums1237"
@@ -329,7 +329,7 @@ class TumshuqeseOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "TumshuqeseOpenAIProcess using OpenAI GPT models."
 
 
-class LateEgyptianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class LateEgyptianGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "late1256"
@@ -337,7 +337,7 @@ class LateEgyptianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "Late Egyptian OpenAIProcess using OpenAI GPT models."
 
 
-class LatinOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class LatinGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "lati1261"
@@ -345,7 +345,7 @@ class LatinOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "LatinOpenAIProcess using OpenAI GPT models."
 
 
-class LiteraryChineseOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class LiteraryChineseGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "lite1248"
@@ -353,7 +353,7 @@ class LiteraryChineseOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "Literary ChineseOpenAIProcess using OpenAI GPT models."
 
 
-class LycianAOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class LycianAGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "lyci1241"
@@ -361,7 +361,7 @@ class LycianAOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "Lycian AOpenAIProcess using OpenAI GPT models."
 
 
-class LydianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class LydianGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "lydi1241"
@@ -369,7 +369,7 @@ class LydianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "LydianOpenAIProcess using OpenAI GPT models."
 
 
-class MaharastriPrakritOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class MaharastriPrakritGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "maha1305"
@@ -377,7 +377,7 @@ class MaharastriPrakritOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "MaharastriPrakritOpenAIProcess using OpenAI GPT models."
 
 
-class MiddleArmenianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class MiddleArmenianGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "midd1364"
@@ -385,7 +385,7 @@ class MiddleArmenianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "Middle ArmenianOpenAIProcess using OpenAI GPT models."
 
 
-class MiddleBretonOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class MiddleBretonGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "oldb1244"
@@ -393,7 +393,7 @@ class MiddleBretonOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "Middle BretonOpenAIProcess using OpenAI GPT models."
 
 
-class MiddleChineseOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class MiddleChineseGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "midd1344"
@@ -401,7 +401,7 @@ class MiddleChineseOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "Middle ChineseOpenAIProcess using OpenAI GPT models."
 
 
-class MiddleCornishOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class MiddleCornishGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "corn1251"
@@ -409,7 +409,7 @@ class MiddleCornishOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "Middle CornishOpenAIProcess using OpenAI GPT models."
 
 
-class MiddleEgyptianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class MiddleEgyptianGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "midd1369"
@@ -417,7 +417,7 @@ class MiddleEgyptianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "Middle Egyptian OpenAIProcess using OpenAI GPT models."
 
 
-class MiddleEnglishOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class MiddleEnglishGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "midd1317"
@@ -425,7 +425,7 @@ class MiddleEnglishOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "Middle EnglishOpenAIProcess using OpenAI GPT models."
 
 
-class MiddleFrenchOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class MiddleFrenchGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "midd1316"
@@ -433,7 +433,7 @@ class MiddleFrenchOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "Middle FrenchOpenAIProcess using OpenAI GPT models."
 
 
-class MiddleHighGermanOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class MiddleHighGermanGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "midd1343"
@@ -441,7 +441,7 @@ class MiddleHighGermanOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "Middle High GermanOpenAIProcess using OpenAI GPT models."
 
 
-class MiddleMongolOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class MiddleMongolGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "mong1329"
@@ -449,7 +449,7 @@ class MiddleMongolOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "Middle MongolOpenAIProcess using OpenAI GPT models."
 
 
-class MoabiteOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class MoabiteGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "moab1234"
@@ -457,7 +457,7 @@ class MoabiteOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "MoabiteOpenAIProcess using OpenAI GPT models."
 
 
-class OdiaOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class OdiaGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "oriy1255"
@@ -465,7 +465,7 @@ class OdiaOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "OdiaOpenAIProcess using OpenAI GPT models."
 
 
-class OfficialAramaicOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class OfficialAramaicGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "impe1235"
@@ -477,7 +477,7 @@ class OfficialAramaicOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     )
 
 
-class OldBurmeseOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class OldBurmeseGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "oldb1235"
@@ -485,7 +485,7 @@ class OldBurmeseOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "Old BurmeseOpenAIProcess using OpenAI GPT models."
 
 
-class OldChineseOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class OldChineseGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "oldc1244"
@@ -493,7 +493,7 @@ class OldChineseOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "Old ChineseOpenAIProcess using OpenAI GPT models."
 
 
-class BaihuaChineseOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class BaihuaChineseGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "clas1255"
@@ -503,7 +503,7 @@ class BaihuaChineseOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "BaihuaChineseOpenAIProcess using OpenAI GPT models."
 
 
-class ClassicalBurmeseOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class ClassicalBurmeseGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "nucl1310"
@@ -511,7 +511,7 @@ class ClassicalBurmeseOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "ClassicalBurmeseOpenAIProcess using OpenAI GPT models."
 
 
-class TangutOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class TangutGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "tang1334"
@@ -519,7 +519,7 @@ class TangutOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "TangutOpenAIProcess using OpenAI GPT models."
 
 
-class NewarOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class NewarGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "newa1246"
@@ -529,7 +529,7 @@ class NewarOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "NewarOpenAIProcess using OpenAI GPT models."
 
 
-class MeiteiOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class MeiteiGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "mani1292"
@@ -539,7 +539,7 @@ class MeiteiOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "MeiteiOpenAIProcess using OpenAI GPT models."
 
 
-class SgawKarenOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class SgawKarenGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "sgaw1245"
@@ -547,7 +547,7 @@ class SgawKarenOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "SgawKarenOpenAIProcess using OpenAI GPT models."
 
 
-class MogholiOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class MogholiGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "mogh1245"
@@ -555,7 +555,7 @@ class MogholiOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "MogholiOpenAIProcess using OpenAI GPT models."
 
 
-class NumidianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class NumidianGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "numi1241"
@@ -565,7 +565,7 @@ class NumidianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "NumidianOpenAIProcess using OpenAI GPT models."
 
 
-class TaitaOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class TaitaGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "tait1247"
@@ -573,7 +573,7 @@ class TaitaOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "TaitaOpenAIProcess using OpenAI GPT models."
 
 
-class HausaOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class HausaGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "haus1257"
@@ -581,7 +581,7 @@ class HausaOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "HausaOpenAIProcess using OpenAI GPT models."
 
 
-class OldJurchenOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class OldJurchenGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "jurc1239"
@@ -589,7 +589,7 @@ class OldJurchenOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "OldJurchenOpenAIProcess using OpenAI GPT models."
 
 
-class OldJapaneseOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class OldJapaneseGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "japo1237"
@@ -597,7 +597,7 @@ class OldJapaneseOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "OldJapaneseOpenAIProcess using OpenAI GPT models."
 
 
-class OldHungarianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class OldHungarianGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "oldh1242"
@@ -605,7 +605,7 @@ class OldHungarianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "OldHungarianOpenAIProcess using OpenAI GPT models."
 
 
-class ChagataiOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class ChagataiGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "chag1247"
@@ -613,7 +613,7 @@ class ChagataiOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "ChagataiOpenAIProcess using OpenAI GPT models."
 
 
-class OldTurkicOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class OldTurkicGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "oldu1238"
@@ -621,7 +621,7 @@ class OldTurkicOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "OldTurkicOpenAIProcess using OpenAI GPT models."
 
 
-class OldTamilOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class OldTamilGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "oldt1248"
@@ -629,7 +629,7 @@ class OldTamilOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "OldTamilOpenAIProcess using OpenAI GPT models."
 
 
-class AmmoniteOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class AmmoniteGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "ammo1234"
@@ -637,7 +637,7 @@ class AmmoniteOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "AmmoniteOpenAIProcess using OpenAI GPT models."
 
 
-class OldAramaicOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class OldAramaicGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "olda1246"
@@ -647,7 +647,7 @@ class OldAramaicOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "OldAramaicOpenAIProcess using OpenAI GPT models."
 
 
-class OldAramaicSamalianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class OldAramaicSamalianGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "olda1245"
@@ -657,7 +657,7 @@ class OldAramaicSamalianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "OldAramaicSamalianOpenAIProcess using OpenAI GPT models."
 
 
-class MiddleAramaicOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class MiddleAramaicGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "midd1366"
@@ -665,7 +665,7 @@ class MiddleAramaicOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "MiddleAramaicOpenAIProcess using OpenAI GPT models."
 
 
-class HatranOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class HatranGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "hatr1234"
@@ -673,7 +673,7 @@ class HatranOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "HatranOpenAIProcess using OpenAI GPT models."
 
 
-class JewishBabylonianAramaicOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class JewishBabylonianAramaicGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "jewi1240"
@@ -685,7 +685,7 @@ class JewishBabylonianAramaicOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess
     )
 
 
-class SamalianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class SamalianGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "sama1234"
@@ -693,7 +693,7 @@ class SamalianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "SamalianOpenAIProcess using OpenAI GPT models."
 
 
-class OldEgyptianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class OldEgyptianGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "olde1242"
@@ -701,7 +701,7 @@ class OldEgyptianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "Old Egyptian OpenAIProcess using OpenAI GPT models."
 
 
-class OldEnglishOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class OldEnglishGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "olde1238"
@@ -713,7 +713,7 @@ class OldEnglishOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     )
 
 
-class OldFrenchOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class OldFrenchGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "oldf1239"
@@ -725,7 +725,7 @@ class OldFrenchOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     )
 
 
-class OldHighGermanOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class OldHighGermanGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "oldh1241"
@@ -737,7 +737,7 @@ class OldHighGermanOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     )
 
 
-class EarlyIrishOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class EarlyIrishGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "oldi1245"
@@ -745,7 +745,7 @@ class EarlyIrishOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "Old IrishOpenAIProcess using OpenAI GPT models."
 
 
-class MarathiOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class MarathiGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "mara1378"
@@ -753,7 +753,7 @@ class MarathiOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "MarathiOpenAIProcess using OpenAI GPT models."
 
 
-class OldNorseOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class OldNorseGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "oldn1244"
@@ -761,7 +761,7 @@ class OldNorseOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "Old NorseOpenAIProcess using OpenAI GPT models."
 
 
-class OldPersianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class OldPersianGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "oldp1254"
@@ -773,7 +773,7 @@ class OldPersianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     )
 
 
-class OldMiddleWelshOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class OldMiddleWelshGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "oldw1239"
@@ -781,7 +781,7 @@ class OldMiddleWelshOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "Old-Middle WelshOpenAIProcess using OpenAI GPT models."
 
 
-class ParthianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class ParthianGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "part1239"
@@ -789,7 +789,7 @@ class ParthianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "ParthianOpenAIProcess using OpenAI GPT models."
 
 
-class MiddlePersianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class MiddlePersianGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "pahl1241"
@@ -797,7 +797,7 @@ class MiddlePersianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "MiddlePersianOpenAIProcess using OpenAI GPT models."
 
 
-class PalaicOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class PalaicGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "pala1331"
@@ -805,7 +805,7 @@ class PalaicOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "PalaicOpenAIProcess using OpenAI GPT models."
 
 
-class PaliOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class PaliGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "pali1273"
@@ -813,7 +813,7 @@ class PaliOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "PaliOpenAIProcess using OpenAI GPT models."
 
 
-class PhoenicianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class PhoenicianGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "phoe1239"
@@ -821,7 +821,7 @@ class PhoenicianOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "PhoenicianOpenAIProcess using OpenAI GPT models."
 
 
-class PunjabiOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class PunjabiGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "panj1256"
@@ -829,7 +829,7 @@ class PunjabiOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "PunjabiOpenAIProcess using OpenAI GPT models."
 
 
-class AssameseOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class AssameseGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "assa1263"
@@ -837,7 +837,7 @@ class AssameseOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "AssameseOpenAIProcess using OpenAI GPT models."
 
 
-class SinhalaOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class SinhalaGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "sinh1246"
@@ -845,7 +845,7 @@ class SinhalaOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "SinhalaOpenAIProcess using OpenAI GPT models."
 
 
-class SindhiOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class SindhiGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "sind1272"
@@ -853,7 +853,7 @@ class SindhiOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "SindhiOpenAIProcess using OpenAI GPT models."
 
 
-class KashmiriOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class KashmiriGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "kash1277"
@@ -861,7 +861,7 @@ class KashmiriOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "KashmiriOpenAIProcess using OpenAI GPT models."
 
 
-class BagriOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class BagriGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "bagr1243"
@@ -869,7 +869,7 @@ class BagriOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "BagriOpenAIProcess using OpenAI GPT models."
 
 
-class ClassicalSanskritOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class ClassicalSanskritGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "clas1258"
@@ -877,7 +877,7 @@ class ClassicalSanskritOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "ClassicalSanskritOpenAIProcess using OpenAI GPT models."
 
 
-class VedicSanskritOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class VedicSanskritGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "vedi1234"
@@ -885,7 +885,7 @@ class VedicSanskritOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "VedicSanskritOpenAIProcess using OpenAI GPT models."
 
 
-class TokharianAOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class TokharianAGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "toch1238"
@@ -893,7 +893,7 @@ class TokharianAOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "Tokharian AOpenAIProcess using OpenAI GPT models."
 
 
-class TokharianBOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class TokharianBGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "toch1237"
@@ -901,7 +901,7 @@ class TokharianBOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "Tokharian BOpenAIProcess using OpenAI GPT models."
 
 
-class UgariticOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class UgariticGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "ugar1238"
@@ -909,7 +909,7 @@ class UgariticOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "UgariticOpenAIProcess using OpenAI GPT models."
 
 
-class UrduOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class UrduGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "urdu1245"
@@ -917,7 +917,7 @@ class UrduOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "UrduOpenAIProcess using OpenAI GPT models."
 
 
-class SauraseniPrakritOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class SauraseniPrakritGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "saur1252"
@@ -925,7 +925,7 @@ class SauraseniPrakritOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "SauraseniPrakritOpenAIProcess using OpenAI GPT models."
 
 
-class MagadhiPrakritOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class MagadhiPrakritGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "maga1260"
@@ -933,7 +933,7 @@ class MagadhiPrakritOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
     authorship_info: str = "MagadhiPrakritOpenAIProcess using OpenAI GPT models."
 
 
-class GandhariOpenAIMorphosyntaxProcess(OpenAIMorphosyntaxProcess):
+class GandhariGenAIMorphosyntaxProcess(GenAIMorphosyntaxProcess):
     """Language-specific morphosyntax process using OpenAI."""
 
     glottolog_id: Optional[str] = "gand1259"
