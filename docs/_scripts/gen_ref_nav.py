@@ -23,7 +23,9 @@ nav = mkdocs_gen_files.Nav()
 
 # Ensure top-level Home and Reference are present in nav
 nav["Home"] = "index.md"
-nav["Reference"] = (REF_ROOT / "index.md").as_posix()
+nav["Quickstart"] = "quickstart.md"
+nav["Language Pipelines"] = (REF_ROOT / "cltk/languages/pipelines/index.md").as_posix()
+nav["Code API"] = (REF_ROOT / "index.md").as_posix()
 
 for dotted, src_path in iter_python_modules(PKG_ROOT):
     parts = dotted.split(".")

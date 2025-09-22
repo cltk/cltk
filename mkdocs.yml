@@ -49,3 +49,14 @@ plugins:
   - section-index
   - git-revision-date-localized:
       enable_creation_date: true
+
+# Enable rich code block syntax highlighting and fenced code features
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.highlight:
+      anchor_linenums: true
+      linenums: false
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
