@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from pathlib import Path
 from collections import defaultdict
+from pathlib import Path
 
 import mkdocs_gen_files
 
@@ -30,7 +30,6 @@ children: dict[str, set[str]] = defaultdict(set)
 # Ensure top-level Home and Reference are present in nav
 nav["Home"] = "index.md"
 nav["Quickstart"] = "quickstart.md"
-nav["Code API"] = (REF_ROOT / "index.md").as_posix()
 
 for dotted, src_path in iter_python_modules(PKG_ROOT):
     parts = dotted.split(".")
@@ -65,21 +64,24 @@ with mkdocs_gen_files.open(ref_index, "w") as fd:
     if top_packages:
         fd.write("## Modules and Packages\n\n")
         for pkg in sorted(top_packages):
-            fd.write(f"- [`cltk.{pkg}`](cltk/{pkg}/)\n")
+            fd.write(f"- [`cltk.{pkg}`](cltk/{pkg}/index.md)\n")
 
 # Augment package pages with a recursive submodule table of contents
-def _write_subtree(fd, parent: str, level: int = 0) -> None:
+def _write_subtree(fd, base_parts: list[str], parent: str, level: int = 0) -> None:
     kids = sorted(children.get(parent, []))
-    parent_parts = parent.split(".")
     for k in kids:
         indent = "  " * level
         child_parts = k.split(".")
-        # Compute relative path from the parent package page to the child page
-        tail_parts = child_parts[len(parent_parts) :]
-        rel_path = "/".join(tail_parts) + "/" if tail_parts else "./"
+        # Compute relative path from the base package page to the child page
+        tail_parts = child_parts[len(base_parts) :]
+        if not tail_parts:
+            # Should not happen, but guard against empty tail
+            rel_path = "./index.md"
+        else:
+            rel_path = "/".join(tail_parts + ["index.md"])
         fd.write(f"{indent}- [`{k}`]({rel_path})\n")
         if k in packages_set:
-            _write_subtree(fd, k, level + 1)
+            _write_subtree(fd, base_parts, k, level + 1)
 
 for pkg in sorted(packages_set):
     parts = pkg.split(".")
@@ -91,7 +93,7 @@ for pkg in sorted(packages_set):
         # Only add contents if there are children
         if children.get(pkg):
             fd.write("## Submodules\n\n")
-            _write_subtree(fd, pkg, 0)
+            _write_subtree(fd, parts, pkg, 0)
 
 
 # --- Add subclass indexes for key base/process classes -----------------------

@@ -8,4 +8,4 @@ Welcome to the CLTK documentation.
 Start with the Quickstart, then explore the API Reference.
 
 - [Quickstart](quickstart.md): basic install and minimal examples for each backend.
-- [Reference](reference/cltk): complete, browsable API, generated automatically with mkdocstrings.
+- [Reference](reference/index.md): complete, browsable API, generated automatically with mkdocstrings.
