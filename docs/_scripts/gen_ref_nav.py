@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+from collections import defaultdict
 
 import mkdocs_gen_files
 
@@ -20,19 +21,32 @@ def iter_python_modules(root: Path):
 
 
 nav = mkdocs_gen_files.Nav()
+# Collect top-level subpackages to build a human-friendly Reference index
+top_packages: set[str] = set()
+# Track package vs module and a parent->children mapping for recursive indexes
+packages_set: set[str] = set()
+children: dict[str, set[str]] = defaultdict(set)
 
 # Ensure top-level Home and Reference are present in nav
 nav["Home"] = "index.md"
 nav["Quickstart"] = "quickstart.md"
-nav["Language Pipelines"] = (REF_ROOT / "cltk/languages/pipelines/index.md").as_posix()
 nav["Code API"] = (REF_ROOT / "index.md").as_posix()
 
 for dotted, src_path in iter_python_modules(PKG_ROOT):
     parts = dotted.split(".")
     if parts[0] != "cltk":
         continue
+    if len(parts) > 1:
+        top_packages.add(parts[1])
 
-    # Write one markdown file per module/package
+    # Track package nodes and build parent->children relationships
+    if src_path.name == "__init__.py":
+        packages_set.add(dotted)
+    parent = ".".join(parts[:-1])
+    if parent:
+        children[parent].add(dotted)
+
+    # Write one markdown file per module/package (mkdocstrings include)
     out_path = REF_ROOT.joinpath(*parts, "index.md")
     with mkdocs_gen_files.open(out_path, "w") as fd:
         fd.write(f"::: {dotted}\n")
@@ -43,11 +57,41 @@ for dotted, src_path in iter_python_modules(PKG_ROOT):
     # Link to the source file for edit/view
     mkdocs_gen_files.set_edit_path(out_path, src_path)
 
-# Write a top-level reference index if not already present
+# Write a top-level Reference index with a simple table of contents
 ref_index = REF_ROOT / "index.md"
-if not ref_index.exists():
-    with mkdocs_gen_files.open(ref_index, "w") as fd:
-        fd.write("# API Reference\n\nBrowse the auto-generated API reference below.\n")
+with mkdocs_gen_files.open(ref_index, "w") as fd:
+    fd.write("# API Reference\n\n")
+    fd.write("Browse the auto-generated API reference below.\n\n")
+    if top_packages:
+        fd.write("## Modules and Packages\n\n")
+        for pkg in sorted(top_packages):
+            fd.write(f"- [`cltk.{pkg}`](cltk/{pkg}/)\n")
+
+# Augment package pages with a recursive submodule table of contents
+def _write_subtree(fd, parent: str, level: int = 0) -> None:
+    kids = sorted(children.get(parent, []))
+    parent_parts = parent.split(".")
+    for k in kids:
+        indent = "  " * level
+        child_parts = k.split(".")
+        # Compute relative path from the parent package page to the child page
+        tail_parts = child_parts[len(parent_parts) :]
+        rel_path = "/".join(tail_parts) + "/" if tail_parts else "./"
+        fd.write(f"{indent}- [`{k}`]({rel_path})\n")
+        if k in packages_set:
+            _write_subtree(fd, k, level + 1)
+
+for pkg in sorted(packages_set):
+    parts = pkg.split(".")
+    out_path = REF_ROOT.joinpath(*parts, "index.md")
+    # Re-write the package page to include mkdocstrings include and a TOC
+    with mkdocs_gen_files.open(out_path, "w") as fd:
+        fd.write(f"# `{pkg}`\n\n")
+        fd.write(f"::: {pkg}\n\n")
+        # Only add contents if there are children
+        if children.get(pkg):
+            fd.write("## Submodules\n\n")
+            _write_subtree(fd, pkg, 0)
 
 
 # --- Add subclass indexes for key base/process classes -----------------------
@@ -103,6 +147,6 @@ _write_subclasses_page(
     "StanzaAnalyzeProcess",
 )
 
-# Emit the navigation in Literate Nav format (after adding subclass pages)
+# Emit the navigation in Literate Nav format (after adding subclass pages and Reference index)
 with mkdocs_gen_files.open("SUMMARY.md", "w") as nav_file:
     nav_file.writelines(nav.build_literate_nav())
