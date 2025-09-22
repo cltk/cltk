@@ -47,9 +47,6 @@ if not ref_index.exists():
     with mkdocs_gen_files.open(ref_index, "w") as fd:
         fd.write("# API Reference\n\nBrowse the auto-generated API reference below.\n")
 
-# Emit the navigation in Literate Nav format
-with mkdocs_gen_files.open("SUMMARY.md", "w") as nav_file:
-    nav_file.writelines(nav.build_literate_nav())
 
 # --- Add subclass indexes for key base/process classes -----------------------
 
@@ -103,3 +100,7 @@ _write_subclasses_page(
     "cltk.stanza.processes.StanzaAnalyzeProcess",
     "StanzaAnalyzeProcess",
 )
+
+# Emit the navigation in Literate Nav format (after adding subclass pages)
+with mkdocs_gen_files.open("SUMMARY.md", "w") as nav_file:
+    nav_file.writelines(nav.build_literate_nav())
