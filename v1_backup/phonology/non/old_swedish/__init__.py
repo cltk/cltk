@@ -1,1 +1,0 @@
-"""Old Swedish phonology"""
