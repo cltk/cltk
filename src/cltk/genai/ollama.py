@@ -21,6 +21,10 @@ from cltk.core.exceptions import CLTKException
 from cltk.utils.utils import load_env_file
 
 OLLAMA_HOST_ENV = "OLLAMA_HOST"
+OLLAMA_INSTALL_HINT = (
+    "Ollama client not installed. Install with: pip install 'cltk[ollama]'"
+)
+HTTPX_INCOMPAT_HINT = "Ollama client is incompatible with httpx>=0.29. Install a supported version via: pip install 'httpx<0.29'."
 
 
 def _default_host() -> str:
@@ -91,15 +95,29 @@ class OllamaConnection:
         self._client: Any
         try:
             from ollama import Client as _Client
+        except Exception as e:  # pragma: no cover - optional dep
+            raise ImportError(OLLAMA_INSTALL_HINT) from e
 
+        try:
             if headers:
                 self._client = _Client(host=self.host, headers=headers)
             else:
                 self._client = _Client(host=self.host)
+        except TypeError as e:
+            if "base_url" in str(e):
+                httpx_version = "unknown"
+                try:  # pragma: no cover - optional dep
+                    import httpx  # type: ignore
+
+                    httpx_version = getattr(httpx, "__version__", httpx_version)
+                except Exception:
+                    pass
+                raise ImportError(
+                    f"{HTTPX_INCOMPAT_HINT} Detected httpx {httpx_version}."
+                ) from e
+            raise ImportError(OLLAMA_INSTALL_HINT) from e
         except Exception as e:  # pragma: no cover - optional dep
-            raise ImportError(
-                "Ollama client not installed. Install with: pip install 'cltk[ollama]'"
-            ) from e
+            raise ImportError(OLLAMA_INSTALL_HINT) from e
 
     def _pull_if_needed(self) -> None:
         """Attempt to pull model if missing.
@@ -176,15 +194,29 @@ class AsyncOllamaConnection:
         self._client: Any
         try:
             from ollama import AsyncClient as _AsyncClient
+        except Exception as e:  # pragma: no cover - optional dep
+            raise ImportError(OLLAMA_INSTALL_HINT) from e
 
+        try:
             if headers:
                 self._client = _AsyncClient(host=self.host, headers=headers)
             else:
                 self._client = _AsyncClient(host=self.host)
+        except TypeError as e:
+            if "base_url" in str(e):
+                httpx_version = "unknown"
+                try:  # pragma: no cover - optional dep
+                    import httpx  # type: ignore
+
+                    httpx_version = getattr(httpx, "__version__", httpx_version)
+                except Exception:
+                    pass
+                raise ImportError(
+                    f"{HTTPX_INCOMPAT_HINT} Detected httpx {httpx_version}."
+                ) from e
+            raise ImportError(OLLAMA_INSTALL_HINT) from e
         except Exception as e:  # pragma: no cover - optional dep
-            raise ImportError(
-                "Ollama client not installed. Install with: pip install 'cltk[ollama]'"
-            ) from e
+            raise ImportError(OLLAMA_INSTALL_HINT) from e
 
     async def _pull_if_needed(self) -> None:
         if self.use_cloud:

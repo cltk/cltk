@@ -29,6 +29,7 @@ stanza = [
 ]
 ollama = [
     "ollama (>=0.3.0,<1.0.0)",
+    "httpx (<0.29)",  # pinned since ollama pulls a beta httpx with breaking changes
 ]
 
 [build-system]
