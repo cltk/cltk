@@ -1,9 +1,10 @@
 """Language pipelines and mappings.
 
 This module defines many language‑specific pipeline classes (mostly
-OpenAI‑backed) and central mappings from Glottolog codes to default pipelines.
-Pipelines are lightweight containers that list a small sequence of processes
-such as normalization, sentence splitting, and generative annotation.
+LLM‑backed via OpenAI or Ollama) and central mappings from Glottolog codes to
+default pipelines. Pipelines are lightweight containers that list a small
+sequence of processes such as normalization, sentence splitting, and
+generative annotation.
 """
 
 from typing import TYPE_CHECKING, Any, Optional

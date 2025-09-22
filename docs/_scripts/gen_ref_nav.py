@@ -92,12 +92,12 @@ def _write_subclasses_page(dotted_class: str, title: str) -> None:
 
 # Generate subclass listings for selected bases
 _write_subclasses_page(
-    "cltk.morphosyntax.processes.ChatGPTMorphosyntaxProcess",
-    "ChatGPTMorphosyntaxProcess",
+    "cltk.morphosyntax.processes.GenAIMorphosyntaxProcess",
+    "GenAIMorphosyntaxProcess",
 )
 _write_subclasses_page(
-    "cltk.dependency.processes.ChatGPTDependencyProcess",
-    "ChatGPTDependencyProcess",
+    "cltk.dependency.processes.GenAIDependencyProcess",
+    "GenAIDependencyProcess",
 )
 _write_subclasses_page(
     "cltk.stanza.processes.StanzaAnalyzeProcess",

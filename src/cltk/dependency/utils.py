@@ -74,22 +74,20 @@ def generate_dependency_tree(
     max_retries: int = 2,
     client: Optional[Any] = None,
 ) -> Doc:
-    """Call OpenAI and return UD dependency annotations for a short span.
+    """Call the configured generative backend and return UD dependency annotations for a short span.
 
     Args:
-        doc: A document whose ``normalized_text`` contains a single sentence
-        (or short span) to analyze.
+        doc: A document whose ``normalized_text`` contains a single sentence (or short span) to analyze.
         sentence_idx: Optional sentence index for logging/aggregation.
-        max_retries: Number of attempts if the model fails to return a TSV
-        code block.
-        client: Optional OpenAI connection instance for making API calls.
+        max_retries: Number of attempts if the model fails to return a TSV code block.
+        client: Optional connection instance (OpenAI or Ollama) for making API calls.
 
     Returns:
         The same ``Doc`` instance with ``words`` and per‑call usage appended
         to ``doc.openai``.
 
     Raises:
-        OpenAIInferenceError: If the API call fails.
+        OpenAIInferenceError: If the OpenAI API call fails (when using the OpenAI backend).
         CLTKException: If the response is empty or cannot be parsed.
         ValueError: If an unsupported model alias is specified.
 
@@ -294,7 +292,7 @@ def generate_gpt_dependency(doc: Doc) -> Doc:
         enumerate(doc.sentence_strings),
         total=len(doc.sentence_strings),
         desc=Fore.GREEN
-        + "Processing sentences with OpenAI for UD features"
+        + "Processing sentences with LLM for UD features"
         + Style.RESET_ALL,
         unit="sentence",
     ):
@@ -330,17 +328,14 @@ def generate_gpt_dependency(doc: Doc) -> Doc:
             word.index_token = token_counter
             all_words.append(word)
             token_counter += 1
-    # Concat OpenAI token counts
-    # Aggregate OpenAI token counts across all tmp_docs
+    # Aggregate token counts across all tmp_docs
     openai_total_tokens = {"input": 0, "output": 0, "total": 0}
     for doc in tmp_docs:
         if doc.openai and isinstance(doc.openai[0], dict):
             for k in openai_total_tokens:
                 openai_total_tokens[k] += doc.openai[0].get(k, 0)
         else:
-            msg_bad_tokens: str = (
-                "Failed to get OpenAI tokens usage field from POS tagging."
-            )
+            msg_bad_tokens: str = "Failed to get token usage field from POS tagging."
             log.error(msg_bad_tokens)
             raise CLTKException(msg_bad_tokens)
     # Merge with any existing totals (e.g., from prior processes)
@@ -373,18 +368,19 @@ async def generate_gpt_dependency_async(
     """Async variant of ``generate_gpt_dependency`` with concurrency.
 
     Runs one request per sentence concurrently (bounded by ``max_concurrency``)
-    using :class:`AsyncOpenAIConnection`. Keeps the one‑sentence‑per‑request
-    contract for simpler parsing and error isolation while reducing wall‑clock
-    time for long documents.
+    using the appropriate async client for the selected backend
+    (:class:`AsyncOpenAIConnection` or :class:`AsyncOllamaConnection`). Keeps the
+    one‑sentence‑per‑request contract for simpler parsing and error isolation
+    while reducing wall‑clock time for long documents.
 
     Args:
         doc: Document whose ``sentence_strings`` will be annotated.
-        max_concurrency: Maximum number of in‑flight requests.
+        max_concurrency: Maximum number of in‑flight LLM requests.
         max_retries: Per‑request retry budget.
 
     Returns:
-        The input ``doc`` enriched with ``words`` and aggregated ``openai``
-        usage across all sentence calls.
+        The input ``doc`` enriched with ``words`` and aggregated generative
+        usage across all sentence calls (stored in ``doc.openai``).
 
     Raises:
         ValueError: If backend configuration is missing.
@@ -595,7 +591,7 @@ def generate_gpt_dependency_concurrent(
 
     Args:
         doc: Input document with sentences, language, and backend configured.
-        max_concurrency: Maximum concurrent OpenAI requests.
+        max_concurrency: Maximum concurrent LLM requests.
         max_retries: Per‑request retry budget.
 
     Returns:

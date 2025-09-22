@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/cltk/cltk/tree/master.svg?style=svg)](https://circleci.com/gh/cltk/cltk/tree/master) [![PyPI](https://img.shields.io/pypi/v/cltk)](https://pypi.org/project/cltk/) [![Discord](https://img.shields.io/discord/974033391542480936)](https://discord.gg/ATUDJQX7cg)
+[![PyPI](https://img.shields.io/pypi/v/cltk)](https://pypi.org/project/cltk/)
 
 The Classical Language Toolkit (CLTK) is a Python library offering natural language processing (NLP) for pre-modern languages.
 
@@ -28,6 +28,9 @@ You can combine extras, for example:
 
 ```bash
 pip install "cltk[openai,stanza]"
+
+# or include local LLM support as well
+pip install "cltk[openai,stanza,ollama]"
 ```
 
 - Local LLMs via Ollama:
@@ -47,11 +50,14 @@ By default, when using `backend='ollama'`, CLTK uses the model `llama3.1:8b`. To
 ```python
 from cltk.nlp import NLP
 
-# Default model is "gpt-5-mini" when backend='chatgpt'
-nlp = NLP('lati1261', backend='chatgpt')
+# Default model is "gpt-5-mini" when backend='openai'
+nlp = NLP('lati1261', backend='openai')
 
 # Choose a specific model
-nlp_big = NLP('lati1261', backend='chatgpt', model='gpt-5')
+nlp_big = NLP('lati1261', backend='openai', model='gpt-5')
+
+# Requires OPENAI_API_KEY to be set in the environment
+# (e.g., via a .env file or shell env var)
 ```
 
 - Ollama backend (local LLMs):
@@ -64,6 +70,9 @@ nlp_local = NLP('lati1261', backend='ollama')
 
 # Choose a specific local model (any installed/pullable Ollama model)
 nlp_qwen = NLP('lati1261', backend='ollama', model='qwen2.5:14b')
+
+# To use the hosted Ollama Cloud, set OLLAMA_CLOUD_API_KEY
+# and choose backend='ollama-cloud'. The same model strings apply.
 ```
 
 For more information, see [Installation docs](https://docs.cltk.org/en/latest/installation.html) or, to install from source, [Development](https://docs.cltk.org/en/latest/development.html).

@@ -158,7 +158,7 @@ def bind_context(
     Args:
       doc_id: Stable document identifier for correlating events.
       sentence_idx: Sentence index within the document (if applicable).
-      model: Backend model identifier (e.g., OpenAI model name).
+      model: Backend model identifier (e.g., LLM model name).
       glottolog_id: Language or dialect identifier.
       prompt_version: Semantic version of the prompt used for a call.
       base_logger: Optional base logger to adapt; defaults to module ``logger``.

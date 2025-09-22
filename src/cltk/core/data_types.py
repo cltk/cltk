@@ -39,11 +39,11 @@ ScriptDir: TypeAlias = Literal["ltr", "rtl", "ttb", "btt"]
 
 
 class CLTKGenAIResponse(BaseModel):
-    """Response model for OpenAI interactions in CLTK.
+    """Response model for generative backend interactions (OpenAI/Ollama).
 
     Attributes:
-      response: The generated text response from OpenAI.
-      usage: Token usage information (input, output, total).
+      response: The generated text returned by the LLM.
+      usage: Token usage information (input, output, total) when available.
 
     """
 
