@@ -107,7 +107,7 @@ class OllamaConnection:
             if "base_url" in str(e):
                 httpx_version = "unknown"
                 try:  # pragma: no cover - optional dep
-                    import httpx  # type: ignore
+                    import httpx
 
                     httpx_version = getattr(httpx, "__version__", httpx_version)
                 except Exception:
@@ -206,7 +206,7 @@ class AsyncOllamaConnection:
             if "base_url" in str(e):
                 httpx_version = "unknown"
                 try:  # pragma: no cover - optional dep
-                    import httpx  # type: ignore
+                    import httpx
 
                     httpx_version = getattr(httpx, "__version__", httpx_version)
                 except Exception:
