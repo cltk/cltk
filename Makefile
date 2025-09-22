@@ -9,9 +9,6 @@ docsServe:
 	@echo "Serving MkDocs site at http://127.0.0.1:8000 ..."
 	poetry run mkdocs serve -a 127.0.0.1:8000
 
-# downloadAllModels:
-# 	poetry run python scripts/download_all_models.py
-
 fix:
 	poetry run ruff check --fix src
 
@@ -51,9 +48,6 @@ preCommitUpdate:
 preCommitRun:
 	poetry run pre-commit run --all-files
 
-# profile:
-# 	poetry run python -m cProfile -o profile.out src/cltk/nlp.py && poetry run snakeviz profile.out
-
 publishPyPI:
 	make build
 	poetry publish
@@ -83,25 +77,6 @@ test: typing
 docstrCoverage:
 	poetry run interrogate -c pyproject.toml -v src
 
-# testChatGPT:
-# 	echo "Going to test code calling ChatGPT ..."
-# 	poetry run python tests/test_chatgpt.py
-
-# testLatNLP:
-# 	poetry run pytest tests/test_sanity_lat_only.py
-
-# testNoInternet:
-# 	poetry run pytest tests/test_sanity_no_internet.py tests/test_utils.py tests/test_text.py
-
-# testOnlyDocTests:
-# 	echo "Going to test only doctests ..."
-# 	echo "NOTE: wordnet.py doctests have been disabled!"
-# 	poetry run pytest --disable-warnings --doctest-modules --ignore=src/cltk/wordnet src/cltk/
-
-# testOnlyTestsDir:
-# 	echo "Going to test only unit tests ..."
-# 	poetry run pytest --disable-warnings --ignore=src/cltk/wordnet tests
-
 typing:
 	poetry run mypy --check-untyped-defs --html-report .mypy_cache src/cltk
 
@@ -110,10 +85,5 @@ uninstall:
 
 updateDependencies:
 	poetry update
-
-# uml:
-# 	cd docs/ && poetry run pyreverse -o svg ../src/cltk/ && cd ../
-
-# all: format lint typing test uml docs
 
 .PHONY: build docs docsServe test typing
