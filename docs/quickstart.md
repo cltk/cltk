@@ -4,7 +4,7 @@ This guide helps you install CLTK and run minimal, working examples using each b
 
 ## Requirements
 
-- Python 3.11+
+- Python 3.13+
 
 ## Install
 
