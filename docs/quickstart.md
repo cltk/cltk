@@ -24,9 +24,10 @@ This guide helps you install CLTK and run minimal, working examples using each b
 
 ## Minimal examples
 
-- Stanza (default backend)
-  - Requires the stanza extra and language models (CLTK will prompt/install as needed).
-  - Example (Latin):
+### Stanza (default backend)
+
+- Requires the stanza extra and language models (CLTK will prompt/install as needed).
+- Example (Latin):
 
 ``` python
 from cltk.nlp import NLP
@@ -36,10 +37,11 @@ for w in doc.words[:10]:
     print(w.string, getattr(w.upos, "tag", None), w.lemma)
 ```
 
-- OpenAI (cloud LLM)
-  - Requires `OPENAI_API_KEY`.
-  - Defaults to model `gpt-5-mini` if not specified.
-  - Example (Latin):
+### OpenAI (cloud LLM)
+
+- Requires `OPENAI_API_KEY`.
+- Defaults to model `gpt-5-mini` if not specified.
+- Example (Latin):
 
 ```python
 import os
@@ -61,10 +63,11 @@ for w in doc.words:
     print(f"{w.string}\t{w.lemma}\t{upos}\t{feats}")
 ```
 
-- Ollama (local LLM)
-  - Ensure the Ollama server is running and the `cltk[ollama]` extra is installed.
-  - Defaults to model `llama3.1:8b` if not specified. You can pass any available model string.
-  - Example (Latin):
+### Ollama (local LLM)
+
+- Ensure the Ollama server is running and the `cltk[ollama]` extra is installed.
+- Defaults to model `llama3.1:8b` if not specified. You can pass any available model string.
+- Example (Latin):
 
   ```python
   from cltk.nlp import NLP
@@ -102,7 +105,8 @@ for w in doc.words:
 
 - `NLP(language_code=...)` accepts Glottolog IDs (e.g. `"lati1261"`), ISO codes (e.g. `"lat"`), or exact language names (e.g. `"Latin"`). Internally, CLTK resolves to a Glottolog ID.
 
-Troubleshooting
+# Troubleshooting
+
 - Missing API key errors: ensure the relevant environment variable is set.
 - Ollama client errors about httpx: the `cltk[ollama]` extra pins a compatible httpx; upgrade with `pip install -U "cltk[ollama]"`.
 - To suppress banner output in examples, pass `suppress_banner=True` when creating `NLP`.
