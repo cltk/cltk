@@ -36,12 +36,13 @@ jobs:
         run: python -m pip check
 
   pypi-install-extras:
-    name: Install PyPI with extra [${{ matrix.extra }}]
-    runs-on: ubuntu-latest
+    name: Install PyPI with extra [${{ matrix.extra }}] (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
     timeout-minutes: 20
     strategy:
       fail-fast: false
       matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
         extra: [openai, stanza, ollama]
     steps:
       - name: Set up Python
