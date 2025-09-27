@@ -7,6 +7,10 @@ on:
   # Allow manual runs
   workflow_dispatch:
 
+# Restrict default GITHUB_TOKEN permissions (principle of least privilege)
+permissions:
+  contents: read
+
 jobs:
   pypi-install:
     name: Install from PyPI (${{ matrix.os }}, py${{ matrix.python-version }})
