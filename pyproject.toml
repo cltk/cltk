@@ -7,9 +7,6 @@ authors = [
     {name = "Clément Besnier", email = "clem@clementbesnier.fr"},
 ]
 readme = { file = "README.md", content-type = "text/markdown" }
-homepage = "http://cltk.org"
-repository = "https://github.com/cltk/cltk"
-documentation = "https://docs.cltk.org"
 keywords = ["nlp", "ai", "nltk", "latin", "greek", "sanskrit", "hebrew", "arabic", "chinese"]
 requires-python = ">=3.13"
 dependencies = [
@@ -31,6 +28,11 @@ ollama = [
     "ollama (>=0.3.0,<1.0.0)",
     "httpx (<0.29)",  # pinned since ollama pulls a beta httpx with breaking changes
 ]
+
+[project.urls]
+Homepage = "http://cltk.org"
+Repository = "https://github.com/cltk/cltk"
+Documentation = "https://docs.cltk.org"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]

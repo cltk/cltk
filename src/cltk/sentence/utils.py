@@ -76,7 +76,8 @@ def split_sentences_multilang(
         "mara1378": r"([।॥.!?])",  # Marathi
         "bagr1243": r"([।॥.!?])",  # Bagri (Rajasthani)
         "demo1234": r"([.!?])",  # Demotic Egyptian: period, exclamation, question (adjust if you have more info)
-        "clas1252": r"(r[܀܁܂܃܄܆܇·])",  # Classical Syriac
+        # Classical Syriac: explicit punctuation marks; remove stray literal 'r'
+        "clas1252": r"([܀܁܂܃܄܆܇·])",
         "hitt1242": r"([\.!?𒑰])",  # Hittite: generic (Akkadian-like) punctuation + 𒑰
         "toch1238": r"([।॥.!?])",  # Tocharian A: Brahmi danda family
         "toch1237": r"([।॥.!?])",  # Tocharian B: Brahmi danda family
@@ -140,11 +141,13 @@ def split_sentences_multilang(
         "gheg1238": r"([.!?])",  # Albanian: period, exclamation, question
         "clas1256": r"([։՞,!;])",  # Classical Armenian: period, exclamation, question
         "midd1364": r"([։՞,!;])",  # Middle Armenian: period, exclamation, question
-        "cune1239": r"(.?:;?:\|\||§|\n+)",  # Cuneiform Luwian: double ruling, section mark, or explicit line break
-        "hier1240": r"(.;?:\|\||•|·|\n+)",  # Hieroglyphic Luwian: double ruling (sentence/section), bullet or mid-dot used in some editions, or line break
+        # Luwian family: match any of . ; : ? or the double ruler '||', or section mark/newlines
+        "cune1239": r"([.;:?]|\|\||§|\n+)",
+        # Hieroglyphic Luwian: include mid-dot/bullet variants
+        "hier1240": r"([.;:?]|\|\||•|·|\n+)",
         "lyci1241": r"([.:;·:])",  # Lycian A
         "lydi1241": r"([.:;?·:])",  # Lydian
-        "pala1331": r"(.;?:\|\||§|\r?\n+)",  # Palaic
+        "pala1331": r"([.;:?]|\|\||§|\r?\n+)",  # Palaic
         "cari1274": r"([.?!:;⸱·⁚⁝])",  # Carian
         "saur1252": r"([।॥.!?])",  # Sauraseni Prakrit: danda, double danda, period, exclamation, question
         "maha1305": r"([।॥.!?])",  # Maharastri Prakrit: same as above

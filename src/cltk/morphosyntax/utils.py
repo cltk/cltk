@@ -9,7 +9,7 @@ import hashlib
 from typing import Any, Optional, cast, get_args
 
 from colorama import Fore, Style
-from pydantic_core._pydantic_core import ValidationError as PydanticValidationError
+from pydantic import ValidationError as PydanticValidationError
 from tqdm import tqdm
 
 from cltk.core.cltk_logger import bind_context, logger

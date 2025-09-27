@@ -85,7 +85,7 @@ class _ContextAdapter(logging.LoggerAdapter):
 
 def setup_cltk_logger(
     name: str = "CLTK",
-    log_to_file: bool = True,
+    log_to_file: bool | None = None,
     log_to_console: bool = True,
     level: str | None = None,
 ) -> logging.Logger:
@@ -117,6 +117,11 @@ def setup_cltk_logger(
         )
     )
     formatter_console = ColorFormatter("%(levelname)s: %(message)s")
+
+    # Determine file logging from explicit arg or env var (default: off)
+    if log_to_file is None:
+        env_val = os.getenv("CLTK_LOG_TO_FILE", "").strip().lower()
+        log_to_file = env_val in {"1", "true", "yes", "on"}
 
     if log_to_file:
         file_handler = logging.FileHandler("cltk.log")
