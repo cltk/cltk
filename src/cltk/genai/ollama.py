@@ -58,6 +58,11 @@ def _usage_from_result(res: Any) -> dict[str, int]:
     return usage
 
 
+def _bearer(token: str) -> str:
+    t = token.strip()
+    return t if t.lower().startswith("bearer ") else f"Bearer {t}"
+
+
 class OllamaConnection:
     """Thin wrapper around the Ollama client for CLTK use cases (sync).
 
@@ -91,7 +96,7 @@ class OllamaConnection:
                 raise ImportError(
                     "Ollama Cloud API key not found. Set OLLAMA_CLOUD_API_KEY in your environment."
                 )
-            headers = {"Authorization": self.api_key}
+            headers = {"Authorization": _bearer(self.api_key)}
         self._client: Any
         try:
             from ollama import Client as _Client
@@ -144,7 +149,14 @@ class OllamaConnection:
             self.log.warning("Could not verify/pull model '%s' via Ollama.", self.model)
 
     def generate(self, prompt: str, *, max_retries: int = 2) -> CLTKGenAIResponse:
-        self.log.debug(prompt)
+        # Avoid logging prompt contents unless explicitly enabled
+        if os.getenv("CLTK_LOG_CONTENT", "").strip().lower() in {
+            "1",
+            "true",
+            "yes",
+            "on",
+        }:
+            self.log.debug("[ollama] Prompt being sent to Ollama:\n%s", prompt)
         # Ensure model is present (best-effort)
         self._pull_if_needed()
         last_err: Optional[Exception] = None
@@ -190,7 +202,7 @@ class AsyncOllamaConnection:
                 raise ImportError(
                     "Ollama Cloud API key not found. Set OLLAMA_CLOUD_API_KEY in your environment."
                 )
-            headers = {"Authorization": self.api_key}
+            headers = {"Authorization": _bearer(self.api_key)}
         self._client: Any
         try:
             from ollama import AsyncClient as _AsyncClient
@@ -239,7 +251,13 @@ class AsyncOllamaConnection:
     async def generate_async(
         self, *, prompt: str, max_retries: int = 2
     ) -> CLTKGenAIResponse:
-        self.log.debug("[async-ollama] Prompt being sent to Ollama:\n%s", prompt)
+        if os.getenv("CLTK_LOG_CONTENT", "").strip().lower() in {
+            "1",
+            "true",
+            "yes",
+            "on",
+        }:
+            self.log.debug("[async-ollama] Prompt being sent to Ollama:\n%s", prompt)
         await self._pull_if_needed()
         last_err: Optional[Exception] = None
         for attempt in range(1, max_retries + 1):

@@ -109,7 +109,16 @@ class OpenAIConnection:
         prompt: str,
         max_retries: int = 2,
     ) -> CLTKGenAIResponse:
-        self.log.debug(prompt)
+        # Avoid logging full prompt contents unless explicitly enabled
+        import os as _os
+
+        if _os.getenv("CLTK_LOG_CONTENT", "").strip().lower() in {
+            "1",
+            "true",
+            "yes",
+            "on",
+        }:
+            self.log.debug(prompt)
         code_block: Optional[str] = None
         openai_response: Optional[Any] = None
         attempt: Optional[int] = None
@@ -137,7 +146,15 @@ class OpenAIConnection:
                 raise OpenAIInferenceError(
                     f"An error from OpenAI occurred: {openai_error}"
                 )
-            self.log.debug(f"Raw response from OpenAI: {openai_response.output_text}")
+            if _os.getenv("CLTK_LOG_CONTENT", "").strip().lower() in {
+                "1",
+                "true",
+                "yes",
+                "on",
+            }:
+                self.log.debug(
+                    f"Raw response from OpenAI: {openai_response.output_text}"
+                )
             # Add usage from this attempt even if parsing fails
             try:
                 tok = self._openai_response_tokens(openai_response)
@@ -170,9 +187,15 @@ class OpenAIConnection:
         raw_openai_response_normalized: str = cltk_normalize(
             text=openai_response.output_text
         )
-        self.log.debug(
-            f"raw_openai_response_normalized:\n{raw_openai_response_normalized}"
-        )
+        if _os.getenv("CLTK_LOG_CONTENT", "").strip().lower() in {
+            "1",
+            "true",
+            "yes",
+            "on",
+        }:
+            self.log.debug(
+                f"raw_openai_response_normalized:\n{raw_openai_response_normalized}"
+            )
         self.log.debug(f"Completed generation() after {attempt} attempts")
         # return {"response": raw_openai_response_normalized, "usage": openai_usage}
         return CLTKGenAIResponse(
@@ -240,7 +263,15 @@ class OpenAIConnection:
             r"```(?:[a-zA-Z]*\n)?(.*?)```", text, re.DOTALL
         )
         code_block: str = code_blocks[0].strip()
-        self.log.debug(f"Extracted code block:\n{code_block}")
+        import os as _os
+
+        if _os.getenv("CLTK_LOG_CONTENT", "").strip().lower() in {
+            "1",
+            "true",
+            "yes",
+            "on",
+        }:
+            self.log.debug(f"Extracted code block:\n{code_block}")
         return code_block
 
 
@@ -292,7 +323,15 @@ class AsyncOpenAIConnection:
         prompt: str,
         max_retries: int = 2,
     ) -> CLTKGenAIResponse:
-        self.log.debug("[async] Prompt being sent to OpenAI:\n%s", prompt)
+        import os as _os
+
+        if _os.getenv("CLTK_LOG_CONTENT", "").strip().lower() in {
+            "1",
+            "true",
+            "yes",
+            "on",
+        }:
+            self.log.debug("[async] Prompt being sent to OpenAI:\n%s", prompt)
         code_block: Optional[str] = None
         openai_response: Optional[Any] = None
         agg_tokens: dict[str, int] = {"input": 0, "output": 0, "total": 0}
@@ -349,7 +388,13 @@ class AsyncOpenAIConnection:
         assert openai_response is not None
         usage = agg_tokens
         raw_normalized: str = cltk_normalize(text=openai_response.output_text)
-        self.log.debug("[async] Normalized output text:\n%s", raw_normalized)
+        if _os.getenv("CLTK_LOG_CONTENT", "").strip().lower() in {
+            "1",
+            "true",
+            "yes",
+            "on",
+        }:
+            self.log.debug("[async] Normalized output text:\n%s", raw_normalized)
         return CLTKGenAIResponse(response=raw_normalized, usage=usage)
 
     def _openai_response_tokens(self, response: Any) -> dict[str, int]:
@@ -390,5 +435,13 @@ class AsyncOpenAIConnection:
             r"```(?:[a-zA-Z]*\n)?(.*?)```", text, re.DOTALL
         )
         code_block: str = code_blocks[0].strip()
-        self.log.debug("[async] Extracted code block:\n%s", code_block)
+        import os as _os
+
+        if _os.getenv("CLTK_LOG_CONTENT", "").strip().lower() in {
+            "1",
+            "true",
+            "yes",
+            "on",
+        }:
+            self.log.debug("[async] Extracted code block:\n%s", code_block)
         return code_block

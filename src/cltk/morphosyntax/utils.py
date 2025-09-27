@@ -112,7 +112,10 @@ def generate_pos(
         prompt_version=str(pinfo.version),
     )
     log.info("[prompt] %s v%s hash=%s", pinfo.kind, pinfo.version, pinfo.digest)
-    log.debug(prompt)
+    import os as _os
+
+    if _os.getenv("CLTK_LOG_CONTENT", "").strip().lower() in {"1", "true", "yes", "on"}:
+        log.debug(prompt)
     # code_blocks: list[Any] = []
     if not doc.backend:
         msg_no_backend: str = "Doc must have `.backend` set to 'openai', 'ollama', or 'ollama-cloud' to use generate_pos."
@@ -157,11 +160,13 @@ def generate_pos(
     doc.openai.append(openai_usage)
 
     parsed_pos_tags: list[dict[str, str]] = _parse_tsv_table(openai_res)
-    log.debug(f"Parsed POS tags:\n{parsed_pos_tags}")
+    if _os.getenv("CLTK_LOG_CONTENT", "").strip().lower() in {"1", "true", "yes", "on"}:
+        log.debug(f"Parsed POS tags:\n{parsed_pos_tags}")
     cleaned_pos_tags: list[dict[str, Optional[str]]] = [
         {k: (None if v == "_" else v) for k, v in d.items()} for d in parsed_pos_tags
     ]
-    log.debug(f"Cleaned POS tags:\n{cleaned_pos_tags}")
+    if _os.getenv("CLTK_LOG_CONTENT", "").strip().lower() in {"1", "true", "yes", "on"}:
+        log.debug(f"Cleaned POS tags:\n{cleaned_pos_tags}")
     # Create Word objects from cleaned POS tags
     words: list[Word] = list()
     for word_idx, pos_dict in enumerate(cleaned_pos_tags):
@@ -199,16 +204,39 @@ def generate_pos(
         except ValueError as e:
             msg: str = f"{word.string}: Failed to create features_tag_set from '{feats_raw}' for '{word.string}': {e}"
             log.error(msg)
-            with open("features_err.log", "a") as f:
-                f.write(msg + "\n")
+            # Only write to disk if explicitly enabled for both file logging and content
+            if _os.getenv("CLTK_LOG_TO_FILE", "").strip().lower() in {
+                "1",
+                "true",
+                "yes",
+                "on",
+            } and _os.getenv("CLTK_LOG_CONTENT", "").strip().lower() in {
+                "1",
+                "true",
+                "yes",
+                "on",
+            }:
+                try:
+                    with open("features_err.log", "a", encoding="utf-8") as f:
+                        f.write(msg + "\n")
+                except Exception:
+                    # Never fail the pipeline due to logging to disk
+                    pass
             word.features = features_tag_set
             # TODO: Re-raise this error
             # raise ValueError(msg)
-        log.debug(f"features_tag_set for {word.string}: {features_tag_set}")
+        if _os.getenv("CLTK_LOG_CONTENT", "").strip().lower() in {
+            "1",
+            "true",
+            "yes",
+            "on",
+        }:
+            log.debug(f"features_tag_set for {word.string}: {features_tag_set}")
         word.features = features_tag_set
         words.append(word)
     log.debug(f"Created {len(words)} Word objects from POS tags.")
-    log.debug("Words: %s", ", ".join([word.string or "" for word in words]))
+    if _os.getenv("CLTK_LOG_CONTENT", "").strip().lower() in {"1", "true", "yes", "on"}:
+        log.debug("Words: %s", ", ".join([word.string or "" for word in words]))
     if not doc.words:
         log.debug("`input_doc.words` is empty. Setting with new words.")
         doc.words = words

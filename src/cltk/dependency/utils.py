@@ -126,7 +126,10 @@ def generate_dependency_tree(
         doc, sentence_idx=sentence_idx, prompt_version=str(pinfo.version)
     )
     log.info("[prompt] %s v%s hash=%s", pinfo.kind, pinfo.version, pinfo.digest)
-    log.debug(prompt)
+    import os as _os
+
+    if _os.getenv("CLTK_LOG_CONTENT", "").strip().lower() in {"1", "true", "yes", "on"}:
+        log.debug(prompt)
     # code_blocks: list[Any] = []
     if not doc.backend:
         msg_no_backend: str = "Doc must have `.backend` set to 'openai', 'ollama', or 'ollama-cloud' to use generate_dependency_tree."
@@ -169,7 +172,8 @@ def generate_dependency_tree(
     doc.openai.append(openai_usage)
 
     rows = _parse_dep_tsv_table(openai_res)
-    log.debug(f"[dep] Parsed rows:\n{rows}")
+    if _os.getenv("CLTK_LOG_CONTENT", "").strip().lower() in {"1", "true", "yes", "on"}:
+        log.debug(f"[dep] Parsed rows:\n{rows}")
     # If we already have words, update them in place; otherwise, create fresh Word objects
     words: list[Word] = list(doc.words) if doc.words else []
     for i, row in enumerate(rows):
