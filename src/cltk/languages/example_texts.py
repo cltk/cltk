@@ -457,8 +457,8 @@ evaṃ ime sattā anekesu bhavesu saṃsarantā dukkhāni anubhavanti.
     "midd1366": """ܠܫܢܐ ܐܪ̈ܡܝܐ ܡܨܥܝܐ.܃""",
     # Classical Mandaic (placeholder)
     "clas1253": """ࡌࡀࡍࡃࡀࡉࡉࡀ ࡁࡀࡔࡀ.""",
-    # Hatran (placeholder)
-    "hatr1234": """Hatran inscription sample.""",
+    # Hatran, dedication to the god Šamaš
+    "hatr1234": """šlm ʿl mrn šmš wʿl mrn mryʿ wʿl pḥrʾ d-šlmwn brnšʾ d-hwʾ pḥrʾ ʿl-hdʾ.""",
     # Jewish Babylonian Aramaic (square script placeholder)
     "jewi1240": """תלמודא דבבל׃""",
     # Samʾalian (Phoenician-family glyphs)
