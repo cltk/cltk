@@ -1,0 +1,62 @@
+name: Daily pip install check
+
+on:
+  schedule:
+    # Daily at 08:00 UTC
+    - cron: "0 8 * * *"
+  # Allow manual runs
+  workflow_dispatch:
+
+jobs:
+  pypi-install:
+    name: Install from PyPI (${{ matrix.os }}, py${{ matrix.python-version }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        python-version: ["3.13"]
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Upgrade pip
+        run: python -m pip install --upgrade pip
+
+      - name: Install CLTK from PyPI
+        run: python -m pip install cltk
+
+      - name: Verify import and print version
+        run: python -c "import cltk, sys; print('CLTK import OK:', cltk.__version__)"
+
+      - name: Check installed dependencies
+        run: python -m pip check
+
+  pypi-install-extras:
+    name: Install PyPI with extra [${{ matrix.extra }}]
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        extra: [openai, stanza, ollama]
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Upgrade pip
+        run: python -m pip install --upgrade pip
+
+      - name: Install CLTK with extra
+        run: python -m pip install "cltk[${{ matrix.extra }}]"
+
+      - name: Verify import
+        run: python -c "import cltk; print('CLTK import with extra OK')"
+
+      - name: Check installed dependencies
+        run: python -m pip check
