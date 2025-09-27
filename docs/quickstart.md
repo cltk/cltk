@@ -9,11 +9,11 @@ This guide helps you install CLTK and run minimal, working examples using each b
 ## Install
 
 - Base library:
-  - pip: `pip install cltk`
+    - pip: `pip install cltk`
 - Optional extras (choose any):
-  - OpenAI: `pip install "cltk[openai]"`
-  - Stanza: `pip install "cltk[stanza]"`
-  - Ollama (local or cloud): `pip install "cltk[ollama]"`
+    - OpenAI: `pip install "cltk[openai]"`
+    - Stanza: `pip install "cltk[stanza]"`
+    - Ollama (local or cloud): `pip install "cltk[ollama]"`
 - You can combine extras, e.g. `pip install "cltk[openai,stanza,ollama]"`.
 
 ## Environment
@@ -77,18 +77,18 @@ for w in doc.words:
   ```
 
 - Ollama Cloud (hosted)
-  - Set `OLLAMA_CLOUD_API_KEY` and use backend `ollama-cloud`.
-  - Example (Latin):
+    - Set `OLLAMA_CLOUD_API_KEY` and use backend `ollama-cloud`.
+    - Example (Latin):
 
-  ```python
-  import os
-  os.environ["OLLAMA_CLOUD_API_KEY"] = "oc-..."  # or set in your shell/.env
+    ```python
+    import os
+    os.environ["OLLAMA_CLOUD_API_KEY"] = "oc-..."  # or set in your shell/.env
 
-  from cltk.nlp import NLP
-  nlp = NLP("lati1261", backend="ollama-cloud", suppress_banner=True)
-  doc = nlp.analyze("Gallia est omnis divisa in partes tres.")
-  print("usage:", doc.openai)
-  ```
+    from cltk.nlp import NLP
+    nlp = NLP("lati1261", backend="ollama-cloud", suppress_banner=True)
+    doc = nlp.analyze("Gallia est omnis divisa in partes tres.")
+    print("usage:", doc.openai)
+    ```
 
 ## Dependency parsing (generative backends)
 
