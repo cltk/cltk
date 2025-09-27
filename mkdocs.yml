@@ -21,12 +21,12 @@ theme:
     - content.code.copy
     - toc.follow
   palette:
-    - scheme: slate
-      primary: light green
-      accent: pink
+    scheme: slate        # dark base
+    primary: brown       # earthy felt/leather
+    accent: cyan         # turquoise jewelry/sky
 
-# extra_css:
-#   - stylesheets/extra.css
+extra_css:
+  - stylesheets/extra.css
 
 plugins:
   - search
