@@ -10,7 +10,7 @@ docsServe:
 	poetry run mkdocs serve -a 127.0.0.1:8000
 
 fix:
-	poetry run ruff check --fix src
+	poetry run ruff check --fix src/
 
 format:
 	poetry run ruff format src/

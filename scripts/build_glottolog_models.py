@@ -1,5 +1,4 @@
-"""
-Build Language/Dialect models from a local Glottolog checkout.
+"""Build Language/Dialect models from a local Glottolog checkout.
 
 - Exports ALL languages and their dialects (no historic filtering).
 - Does not map any values into Language.sources or Dialect.sources.
@@ -295,8 +294,7 @@ def raw_to_models(
     root_glottocode: Optional[str] = None,
     historic_cutoff: Optional[int] = None,  # kept for CLI compatibility; ignored
 ) -> Dict[str, Language]:
-    """
-    Convert the raw graph to Language/Dialect objects.
+    """Convert the raw graph to Language/Dialect objects.
 
     - Materializes ALL languages (level == 'language').
     - Attaches ALL dialects to their nearest language ancestor.
