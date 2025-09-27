@@ -1,5 +1,3 @@
-[![PyPI](https://img.shields.io/pypi/v/cltk)](https://pypi.org/project/cltk/)
-
 The Classical Language Toolkit (CLTK) is a Python library offering natural language processing (NLP) for pre-modern languages.
 
 ## Installation
