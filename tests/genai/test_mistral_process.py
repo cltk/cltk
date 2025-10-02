@@ -6,21 +6,21 @@ from typing import Any
 
 def test_openai_connection_requires_api_key(monkeypatch):  # type: ignore[no-untyped-def]
     # Ensure no ambient API key
-    monkeypatch.delenv("OPENAI_API_KEY", raising=False)
+    monkeypatch.delenv("MISTRAL_API_KEY", raising=False)
 
-    openai_mod = importlib.import_module("cltk.genai.openai_wrapper")
+    mistral_module = importlib.import_module("cltk.genai.mistral_wrapper")
     # Prevent reading from a local .env during the test
-    monkeypatch.setattr(openai_mod, "load_env_file", lambda: None)
+    monkeypatch.setattr(mistral_module, "load_env_file", lambda: None)
     # Provide a benign OpenAI stub so import doesn't error when constructing
-    class _OpenAIStub:  # noqa: D401 - trivial stub
+    class _MistralStub:  # noqa: D401 - trivial stub
         def __init__(self, **_: Any) -> None:
-            """No-op OpenAI client stub."""
+            """No-op Mistral client stub."""
             pass
 
-    monkeypatch.setattr(openai_mod, "OpenAI", _OpenAIStub)
+    monkeypatch.setattr(mistral_module, "Mistral", _MistralStub)
 
     try:
-        openai_mod.OpenAIConnection(model="gpt-5-mini")
+        mistral_module.MistralConnection(model="")
         assert False, "Expected ValueError without API key"
     except ValueError:
         pass
@@ -28,31 +28,31 @@ def test_openai_connection_requires_api_key(monkeypatch):  # type: ignore[no-unt
 
 def test_openai_connection_uses_env_api_key(monkeypatch):  # type: ignore[no-untyped-def]
     # Supply API key via environment
-    monkeypatch.setenv("OPENAI_API_KEY", "test-key")
+    monkeypatch.setenv("MISTRAL_API_KEY", "test-key")
 
-    openai_mod = importlib.import_module("cltk.genai.openai_wrapper")
+    mistral_module = importlib.import_module("cltk.genai.mistral_wrapper")
 
     created = {}
 
-    class _OpenAIRecorder:
+    class _MistralRecorder:
         def __init__(self, **kwargs: Any) -> None:  # noqa: D401 - trivial stub
             created.update(kwargs)
 
-    monkeypatch.setattr(openai_mod, "OpenAI", _OpenAIRecorder)
-    conn = openai_mod.OpenAIConnection(model="gpt-5-mini")
+    monkeypatch.setattr(mistral_module, "Mistral", _MistralRecorder)
+    conn = mistral_module.MistralConnection(model="")
     assert conn is not None
     assert created.get("api_key") == "test-key"
 
 
 def test_extract_code_blocks(monkeypatch):  # type: ignore[no-untyped-def]
-    openai_mod = importlib.import_module("cltk.genai.openai_wrapper")
+    mistral_module = importlib.import_module("cltk.genai.mistral_wrapper")
 
-    class _OpenAIStub:
+    class _MistralStub:
         def __init__(self, **_: Any) -> None:  # noqa: D401 - trivial stub
             pass
 
-    monkeypatch.setattr(openai_mod, "OpenAI", _OpenAIStub)
-    conn = openai_mod.OpenAIConnection(model="gpt-5-mini", api_key="dummy")
+    monkeypatch.setattr(mistral_module, "Mistral", _MistralStub)
+    conn = mistral_module.MistralConnection(model="", api_key="dummy")
 
     text = """
 Here is some response.

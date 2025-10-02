@@ -54,3 +54,8 @@ class OpenAIInferenceError(CLTKException):
     """Raised when OpenAI inference fails or returns an invalid response."""
 
     pass
+
+
+class MistralInferenceError(CLTKException):
+    """Raised when Mistral inference fails or returns an invalid response."""
+    pass
