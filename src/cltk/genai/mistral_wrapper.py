@@ -150,7 +150,7 @@ class MistralConnection:
                 if attempt == max_retries:
                     final_err = "No code blocks found in Mistral response after retries."
                     self.log.error(final_err)
-                    # logger.error(raw_openai_response_normalized)
+                    # logger.error(raw_mistral_response_normalized)
                     raise CLTKException(final_err)
                     # return doc
                 # Optionally, you could modify the prompt or add a delay here
@@ -171,7 +171,7 @@ class MistralConnection:
                 f"raw_mistral_response_normalized:\n{raw_mistral_response_normalized}"
             )
         self.log.debug(f"Completed generation() after {attempt} attempts")
-        # return {"response": raw_openai_response_normalized, "usage": openai_usage}
+        # return {"response": raw_mistral_response_normalized, "usage": mistral_usage}
         return CLTKGenAIResponse(
             response=raw_mistral_response_normalized, usage=mistral_usage
         )
@@ -199,7 +199,7 @@ class MistralConnection:
             self.log.info(f"Mistral usage: {tokens}")
             return tokens
 
-        # Normalize key names across OpenAI endpoints
+        # Normalize key names across Mistral endpoints
         def _get(u: object, *names: str) -> int:
             for nm in names:
                 if hasattr(u, nm):
@@ -257,8 +257,8 @@ class AsyncMistralConnection:
     the synchronous client while enabling concurrent requests.
 
     Args:
-      model: Model alias to use (see ``AVAILABLE_OPENAI_MODELS``).
-      api_key: Optional OpenAI API key. Falls back to ``OPENAI_API_KEY``.
+      model: Model alias to use (see ``AVAILABLE_MISTRAL_MODELS``).
+      api_key: Optional Mistral API key. Falls back to ``MISTAL_API_KEY``.
       temperature: Sampling temperature for generation.
 
     """
@@ -274,21 +274,21 @@ class AsyncMistralConnection:
         self.temperature: float = temperature
         if not self.api_key:
             load_env_file()
-            self.api_key = os.environ.get("MISTRAl_API_KEY")
+            self.api_key = os.environ.get("MISTRAL_API_KEY")
         if not self.api_key:
-            msg: str = "OPENAI_API_KEY not found. Please set it in your environment or in a .env file."
+            msg: str = "MISTRAL_API_KEY not found. Please set it in your environment or in a .env file."
             bind_context(model=str(model)).error(msg)
             raise ValueError(msg)
-        mistral_cls = Mistral
-        if mistral_cls is None:  # pragma: no cover - import only if needed
+        async_mistral_cls = Mistral
+        if async_mistral_cls is None:  # pragma: no cover - import only if needed
             try:
                 from mistralai import Mistral as runtime_async_mistral
             except Exception as e:
                 raise ImportError(
                     "Mistral client not installed. Install with: pip install 'cltk[mistral]'"
                 ) from e
-            async_openai_cls = runtime_async_mistral
-        self.client = runtime_async_mistral(api_key=self.api_key)
+            async_mistral_cls = runtime_async_mistral
+        self.client = async_mistral_cls(api_key=self.api_key)
         # Structured logger bound with model identifier
         self.log = bind_context(model=str(self.model))
 
@@ -305,7 +305,7 @@ class AsyncMistralConnection:
             "yes",
             "on",
         }:
-            self.log.debug("[async] Prompt being sent to OpenAI:\n%s", prompt)
+            self.log.debug("[async] Prompt being sent to Mistral:\n%s", prompt)
         code_block: Optional[str] = None
         mistral_response: Optional[Any] = None
         agg_tokens: dict[str, int] = {"input": 0, "output": 0, "total": 0}
@@ -327,17 +327,17 @@ class AsyncMistralConnection:
                 continue
 
             self.log.debug(
-                "[async] Raw response from OpenAI: %s", mistral_response.output_text
+                "[async] Raw response from Mistral: %s", mistral_response.choices[0].message.content
             )
             # Track usage for this attempt (even if parsing fails)
             try:
-                tok = self._openai_response_tokens(mistral_response)
+                tok = self._mistral_response_tokens(mistral_response)
                 for k in ("input", "output", "total"):
                     agg_tokens[k] += tok.get(k, 0)
             except Exception:
                 pass
             try:
-                code_block = self._extract_code_blocks(mistral_response.output_text)
+                code_block = self._extract_code_blocks(mistral_response.choices[0].message.content)
             except Exception as e:  # pragma: no cover - defensive
                 self.log.error("[async] Error extracting code block: %s", e)
                 code_block = None
@@ -350,7 +350,7 @@ class AsyncMistralConnection:
 
         assert mistral_response is not None
         usage = agg_tokens
-        raw_normalized: str = cltk_normalize(text=mistral_response.output_text)
+        raw_normalized: str = cltk_normalize(text=mistral_response.choices[0].message.content)
         if _os.getenv("CLTK_LOG_CONTENT", "").strip().lower() in {
             "1",
             "true",
@@ -360,7 +360,7 @@ class AsyncMistralConnection:
             self.log.debug("[async] Normalized output text:\n%s", raw_normalized)
         return CLTKGenAIResponse(response=raw_normalized, usage=usage)
 
-    def _openai_response_tokens(self, response: Any) -> dict[str, int]:
+    def _mistral_response_tokens(self, response: Any) -> dict[str, int]:
         usage = getattr(response, "usage", None)
         tokens: dict[str, int] = {"input": 0, "output": 0, "total": 0}
         if not usage:
