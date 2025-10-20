@@ -7,9 +7,11 @@ import unicodedata
 from contextlib import contextmanager
 
 # from enum import EnumMeta, IntEnum
-from typing import TYPE_CHECKING, Any, Iterator, Optional, Union
+from typing import Any, Iterator, Optional, Union
 
 from dotenv import load_dotenv
+
+from cltk.core.data_types import Doc, Word
 
 
 def file_exists(file_path: str, is_dir: bool = False) -> bool:
@@ -271,11 +273,7 @@ def strip_accents(s: str) -> str:
     )
 
 
-if TYPE_CHECKING:
-    from cltk.core.data_types import Doc, Word
-
-
-def doc_to_conllu(doc: "Doc") -> str:
+def doc_to_conllu(doc: Doc) -> str:
     """Return a CONLL-U formatted string for the word annotations in ``doc``.
 
     Args:
@@ -339,14 +337,14 @@ def doc_to_conllu(doc: "Doc") -> str:
 
     output_lines: list[str] = []
     for _, sentence_entries in grouped.items():
-        sentence_words = sorted(
-            sentence_entries,
-            key=lambda item: (
-                getattr(item[1], "index_token", None)
-                if getattr(item[1], "index_token", None) is not None
-                else item[0]
-            ),
-        )
+
+        def _sentence_sort_key(item: tuple[int, "Word"]) -> int:
+            idx_token: Optional[int] = getattr(item[1], "index_token", None)
+            if idx_token is None:
+                return item[0]
+            return idx_token
+
+        sentence_words = sorted(sentence_entries, key=_sentence_sort_key)
         for token_idx, (_, word) in enumerate(sentence_words, start=1):
             upos = getattr(getattr(word, "upos", None), "tag", None)
             xpos = getattr(word, "xpos", None)
