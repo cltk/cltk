@@ -36,8 +36,8 @@ def file_exists(file_path: str, is_dir: bool = False) -> bool:
 
 
 def reverse_dict(
-    input_dict: dict[str, Any],  # pylint: disable=bad-continuation
-    ignore_keys: Optional[list[str]] = None,  # pylint: disable=bad-continuation
+    input_dict: dict[str, Any],
+    ignore_keys: Optional[list[str]] = None,
 ) -> dict[str, str]:
     """Take a dict and reverse its keys and values.
 
@@ -142,8 +142,6 @@ def get_cltk_data_dir() -> str:
         ```
 
     """
-    import os  # pylint: disable=import-outside-toplevel
-
     if "CLTK_DATA" in os.environ:
         cltk_data_dir = os.path.expanduser(os.path.normpath(os.environ["CLTK_DATA"]))
         if not os.path.isdir(cltk_data_dir):
