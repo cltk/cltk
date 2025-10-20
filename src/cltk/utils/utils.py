@@ -1,5 +1,7 @@
 """Module for commonly reused classes and functions."""
 
+import csv
+import io
 import os
 import re
 import sys
@@ -362,6 +364,120 @@ def doc_to_conllu(doc: Doc) -> str:
         output_lines.append("")
 
     return "\n".join(output_lines)
+
+
+def doc_to_pos_morph_csv(doc: Doc) -> str:
+    """Return a CSV string of POS and morphological annotations for the document.
+
+    Args:
+        doc: CLTK ``Doc`` instance containing annotated words.
+
+    Returns:
+        A CSV-formatted string containing POS, dependency, and UD feature columns.
+
+    Raises:
+        ValueError: If ``doc.words`` is ``None`` or empty.
+
+    """
+    words: Optional[list[Optional[Word]]] = getattr(doc, "words", None)
+    if not words:
+        raise ValueError("Doc.words must be a non-empty list.")
+
+    feature_keys: set[str] = set()
+    for word in words:
+        if not word:
+            continue
+        feats = getattr(word, "features", None)
+        feature_list = getattr(feats, "features", None)
+        if not feature_list:
+            continue
+        for feat in feature_list:
+            key = getattr(feat, "key", None)
+            if key:
+                feature_keys.add(str(key))
+
+    sorted_feature_keys: list[str] = sorted(feature_keys)
+
+    header: list[str] = [
+        "sentence_index",
+        "token_index",
+        "token_index_sentence",
+        "token",
+        "lemma",
+        "upos",
+        "head",
+        "deprel",
+    ]
+    header.extend(f"feat_{key}" for key in sorted_feature_keys)
+
+    buffer = io.StringIO()
+    writer = csv.writer(buffer)
+    writer.writerow(header)
+
+    sentence_positions: dict[int, int] = {}
+    for row_idx, word in enumerate(words):
+        if word is None:
+            writer.writerow([""] * len(header))
+            continue
+
+        sentence_idx_raw = getattr(word, "index_sentence", None)
+        if sentence_idx_raw is not None:
+            sentence_positions[sentence_idx_raw] = (
+                sentence_positions.get(sentence_idx_raw, 0) + 1
+            )
+            token_in_sentence: Union[int, str] = sentence_positions[sentence_idx_raw]
+        else:
+            token_in_sentence = ""
+
+        global_idx = getattr(word, "index_token", None)
+        if global_idx is None:
+            global_idx = row_idx
+
+        upos_tag = getattr(getattr(word, "upos", None), "tag", "") or ""
+        governor = getattr(word, "governor", None)
+        if governor is None:
+            head_value = ""
+        else:
+            try:
+                head_value = str(int(governor) + 1)
+            except (TypeError, ValueError):
+                head_value = ""
+
+        dep = getattr(word, "dependency_relation", None)
+        if dep:
+            code = getattr(dep, "code", None)
+            subtype = getattr(dep, "subtype", None)
+            if code:
+                deprel_value = f"{code}:{subtype}" if subtype else str(code)
+            else:
+                deprel_value = ""
+        else:
+            deprel_value = ""
+
+        feature_map: dict[str, str] = {}
+        feats_obj = getattr(word, "features", None)
+        feature_list = getattr(feats_obj, "features", None)
+        if feature_list:
+            for feat in feature_list:
+                key = getattr(feat, "key", None)
+                val = getattr(feat, "value", None)
+                if key and val:
+                    feature_map[str(key)] = str(val)
+
+        row: list[Union[str, int]] = [
+            str(sentence_idx_raw) if sentence_idx_raw is not None else "",
+            str(global_idx) if global_idx is not None else "",
+            str(token_in_sentence) if token_in_sentence != "" else "",
+            getattr(word, "string", "") or "",
+            getattr(word, "lemma", "") or "",
+            upos_tag,
+            head_value,
+            deprel_value,
+        ]
+        row.extend(feature_map.get(key, "") for key in sorted_feature_keys)
+        writer.writerow(row)
+
+    return buffer.getvalue().rstrip("\n")
 
 
 CLTK_DATA_DIR = get_cltk_data_dir()
