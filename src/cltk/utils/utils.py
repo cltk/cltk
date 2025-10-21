@@ -1,5 +1,7 @@
 """Module for commonly reused classes and functions."""
 
+import csv
+import io
 import os
 import re
 import sys
@@ -10,6 +12,8 @@ from contextlib import contextmanager
 from typing import Any, Iterator, Optional, Union
 
 from dotenv import load_dotenv
+
+from cltk.core.data_types import Doc, Word
 
 
 def file_exists(file_path: str, is_dir: bool = False) -> bool:
@@ -34,8 +38,8 @@ def file_exists(file_path: str, is_dir: bool = False) -> bool:
 
 
 def reverse_dict(
-    input_dict: dict[str, Any],  # pylint: disable=bad-continuation
-    ignore_keys: Optional[list[str]] = None,  # pylint: disable=bad-continuation
+    input_dict: dict[str, Any],
+    ignore_keys: Optional[list[str]] = None,
 ) -> dict[str, str]:
     """Take a dict and reverse its keys and values.
 
@@ -140,8 +144,6 @@ def get_cltk_data_dir() -> str:
         ```
 
     """
-    import os  # pylint: disable=import-outside-toplevel
-
     if "CLTK_DATA" in os.environ:
         cltk_data_dir = os.path.expanduser(os.path.normpath(os.environ["CLTK_DATA"]))
         if not os.path.isdir(cltk_data_dir):
@@ -269,6 +271,564 @@ def strip_accents(s: str) -> str:
     return "".join(
         c for c in unicodedata.normalize("NFD", s) if unicodedata.category(c) != "Mn"
     )
+
+
+def doc_to_conllu(doc: Doc) -> str:
+    """Return a CONLL-U formatted string for the word annotations in ``doc``.
+
+    Args:
+        doc: CLTK ``Doc`` instance containing annotated words.
+
+    Returns:
+        A string in CONLL-U format representing the document's word annotations.
+        Returns an empty string when the document has no words.
+
+    """
+
+    def _clean_field(value: Optional[Any]) -> str:
+        if value is None:
+            return "_"
+        text = str(value)
+        text = text.replace("\t", " ").replace("\n", " ").strip()
+        return text if text else "_"
+
+    def _format_feats(word: "Word") -> str:
+        feats = getattr(word, "features", None)
+        feature_list = getattr(feats, "features", None)
+        if not feature_list:
+            return "_"
+        items: list[str] = []
+        for feat in feature_list:
+            key = getattr(feat, "key", None)
+            val = getattr(feat, "value", None)
+            if key and val:
+                items.append(f"{key}={val}")
+        return "|".join(sorted(items)) if items else "_"
+
+    def _format_head(word: "Word") -> str:
+        governor = getattr(word, "governor", None)
+        if governor is None:
+            return "0"
+        try:
+            return str(int(governor) + 1)
+        except (ValueError, TypeError):
+            return "_"
+
+    def _format_deprel(word: "Word") -> str:
+        dep = getattr(word, "dependency_relation", None)
+        if dep is None:
+            return "_"
+        code = getattr(dep, "code", None)
+        subtype = getattr(dep, "subtype", None)
+        if not code:
+            return "_"
+        return f"{code}:{subtype}" if subtype else str(code)
+
+    words: list["Word"] = getattr(doc, "words", []) or []
+    if not words:
+        return ""
+
+    grouped: dict[Optional[int], list[tuple[int, "Word"]]] = {}
+    for order_idx, word in enumerate(words):
+        sent_idx = getattr(word, "index_sentence", None)
+        if sent_idx not in grouped:
+            grouped[sent_idx] = []
+        grouped[sent_idx].append((order_idx, word))
+
+    output_lines: list[str] = []
+    for _, sentence_entries in grouped.items():
+
+        def _sentence_sort_key(item: tuple[int, "Word"]) -> int:
+            idx_token: Optional[int] = getattr(item[1], "index_token", None)
+            if idx_token is None:
+                return item[0]
+            return idx_token
+
+        sentence_words = sorted(sentence_entries, key=_sentence_sort_key)
+        for token_idx, (_, word) in enumerate(sentence_words, start=1):
+            upos = getattr(getattr(word, "upos", None), "tag", None)
+            xpos = getattr(word, "xpos", None)
+            columns = [
+                str(token_idx),
+                _clean_field(getattr(word, "string", None)),
+                _clean_field(getattr(word, "lemma", None)),
+                _clean_field(upos),
+                _clean_field(xpos),
+                _format_feats(word),
+                _format_head(word),
+                _format_deprel(word),
+                "_",
+                "_",
+            ]
+            output_lines.append("\t".join(columns))
+        output_lines.append("")
+
+    return "\n".join(output_lines)
+
+
+def doc_to_ud_features_csv(doc: Doc) -> str:
+    """Return a CSV string of POS, morphology, and rich dependency features.
+
+    - Raises ValueError when ``Doc.words`` is missing or empty.
+    - Writes an empty row when a list entry is ``None``.
+    - Ignores ``Word.xpos``.
+    - Adds tree-shape features and sentence-level metrics.
+
+    Feature Glossary (selected)
+    - head_upos: UPOS tag of the head token (empty for root)
+    - dir_to_head: Direction to head within sentence: ``L``, ``R``, or ``ROOT``
+    - dist_to_head: Absolute token distance to head (0 for root)
+    - dist_to_head_norm: ``dist_to_head`` normalized by sentence length
+    - child_count: Number of dependents of the token (out-degree)
+    - left_child_count / right_child_count: Dependents to the left/right of the token
+    - is_leaf: ``1`` if token has no dependents else ``0``
+    - depth_from_root / path_len_to_root: Steps from root to token (root = 0)
+    - height_to_leaf: Max steps from token down to any leaf (leaf = 0)
+    - subtree_size: Tokens in token’s subtree (including the token itself)
+    - subtree_span_width: Index span width covering the subtree (max − min + 1)
+    - subtree_gap: ``subtree_span_width - subtree_size`` (non‑zero suggests discontinuity)
+    - crossing_arcs: Number of arcs that cross this token’s arc
+    - parent_branching_factor: Number of children of the token’s parent
+    - sibling_index: Position among siblings by token order (0‑based)
+    - sibling_count: Number of siblings (``parent_branching_factor - 1``)
+    - is_root: ``1`` if root token else ``0``
+    - valid_head: ``1`` if token’s head index is valid else ``0``
+
+    Sentence-level (repeated per token)
+    - sent_root_index: 1‑based index of the root in sentence order
+    - sent_tree_depth: Max ``depth_from_root`` within the sentence
+    - sent_avg_branching_nonleaf: Average children among non‑leaf nodes
+    - sent_crossing_arcs: Number of crossing‑arc pairs in the sentence
+    - sent_is_projective: ``1`` if no crossings, else ``0``
+    - sent_len: Sentence length in tokens
+    """
+    words: Optional[list[Optional[Word]]] = getattr(doc, "words", None)
+    if not words:
+        raise ValueError("Doc.words must be a non-empty list.")
+
+    # Collect UD feature keys across the document
+    feature_keys: set[str] = set()
+    for w in words:
+        if not w:
+            continue
+        feats = getattr(w, "features", None)
+        feature_list = getattr(feats, "features", None)
+        if not feature_list:
+            continue
+        for feat in feature_list:
+            key = getattr(feat, "key", None)
+            if key:
+                feature_keys.add(str(key))
+    sorted_feature_keys: list[str] = sorted(feature_keys)
+
+    # Group by sentence index (may be None)
+    sent_groups: dict[Optional[int], list[tuple[int, Word]]] = {}
+    for doc_idx, w in enumerate(words):
+        if w is None:
+            continue
+        sidx = getattr(w, "index_sentence", None)
+        sent_groups.setdefault(sidx, []).append((doc_idx, w))
+
+    # Derived features per token, keyed by doc index
+    dep_feats_by_doc_idx: dict[int, dict[str, Union[str, int, float]]] = {}
+
+    def _cross(a1: int, a2: int, b1: int, b2: int) -> bool:
+        x1, x2 = (a1, a2) if a1 <= a2 else (a2, a1)
+        y1, y2 = (b1, b2) if b1 <= b2 else (b2, b1)
+        return (x1 < y1 < x2 < y2) or (y1 < x1 < y2 < x2)
+
+    for sidx, entries in sent_groups.items():
+        # Sort sentence tokens by in-sentence order: prefer index_token else doc order
+        def sort_key(item: tuple[int, Word]) -> int:
+            _, w = item
+            tok = getattr(w, "index_token", None)
+            return int(tok) if tok is not None else item[0]
+
+        entries_sorted = sorted(entries, key=sort_key)
+        n = len(entries_sorted)
+        if n == 0:
+            continue
+
+        # Maps
+        local_to_doc: list[int] = [doc_i for doc_i, _ in entries_sorted]
+        # doc_to_local: dict[int, int] = {doc_i: i for i, doc_i in enumerate(local_to_doc)}
+
+        upos_by_local: list[str] = [""] * n
+        lemma_by_local: list[str] = [""] * n
+        form_by_local: list[str] = [""] * n
+        head_local: list[Optional[int]] = [None] * n
+        depcode_by_local: list[str] = [""] * n
+
+        index_token_to_local: dict[int, int] = {}
+        for i, (_, w) in enumerate(entries_sorted):
+            tok = getattr(w, "index_token", None)
+            if isinstance(tok, int):
+                index_token_to_local[tok] = i
+
+        for i, (_, w) in enumerate(entries_sorted):
+            upos = getattr(getattr(w, "upos", None), "tag", None) or ""
+            upos_by_local[i] = str(upos)
+            lemma_by_local[i] = getattr(w, "lemma", "") or ""
+            form_by_local[i] = getattr(w, "string", "") or ""
+            dep = getattr(w, "dependency_relation", None)
+            if dep:
+                code = getattr(dep, "code", None)
+                subtype = getattr(dep, "subtype", None)
+                depcode_by_local[i] = (
+                    f"{code}:{subtype}"
+                    if code and subtype
+                    else (str(code) if code else "")
+                )
+            gov = getattr(w, "governor", None)
+            if isinstance(gov, int) and 0 <= gov < n:
+                head_local[i] = gov
+            elif isinstance(gov, int) and gov in index_token_to_local:
+                head_local[i] = index_token_to_local[gov]
+            else:
+                head_local[i] = None
+
+        # Children adjacency
+        children: list[list[int]] = [[] for _ in range(n)]
+        for i, h in enumerate(head_local):
+            if isinstance(h, int) and 0 <= h < n:
+                children[h].append(i)
+        for kids in children:
+            kids.sort()
+
+        # Depth from root and cycle detection
+        depths: list[Optional[int]] = [None] * n
+        for i in range(n):
+            if depths[i] is not None:
+                continue
+            seen: set[int] = set()
+            cur = i
+            d = 0
+            while True:
+                if cur in seen:
+                    for node in seen:
+                        depths[node] = None
+                    break
+                seen.add(cur)
+                h = head_local[cur]
+                if h is None:
+                    # Assign precise depths by walking from i upward
+                    dd = 0
+                    node = i
+                    visited2: set[int] = set()
+                    while node not in visited2:
+                        visited2.add(node)
+                        depths[node] = dd
+                        h2 = head_local[node]
+                        if h2 is None:
+                            break
+                        node = h2
+                        dd += 1
+                    break
+                cur = h
+                d += 1
+                if d > n + 5:
+                    for node in seen:
+                        depths[node] = None
+                    break
+
+        # Subtree metrics (height, size, span)
+        from functools import lru_cache
+
+        @lru_cache(maxsize=None)
+        def subtree_metrics(
+            i: int, _stack: tuple[int, ...] = ()
+        ) -> tuple[Optional[int], Optional[int], int, int]:
+            if i in _stack:
+                return None, None, i, i
+            kids = children[i]
+            if not kids:
+                return 0, 1, i, i
+            max_h: Optional[int] = 0
+            total_size = 1
+            mn = i
+            mx = i
+            for c in kids:
+                h, sz, c_mn, c_mx = subtree_metrics(c, _stack + (i,))
+                if h is None or sz is None:
+                    max_h = None
+                else:
+                    if max_h is not None:
+                        max_h = max(max_h, 1 + h)
+                    total_size += sz
+                mn = min(mn, c_mn)
+                mx = max(mx, c_mx)
+            return max_h, (None if max_h is None else total_size), mn, mx
+
+        height_to_leaf: list[Optional[int]] = [None] * n
+        subtree_size: list[Optional[int]] = [None] * n
+        span_min: list[int] = [0] * n
+        span_max: list[int] = [0] * n
+        for i in range(n):
+            h, sz, mn, mx = subtree_metrics(i)
+            height_to_leaf[i] = h
+            subtree_size[i] = sz
+            span_min[i] = mn
+            span_max[i] = mx
+
+        # Left/right child counts and leaf flags
+        left_child_count = [0] * n
+        right_child_count = [0] * n
+        child_count = [len(children[i]) for i in range(n)]
+        for i in range(n):
+            for c in children[i]:
+                if c < i:
+                    left_child_count[i] += 1
+                elif c > i:
+                    right_child_count[i] += 1
+        is_leaf = [1 if child_count[i] == 0 else 0 for i in range(n)]
+
+        # Distances and directions to head
+        dist_to_head = [0] * n
+        dir_to_head = ["ROOT"] * n
+        for i in range(n):
+            h = head_local[i]
+            if h is None:
+                dist_to_head[i] = 0
+                dir_to_head[i] = "ROOT"
+            else:
+                dist_to_head[i] = abs(i - h)
+                dir_to_head[i] = "L" if h < i else "R"
+        dist_to_head_norm = [(d / n) if n > 0 else 0.0 for d in dist_to_head]
+
+        # Sibling info
+        sibling_index = [0] * n
+        sibling_count = [0] * n
+        parent_branching_factor = [0] * n
+        for i in range(n):
+            h = head_local[i]
+            if h is None:
+                sibling_index[i] = 0
+                sibling_count[i] = 0
+                parent_branching_factor[i] = 0
+            else:
+                sibs = children[h]
+                parent_branching_factor[i] = len(sibs)
+                sibling_count[i] = max(0, len(sibs) - 1)
+                try:
+                    sibling_index[i] = sibs.index(i)
+                except ValueError:
+                    sibling_index[i] = 0
+
+        # Span metrics
+        subtree_span_width: list[int] = [0] * n
+        subtree_gap: list[Optional[int]] = [None] * n
+        for i in range(n):
+            width = span_max[i] - span_min[i] + 1
+            subtree_span_width[i] = width
+            size_val = subtree_size[i]
+            gap_val: Optional[int]
+            if size_val is None:
+                gap_val = None
+            else:
+                gap_val = width - size_val
+            subtree_gap[i] = gap_val
+
+        # Crossing arcs
+        arcs: list[tuple[int, int, int]] = []
+        for i in range(n):
+            h = head_local[i]
+            if h is None:
+                continue
+            lo, hi = (i, h) if i <= h else (h, i)
+            arcs.append((lo, hi, i))
+        crossing_per_token = [0] * n
+        total_crossings = 0
+        for a in range(len(arcs)):
+            a1, a2, ai = arcs[a]
+            for b in range(a + 1, len(arcs)):
+                b1, b2, bi = arcs[b]
+                if _cross(a1, a2, b1, b2):
+                    total_crossings += 1
+                    crossing_per_token[ai] += 1
+                    crossing_per_token[bi] += 1
+
+        roots = [i for i, h in enumerate(head_local) if h is None]
+        sent_root_index_1b = (roots[0] + 1) if roots else 1
+        sent_tree_depth = max([d for d in depths if d is not None], default=0)
+        nonleaf = [i for i in range(n) if child_count[i] > 0]
+        sent_avg_branching_nonleaf = (
+            (sum(child_count[i] for i in nonleaf) / len(nonleaf)) if nonleaf else 0.0
+        )
+        sent_crossing_arcs = total_crossings
+        sent_is_projective = 1 if total_crossings == 0 else 0
+        sent_len = n
+
+        # Head attributes
+        head_upos = [""] * n
+        head_form = [""] * n
+        head_lemma = [""] * n
+        for i in range(n):
+            h = head_local[i]
+            if h is not None and 0 <= h < n:
+                head_upos[i] = upos_by_local[h]
+                head_form[i] = form_by_local[h]
+                head_lemma[i] = lemma_by_local[h]
+
+        # Child extremes
+        leftmost_child_index_1b = [""] * n
+        rightmost_child_index_1b = [""] * n
+        for i in range(n):
+            if children[i]:
+                leftmost_child_index_1b[i] = str(children[i][0] + 1)
+                rightmost_child_index_1b[i] = str(children[i][-1] + 1)
+
+        # Assign per-token features back by doc index
+        for local_i, doc_i in enumerate(local_to_doc):
+            head_idx = head_local[local_i]
+            depth_val = depths[local_i]
+            height_val = height_to_leaf[local_i]
+            subtree_size_val = subtree_size[local_i]
+            subtree_gap_val = subtree_gap[local_i]
+
+            if head_idx is None:
+                head_value = ""
+                dir_value = "ROOT"
+            else:
+                head_value = str(head_idx + 1)
+                dir_value = "L" if head_idx < local_i else "R"
+
+            dep_feats_by_doc_idx[doc_i] = {
+                "token_index_sentence": local_i + 1,
+                "head": head_value,
+                "deprel": depcode_by_local[local_i],
+                "head_upos": head_upos[local_i],
+                "head_form": head_form[local_i],
+                "head_lemma": head_lemma[local_i],
+                "dir_to_head": dir_value,
+                "dist_to_head": dist_to_head[local_i],
+                "dist_to_head_norm": dist_to_head_norm[local_i],
+                "child_count": child_count[local_i],
+                "left_child_count": left_child_count[local_i],
+                "right_child_count": right_child_count[local_i],
+                "is_leaf": is_leaf[local_i],
+                "depth_from_root": depth_val if depth_val is not None else "",
+                "path_len_to_root": depth_val if depth_val is not None else "",
+                "height_to_leaf": height_val if height_val is not None else "",
+                "subtree_size": subtree_size_val
+                if subtree_size_val is not None
+                else "",
+                "subtree_span_width": subtree_span_width[local_i],
+                "subtree_gap": subtree_gap_val if subtree_gap_val is not None else "",
+                "crossing_arcs": crossing_per_token[local_i],
+                "parent_branching_factor": parent_branching_factor[local_i],
+                "sibling_index": sibling_index[local_i],
+                "sibling_count": sibling_count[local_i],
+                "is_root": 1 if head_local[local_i] is None else 0,
+                "valid_head": 1 if head_local[local_i] is not None else 0,
+                # Sentence-level metrics
+                "sent_root_index": sent_root_index_1b,
+                "sent_tree_depth": sent_tree_depth,
+                "sent_avg_branching_nonleaf": sent_avg_branching_nonleaf,
+                "sent_crossing_arcs": sent_crossing_arcs,
+                "sent_is_projective": sent_is_projective,
+                "sent_len": sent_len,
+            }
+
+    # Build CSV header
+    base_header: list[str] = [
+        "sentence_index",
+        "token_index",
+        "token_index_sentence",
+        "token",
+        "lemma",
+        "upos",
+        "head",
+        "deprel",
+    ]
+    feat_header = [f"feat_{key}" for key in sorted_feature_keys]
+    # Dependency feature columns (token-level)
+    dep_extra_header: list[str] = [
+        "head_upos",
+        "head_form",
+        "head_lemma",
+        "dir_to_head",
+        "dist_to_head",
+        "dist_to_head_norm",
+        "child_count",
+        "left_child_count",
+        "right_child_count",
+        "is_leaf",
+        "depth_from_root",
+        "path_len_to_root",
+        "height_to_leaf",
+        "subtree_size",
+        "subtree_span_width",
+        "subtree_gap",
+        "crossing_arcs",
+        "parent_branching_factor",
+        "sibling_index",
+        "sibling_count",
+        "is_root",
+        "valid_head",
+        # Sentence-level features (repeated per token)
+        "sent_root_index",
+        "sent_tree_depth",
+        "sent_avg_branching_nonleaf",
+        "sent_crossing_arcs",
+        "sent_is_projective",
+        "sent_len",
+    ]
+    header = base_header + feat_header + dep_extra_header
+
+    # Emit CSV
+    buffer = io.StringIO()
+    writer = csv.writer(buffer)
+    writer.writerow(header)
+
+    for doc_idx, word in enumerate(words):
+        if word is None:
+            writer.writerow([""] * len(header))
+            continue
+
+        sentence_idx_raw = getattr(word, "index_sentence", None)
+        global_idx = getattr(word, "index_token", None)
+        if global_idx is None:
+            global_idx = doc_idx
+        upos_tag = getattr(getattr(word, "upos", None), "tag", "") or ""
+
+        dep_extra = dep_feats_by_doc_idx.get(doc_idx, {})
+        deprel_value_raw = dep_extra.get("deprel", "")
+        head_value_raw = dep_extra.get("head", "")
+        token_in_sentence_raw = dep_extra.get("token_index_sentence", "")
+
+        deprel_value = str(deprel_value_raw)
+        head_value = str(head_value_raw)
+        token_in_sentence = (
+            str(token_in_sentence_raw) if token_in_sentence_raw != "" else ""
+        )
+
+        # Explode UD features for this word
+        feature_map: dict[str, str] = {}
+        feats_obj = getattr(word, "features", None)
+        feature_list = getattr(feats_obj, "features", None)
+        if feature_list:
+            for feat in feature_list:
+                key = getattr(feat, "key", None)
+                val = getattr(feat, "value", None)
+                if key and val:
+                    feature_map[str(key)] = str(val)
+
+        row: list[Union[str, int, float]] = [
+            str(sentence_idx_raw) if sentence_idx_raw is not None else "",
+            str(global_idx) if global_idx is not None else "",
+            token_in_sentence,
+            getattr(word, "string", "") or "",
+            getattr(word, "lemma", "") or "",
+            upos_tag,
+            head_value,
+            deprel_value,
+        ]
+        row.extend(feature_map.get(key, "") for key in sorted_feature_keys)
+        for col in dep_extra_header:
+            row.append(dep_extra.get(col, ""))
+        writer.writerow(row)
+
+    return buffer.getvalue().rstrip("\n")
 
 
 CLTK_DATA_DIR = get_cltk_data_dir()
