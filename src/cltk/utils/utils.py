@@ -620,9 +620,13 @@ def doc_to_ud_features_csv(doc: Doc) -> str:
         for i in range(n):
             width = span_max[i] - span_min[i] + 1
             subtree_span_width[i] = width
-            subtree_gap[i] = (
-                (width - subtree_size[i]) if subtree_size[i] is not None else None
-            )
+            size_val = subtree_size[i]
+            gap_val: Optional[int]
+            if size_val is None:
+                gap_val = None
+            else:
+                gap_val = width - size_val
+            subtree_gap[i] = gap_val
 
         # Crossing arcs
         arcs: list[tuple[int, int, int]] = []
@@ -675,46 +679,41 @@ def doc_to_ud_features_csv(doc: Doc) -> str:
 
         # Assign per-token features back by doc index
         for local_i, doc_i in enumerate(local_to_doc):
+            head_idx = head_local[local_i]
+            depth_val = depths[local_i]
+            height_val = height_to_leaf[local_i]
+            subtree_size_val = subtree_size[local_i]
+            subtree_gap_val = subtree_gap[local_i]
+
+            if head_idx is None:
+                head_value = ""
+                dir_value = "ROOT"
+            else:
+                head_value = str(head_idx + 1)
+                dir_value = "L" if head_idx < local_i else "R"
+
             dep_feats_by_doc_idx[doc_i] = {
                 "token_index_sentence": local_i + 1,
-                "head": (
-                    str(head_local[local_i] + 1)
-                    if head_local[local_i] is not None
-                    else ""
-                ),
+                "head": head_value,
                 "deprel": depcode_by_local[local_i],
                 "head_upos": head_upos[local_i],
                 "head_form": head_form[local_i],
                 "head_lemma": head_lemma[local_i],
-                "dir_to_head": (
-                    "ROOT"
-                    if head_local[local_i] is None
-                    else ("L" if head_local[local_i] < local_i else "R")
-                ),
+                "dir_to_head": dir_value,
                 "dist_to_head": dist_to_head[local_i],
                 "dist_to_head_norm": dist_to_head_norm[local_i],
                 "child_count": child_count[local_i],
                 "left_child_count": left_child_count[local_i],
                 "right_child_count": right_child_count[local_i],
                 "is_leaf": is_leaf[local_i],
-                "depth_from_root": (
-                    depths[local_i] if depths[local_i] is not None else ""
-                ),
-                "path_len_to_root": (
-                    depths[local_i] if depths[local_i] is not None else ""
-                ),
-                "height_to_leaf": (
-                    height_to_leaf[local_i]
-                    if height_to_leaf[local_i] is not None
-                    else ""
-                ),
-                "subtree_size": (
-                    subtree_size[local_i] if subtree_size[local_i] is not None else ""
-                ),
+                "depth_from_root": depth_val if depth_val is not None else "",
+                "path_len_to_root": depth_val if depth_val is not None else "",
+                "height_to_leaf": height_val if height_val is not None else "",
+                "subtree_size": subtree_size_val
+                if subtree_size_val is not None
+                else "",
                 "subtree_span_width": subtree_span_width[local_i],
-                "subtree_gap": (
-                    subtree_gap[local_i] if subtree_gap[local_i] is not None else ""
-                ),
+                "subtree_gap": subtree_gap_val if subtree_gap_val is not None else "",
                 "crossing_arcs": crossing_per_token[local_i],
                 "parent_branching_factor": parent_branching_factor[local_i],
                 "sibling_index": sibling_index[local_i],
@@ -793,9 +792,15 @@ def doc_to_ud_features_csv(doc: Doc) -> str:
         upos_tag = getattr(getattr(word, "upos", None), "tag", "") or ""
 
         dep_extra = dep_feats_by_doc_idx.get(doc_idx, {})
-        deprel_value = dep_extra.get("deprel", "")
-        head_value = dep_extra.get("head", "")
-        token_in_sentence = dep_extra.get("token_index_sentence", "")
+        deprel_value_raw = dep_extra.get("deprel", "")
+        head_value_raw = dep_extra.get("head", "")
+        token_in_sentence_raw = dep_extra.get("token_index_sentence", "")
+
+        deprel_value = str(deprel_value_raw)
+        head_value = str(head_value_raw)
+        token_in_sentence = (
+            str(token_in_sentence_raw) if token_in_sentence_raw != "" else ""
+        )
 
         # Explode UD features for this word
         feature_map: dict[str, str] = {}
@@ -811,7 +816,7 @@ def doc_to_ud_features_csv(doc: Doc) -> str:
         row: list[Union[str, int, float]] = [
             str(sentence_idx_raw) if sentence_idx_raw is not None else "",
             str(global_idx) if global_idx is not None else "",
-            str(token_in_sentence) if token_in_sentence != "" else "",
+            token_in_sentence,
             getattr(word, "string", "") or "",
             getattr(word, "lemma", "") or "",
             upos_tag,
