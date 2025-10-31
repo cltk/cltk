@@ -357,7 +357,10 @@ except Exception:  # pragma: no cover - stanza optional
 
 
 def ensure_stanza_available() -> None:
-    """Raise an informative error when stanza-backed processes are missing."""
+    """Raise an informative error when stanza-backed processes are missing.
+
+    # TODO: Consider moving to cltk.stanza.utils or removing all calls
+    """
     if not _STANZA_AVAILABLE or RuntimeStanzaAnalyzeProcess is None:
         msg = "Stanza backend requested but stanza is not installed. Install with: pip install 'cltk[stanza]'"
         raise ImportError(msg)
