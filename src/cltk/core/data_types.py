@@ -8,6 +8,7 @@ and render well in documentation.
 """
 
 from abc import abstractmethod
+from collections import defaultdict
 from datetime import date
 from typing import Any, Literal, Optional, TypeAlias, Union
 
@@ -349,28 +350,28 @@ class Doc(CLTKBaseModel):
             self.normalized_text, self.sentence_boundaries
         )
 
-    # @property
-    # def sentences(self) -> list[Sentence]:
-    #     if not self.words:
-    #         return []
-    #     sents: dict[int, list[Word]] = defaultdict(list)
-    #     for word in self.words or []:
-    #         if word.index_sentence is not None:
-    #             sents[word.index_sentence].append(word)
-    #     for key in sents:
-    #         for w in sents[key]:
-    #             if w.index_token is None:
-    #                 raise ValueError(f"Index token is not defined for {w.string}")
-    #     for key in sents:
-    #         sents[key].sort(
-    #             key=lambda x: x.index_token if x.index_token is not None else -1
-    #         )
-    #     if self.sentence_embeddings is None:
-    #         self.sentence_embeddings = dict()
-    #     return [
-    #         Sentence(words=val, index=key, embedding=self.sentence_embeddings.get(key))
-    #         for key, val in sorted(sents.items(), key=lambda x: x[0])
-    #     ]
+    @property
+    def sentences(self) -> list[Sentence]:
+        if not self.words:
+            return []
+        sents: dict[int, list[Word]] = defaultdict(list)
+        for word in self.words or []:
+            if word.index_sentence is not None:
+                sents[word.index_sentence].append(word)
+        for key in sents:
+            for w in sents[key]:
+                if w.index_token is None:
+                    raise ValueError(f"Index token is not defined for {w.string}")
+        for key in sents:
+            sents[key].sort(
+                key=lambda x: x.index_token if x.index_token is not None else -1
+            )
+        if self.sentence_embeddings is None:
+            self.sentence_embeddings = dict()
+        return [
+            Sentence(words=val, index=key, embedding=self.sentence_embeddings.get(key))
+            for key, val in sorted(sents.items(), key=lambda x: x[0])
+        ]
 
     # @property
     # def sentences_tokens(self) -> list[list[str]]:

@@ -7,7 +7,8 @@ and fills a CLTK Doc with sentence boundaries and token-level annotations
 Requires optional extra: pip install "cltk[stanza]"
 """
 
-from typing import Optional
+from functools import lru_cache
+from typing import Any, Optional
 
 from stanza import DownloadMethod
 
@@ -32,6 +33,24 @@ _GLOTTO_TO_STANZA_LANG = {
 }
 
 
+@lru_cache(maxsize=None)
+def _get_stanza_pipeline(
+    *,
+    lang: str,
+    processors: str,
+    tokenize_no_ssplit: bool,
+) -> Any:
+    """Return (and cache) an initialized stanza.Pipeline for the given config."""
+    import stanza
+
+    return stanza.Pipeline(
+        lang=lang,
+        processors=processors,
+        tokenize_no_ssplit=tokenize_no_ssplit,
+        download_method=DownloadMethod.REUSE_RESOURCES,
+    )
+
+
 class StanzaAnalyzeProcess(Process):
     """Run Stanza and populate a Doc with UD annotations.
 
@@ -54,7 +73,7 @@ class StanzaAnalyzeProcess(Process):
 
         # Optional dependency guard
         try:
-            import stanza
+            pass
         except Exception as e:  # pragma: no cover - only when stanza missing
             raise ImportError(
                 "Stanza not installed. Install with: pip install 'cltk[stanza]'"
@@ -69,11 +88,10 @@ class StanzaAnalyzeProcess(Process):
             )
 
         # Build Stanza pipeline; let it handle sentence splitting and tagging
-        nlp = stanza.Pipeline(
+        nlp = _get_stanza_pipeline(
             lang=lang,
             processors="tokenize,pos,lemma,depparse",
             tokenize_no_ssplit=False,
-            download_method=DownloadMethod.REUSE_RESOURCES,
         )
         sdoc = nlp(output_doc.normalized_text)
 
