@@ -8,7 +8,7 @@ def test_openai_connection_requires_api_key(monkeypatch):  # type: ignore[no-unt
     # Ensure no ambient API key
     monkeypatch.delenv("OPENAI_API_KEY", raising=False)
 
-    openai_mod = importlib.import_module("cltk.genai.openai_wrapper")
+    openai_mod = importlib.import_module("cltk.genai.openai")
     # Prevent reading from a local .env during the test
     monkeypatch.setattr(openai_mod, "load_env_file", lambda: None)
     # Provide a benign OpenAI stub so import doesn't error when constructing
@@ -30,7 +30,7 @@ def test_openai_connection_uses_env_api_key(monkeypatch):  # type: ignore[no-unt
     # Supply API key via environment
     monkeypatch.setenv("OPENAI_API_KEY", "test-key")
 
-    openai_mod = importlib.import_module("cltk.genai.openai_wrapper")
+    openai_mod = importlib.import_module("cltk.genai.openai")
 
     created = {}
 
@@ -45,7 +45,7 @@ def test_openai_connection_uses_env_api_key(monkeypatch):  # type: ignore[no-unt
 
 
 def test_extract_code_blocks(monkeypatch):  # type: ignore[no-untyped-def]
-    openai_mod = importlib.import_module("cltk.genai.openai_wrapper")
+    openai_mod = importlib.import_module("cltk.genai.openai")
 
     class _OpenAIStub:
         def __init__(self, **_: Any) -> None:  # noqa: D401 - trivial stub
