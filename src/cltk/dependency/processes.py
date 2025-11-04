@@ -50,7 +50,7 @@ class CuneiformLuwianGenAIDependencyProcess(GenAIDependencyProcess):
 
     glottolog_id: Optional[str] = "cune1239"
     description: str = "Default process using a generative GPT model for the Cuneiform Luwian language."
-    authorship_info: str = "CuneiformLuwianGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class HieroglyphicLuwianGenAIDependencyProcess(GenAIDependencyProcess):
@@ -58,9 +58,7 @@ class HieroglyphicLuwianGenAIDependencyProcess(GenAIDependencyProcess):
 
     glottolog_id: Optional[str] = "hier1240"
     description: str = "Default process using a generative GPT model for the Hieroglyphic Luwian language."
-    authorship_info: str = (
-        "HieroglyphicLuwianGenAIProcess using a generative GPT model."
-    )
+    authorship_info: str = "CLTK"
 
 
 class OldPrussianGenAIDependencyProcess(GenAIDependencyProcess):
@@ -70,7 +68,7 @@ class OldPrussianGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Old Prussian language."
     )
-    authorship_info: str = "OldPrussianGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class LithuanianGenAIDependencyProcess(GenAIDependencyProcess):
@@ -80,7 +78,7 @@ class LithuanianGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Lithuanian language."
     )
-    authorship_info: str = "LithuanianGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class LatvianGenAIDependencyProcess(GenAIDependencyProcess):
@@ -90,7 +88,7 @@ class LatvianGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Latvian language."
     )
-    authorship_info: str = "LatvianGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class AlbanianGenAIDependencyProcess(GenAIDependencyProcess):
@@ -100,7 +98,7 @@ class AlbanianGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Albanian language."
     )
-    authorship_info: str = "AlbanianGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class AkkadianGenAIDependencyProcess(GenAIDependencyProcess):
@@ -110,7 +108,7 @@ class AkkadianGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Akkadian language."
     )
-    authorship_info: str = "AkkadianGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class AncientGreekGenAIDependencyProcess(GenAIDependencyProcess):
@@ -120,7 +118,7 @@ class AncientGreekGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Ancient Greek language."
     )
-    authorship_info: str = "Ancient GreekGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class BiblicalHebrewGenAIDependencyProcess(GenAIDependencyProcess):
@@ -130,7 +128,7 @@ class BiblicalHebrewGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Biblical Hebrew language."
     )
-    authorship_info: str = "Biblical HebrewGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class ClassicalArabicGenAIDependencyProcess(GenAIDependencyProcess):
@@ -138,7 +136,7 @@ class ClassicalArabicGenAIDependencyProcess(GenAIDependencyProcess):
 
     glottolog_id: Optional[str] = "clas1259"
     description: str = "Default process using a generative GPT model for the Classical Arabic language."
-    authorship_info: str = "ClassicalArabicGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class AvestanGenAIDependencyProcess(GenAIDependencyProcess):
@@ -148,7 +146,7 @@ class AvestanGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Avestan language."
     )
-    authorship_info: str = "AvestanGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class BactrianGenAIDependencyProcess(GenAIDependencyProcess):
@@ -158,7 +156,7 @@ class BactrianGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Bactrian language."
     )
-    authorship_info: str = "BactrianGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class SogdianGenAIDependencyProcess(GenAIDependencyProcess):
@@ -168,7 +166,7 @@ class SogdianGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Sogdian language."
     )
-    authorship_info: str = "SogdianGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class BengaliGenAIDependencyProcess(GenAIDependencyProcess):
@@ -178,7 +176,7 @@ class BengaliGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Bengali language."
     )
-    authorship_info: str = "BengaliGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class CarianGenAIDependencyProcess(GenAIDependencyProcess):
@@ -188,7 +186,7 @@ class CarianGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Carian language."
     )
-    authorship_info: str = "CarianGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class ChurchSlavicGenAIDependencyProcess(GenAIDependencyProcess):
@@ -198,7 +196,7 @@ class ChurchSlavicGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Church Slavic language."
     )
-    authorship_info: str = "Church SlavicGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class ClassicalArmenianGenAIDependencyProcess(GenAIDependencyProcess):
@@ -206,9 +204,7 @@ class ClassicalArmenianGenAIDependencyProcess(GenAIDependencyProcess):
 
     glottolog_id: Optional[str] = "clas1256"
     description: str = "Default process using a generative GPT model for the Classical Armenian language."
-    authorship_info: str = (
-        "Classical ArmenianGenAIProcess using a generative GPT model."
-    )
+    authorship_info: str = "CLTK"
 
 
 class ClassicalMandaicGenAIDependencyProcess(GenAIDependencyProcess):
@@ -216,7 +212,7 @@ class ClassicalMandaicGenAIDependencyProcess(GenAIDependencyProcess):
 
     glottolog_id: Optional[str] = "clas1253"
     description: str = "Default process using a generative GPT model for the Classical Mandaic language."
-    authorship_info: str = "Classical MandaicGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class ClassicalMongolianGenAIDependencyProcess(GenAIDependencyProcess):
@@ -224,9 +220,7 @@ class ClassicalMongolianGenAIDependencyProcess(GenAIDependencyProcess):
 
     glottolog_id: Optional[str] = "mong1331"
     description: str = "Default process using a generative GPT model for the Classical Mongolian language."
-    authorship_info: str = (
-        "Classical MongolianGenAIProcess using a generative GPT model."
-    )
+    authorship_info: str = "CLTK"
 
 
 class ClassicalSyriacGenAIDependencyProcess(GenAIDependencyProcess):
@@ -234,7 +228,7 @@ class ClassicalSyriacGenAIDependencyProcess(GenAIDependencyProcess):
 
     glottolog_id: Optional[str] = "clas1252"
     description: str = "Default process using a generative GPT model for the Classical Syriac language."
-    authorship_info: str = "Classical SyriacGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class ClassicalTibetanGenAIDependencyProcess(GenAIDependencyProcess):
@@ -242,7 +236,7 @@ class ClassicalTibetanGenAIDependencyProcess(GenAIDependencyProcess):
 
     glottolog_id: Optional[str] = "clas1254"
     description: str = "Default process using a generative GPT model for the Classical Tibetan language."
-    authorship_info: str = "Classical TibetanGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class CopticGenAIDependencyProcess(GenAIDependencyProcess):
@@ -252,7 +246,7 @@ class CopticGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Coptic language."
     )
-    authorship_info: str = "CopticGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class DemoticGenAIDependencyProcess(GenAIDependencyProcess):
@@ -262,7 +256,7 @@ class DemoticGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Demotic language."
     )
-    authorship_info: str = "DemoticGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class EasternPanjabiGenAIDependencyProcess(GenAIDependencyProcess):
@@ -272,7 +266,7 @@ class EasternPanjabiGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Eastern Panjabi language."
     )
-    authorship_info: str = "Eastern PanjabiGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class EdomiteGenAIDependencyProcess(GenAIDependencyProcess):
@@ -282,7 +276,7 @@ class EdomiteGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Edomite language."
     )
-    authorship_info: str = "EdomiteGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class GeezGenAIDependencyProcess(GenAIDependencyProcess):
@@ -292,7 +286,7 @@ class GeezGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Geez language."
     )
-    authorship_info: str = "GeezGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class GothicGenAIDependencyProcess(GenAIDependencyProcess):
@@ -302,7 +296,7 @@ class GothicGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Gothic language."
     )
-    authorship_info: str = "GothicGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class GujaratiGenAIDependencyProcess(GenAIDependencyProcess):
@@ -312,7 +306,7 @@ class GujaratiGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Gujarati language."
     )
-    authorship_info: str = "GujaratiGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class HindiGenAIDependencyProcess(GenAIDependencyProcess):
@@ -322,7 +316,7 @@ class HindiGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Hindi language."
     )
-    authorship_info: str = "HindiGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class KhariBoliGenAIDependencyProcess(GenAIDependencyProcess):
@@ -330,7 +324,7 @@ class KhariBoliGenAIDependencyProcess(GenAIDependencyProcess):
 
     glottolog_id: Optional[str] = "khad1239"
     description: str = "Default process using a generative GPT model for the Khari Boli dialect of Hindi."
-    authorship_info: str = "KhariBoliGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class BrajGenAIDependencyProcess(GenAIDependencyProcess):
@@ -340,7 +334,7 @@ class BrajGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Braj Bhasha language."
     )
-    authorship_info: str = "BrajGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class AwadhiGenAIDependencyProcess(GenAIDependencyProcess):
@@ -350,7 +344,7 @@ class AwadhiGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Awadhi language."
     )
-    authorship_info: str = "AwadhiGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class HittiteGenAIDependencyProcess(GenAIDependencyProcess):
@@ -360,7 +354,7 @@ class HittiteGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Hittite language."
     )
-    authorship_info: str = "HittiteGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class KhotaneseGenAIDependencyProcess(GenAIDependencyProcess):
@@ -370,7 +364,7 @@ class KhotaneseGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Khotanese language."
     )
-    authorship_info: str = "KhotaneseGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class TumshuqeseGenAIDependencyProcess(GenAIDependencyProcess):
@@ -380,7 +374,7 @@ class TumshuqeseGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Tumshuqese language."
     )
-    authorship_info: str = "TumshuqeseGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class LateEgyptianGenAIDependencyProcess(GenAIDependencyProcess):
@@ -390,7 +384,7 @@ class LateEgyptianGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Late Egyptian language."
     )
-    authorship_info: str = "Late Egyptian GenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class LatinGenAIDependencyProcess(GenAIDependencyProcess):
@@ -400,7 +394,7 @@ class LatinGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Latin language."
     )
-    authorship_info: str = "LatinGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class LiteraryChineseGenAIDependencyProcess(GenAIDependencyProcess):
@@ -408,7 +402,7 @@ class LiteraryChineseGenAIDependencyProcess(GenAIDependencyProcess):
 
     glottolog_id: Optional[str] = "lite1248"
     description: str = "Default process using a generative GPT model for the Literary Chinese language."
-    authorship_info: str = "Literary ChineseGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class LycianAGenAIDependencyProcess(GenAIDependencyProcess):
@@ -418,7 +412,7 @@ class LycianAGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Lycian A language."
     )
-    authorship_info: str = "Lycian AGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class LydianGenAIDependencyProcess(GenAIDependencyProcess):
@@ -428,7 +422,7 @@ class LydianGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Lydian language."
     )
-    authorship_info: str = "LydianGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class MaharastriPrakritGenAIDependencyProcess(GenAIDependencyProcess):
@@ -436,7 +430,7 @@ class MaharastriPrakritGenAIDependencyProcess(GenAIDependencyProcess):
 
     glottolog_id: Optional[str] = "maha1305"
     description: str = "Default process using a generative GPT model for the Maharastri Prakrit language."
-    authorship_info: str = "MaharastriPrakritGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class MiddleArmenianGenAIDependencyProcess(GenAIDependencyProcess):
@@ -446,7 +440,7 @@ class MiddleArmenianGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Middle Armenian language."
     )
-    authorship_info: str = "Middle ArmenianGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class MiddleBretonGenAIDependencyProcess(GenAIDependencyProcess):
@@ -456,7 +450,7 @@ class MiddleBretonGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Middle Breton language."
     )
-    authorship_info: str = "Middle BretonGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class MiddleChineseGenAIDependencyProcess(GenAIDependencyProcess):
@@ -466,7 +460,7 @@ class MiddleChineseGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Middle Chinese language."
     )
-    authorship_info: str = "Middle ChineseGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class MiddleCornishGenAIDependencyProcess(GenAIDependencyProcess):
@@ -476,7 +470,7 @@ class MiddleCornishGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Middle Cornish language."
     )
-    authorship_info: str = "Middle CornishGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class MiddleEgyptianGenAIDependencyProcess(GenAIDependencyProcess):
@@ -486,7 +480,7 @@ class MiddleEgyptianGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Middle Egyptian language."
     )
-    authorship_info: str = "Middle Egyptian GenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class MiddleEnglishGenAIDependencyProcess(GenAIDependencyProcess):
@@ -496,7 +490,7 @@ class MiddleEnglishGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Middle English language."
     )
-    authorship_info: str = "Middle EnglishGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class MiddleFrenchGenAIDependencyProcess(GenAIDependencyProcess):
@@ -506,7 +500,7 @@ class MiddleFrenchGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Middle French language."
     )
-    authorship_info: str = "Middle FrenchGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class MiddleHighGermanGenAIDependencyProcess(GenAIDependencyProcess):
@@ -514,9 +508,7 @@ class MiddleHighGermanGenAIDependencyProcess(GenAIDependencyProcess):
 
     glottolog_id: Optional[str] = "midd1343"
     description: str = "Default process using a generative GPT model for the Middle High German language."
-    authorship_info: str = (
-        "Middle High GermanGenAIProcess using a generative GPT model."
-    )
+    authorship_info: str = "CLTK"
 
 
 class MiddleMongolGenAIDependencyProcess(GenAIDependencyProcess):
@@ -526,7 +518,7 @@ class MiddleMongolGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Middle Mongol language."
     )
-    authorship_info: str = "Middle MongolGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class MoabiteGenAIDependencyProcess(GenAIDependencyProcess):
@@ -536,7 +528,7 @@ class MoabiteGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Moabite language."
     )
-    authorship_info: str = "MoabiteGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class OdiaGenAIDependencyProcess(GenAIDependencyProcess):
@@ -546,7 +538,7 @@ class OdiaGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Odia language."
     )
-    authorship_info: str = "OdiaGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class OfficialAramaicGenAIDependencyProcess(GenAIDependencyProcess):
@@ -554,9 +546,7 @@ class OfficialAramaicGenAIDependencyProcess(GenAIDependencyProcess):
 
     glottolog_id: Optional[str] = "impe1235"
     description: str = "Default process using a generative GPT model for the Official Aramaic (700-300 BCE) language."
-    authorship_info: str = (
-        "Official Aramaic (700-300 BCE) GenAIProcess using a generative GPT model."
-    )
+    authorship_info: str = "CLTK"
 
 
 class OldBurmeseGenAIDependencyProcess(GenAIDependencyProcess):
@@ -566,7 +556,7 @@ class OldBurmeseGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Old Burmese language."
     )
-    authorship_info: str = "Old BurmeseGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class OldChineseGenAIDependencyProcess(GenAIDependencyProcess):
@@ -576,7 +566,7 @@ class OldChineseGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Old Chinese language."
     )
-    authorship_info: str = "Old ChineseGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class BaihuaChineseGenAIDependencyProcess(GenAIDependencyProcess):
@@ -584,7 +574,7 @@ class BaihuaChineseGenAIDependencyProcess(GenAIDependencyProcess):
 
     glottolog_id: Optional[str] = "clas1255"
     description: str = "Default process using a generative GPT model for Early Vernacular Chinese (Baihua)."
-    authorship_info: str = "BaihuaChineseGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class ClassicalBurmeseGenAIDependencyProcess(GenAIDependencyProcess):
@@ -592,7 +582,7 @@ class ClassicalBurmeseGenAIDependencyProcess(GenAIDependencyProcess):
 
     glottolog_id: Optional[str] = "nucl1310"
     description: str = "Default process using a generative GPT model for the Classical Burmese language."
-    authorship_info: str = "ClassicalBurmeseGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class TangutGenAIDependencyProcess(GenAIDependencyProcess):
@@ -602,7 +592,7 @@ class TangutGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Tangut (Xixia) language."
     )
-    authorship_info: str = "TangutGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class NewarGenAIDependencyProcess(GenAIDependencyProcess):
@@ -610,7 +600,7 @@ class NewarGenAIDependencyProcess(GenAIDependencyProcess):
 
     glottolog_id: Optional[str] = "newa1246"
     description: str = "Default process using a generative GPT model for the Newar (Classical Nepal Bhasa) language."
-    authorship_info: str = "NewarGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class MeiteiGenAIDependencyProcess(GenAIDependencyProcess):
@@ -618,7 +608,7 @@ class MeiteiGenAIDependencyProcess(GenAIDependencyProcess):
 
     glottolog_id: Optional[str] = "mani1292"
     description: str = "Default process using a generative GPT model for the Meitei (Classical Manipuri) language."
-    authorship_info: str = "MeiteiGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class SgawKarenGenAIDependencyProcess(GenAIDependencyProcess):
@@ -628,7 +618,7 @@ class SgawKarenGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Sgaw Karen language."
     )
-    authorship_info: str = "SgawKarenGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class MogholiGenAIDependencyProcess(GenAIDependencyProcess):
@@ -636,7 +626,7 @@ class MogholiGenAIDependencyProcess(GenAIDependencyProcess):
 
     glottolog_id: Optional[str] = "mogh1245"
     description: str = "Default process using a generative GPT model for the Mogholi (Moghol) language."
-    authorship_info: str = "MogholiGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class NumidianGenAIDependencyProcess(GenAIDependencyProcess):
@@ -644,7 +634,7 @@ class NumidianGenAIDependencyProcess(GenAIDependencyProcess):
 
     glottolog_id: Optional[str] = "numi1241"
     description: str = "Default process using a generative GPT model for the Numidian (Ancient Berber) language."
-    authorship_info: str = "NumidianGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class TaitaGenAIDependencyProcess(GenAIDependencyProcess):
@@ -654,7 +644,7 @@ class TaitaGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Cushitic Taita language."
     )
-    authorship_info: str = "TaitaGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class HausaGenAIDependencyProcess(GenAIDependencyProcess):
@@ -664,7 +654,7 @@ class HausaGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Hausa language."
     )
-    authorship_info: str = "HausaGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class OldJurchenGenAIDependencyProcess(GenAIDependencyProcess):
@@ -674,7 +664,7 @@ class OldJurchenGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Old Jurchen language."
     )
-    authorship_info: str = "OldJurchenGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class OldJapaneseGenAIDependencyProcess(GenAIDependencyProcess):
@@ -684,7 +674,7 @@ class OldJapaneseGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Old Japanese language."
     )
-    authorship_info: str = "OldJapaneseGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class OldHungarianGenAIDependencyProcess(GenAIDependencyProcess):
@@ -694,7 +684,7 @@ class OldHungarianGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Old Hungarian language."
     )
-    authorship_info: str = "OldHungarianGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class ChagataiGenAIDependencyProcess(GenAIDependencyProcess):
@@ -704,7 +694,7 @@ class ChagataiGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Chagatai language."
     )
-    authorship_info: str = "ChagataiGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class OldTurkicGenAIDependencyProcess(GenAIDependencyProcess):
@@ -714,7 +704,7 @@ class OldTurkicGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Old Turkic language."
     )
-    authorship_info: str = "OldTurkicGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class OldTamilGenAIDependencyProcess(GenAIDependencyProcess):
@@ -724,7 +714,7 @@ class OldTamilGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Old Tamil language."
     )
-    authorship_info: str = "OldTamilGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class AmmoniteGenAIDependencyProcess(GenAIDependencyProcess):
@@ -734,7 +724,7 @@ class AmmoniteGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Ammonite language."
     )
-    authorship_info: str = "AmmoniteGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class OldAramaicGenAIDependencyProcess(GenAIDependencyProcess):
@@ -742,7 +732,7 @@ class OldAramaicGenAIDependencyProcess(GenAIDependencyProcess):
 
     glottolog_id: Optional[str] = "olda1246"
     description: str = "Default process using a generative GPT model for the Old Aramaic (up to 700 BCE) language."
-    authorship_info: str = "OldAramaicGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class OldAramaicSamalianGenAIDependencyProcess(GenAIDependencyProcess):
@@ -750,9 +740,7 @@ class OldAramaicSamalianGenAIDependencyProcess(GenAIDependencyProcess):
 
     glottolog_id: Optional[str] = "olda1245"
     description: str = "Default process using a generative GPT model for the Old Aramaic–Samʾalian language."
-    authorship_info: str = (
-        "OldAramaicSamalianGenAIProcess using a generative GPT model."
-    )
+    authorship_info: str = "CLTK"
 
 
 class MiddleAramaicGenAIDependencyProcess(GenAIDependencyProcess):
@@ -762,7 +750,7 @@ class MiddleAramaicGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Middle Aramaic language."
     )
-    authorship_info: str = "MiddleAramaicGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class HatranGenAIDependencyProcess(GenAIDependencyProcess):
@@ -772,7 +760,7 @@ class HatranGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Hatran language."
     )
-    authorship_info: str = "HatranGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class JewishBabylonianAramaicGenAIDependencyProcess(GenAIDependencyProcess):
@@ -780,9 +768,7 @@ class JewishBabylonianAramaicGenAIDependencyProcess(GenAIDependencyProcess):
 
     glottolog_id: Optional[str] = "jewi1240"
     description: str = "Default process using a generative GPT model for the Jewish Babylonian Aramaic language."
-    authorship_info: str = (
-        "JewishBabylonianAramaicGenAIProcess using a generative GPT model."
-    )
+    authorship_info: str = "CLTK"
 
 
 class SamalianGenAIDependencyProcess(GenAIDependencyProcess):
@@ -792,7 +778,7 @@ class SamalianGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Samʾalian language."
     )
-    authorship_info: str = "SamalianGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class OldEgyptianGenAIDependencyProcess(GenAIDependencyProcess):
@@ -802,7 +788,7 @@ class OldEgyptianGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Old Egyptian language."
     )
-    authorship_info: str = "Old Egyptian GenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class OldEnglishGenAIDependencyProcess(GenAIDependencyProcess):
@@ -810,9 +796,7 @@ class OldEnglishGenAIDependencyProcess(GenAIDependencyProcess):
 
     glottolog_id: Optional[str] = "olde1238"
     description: str = "Default process using a generative GPT model for the Old English (ca. 450-1100) language."
-    authorship_info: str = (
-        "Old English (ca. 450-1100)GenAIProcess using a generative GPT model."
-    )
+    authorship_info: str = "CLTK"
 
 
 class OldFrenchGenAIDependencyProcess(GenAIDependencyProcess):
@@ -820,9 +804,7 @@ class OldFrenchGenAIDependencyProcess(GenAIDependencyProcess):
 
     glottolog_id: Optional[str] = "oldf1239"
     description: str = "Default process using a generative GPT model for the Old French (842-ca. 1400) language."
-    authorship_info: str = (
-        "Old French (842-ca. 1400)GenAIProcess using a generative GPT model."
-    )
+    authorship_info: str = "CLTK"
 
 
 class OldHighGermanGenAIDependencyProcess(GenAIDependencyProcess):
@@ -830,9 +812,7 @@ class OldHighGermanGenAIDependencyProcess(GenAIDependencyProcess):
 
     glottolog_id: Optional[str] = "oldh1241"
     description: str = "Default process using a generative GPT model for the Old High German (ca. 750-1050) language."
-    authorship_info: str = (
-        "Old High German (ca. 750-1050)GenAIProcess using a generative GPT model."
-    )
+    authorship_info: str = "CLTK"
 
 
 class EarlyIrishGenAIDependencyProcess(GenAIDependencyProcess):
@@ -842,7 +822,7 @@ class EarlyIrishGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Old Irish language."
     )
-    authorship_info: str = "Old IrishGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class MarathiGenAIDependencyProcess(GenAIDependencyProcess):
@@ -852,7 +832,7 @@ class MarathiGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Marathi language."
     )
-    authorship_info: str = "MarathiGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class OldNorseGenAIDependencyProcess(GenAIDependencyProcess):
@@ -862,7 +842,7 @@ class OldNorseGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Old Norse language."
     )
-    authorship_info: str = "Old NorseGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class OldPersianGenAIDependencyProcess(GenAIDependencyProcess):
@@ -870,9 +850,7 @@ class OldPersianGenAIDependencyProcess(GenAIDependencyProcess):
 
     glottolog_id: Optional[str] = "oldp1254"
     description: str = "Default process using a generative GPT model for the Old Persian (ca. 600-400 B.C.) language."
-    authorship_info: str = (
-        "Old Persian (ca. 600-400 B.C.)GenAIProcess using a generative GPT model."
-    )
+    authorship_info: str = "CLTK"
 
 
 class OldMiddleWelshGenAIDependencyProcess(GenAIDependencyProcess):
@@ -880,7 +858,7 @@ class OldMiddleWelshGenAIDependencyProcess(GenAIDependencyProcess):
 
     glottolog_id: Optional[str] = "oldw1239"
     description: str = "Default process using a generative GPT model for the Old-Middle Welsh language."
-    authorship_info: str = "Old-Middle WelshGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class ParthianGenAIDependencyProcess(GenAIDependencyProcess):
@@ -890,7 +868,7 @@ class ParthianGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Parthian language."
     )
-    authorship_info: str = "ParthianGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class MiddlePersianGenAIDependencyProcess(GenAIDependencyProcess):
@@ -900,7 +878,7 @@ class MiddlePersianGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Middle Persian language."
     )
-    authorship_info: str = "MiddlePersianGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class PalaicGenAIDependencyProcess(GenAIDependencyProcess):
@@ -910,7 +888,7 @@ class PalaicGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Palaic language."
     )
-    authorship_info: str = "PalaicGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class PaliGenAIDependencyProcess(GenAIDependencyProcess):
@@ -920,7 +898,7 @@ class PaliGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Pali language."
     )
-    authorship_info: str = "PaliGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class PhoenicianGenAIDependencyProcess(GenAIDependencyProcess):
@@ -930,7 +908,7 @@ class PhoenicianGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Phoenician language."
     )
-    authorship_info: str = "PhoenicianGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class PunjabiGenAIDependencyProcess(GenAIDependencyProcess):
@@ -940,7 +918,7 @@ class PunjabiGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Punjabi language."
     )
-    authorship_info: str = "PunjabiGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class AssameseGenAIDependencyProcess(GenAIDependencyProcess):
@@ -950,7 +928,7 @@ class AssameseGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Assamese language."
     )
-    authorship_info: str = "AssameseGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class SinhalaGenAIDependencyProcess(GenAIDependencyProcess):
@@ -960,7 +938,7 @@ class SinhalaGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Sinhala language."
     )
-    authorship_info: str = "SinhalaGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class SindhiGenAIDependencyProcess(GenAIDependencyProcess):
@@ -970,7 +948,7 @@ class SindhiGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Sindhi language."
     )
-    authorship_info: str = "SindhiGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class KashmiriGenAIDependencyProcess(GenAIDependencyProcess):
@@ -980,7 +958,7 @@ class KashmiriGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Kashmiri language."
     )
-    authorship_info: str = "KashmiriGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class BagriGenAIDependencyProcess(GenAIDependencyProcess):
@@ -988,7 +966,7 @@ class BagriGenAIDependencyProcess(GenAIDependencyProcess):
 
     glottolog_id: Optional[str] = "bagr1243"
     description: str = "Default process using a generative GPT model for the Bagri (Rajasthani) language."
-    authorship_info: str = "BagriGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class ClassicalSanskritGenAIDependencyProcess(GenAIDependencyProcess):
@@ -996,7 +974,7 @@ class ClassicalSanskritGenAIDependencyProcess(GenAIDependencyProcess):
 
     glottolog_id: Optional[str] = "clas1258"
     description: str = "Default process using a generative GPT model for the Classical Sanskrit language."
-    authorship_info: str = "ClassicalSanskritGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class VedicSanskritGenAIDependencyProcess(GenAIDependencyProcess):
@@ -1006,7 +984,7 @@ class VedicSanskritGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Vedic Sanskrit language."
     )
-    authorship_info: str = "VedicSanskritGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class TokharianAGenAIDependencyProcess(GenAIDependencyProcess):
@@ -1016,7 +994,7 @@ class TokharianAGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Tokharian A language."
     )
-    authorship_info: str = "Tokharian AGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class TokharianBGenAIDependencyProcess(GenAIDependencyProcess):
@@ -1026,7 +1004,7 @@ class TokharianBGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Tokharian B language."
     )
-    authorship_info: str = "Tokharian BGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class UgariticGenAIDependencyProcess(GenAIDependencyProcess):
@@ -1036,7 +1014,7 @@ class UgariticGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Ugaritic language."
     )
-    authorship_info: str = "UgariticGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class UrduGenAIDependencyProcess(GenAIDependencyProcess):
@@ -1046,7 +1024,7 @@ class UrduGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Urdu language."
     )
-    authorship_info: str = "UrduGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class SauraseniPrakritGenAIDependencyProcess(GenAIDependencyProcess):
@@ -1054,7 +1032,7 @@ class SauraseniPrakritGenAIDependencyProcess(GenAIDependencyProcess):
 
     glottolog_id: Optional[str] = "saur1252"
     description: str = "Default process using a generative GPT model for the Sauraseni Prakrit language."
-    authorship_info: str = "SauraseniPrakritGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class MagadhiPrakritGenAIDependencyProcess(GenAIDependencyProcess):
@@ -1064,7 +1042,7 @@ class MagadhiPrakritGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Magadhi Prakrit language."
     )
-    authorship_info: str = "MagadhiPrakritGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
 
 
 class GandhariGenAIDependencyProcess(GenAIDependencyProcess):
@@ -1074,4 +1052,4 @@ class GandhariGenAIDependencyProcess(GenAIDependencyProcess):
     description: str = (
         "Default process using a generative GPT model for the Gandhari language."
     )
-    authorship_info: str = "GandhariGenAIProcess using a generative GPT model."
+    authorship_info: str = "CLTK"
