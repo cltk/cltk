@@ -22,9 +22,9 @@ from cltk.core.data_types import (
 )
 from cltk.core.exceptions import CLTKException
 from cltk.core.logging_utils import bind_from_doc
-from cltk.genai.ollama_wrapper import AsyncOllamaConnection, OllamaConnection
-from cltk.genai.openai_wrapper import AsyncOpenAIConnection, OpenAIConnection
-from cltk.genai.mistral_wrapper import AsyncMistralConnection, MistralConnection
+from cltk.genai.ollama import AsyncOllamaConnection, OllamaConnection
+from cltk.genai.openai import AsyncOpenAIConnection, OpenAIConnection
+from cltk.genai.mistral import AsyncMistralConnection, MistralConnection
 from cltk.genai.prompts import morphosyntax_prompt
 from cltk.morphosyntax.ud_features import UDFeatureTagSet, convert_pos_features_to_ud
 from cltk.morphosyntax.ud_pos import UDPartOfSpeechTag
