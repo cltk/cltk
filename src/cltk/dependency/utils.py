@@ -8,12 +8,14 @@ from tqdm import tqdm
 from cltk.core.cltk_logger import logger
 from cltk.core.data_types import (
     AVAILABLE_OPENAI_MODELS,
+    AVAILABLE_MISTRAL_MODELS,
     CLTKGenAIResponse,
     Doc,
     Word,
 )
 from cltk.core.exceptions import CLTKException
 from cltk.core.logging_utils import bind_from_doc
+from cltk.genai.mistral import AsyncMistralConnection, MistralConnection
 from cltk.genai.ollama import AsyncOllamaConnection, OllamaConnection
 from cltk.genai.openai import AsyncOpenAIConnection, OpenAIConnection
 from cltk.morphosyntax.ud_deprels import UDDeprelTag, get_ud_deprel_tag
@@ -158,6 +160,19 @@ def generate_dependency_tree(
                 model=str(doc.model),
                 use_cloud=doc.backend == "ollama-cloud",
             )
+    elif doc.backend == "mistral":
+        if doc.model not in get_args(AVAILABLE_MISTRAL_MODELS):
+            msg_unsupported_backend_version: str = (
+                f"Doc has unsupported `.model`: {doc.model}. "
+                f"Supported versions are: {get_args(AVAILABLE_MISTRAL_MODELS)}."
+            )
+            log.error(msg_unsupported_backend_version)
+            raise CLTKException(msg_unsupported_backend_version)
+        if not client:
+            mistral_model: AVAILABLE_MISTRAL_MODELS = cast(
+                AVAILABLE_MISTRAL_MODELS, doc.model
+            )
+            client = MistralConnection(model=mistral_model)
     else:
         raise CLTKException(
             f"Unsupported backend for dependency generation: {doc.backend}."
@@ -282,6 +297,18 @@ def generate_gpt_dependency(doc: Doc) -> Doc:
             model=str(doc.model),
             use_cloud=doc.backend == "ollama-cloud",
         )
+    elif doc.backend == "mistral":
+        if doc.model not in get_args(AVAILABLE_MISTRAL_MODELS):
+            msg_unsupported_backend_version: str = (
+                f"Doc has unsupported `.model`: {doc.model}. "
+                f"Supported versions are: {get_args(AVAILABLE_MISTRAL_MODELS)}."
+            )
+            log.error(msg_unsupported_backend_version)
+            raise CLTKException(msg_unsupported_backend_version)
+        mistral_model: AVAILABLE_MISTRAL_MODELS = cast(
+            AVAILABLE_MISTRAL_MODELS, doc.model
+        )
+        client = MistralConnection(model=mistral_model)
     else:
         raise CLTKException(
             f"Unsupported backend for dependency parsing: {doc.backend}."
@@ -417,6 +444,13 @@ async def generate_gpt_dependency_async(
             model=str(doc.model),
             use_cloud=doc.backend == "ollama-cloud",
         )
+    elif doc.backend == "mistral":
+        if doc.model not in get_args(AVAILABLE_MISTRAL_MODELS):
+            raise CLTKException(
+                f"Doc has unsupported `.model`: {doc.model}. Supported: {get_args(AVAILABLE_MISTRAL_MODELS)}."
+            )
+        mistral_model: AVAILABLE_MISTRAL_MODELS = cast(AVAILABLE_MISTRAL_MODELS, doc.model)
+        conn = AsyncMistralConnection(model=mistral_model)
     else:
         raise CLTKException(
             f"Unsupported backend for async dependency parsing: {doc.backend}."

@@ -15,6 +15,7 @@ from tqdm import tqdm
 from cltk.core.cltk_logger import bind_context, logger
 from cltk.core.data_types import (
     AVAILABLE_OPENAI_MODELS,
+    AVAILABLE_MISTRAL_MODELS,
     CLTKGenAIResponse,
     Doc,
     Word,
@@ -23,6 +24,7 @@ from cltk.core.exceptions import CLTKException
 from cltk.core.logging_utils import bind_from_doc
 from cltk.genai.ollama import AsyncOllamaConnection, OllamaConnection
 from cltk.genai.openai import AsyncOpenAIConnection, OpenAIConnection
+from cltk.genai.mistral import AsyncMistralConnection, MistralConnection
 from cltk.genai.prompts import morphosyntax_prompt
 from cltk.morphosyntax.ud_features import UDFeatureTagSet, convert_pos_features_to_ud
 from cltk.morphosyntax.ud_pos import UDPartOfSpeechTag
@@ -299,6 +301,15 @@ def generate_gpt_morphosyntax(doc: Doc) -> Doc:
             model=str(doc.model),
             use_cloud=doc.backend == "ollama-cloud",
         )
+    elif doc.backend == "mistral":
+        if doc.model not in get_args(AVAILABLE_MISTRAL_MODELS):
+            raise CLTKException(
+                f"Doc has unsupported `.model`: {doc.model}. Supported: {get_args(AVAILABLE_MISTRAL_MODELS)}."
+            )
+        mistral_model: AVAILABLE_MISTRAL_MODELS = cast(AVAILABLE_MISTRAL_MODELS, doc.model)
+        client = MistralConnection(
+            model=mistral_model,
+        )
     else:
         raise CLTKException(
             f"Unsupported backend for morphosyntax: {doc.backend}. Use 'openai', 'ollama', or 'ollama-cloud'."
@@ -417,6 +428,15 @@ async def generate_gpt_morphosyntax_async(
         conn = AsyncOllamaConnection(
             model=str(doc.model),
             use_cloud=doc.backend == "ollama-cloud",
+        )
+    elif doc.backend == "mistral":
+        if doc.model not in get_args(AVAILABLE_MISTRAL_MODELS):
+            raise CLTKException(
+                f"Doc has unsupported `.model`: {doc.model}. Supported: {get_args(AVAILABLE_MISTRAL_MODELS)}."
+            )
+        mistral_model: AVAILABLE_MISTRAL_MODELS = cast(AVAILABLE_MISTRAL_MODELS, doc.model)
+        conn = AsyncMistralConnection(
+            model=mistral_model,
         )
     else:
         raise CLTKException(

@@ -109,6 +109,15 @@ class NLP:
                 raise ValueError(
                     "The 'stanza' backend does not accept a model parameter; models are hardcoded per language."
                 )
+        elif self.backend == "mistral":
+            load_env_file()
+            self.api_key: Optional[str] = os.getenv("MISTRAL_API_KEY")
+            if not self.api_key:
+                msg: str = "API key for Mistral not found."
+                logger.error(msg)
+                raise ValueError(msg)
+            # Default model if none provided
+            self.model = self.model or "mistral-medium-latest"
         self.pipeline: Pipeline = (
             custom_pipeline if custom_pipeline else self._get_pipeline()
         )
@@ -307,6 +316,8 @@ class NLP:
             mapping = MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE
         elif self.backend in ("ollama", "ollama-cloud"):
             # Reuse the same generative pipelines; lower layers pick the client by backend
+            mapping = MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE
+        elif self.backend == "mistral":
             mapping = MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE
         else:
             raise NotImplementedError(f"Backend '{self.backend}' not available.")

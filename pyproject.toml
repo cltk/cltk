@@ -28,6 +28,9 @@ ollama = [
     "ollama (>=0.3.0,<1.0.0)",
     "httpx (<0.29)",  # pinned since ollama pulls a beta httpx with breaking changes
 ]
+mistral = [
+    "mistralai (>=1.9.0,<2.0.0)",
+]
 
 [project.urls]
 Homepage = "http://cltk.org"

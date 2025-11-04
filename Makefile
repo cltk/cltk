@@ -26,6 +26,7 @@ installOptionals:
 	poetry install -E openai
 	poetry install -E stanza
 	poetry install -E ollama
+	poetry install -E mistral
 
 installDev:
 	poetry install
