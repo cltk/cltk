@@ -122,7 +122,7 @@ class UDPartOfSpeechTag(BaseModel):
             v = cls.normalize_ud_pos_tag(v)
             if v not in UD_POS_TAGS:
                 msg: str = f"Failed to normalize UD POS tag: '{v}'"
-                logger.error(msg)
+                logger.warning(msg)
                 raise ValueError(msg)
         return v
 
@@ -257,82 +257,3 @@ UD_POS_TAGS: dict[str, UDPartOfSpeech] = {
         open_class=False,
     ),
 }
-
-
-# def normalize_pos_tag(tag: str) -> str:
-#     """
-#     Normalize a POS tag to the standard UD tag used in UD_POS_TAGS.
-#     Extend this mapping as new variants or errors are encountered.
-
-#     Args:
-#         tag (str): The POS tag to normalize (e.g., "N", "NOUN", "v", "VERB").
-
-#     Returns:
-#         str: The normalized UD POS tag (e.g., "NOUN", "VERB").
-
-#     Raises:
-#         ValueError: If the tag cannot be normalized to a known UD POS tag.
-#     """
-#     tag_map = {
-#         # Common alternate/abbreviated forms
-#         "N": "NOUN",
-#         "V": "VERB",
-#         "PRP": "PRON",  # Sometimes used for pronoun
-#         "PROPN": "PROPN",
-#         "ADP": "ADP",
-#         "CC": "CCONJ",
-#         "SC": "SCONJ",
-#         # Add more as needed
-#     }
-#     tag_upper = tag.upper()
-#     if tag_upper in UD_POS_TAGS:
-#         return tag_upper
-#     if tag_upper in tag_map:
-#         return tag_map[tag_upper]
-#     msg: str = f"Unknown POS tag '{tag}'. Cannot normalize to UD POS tag."
-#     logger.warning(msg)
-#     raise ValueError(msg)
-
-
-# def is_valid_pos_tag(tag: str, normalize: bool = True) -> bool:
-#     """
-#     Check if the given tag is a valid UD part-of-speech tag.
-
-#     Args:
-#         tag (str): The UD POS tag to validate (e.g., "NOUN", "XYZ").
-
-#     Returns:
-#         bool: True if valid, False otherwise.
-#     """
-
-#     if not tag.upper() in UD_POS_TAGS:
-#         if normalize:
-#             try:
-#                 tag = normalize_pos_tag(tag)
-#             except ValueError:
-#                 return False
-#             if tag.upper() in UD_POS_TAGS:
-#                 return True
-#         return False
-#     return True
-
-
-if __name__ == "__main__":
-    # # Example usage
-    # print(is_valid_pos_tag("NOUN"))  # True
-    # print(is_valid_pos_tag("XYZ"))  # False
-    # print(is_valid_pos_tag("N", normalize=False))  # False
-    # print(is_valid_pos_tag("N", normalize=True))  # True
-    # print(UD_POS_TAGS["NOUN"])  # UDPartOfSpeech object for NOUN
-    # print(UD_POS_TAGS["NOUN"].name)  # "noun"
-    # print(
-    #     UD_POS_TAGS["NOUN"].description
-    # )  # "Nouns are a part of speech typically denoting a person, place, thing, animal or idea."
-    # print(UD_POS_TAGS["NOUN"].tag)  # "NOUN"
-
-    udpos: UDPartOfSpeechTag = UDPartOfSpeechTag(
-        tag="NOUN",
-        # name="noun",
-        # open_class=True,
-    )
-    print(udpos)
