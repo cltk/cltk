@@ -37,10 +37,10 @@ class NLP:
     Args:
       language_code: Language key (Glottolog code, ISO code, or exact name).
       backend: One of ``"stanza"`` (default), ``"openai"``, ``"ollama"``,
-        ``"ollama-cloud"``, or ``"spacy"``. The ``"spacy"`` backend is not
+        ``"ollama-cloud"``, or ``mistral``. The ``"spacy"`` backend is not
         yet implemented and will raise ``NotImplementedError``.
       model: Optional model name when using generative backends
-        (``"openai"``, ``"ollama"``, ``"ollama-cloud"``). Ignored for
+        (``"openai"``, ``"ollama"``, ``"ollama-cloud"``, ``mistral``). Ignored for
         ``"stanza"``.
       custom_pipeline: Optional pipeline to use instead of the default mapping.
       suppress_banner: If true, suppresses informational console output.
@@ -79,13 +79,14 @@ class NLP:
         self.backend: BACKEND_TYPES = backend
         self.model: Optional[str] = model
         self._ollama_cloud_api_key: Optional[str] = None
+        self.api_key: Optional[str] = None
         if self.backend == "openai":
             load_env_file()
-            self.api_key: Optional[str] = os.getenv("OPENAI_API_KEY")
+            self.api_key = os.getenv("OPENAI_API_KEY")
             if not self.api_key:
-                msg: str = "API key for OpenAI not found."
-                logger.error(msg)
-                raise ValueError(msg)
+                openai_msg: str = "API key for OpenAI not found."
+                logger.error(openai_msg)
+                raise ValueError(openai_msg)
             # Default model if none provided
             self.model = self.model or "gpt-5-mini"
         elif self.backend in ("ollama", "ollama-cloud"):
@@ -109,6 +110,15 @@ class NLP:
                 raise ValueError(
                     "The 'stanza' backend does not accept a model parameter; models are hardcoded per language."
                 )
+        elif self.backend == "mistral":
+            load_env_file()
+            self.api_key = os.getenv("MISTRAL_API_KEY")
+            if not self.api_key:
+                mistral_msg: str = "API key for Mistral not found."
+                logger.error(mistral_msg)
+                raise ValueError(mistral_msg)
+            # Default model if none provided
+            self.model = self.model or "mistral-medium-latest"
         self.pipeline: Pipeline = (
             custom_pipeline if custom_pipeline else self._get_pipeline()
         )
@@ -210,12 +220,21 @@ class NLP:
         logger.debug(f"Processes in pipeline: {processes_name}")
         for process_class in processes:
             process_instance: Process = self._get_process_object(process_class)
+            print(
+                Fore.CYAN
+                + f"⸖ Process name: {process_instance.__class__.__name__}"
+                + Style.RESET_ALL
+            )
             authorship_info = getattr(process_instance, "authorship_info", None)
+            description = getattr(process_instance, "description", None)
             if authorship_info:
                 print(
-                    # "\n" +
-                    Fore.CYAN + f"⸖ {authorship_info}" + Style.RESET_ALL
+                    Fore.CYAN
+                    + f"    Process author: {authorship_info}"
+                    + Style.RESET_ALL
                 )
+            if description:
+                print(Fore.CYAN + f"    Description: {description}" + Style.RESET_ALL)
 
     def _print_special_authorship_messages_for_current_lang(self) -> None:
         """Print any special authorship messages exposed by processes."""
@@ -307,6 +326,8 @@ class NLP:
             mapping = MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE
         elif self.backend in ("ollama", "ollama-cloud"):
             # Reuse the same generative pipelines; lower layers pick the client by backend
+            mapping = MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE
+        elif self.backend == "mistral":
             mapping = MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE
         else:
             raise NotImplementedError(f"Backend '{self.backend}' not available.")

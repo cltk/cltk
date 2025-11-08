@@ -28,6 +28,9 @@ ollama = [
     "ollama (>=0.3.0,<1.0.0)",
     "httpx (<0.29)",  # pinned since ollama pulls a beta httpx with breaking changes
 ]
+mistral = [
+    "mistralai (>=1.9.0,<2.0.0)",
+]
 
 [project.urls]
 Homepage = "http://cltk.org"
@@ -95,16 +98,16 @@ select = ["E", "F", "I", "D"]
 # Keep lines long where appropriate; relax docstring ‘blank line’ and
 # multi-line summary rules for Google style; do not fail on missing docstrings.
 ignore = [
-  "E501",
-  "D100", # Missing docstring in public module
-  "D101", # Missing docstring in public class
-  "D102", # Missing docstring in public method
-  "D103", # Missing docstring in public function
-  "D104", # Missing docstring in public package
-  "D105", # Missing docstring in magic method
-  "D107", # Missing docstring in __init__
-  "D203", # One-blank-line before class docstring
-  "D213", # Multi-line docstring summary should start at the second line
+    "E501",
+    "D100", # Missing docstring in public module
+    "D101", # Missing docstring in public class
+    "D102", # Missing docstring in public method
+    "D103", # Missing docstring in public function
+    "D104", # Missing docstring in public package
+    "D105", # Missing docstring in magic method
+    "D107", # Missing docstring in __init__
+    "D203", # One-blank-line before class docstring
+    "D213", # Multi-line docstring summary should start at the second line
 ]
 fixable = ["E", "F", "I", "D"]
 unfixable = []
@@ -143,18 +146,18 @@ testpaths = ["tests"]
 addopts = "-ra"
 xfail_strict = true
 filterwarnings = [
-  "error::DeprecationWarning",
-  "error::PendingDeprecationWarning",
+    "error::DeprecationWarning",
+    "error::PendingDeprecationWarning",
 ]
 
 [[tool.mypy.overrides]]
 module = [
-  "openai.*",
-  "tqdm.*",
-  "colorama.*",
-  "stanza",
-  "stanza.*",
-  "ollama",
-  "ollama.*",
+    "openai.*",
+    "tqdm.*",
+    "colorama.*",
+    "stanza",
+    "stanza.*",
+    "ollama",
+    "ollama.*",
 ]
 ignore_missing_imports = true
