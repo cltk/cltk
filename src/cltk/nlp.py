@@ -219,12 +219,21 @@ class NLP:
         logger.debug(f"Processes in pipeline: {processes_name}")
         for process_class in processes:
             process_instance: Process = self._get_process_object(process_class)
+            print(
+                Fore.CYAN
+                + f"⸖ Process name: {process_instance.__class__.__name__}"
+                + Style.RESET_ALL
+            )
             authorship_info = getattr(process_instance, "authorship_info", None)
+            description = getattr(process_instance, "description", None)
             if authorship_info:
                 print(
-                    # "\n" +
-                    Fore.CYAN + f"⸖ {authorship_info}" + Style.RESET_ALL
+                    Fore.CYAN
+                    + f"    Process author: {authorship_info}"
+                    + Style.RESET_ALL
                 )
+            if description:
+                print(Fore.CYAN + f"    Description: {description}" + Style.RESET_ALL)
 
     def _print_special_authorship_messages_for_current_lang(self) -> None:
         """Print any special authorship messages exposed by processes."""
