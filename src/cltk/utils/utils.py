@@ -1,7 +1,5 @@
 """Module for commonly reused classes and functions."""
 
-import csv
-import io
 import os
 import re
 import sys
@@ -9,11 +7,19 @@ import unicodedata
 from contextlib import contextmanager
 
 # from enum import EnumMeta, IntEnum
-from typing import Any, Iterator, Optional, Union
+from typing import TYPE_CHECKING, Any, Iterator, Optional, Union
 
 from dotenv import load_dotenv
 
 from cltk.core.data_types import Doc, Word
+
+if TYPE_CHECKING:
+    import pyarrow as pa
+
+    type Table = pa.Table
+else:
+    # no runtime dependency on pyarrow for annotations
+    type Table = Any
 
 
 def file_exists(file_path: str, is_dir: bool = False) -> bool:
@@ -366,13 +372,18 @@ def doc_to_conllu(doc: Doc) -> str:
     return "\n".join(output_lines)
 
 
-def doc_to_ud_features_csv(doc: Doc) -> str:
-    """Return a CSV string of POS, morphology, and rich dependency features.
+def doc_to_feature_table(doc: Doc) -> Table:
+    """Return a ``pyarrow.Table`` of POS, morphology, and dependency features.
 
     - Raises ValueError when ``Doc.words`` is missing or empty.
-    - Writes an empty row when a list entry is ``None``.
+    - Writes an empty row (all ``None``) when a list entry is ``None``.
     - Ignores ``Word.xpos``.
     - Adds tree-shape features and sentence-level metrics.
+    - Requires ``pyarrow`` to serialize downstream. Example::
+
+        >>> table = doc_to_ud_features_csv(doc)
+        >>> import pyarrow.parquet as pq
+        >>> pq.write_table(table, "doc_features.parquet")
 
     Feature Glossary (selected)
     - head_upos: UPOS tag of the head token (empty for root)
@@ -430,7 +441,7 @@ def doc_to_ud_features_csv(doc: Doc) -> str:
         sent_groups.setdefault(sidx, []).append((doc_idx, w))
 
     # Derived features per token, keyed by doc index
-    dep_feats_by_doc_idx: dict[int, dict[str, Union[str, int, float]]] = {}
+    dep_feats_by_doc_idx: dict[int, dict[str, Union[str, int, float, None]]] = {}
 
     def _cross(a1: int, a2: int, b1: int, b2: int) -> bool:
         x1, x2 = (a1, a2) if a1 <= a2 else (a2, a1)
@@ -686,10 +697,10 @@ def doc_to_ud_features_csv(doc: Doc) -> str:
             subtree_gap_val = subtree_gap[local_i]
 
             if head_idx is None:
-                head_value = ""
+                head_value: Optional[int] = None
                 dir_value = "ROOT"
             else:
-                head_value = str(head_idx + 1)
+                head_value = head_idx + 1
                 dir_value = "L" if head_idx < local_i else "R"
 
             dep_feats_by_doc_idx[doc_i] = {
@@ -706,14 +717,12 @@ def doc_to_ud_features_csv(doc: Doc) -> str:
                 "left_child_count": left_child_count[local_i],
                 "right_child_count": right_child_count[local_i],
                 "is_leaf": is_leaf[local_i],
-                "depth_from_root": depth_val if depth_val is not None else "",
-                "path_len_to_root": depth_val if depth_val is not None else "",
-                "height_to_leaf": height_val if height_val is not None else "",
-                "subtree_size": subtree_size_val
-                if subtree_size_val is not None
-                else "",
+                "depth_from_root": depth_val,
+                "path_len_to_root": depth_val,
+                "height_to_leaf": height_val,
+                "subtree_size": subtree_size_val,
                 "subtree_span_width": subtree_span_width[local_i],
-                "subtree_gap": subtree_gap_val if subtree_gap_val is not None else "",
+                "subtree_gap": subtree_gap_val,
                 "crossing_arcs": crossing_per_token[local_i],
                 "parent_branching_factor": parent_branching_factor[local_i],
                 "sibling_index": sibling_index[local_i],
@@ -729,7 +738,7 @@ def doc_to_ud_features_csv(doc: Doc) -> str:
                 "sent_len": sent_len,
             }
 
-    # Build CSV header
+    # Build header/order for downstream schema/rows
     base_header: list[str] = [
         "sentence_index",
         "token_index",
@@ -775,14 +784,64 @@ def doc_to_ud_features_csv(doc: Doc) -> str:
     ]
     header = base_header + feat_header + dep_extra_header
 
-    # Emit CSV
-    buffer = io.StringIO()
-    writer = csv.writer(buffer)
-    writer.writerow(header)
+    try:
+        import pyarrow as pa
+    except ImportError as exc:  # pragma: no cover - optional dependency
+        raise ImportError(
+            "doc_to_ud_features_csv() requires `pyarrow`. Install it via `pip install pyarrow`."
+        ) from exc
+
+    def _build_schema(feature_keys: list[str]) -> "pa.Schema":
+        base_fields = [
+            pa.field("sentence_index", pa.int64()),
+            pa.field("token_index", pa.int64()),
+            pa.field("token_index_sentence", pa.int64()),
+            pa.field("token", pa.string()),
+            pa.field("lemma", pa.string()),
+            pa.field("upos", pa.string()),
+            pa.field("head", pa.int64()),
+            pa.field("deprel", pa.string()),
+        ]
+        feat_fields = [pa.field(f"feat_{key}", pa.string()) for key in feature_keys]
+        dep_fields = [
+            pa.field("head_upos", pa.string()),
+            pa.field("head_form", pa.string()),
+            pa.field("head_lemma", pa.string()),
+            pa.field("dir_to_head", pa.string()),
+            pa.field("dist_to_head", pa.int64()),
+            pa.field("dist_to_head_norm", pa.float64()),
+            pa.field("child_count", pa.int64()),
+            pa.field("left_child_count", pa.int64()),
+            pa.field("right_child_count", pa.int64()),
+            pa.field("is_leaf", pa.int64()),
+            pa.field("depth_from_root", pa.int64()),
+            pa.field("path_len_to_root", pa.int64()),
+            pa.field("height_to_leaf", pa.int64()),
+            pa.field("subtree_size", pa.int64()),
+            pa.field("subtree_span_width", pa.int64()),
+            pa.field("subtree_gap", pa.int64()),
+            pa.field("crossing_arcs", pa.int64()),
+            pa.field("parent_branching_factor", pa.int64()),
+            pa.field("sibling_index", pa.int64()),
+            pa.field("sibling_count", pa.int64()),
+            pa.field("is_root", pa.int8()),
+            pa.field("valid_head", pa.int8()),
+            pa.field("sent_root_index", pa.int64()),
+            pa.field("sent_tree_depth", pa.int64()),
+            pa.field("sent_avg_branching_nonleaf", pa.float64()),
+            pa.field("sent_crossing_arcs", pa.int64()),
+            pa.field("sent_is_projective", pa.int8()),
+            pa.field("sent_len", pa.int64()),
+        ]
+        return pa.schema(base_fields + feat_fields + dep_fields)
+
+    schema = _build_schema(sorted_feature_keys)
+    columns: dict[str, list[Any]] = {name: [] for name in header}
 
     for doc_idx, word in enumerate(words):
         if word is None:
-            writer.writerow([""] * len(header))
+            for name in header:
+                columns[name].append(None)
             continue
 
         sentence_idx_raw = getattr(word, "index_sentence", None)
@@ -793,14 +852,10 @@ def doc_to_ud_features_csv(doc: Doc) -> str:
 
         dep_extra = dep_feats_by_doc_idx.get(doc_idx, {})
         deprel_value_raw = dep_extra.get("deprel", "")
-        head_value_raw = dep_extra.get("head", "")
-        token_in_sentence_raw = dep_extra.get("token_index_sentence", "")
+        head_value = dep_extra.get("head")
+        token_in_sentence = dep_extra.get("token_index_sentence")
 
-        deprel_value = str(deprel_value_raw)
-        head_value = str(head_value_raw)
-        token_in_sentence = (
-            str(token_in_sentence_raw) if token_in_sentence_raw != "" else ""
-        )
+        deprel_value = str(deprel_value_raw) if deprel_value_raw is not None else ""
 
         # Explode UD features for this word
         feature_map: dict[str, str] = {}
@@ -813,9 +868,9 @@ def doc_to_ud_features_csv(doc: Doc) -> str:
                 if key and val:
                     feature_map[str(key)] = str(val)
 
-        row: list[Union[str, int, float]] = [
-            str(sentence_idx_raw) if sentence_idx_raw is not None else "",
-            str(global_idx) if global_idx is not None else "",
+        row: list[Union[str, int, float, None]] = [
+            sentence_idx_raw,
+            global_idx,
             token_in_sentence,
             getattr(word, "string", "") or "",
             getattr(word, "lemma", "") or "",
@@ -823,12 +878,14 @@ def doc_to_ud_features_csv(doc: Doc) -> str:
             head_value,
             deprel_value,
         ]
-        row.extend(feature_map.get(key, "") for key in sorted_feature_keys)
+        row.extend(feature_map.get(key) for key in sorted_feature_keys)
         for col in dep_extra_header:
-            row.append(dep_extra.get(col, ""))
-        writer.writerow(row)
+            row.append(dep_extra.get(col))
+        for name, value in zip(header, row):
+            columns[name].append(value)
 
-    return buffer.getvalue().rstrip("\n")
+    arrays = [pa.array(columns[field.name], type=field.type) for field in schema]
+    return pa.Table.from_arrays(arrays, schema=schema)
 
 
 CLTK_DATA_DIR = get_cltk_data_dir()
