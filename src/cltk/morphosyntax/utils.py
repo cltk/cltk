@@ -67,7 +67,7 @@ def generate_pos(
 
     Returns:
         The same ``Doc`` instance with ``words`` and per‑call usage appended
-        to ``doc.openai``.
+        to ``doc.genai_use``.
 
     Raises:
         OpenAIInferenceError: If the OpenAI API call fails (when using the OpenAI backend).
@@ -120,7 +120,7 @@ def generate_pos(
         log.debug(prompt)
     # code_blocks: list[Any] = []
     if not doc.backend:
-        msg_no_backend: str = "Doc must have `.backend` set to 'openai', 'ollama', or 'ollama-cloud' to use generate_pos."
+        msg_no_backend: str = "Doc must have `.backend` set to 'openai', 'mistral', 'ollama', or 'ollama-cloud' to use generate_pos."
         log.error(msg_no_backend)
         raise CLTKException(msg_no_backend)
     if not doc.model:
@@ -157,9 +157,9 @@ def generate_pos(
     )
     openai_res: str = openai_res_obj.response
     openai_usage: dict[str, int] = openai_res_obj.usage
-    if not doc.openai:
-        doc.openai = list()
-    doc.openai.append(openai_usage)
+    if not doc.genai_use:
+        doc.genai_use = list()
+    doc.genai_use.append(openai_usage)
 
     parsed_pos_tags: list[dict[str, str]] = _parse_tsv_table(openai_res)
     if _os.getenv("CLTK_LOG_CONTENT", "").strip().lower() in {"1", "true", "yes", "on"}:
@@ -314,7 +314,7 @@ def generate_gpt_morphosyntax(doc: Doc) -> Doc:
         )
     else:
         raise CLTKException(
-            f"Unsupported backend for morphosyntax: {doc.backend}. Use 'openai', 'ollama', or 'ollama-cloud'."
+            f"Unsupported backend for morphosyntax: {doc.backend}. Use 'openai', 'mistral', 'ollama', or 'ollama-cloud'."
         )
     if not doc.normalized_text:
         msg = "Input document must have either `.normalized_text`."
@@ -354,16 +354,16 @@ def generate_gpt_morphosyntax(doc: Doc) -> Doc:
             all_words.append(word)
             token_counter += 1
     # Aggregate token counts across all tmp_docs
-    openai_total_tokens = {"input": 0, "output": 0, "total": 0}
+    genai_total_tokens = {"input": 0, "output": 0, "total": 0}
     for doc in tmp_docs:
-        if doc.openai and isinstance(doc.openai[0], dict):
-            for k in openai_total_tokens:
-                openai_total_tokens[k] += doc.openai[0].get(k, 0)
+        if doc.genai_use and isinstance(doc.genai_use[0], dict):
+            for k in genai_total_tokens:
+                genai_total_tokens[k] += doc.genai_use[0].get(k, 0)
         else:
             msg_bad_tokens: str = "Failed to get token usage field from POS tagging."
             log.error(msg_bad_tokens)
             raise CLTKException(msg_bad_tokens)
-    _update_doc_openai_stage(doc, stage="pos", stage_tokens=openai_total_tokens)
+    _update_doc_genai_stage(doc, stage="pos", stage_tokens=genai_total_tokens)
     log.debug(
         f"Combined {len(all_words)} words from all tmp_docs and updated token indices."
     )
@@ -398,7 +398,7 @@ async def generate_gpt_morphosyntax_async(
 
     Returns:
         The input ``doc`` enriched with ``words`` and aggregated generative
-        usage across all sentence calls (stored in ``doc.openai``).
+        usage across all sentence calls (stored in ``doc.genai_use``).
 
     Raises:
         ValueError: If backend configuration is missing.
@@ -569,7 +569,7 @@ async def generate_gpt_morphosyntax_async(
             token_counter += 1
 
     doc.words = all_words
-    _update_doc_openai_stage(doc, stage="pos", stage_tokens=aggregated_usage)
+    _update_doc_genai_stage(doc, stage="pos", stage_tokens=aggregated_usage)
     log.info(
         "[async] Completed morphosyntax generation: %d tokens across %d sentences",
         len(all_words),
@@ -638,10 +638,10 @@ def generate_gpt_morphosyntax_concurrent(
             return result
 
 
-def _update_doc_openai_stage(
+def _update_doc_genai_stage(
     doc: Doc, *, stage: str, stage_tokens: dict[str, int]
 ) -> None:
-    """Update doc.openai with stage-specific and overall totals.
+    """Update doc.genai_use with stage-specific and overall totals.
 
     Keeps one entry per stage (e.g., "pos", "dep") and a single "overall" sum.
     """
@@ -651,7 +651,7 @@ def _update_doc_openai_stage(
     tot_tokens = int(stage_tokens.get("total", 0))
 
     entries: list[dict[str, Any]] = []
-    for e in doc.openai or []:
+    for e in doc.genai_use or []:
         if isinstance(e, dict):
             s = str(e.get("stage", "")).lower()
             if s and s not in {stage_norm, "overall"}:
@@ -678,4 +678,4 @@ def _update_doc_openai_stage(
             except Exception:
                 pass
     entries.append({"stage": "overall", **overall})
-    doc.openai = entries
+    doc.genai_use = entries

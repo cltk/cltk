@@ -11,10 +11,11 @@ This guide helps you install CLTK and run minimal, working examples using each b
 - Base library:
     - pip: `pip install cltk`
 - Optional extras (choose any):
-    - OpenAI: `pip install "cltk[openai]"`
     - Stanza: `pip install "cltk[stanza]"`
+    - OpenAI: `pip install "cltk[openai]"`
+    - Mistral: `pip install "cltk[mistral]"`
     - Ollama (local or cloud): `pip install "cltk[ollama]"`
-- You can combine extras, e.g. `pip install "cltk[openai,stanza,ollama]"`.
+- You can combine extras, e.g. `pip install "cltk[openai,stanza,ollama,mistral]"`.
 
 ## Environment
 
@@ -87,7 +88,7 @@ for w in doc.words:
     from cltk.nlp import NLP
     nlp = NLP("lati1261", backend="ollama-cloud", suppress_banner=True)
     doc = nlp.analyze("Gallia est omnis divisa in partes tres.")
-    print("usage:", doc.openai)
+    print("usage:", doc.genai_use)
     ```
 
 ## Dependency parsing (generative backends)

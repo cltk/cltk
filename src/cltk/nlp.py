@@ -37,10 +37,10 @@ class NLP:
     Args:
       language_code: Language key (Glottolog code, ISO code, or exact name).
       backend: One of ``"stanza"`` (default), ``"openai"``, ``"ollama"``,
-        ``"ollama-cloud"``, or ``"spacy"``. The ``"spacy"`` backend is not
+        ``"ollama-cloud"``, or ``mistral``. The ``"spacy"`` backend is not
         yet implemented and will raise ``NotImplementedError``.
       model: Optional model name when using generative backends
-        (``"openai"``, ``"ollama"``, ``"ollama-cloud"``). Ignored for
+        (``"openai"``, ``"ollama"``, ``"ollama-cloud"``, ``mistral``). Ignored for
         ``"stanza"``.
       custom_pipeline: Optional pipeline to use instead of the default mapping.
       suppress_banner: If true, suppresses informational console output.
@@ -79,13 +79,14 @@ class NLP:
         self.backend: BACKEND_TYPES = backend
         self.model: Optional[str] = model
         self._ollama_cloud_api_key: Optional[str] = None
+        self.api_key: Optional[str] = None
         if self.backend == "openai":
             load_env_file()
-            self.api_key: Optional[str] = os.getenv("OPENAI_API_KEY")
+            self.api_key = os.getenv("OPENAI_API_KEY")
             if not self.api_key:
-                msg: str = "API key for OpenAI not found."
-                logger.error(msg)
-                raise ValueError(msg)
+                openai_msg: str = "API key for OpenAI not found."
+                logger.error(openai_msg)
+                raise ValueError(openai_msg)
             # Default model if none provided
             self.model = self.model or "gpt-5-mini"
         elif self.backend in ("ollama", "ollama-cloud"):
@@ -111,11 +112,11 @@ class NLP:
                 )
         elif self.backend == "mistral":
             load_env_file()
-            self.api_key: Optional[str] = os.getenv("MISTRAL_API_KEY")
+            self.api_key = os.getenv("MISTRAL_API_KEY")
             if not self.api_key:
-                msg: str = "API key for Mistral not found."
-                logger.error(msg)
-                raise ValueError(msg)
+                mistral_msg: str = "API key for Mistral not found."
+                logger.error(mistral_msg)
+                raise ValueError(mistral_msg)
             # Default model if none provided
             self.model = self.model or "mistral-medium-latest"
         self.pipeline: Pipeline = (

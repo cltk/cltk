@@ -26,7 +26,7 @@ class _MistralErrorFallback(Exception):
     """Fallback error raised when the Mistral SDK is unavailable."""
 
 
-def _resolve_mistral_classes():
+def _resolve_mistral_classes() -> tuple[Optional[Any], Optional[Any]]:
     try:
         from mistralai import Mistral as imported_mistral
     except Exception:
@@ -114,9 +114,12 @@ class MistralConnection:
             self.log.debug(f"Attempt {attempt} of {max_retries}")
             try:
                 mistral_response = self.client.chat.complete(
-                    model=self.model, messages=[dict(role="user", content=prompt)]
+                    model=self.model,
+                    messages=cast(Any, [dict(role="user", content=prompt)]),
                 )
-            except SDKError as mistral_error:
+            except Exception as mistral_error:
+                # Some runtimes may not provide SDKError at import time; catch generic
+                # exceptions and re-raise as MistralInferenceError for uniform handling.
                 raise MistralInferenceError(
                     f"An error from Mistral occurred: {mistral_error}"
                 )
@@ -126,9 +129,11 @@ class MistralConnection:
                 "yes",
                 "on",
             }:
-                self.log.debug(
-                    f"Raw response from Mistral: {mistral_response.output_text}"
-                )
+                # Safely handle cases where mistral_response may be None or missing the attribute
+                out_text = getattr(mistral_response, "output_text", "")
+                if out_text is None:
+                    out_text = ""
+                self.log.debug(f"Raw response from Mistral: {out_text}")
             # Add usage from this attempt even if parsing fails
             try:
                 tok = self._mistral_response_tokens(mistral_response)
@@ -137,9 +142,8 @@ class MistralConnection:
             except Exception:
                 pass
             try:
-                code_block = self._extract_code_blocks(
-                    text=mistral_response.output_text
-                )
+                out_text = getattr(mistral_response, "output_text", "") or ""
+                code_block = self._extract_code_blocks(text=out_text)
             except Exception as e:
                 # TODO: Count tokens used for failed attempts, too
                 self.log.error(f"Error extracting code block: {e}")
@@ -316,13 +320,14 @@ class AsyncMistralConnection:
         mistral_response: Optional[Any] = None
         agg_tokens: dict[str, int] = {"input": 0, "output": 0, "total": 0}
         for attempt in range(1, max_retries + 1):
-            self.log.debug("[async] Attempt %s of %s", attempt, max_retries)
             try:
                 mistral_response = await self.client.chat.complete_async(
                     model=self.model,
-                    messages=[dict(role="user", content=prompt)],
+                    messages=cast(Any, [dict(role="user", content=prompt)]),
                 )
-            except SDKError as mistral_error:
+            except Exception as mistral_error:
+                # Some runtimes may not provide SDKError at import time; log and
+                # treat any exception as a MistralInferenceError when retries are exhausted.
                 self.log.error(
                     "[async] Mistral error on attempt %s: %s", attempt, mistral_error
                 )
@@ -331,11 +336,19 @@ class AsyncMistralConnection:
                         f"An error from Mistral occurred: {mistral_error}"
                     )
                 continue
-
-            self.log.debug(
-                "[async] Raw response from Mistral: %s",
-                mistral_response.choices[0].message.content,
-            )
+            if not mistral_response:
+                self.log.error("[async] No response received from Mistral.")
+                if attempt == max_retries:
+                    raise MistralInferenceError("No response received from Mistral.")
+                continue
+            try:
+                mistral_content: str = str(mistral_response.choices[0].message.content)
+            except Exception:
+                self.log.error("Mistral response missing expected content.")
+                raise MistralInferenceError(
+                    "Mistral response missing expected content."
+                )
+            self.log.debug("[async] Raw response from Mistral: %s", mistral_content)
             # Track usage for this attempt (even if parsing fails)
             try:
                 tok = self._mistral_response_tokens(mistral_response)
@@ -344,9 +357,7 @@ class AsyncMistralConnection:
             except Exception:
                 pass
             try:
-                code_block = self._extract_code_blocks(
-                    mistral_response.choices[0].message.content
-                )
+                code_block = self._extract_code_blocks(mistral_content)
             except Exception as e:  # pragma: no cover - defensive
                 self.log.error("[async] Error extracting code block: %s", e)
                 code_block = None

@@ -20,7 +20,7 @@ from cltk.genai.ollama import AsyncOllamaConnection, OllamaConnection
 from cltk.genai.openai import AsyncOpenAIConnection, OpenAIConnection
 from cltk.morphosyntax.ud_deprels import UDDeprelTag, get_ud_deprel_tag
 from cltk.morphosyntax.ud_features import UDFeatureTagSet
-from cltk.morphosyntax.utils import _update_doc_openai_stage
+from cltk.morphosyntax.utils import _update_doc_genai_stage
 
 
 def _parse_dep_tsv_table(tsv_string: str) -> list[dict[str, str]]:
@@ -86,7 +86,7 @@ def generate_dependency_tree(
 
     Returns:
         The same ``Doc`` instance with ``words`` and per‑call usage appended
-        to ``doc.openai``.
+        to ``doc.genai_use``.
 
     Raises:
         OpenAIInferenceError: If the OpenAI API call fails (when using the OpenAI backend).
@@ -162,12 +162,12 @@ def generate_dependency_tree(
             )
     elif doc.backend == "mistral":
         if doc.model not in get_args(AVAILABLE_MISTRAL_MODELS):
-            msg_unsupported_backend_version: str = (
+            mistral_msg_unsupported_backend_version: str = (
                 f"Doc has unsupported `.model`: {doc.model}. "
                 f"Supported versions are: {get_args(AVAILABLE_MISTRAL_MODELS)}."
             )
-            log.error(msg_unsupported_backend_version)
-            raise CLTKException(msg_unsupported_backend_version)
+            log.error(mistral_msg_unsupported_backend_version)
+            raise CLTKException(mistral_msg_unsupported_backend_version)
         if not client:
             mistral_model: AVAILABLE_MISTRAL_MODELS = cast(
                 AVAILABLE_MISTRAL_MODELS, doc.model
@@ -177,16 +177,16 @@ def generate_dependency_tree(
         raise CLTKException(
             f"Unsupported backend for dependency generation: {doc.backend}."
         )
-    openai_res_obj: CLTKGenAIResponse = client.generate(
+    genai_res_obj: CLTKGenAIResponse = client.generate(
         prompt=prompt, max_retries=max_retries
     )
-    openai_res: str = openai_res_obj.response
-    openai_usage: dict[str, int] = openai_res_obj.usage
-    if not doc.openai:
-        doc.openai = list()
-    doc.openai.append(openai_usage)
+    genai_res: str = genai_res_obj.response
+    genai_usage: dict[str, int] = genai_res_obj.usage
+    if not doc.genai_use:
+        doc.genai_use = list()
+    doc.genai_use.append(genai_usage)
 
-    rows = _parse_dep_tsv_table(openai_res)
+    rows = _parse_dep_tsv_table(genai_res)
     if _os.getenv("CLTK_LOG_CONTENT", "").strip().lower() in {"1", "true", "yes", "on"}:
         log.debug(f"[dep] Parsed rows:\n{rows}")
     # If we already have words, update them in place; otherwise, create fresh Word objects
@@ -360,23 +360,27 @@ def generate_gpt_dependency(doc: Doc) -> Doc:
             all_words.append(word)
             token_counter += 1
     # Aggregate token counts across all tmp_docs
-    openai_total_tokens = {"input": 0, "output": 0, "total": 0}
+    genai_total_tokens = {"input": 0, "output": 0, "total": 0}
     for doc in tmp_docs:
-        if doc.openai and isinstance(doc.openai[0], dict):
-            for k in openai_total_tokens:
-                openai_total_tokens[k] += doc.openai[0].get(k, 0)
+        if doc.genai_use and isinstance(doc.genai_use[0], dict):
+            for k in genai_total_tokens:
+                genai_total_tokens[k] += doc.genai_use[0].get(k, 0)
         else:
             msg_bad_tokens: str = "Failed to get token usage field from POS tagging."
             log.error(msg_bad_tokens)
             raise CLTKException(msg_bad_tokens)
     # Merge with any existing totals (e.g., from prior processes)
     combined_tokens = {"input": 0, "output": 0, "total": 0}
-    if isinstance(doc.openai, list) and doc.openai and isinstance(doc.openai[0], dict):
+    if (
+        isinstance(doc.genai_use, list)
+        and doc.genai_use
+        and isinstance(doc.genai_use[0], dict)
+    ):
         for k in combined_tokens:
-            combined_tokens[k] += int(doc.openai[0].get(k, 0))
+            combined_tokens[k] += int(doc.genai_use[0].get(k, 0))
     for k in combined_tokens:
-        combined_tokens[k] += int(openai_total_tokens.get(k, 0))
-    _update_doc_openai_stage(doc, stage="dep", stage_tokens=openai_total_tokens)
+        combined_tokens[k] += int(genai_total_tokens.get(k, 0))
+    _update_doc_genai_stage(doc, stage="dep", stage_tokens=genai_total_tokens)
     log.debug(
         f"Combined {len(all_words)} words from all tmp_docs and updated token indices."
     )
@@ -411,7 +415,7 @@ async def generate_gpt_dependency_async(
 
     Returns:
         The input ``doc`` enriched with ``words`` and aggregated generative
-        usage across all sentence calls (stored in ``doc.openai``).
+        usage across all sentence calls (stored in ``doc.genai_use``).
 
     Raises:
         ValueError: If backend configuration is missing.
@@ -602,7 +606,7 @@ async def generate_gpt_dependency_async(
             token_counter += 1
 
     doc.words = all_words
-    _update_doc_openai_stage(doc, stage="dep", stage_tokens=aggregated_usage)
+    _update_doc_genai_stage(doc, stage="dep", stage_tokens=aggregated_usage)
     log.info(
         "[async-dep] Completed dependency generation: %d tokens across %d sentences",
         len(all_words),
