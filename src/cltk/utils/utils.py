@@ -14,7 +14,7 @@ from dotenv import load_dotenv
 from cltk.core.data_types import Doc, Word
 
 if TYPE_CHECKING:
-    import pyarrow as pa
+    import pyarrow as pa  # type: ignore[import-untyped]
 
     type Table = pa.Table
 else:
@@ -852,7 +852,11 @@ def doc_to_feature_table(doc: Doc) -> Table:
 
         dep_extra = dep_feats_by_doc_idx.get(doc_idx, {})
         deprel_value_raw = dep_extra.get("deprel", "")
-        head_value = dep_extra.get("head")
+        raw_head = dep_extra.get("head")
+        try:
+            head_value = int(raw_head) if raw_head is not None else None
+        except (TypeError, ValueError):
+            head_value = None
         token_in_sentence = dep_extra.get("token_index_sentence")
 
         deprel_value = str(deprel_value_raw) if deprel_value_raw is not None else ""
