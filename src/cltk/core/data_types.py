@@ -283,9 +283,16 @@ class Sentence(CLTKBaseModel):
 
 
 BACKEND_TYPES: TypeAlias = Literal[
-    "openai", "stanza", "spacy", "ollama", "ollama-cloud"
+    "openai", "stanza", "spacy", "ollama", "ollama-cloud", "mistral"
 ]
 AVAILABLE_OPENAI_MODELS: TypeAlias = Literal["gpt-5-mini", "gpt-5"]
+
+AVAILABLE_MISTRAL_MODELS: TypeAlias = Literal[
+    "mistral-large-latest",
+    "magistral-small-latest",
+    "mistral-medium-latest",
+    "mistral-large-latest",
+]
 
 
 class Doc(CLTKBaseModel):
@@ -304,7 +311,7 @@ class Doc(CLTKBaseModel):
       discourse_relations: Discourse relation labels (if available).
       coreferences: Coreference links as (mention, antecedent, i, j).
       sentence_boundaries: List of (start, stop) character offsets.
-      openai: List of usage/metadata dicts from model calls.
+      genai_use: List of usage/metadata dicts from model calls.
 
     """
 
@@ -321,7 +328,7 @@ class Doc(CLTKBaseModel):
     discourse_relations: list[str] = Field(default_factory=list)
     coreferences: list[tuple[str, str, int, int]] = Field(default_factory=list)
     sentence_boundaries: list[tuple[int, int]] = Field(default_factory=list)
-    openai: list[dict[str, Any]] = Field(default_factory=list)
+    genai_use: list[dict[str, Any]] = Field(default_factory=list)
     backend: Optional[BACKEND_TYPES] = None
     # Model alias/name for the selected backend. For OpenAI this should be
     # one of AVAILABLE_OPENAI_MODELS; for Ollama any model string is accepted.
