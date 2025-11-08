@@ -7,8 +7,8 @@ from tqdm import tqdm
 
 from cltk.core.cltk_logger import logger
 from cltk.core.data_types import (
-    AVAILABLE_OPENAI_MODELS,
     AVAILABLE_MISTRAL_MODELS,
+    AVAILABLE_OPENAI_MODELS,
     CLTKGenAIResponse,
     Doc,
     Word,
@@ -449,7 +449,9 @@ async def generate_gpt_dependency_async(
             raise CLTKException(
                 f"Doc has unsupported `.model`: {doc.model}. Supported: {get_args(AVAILABLE_MISTRAL_MODELS)}."
             )
-        mistral_model: AVAILABLE_MISTRAL_MODELS = cast(AVAILABLE_MISTRAL_MODELS, doc.model)
+        mistral_model: AVAILABLE_MISTRAL_MODELS = cast(
+            AVAILABLE_MISTRAL_MODELS, doc.model
+        )
         conn = AsyncMistralConnection(model=mistral_model)
     else:
         raise CLTKException(

@@ -287,7 +287,12 @@ BACKEND_TYPES: TypeAlias = Literal[
 ]
 AVAILABLE_OPENAI_MODELS: TypeAlias = Literal["gpt-5-mini", "gpt-5"]
 
-AVAILABLE_MISTRAL_MODELS: TypeAlias = Literal["mistral-large-latest", "magistral-small-latest", "mistral-medium-latest", "mistral-large-latest"]
+AVAILABLE_MISTRAL_MODELS: TypeAlias = Literal[
+    "mistral-large-latest",
+    "magistral-small-latest",
+    "mistral-medium-latest",
+    "mistral-large-latest",
+]
 
 
 class Doc(CLTKBaseModel):

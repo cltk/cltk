@@ -16,7 +16,7 @@ import re
 from typing import Any, Optional, cast
 
 from cltk.core.cltk_logger import bind_context
-from cltk.core.data_types import CLTKGenAIResponse, AVAILABLE_MISTRAL_MODELS
+from cltk.core.data_types import AVAILABLE_MISTRAL_MODELS, CLTKGenAIResponse
 from cltk.core.exceptions import CLTKException, MistralInferenceError
 from cltk.text.utils import cltk_normalize
 from cltk.utils.utils import load_env_file
@@ -25,8 +25,8 @@ from cltk.utils.utils import load_env_file
 class _MistralErrorFallback(Exception):
     """Fallback error raised when the Mistral SDK is unavailable."""
 
-def _resolve_mistral_classes():
 
+def _resolve_mistral_classes():
     try:
         from mistralai import Mistral as imported_mistral
     except Exception:
@@ -43,6 +43,8 @@ def _resolve_mistral_classes():
 
 
 Mistral, SDKError = _resolve_mistral_classes()
+
+
 class MistralConnection:
     """Thin wrapper around the Mistral client for CLTK use cases.
 
@@ -79,7 +81,6 @@ class MistralConnection:
         if mistral_cls is None:  # pragma: no cover - import only if needed
             try:
                 from mistralai import Mistral as runtime_mistral
-                from mistralai import SDKError
             except Exception as e:
                 raise ImportError(
                     "Mistral client not installed. Install with: pip install 'cltk[mistral]'"
@@ -136,7 +137,9 @@ class MistralConnection:
             except Exception:
                 pass
             try:
-                code_block = self._extract_code_blocks(text=mistral_response.output_text)
+                code_block = self._extract_code_blocks(
+                    text=mistral_response.output_text
+                )
             except Exception as e:
                 # TODO: Count tokens used for failed attempts, too
                 self.log.error(f"Error extracting code block: {e}")
@@ -148,7 +151,9 @@ class MistralConnection:
                     f"Attempt {attempt}: No code block found in Mistral response. Retrying..."
                 )
                 if attempt == max_retries:
-                    final_err = "No code blocks found in Mistral response after retries."
+                    final_err = (
+                        "No code blocks found in Mistral response after retries."
+                    )
                     self.log.error(final_err)
                     # logger.error(raw_mistral_response_normalized)
                     raise CLTKException(final_err)
@@ -248,6 +253,7 @@ class MistralConnection:
             self.log.debug(f"Extracted code block:\n{code_block}")
         return code_block
 
+
 #
 class AsyncMistralConnection:
     """Asynchronous variant of :class:`MistralConnection`.
@@ -327,7 +333,8 @@ class AsyncMistralConnection:
                 continue
 
             self.log.debug(
-                "[async] Raw response from Mistral: %s", mistral_response.choices[0].message.content
+                "[async] Raw response from Mistral: %s",
+                mistral_response.choices[0].message.content,
             )
             # Track usage for this attempt (even if parsing fails)
             try:
@@ -337,7 +344,9 @@ class AsyncMistralConnection:
             except Exception:
                 pass
             try:
-                code_block = self._extract_code_blocks(mistral_response.choices[0].message.content)
+                code_block = self._extract_code_blocks(
+                    mistral_response.choices[0].message.content
+                )
             except Exception as e:  # pragma: no cover - defensive
                 self.log.error("[async] Error extracting code block: %s", e)
                 code_block = None
@@ -350,7 +359,9 @@ class AsyncMistralConnection:
 
         assert mistral_response is not None
         usage = agg_tokens
-        raw_normalized: str = cltk_normalize(text=mistral_response.choices[0].message.content)
+        raw_normalized: str = cltk_normalize(
+            text=mistral_response.choices[0].message.content
+        )
         if _os.getenv("CLTK_LOG_CONTENT", "").strip().lower() in {
             "1",
             "true",
