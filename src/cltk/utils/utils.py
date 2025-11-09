@@ -1,5 +1,6 @@
 """Module for commonly reused classes and functions."""
 
+import json
 import os
 import re
 import sys
@@ -378,10 +379,10 @@ def doc_to_feature_table(doc: Doc) -> Table:
     - Raises ValueError when ``Doc.words`` is missing or empty.
     - Writes an empty row (all ``None``) when a list entry is ``None``.
     - Ignores ``Word.xpos``.
-    - Adds tree-shape features and sentence-level metrics.
+    - Adds tree-shape features, document metadata, and sentence-level metrics.
     - Requires ``pyarrow`` to serialize downstream. Example::
 
-        >>> table = doc_to_ud_features_csv(doc)
+        >>> table = doc_to_feature_table(doc)
         >>> import pyarrow.parquet as pq
         >>> pq.write_table(table, "doc_features.parquet")
 
@@ -431,6 +432,14 @@ def doc_to_feature_table(doc: Doc) -> Table:
             if key:
                 feature_keys.add(str(key))
     sorted_feature_keys: list[str] = sorted(feature_keys)
+
+    metadata_map_raw = getattr(doc, "metadata", {}) or {}
+    metadata_map: dict[str, Any]
+    if not isinstance(metadata_map_raw, dict):
+        metadata_map = dict(metadata_map_raw)
+    else:
+        metadata_map = metadata_map_raw
+    metadata_keys: list[str] = sorted(str(k) for k in metadata_map.keys())
 
     # Group by sentence index (may be None)
     sent_groups: dict[Optional[int], list[tuple[int, Word]]] = {}
@@ -749,6 +758,7 @@ def doc_to_feature_table(doc: Doc) -> Table:
         "head",
         "deprel",
     ]
+    metadata_header = [f"metadata_{key}" for key in metadata_keys]
     feat_header = [f"feat_{key}" for key in sorted_feature_keys]
     # Dependency feature columns (token-level)
     dep_extra_header: list[str] = [
@@ -782,16 +792,16 @@ def doc_to_feature_table(doc: Doc) -> Table:
         "sent_is_projective",
         "sent_len",
     ]
-    header = base_header + feat_header + dep_extra_header
+    header = base_header + metadata_header + feat_header + dep_extra_header
 
     try:
         import pyarrow as pa
     except ImportError as exc:  # pragma: no cover - optional dependency
         raise ImportError(
-            "doc_to_ud_features_csv() requires `pyarrow`. Install it via `pip install pyarrow`."
+            "doc_to_feature_table() requires `pyarrow`. Install it via `pip install pyarrow`."
         ) from exc
 
-    def _build_schema(feature_keys: list[str]) -> "pa.Schema":
+    def _build_schema(feature_keys: list[str], metadata_keys: list[str]) -> "pa.Schema":
         base_fields = [
             pa.field("sentence_index", pa.int64()),
             pa.field("token_index", pa.int64()),
@@ -801,6 +811,9 @@ def doc_to_feature_table(doc: Doc) -> Table:
             pa.field("upos", pa.string()),
             pa.field("head", pa.int64()),
             pa.field("deprel", pa.string()),
+        ]
+        metadata_fields = [
+            pa.field(f"metadata_{key}", pa.string()) for key in metadata_keys
         ]
         feat_fields = [pa.field(f"feat_{key}", pa.string()) for key in feature_keys]
         dep_fields = [
@@ -833,10 +846,22 @@ def doc_to_feature_table(doc: Doc) -> Table:
             pa.field("sent_is_projective", pa.int8()),
             pa.field("sent_len", pa.int64()),
         ]
-        return pa.schema(base_fields + feat_fields + dep_fields)
+        return pa.schema(base_fields + metadata_fields + feat_fields + dep_fields)
 
-    schema = _build_schema(sorted_feature_keys)
+    schema = _build_schema(sorted_feature_keys, metadata_keys)
     columns: dict[str, list[Any]] = {name: [] for name in header}
+
+    def _serialize_metadata_value(value: Any) -> Optional[str]:
+        if value is None:
+            return None
+        if isinstance(value, str):
+            return value
+        if isinstance(value, (int, float, bool)):
+            return str(value)
+        try:
+            return json.dumps(value, ensure_ascii=True, sort_keys=True)
+        except TypeError:
+            return str(value)
 
     for doc_idx, word in enumerate(words):
         if word is None:
@@ -882,6 +907,9 @@ def doc_to_feature_table(doc: Doc) -> Table:
             head_value,
             deprel_value,
         ]
+        row.extend(
+            _serialize_metadata_value(metadata_map.get(key)) for key in metadata_keys
+        )
         row.extend(feature_map.get(key) for key in sorted_feature_keys)
         for col in dep_extra_header:
             row.append(dep_extra.get(col))
