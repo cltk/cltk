@@ -312,6 +312,7 @@ class Doc(CLTKBaseModel):
       coreferences: Coreference links as (mention, antecedent, i, j).
       sentence_boundaries: List of (start, stop) character offsets.
       genai_use: List of usage/metadata dicts from model calls.
+      metadata: Arbitrary metadata about the document.
 
     """
 
@@ -334,6 +335,7 @@ class Doc(CLTKBaseModel):
     # one of AVAILABLE_OPENAI_MODELS; for Ollama any model string is accepted.
     model: Optional[Union[BACKEND_TYPES, str]] = None
     dialect: Optional[Dialect] = None
+    metadata: dict[str, Any] = Field(default_factory=dict)
 
     @property
     def sentence_strings(self) -> list[str]:
