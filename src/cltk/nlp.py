@@ -39,6 +39,7 @@ class NLP:
 
     Args:
       language_code: Language key (Glottolog code, ISO code, or exact name).
+        Required unless ``cltk_config`` is provided.
       backend: One of ``"stanza"`` (default), ``"openai"``, ``"ollama"``,
         ``"ollama-cloud"``, or ``mistral``. The ``"spacy"`` backend is not
         yet implemented and will raise ``NotImplementedError``.
@@ -63,7 +64,7 @@ class NLP:
 
     def __init__(
         self,
-        language_code: str,
+        language_code: Optional[str] = None,
         backend: BACKEND_TYPES = "stanza",
         model: Optional[Union[str, AVAILABLE_OPENAI_MODELS]] = None,
         custom_pipeline: Optional[Pipeline] = None,
@@ -90,6 +91,11 @@ class NLP:
                 stanza_model_override = backend_config.model
                 # Preserve stanza restriction against explicit model arg
                 model = None
+
+        if language_code is None:
+            raise ValueError(
+                "language_code is required when no CLTKConfig is provided."
+            )
 
         bind_context(glottolog_id=language_code).info(
             f"Initializing NLP for language: {language_code}"
