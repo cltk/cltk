@@ -344,10 +344,10 @@ class OllamaBackendConfig(ModelConfig):
     num_ctx: Optional[int] = Field(default=None, gt=0)
     num_predict: Optional[int] = Field(default=None, gt=0)
     host: Optional[str] = Field(
-        default=None,
+        default="http://127.0.0.1",
         description="Base URL for the Ollama server, e.g., http://localhost or https://ollama.example.com.",
     )
-    port: Optional[int] = Field(default=None, ge=1, le=65535)
+    port: Optional[int] = Field(default=11434, ge=1, le=65535)
     use_cloud: bool = False
     api_key: Optional[str] = None
     options: dict[str, Any] = Field(
