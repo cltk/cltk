@@ -201,6 +201,11 @@ class NLP:
         doc: Doc = Doc(language=self.language, raw=text)
         doc.backend = self.backend
         doc.model = getattr(self, "model", None)
+        # Expose backend config to downstream processes (LLM options, stanza package)
+        if self._backend_config:
+            doc.metadata["backend_config"] = self._backend_config
+        if self._stanza_model_override:
+            doc.metadata["stanza_package"] = self._stanza_model_override
         log = bind_from_doc(doc)
 
         processes: list[type[Process]] = cast(

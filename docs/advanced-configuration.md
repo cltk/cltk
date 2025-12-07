@@ -33,7 +33,7 @@ cltk_config = CLTKConfig(
 nlp = NLP(cltk_config=cltk_config)
 ```
 
-## OpenAI / ChatGPT: temperature and penalties
+## OpenAI / ChatGPT: temperature and retries
 
 ```python
 from cltk.core.data_types import CLTKConfig, OpenAIBackendConfig
@@ -44,10 +44,6 @@ cltk_config = CLTKConfig(
     model="gpt-5-mini",  # optional, defaults to gpt-5-mini
     openai=OpenAIBackendConfig(
         temperature=0.4,
-        top_p=0.9,
-        presence_penalty=0.2,
-        frequency_penalty=0.0,
-        max_output_tokens=512,
         max_retries=1,
         # api_key="sk-...",  # overrides OPENAI_API_KEY if provided
     ),
@@ -66,9 +62,6 @@ cltk_config = CLTKConfig(
     mistral=MistralBackendConfig(
         model="mistral-medium-latest",
         temperature=0.5,
-        top_p=0.9,
-        max_tokens=400,
-        random_seed=42,
         max_retries=1,
         # api_key="...",  # overrides MISTRAL_API_KEY if provided
     ),
@@ -125,3 +118,8 @@ nlp = NLP(cltk_config=cltk_config)
 - Only one backend config block should be provided at a time; Pydantic validation will raise if more than one is set.
 - When `cltk_config` is supplied, its values override the individual `NLP()` arguments (`language_code`, `backend`, `model`, `custom_pipeline`, `suppress_banner`).
 - API keys in the config blocks take precedence over environment variables like `OPENAI_API_KEY`, `MISTRAL_API_KEY`, and `OLLAMA_CLOUD_API_KEY`.
+- Currently applied knobs per backend:
+  - Stanza: `stanza.model` selects the UD package/treebank (`package` in Stanza).
+  - OpenAI: `temperature`, `api_key`, `max_retries`.
+  - Mistral: `temperature`, `api_key`, `max_retries`.
+  - Ollama: `temperature`, `top_p`, `num_ctx`, `num_predict`, `options`, `host`/`port`, `api_key`, `max_retries`.

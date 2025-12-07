@@ -11,6 +11,10 @@ from cltk.core.data_types import (
     AVAILABLE_OPENAI_MODELS,
     CLTKGenAIResponse,
     Doc,
+    MistralBackendConfig,
+    ModelConfig,
+    OllamaBackendConfig,
+    OpenAIBackendConfig,
     Word,
 )
 from cltk.core.exceptions import CLTKException
@@ -21,6 +25,15 @@ from cltk.genai.openai import AsyncOpenAIConnection, OpenAIConnection
 from cltk.morphosyntax.ud_deprels import UDDeprelTag, get_ud_deprel_tag
 from cltk.morphosyntax.ud_features import UDFeatureTagSet
 from cltk.morphosyntax.utils import _update_doc_genai_stage
+
+
+def _get_backend_config(doc: Doc) -> Optional[ModelConfig]:
+    """Extract backend configuration attached to the document, if any."""
+    try:
+        cfg = doc.metadata.get("backend_config")
+    except Exception:
+        return None
+    return cfg if isinstance(cfg, ModelConfig) else None
 
 
 def _parse_dep_tsv_table(tsv_string: str) -> list[dict[str, str]]:
@@ -130,11 +143,15 @@ def generate_dependency_tree(
     log.info("[prompt] %s v%s hash=%s", pinfo.kind, pinfo.version, pinfo.digest)
     import os as _os
 
+    backend_config = _get_backend_config(doc)
+    if backend_config and getattr(backend_config, "max_retries", None) is not None:
+        max_retries = int(getattr(backend_config, "max_retries"))
+
     if _os.getenv("CLTK_LOG_CONTENT", "").strip().lower() in {"1", "true", "yes", "on"}:
         log.debug(prompt)
     # code_blocks: list[Any] = []
     if not doc.backend:
-        msg_no_backend: str = "Doc must have `.backend` set to 'openai', 'ollama', or 'ollama-cloud' to use generate_dependency_tree."
+        msg_no_backend: str = "Doc must have `.backend` set to 'openai', 'mistral', 'ollama', or 'ollama-cloud' to use generate_dependency_tree."
         log.error(msg_no_backend)
         raise CLTKException(msg_no_backend)
     if not doc.model:
@@ -150,15 +167,39 @@ def generate_dependency_tree(
             log.error(msg_unsupported_backend_version)
             raise CLTKException(msg_unsupported_backend_version)
         if not client:
+            openai_cfg = (
+                backend_config
+                if isinstance(backend_config, OpenAIBackendConfig)
+                else None
+            )
             openai_model: AVAILABLE_OPENAI_MODELS = cast(
                 AVAILABLE_OPENAI_MODELS, doc.model
             )
-            client = OpenAIConnection(model=openai_model)
+            client = OpenAIConnection(
+                model=openai_model,
+                api_key=getattr(openai_cfg, "api_key", None),
+                temperature=getattr(openai_cfg, "temperature", 1.0),
+            )
     elif doc.backend in ("ollama", "ollama-cloud"):
         if not client:
+            ollama_cfg = (
+                backend_config
+                if isinstance(backend_config, OllamaBackendConfig)
+                else None
+            )
+            host = None
+            if ollama_cfg:
+                host = ollama_cfg.base_url or ollama_cfg.host
             client = OllamaConnection(
                 model=str(doc.model),
                 use_cloud=doc.backend == "ollama-cloud",
+                host=host,
+                api_key=getattr(ollama_cfg, "api_key", None),
+                temperature=getattr(ollama_cfg, "temperature", None),
+                top_p=getattr(ollama_cfg, "top_p", None),
+                num_ctx=getattr(ollama_cfg, "num_ctx", None),
+                num_predict=getattr(ollama_cfg, "num_predict", None),
+                options=getattr(ollama_cfg, "options", None),
             )
     elif doc.backend == "mistral":
         if doc.model not in get_args(AVAILABLE_MISTRAL_MODELS):
@@ -169,10 +210,19 @@ def generate_dependency_tree(
             log.error(mistral_msg_unsupported_backend_version)
             raise CLTKException(mistral_msg_unsupported_backend_version)
         if not client:
+            mistral_cfg = (
+                backend_config
+                if isinstance(backend_config, MistralBackendConfig)
+                else None
+            )
             mistral_model: AVAILABLE_MISTRAL_MODELS = cast(
                 AVAILABLE_MISTRAL_MODELS, doc.model
             )
-            client = MistralConnection(model=mistral_model)
+            client = MistralConnection(
+                model=mistral_model,
+                api_key=getattr(mistral_cfg, "api_key", None),
+                temperature=getattr(mistral_cfg, "temperature", 1.0),
+            )
     else:
         raise CLTKException(
             f"Unsupported backend for dependency generation: {doc.backend}."
@@ -436,17 +486,41 @@ async def generate_gpt_dependency_async(
         log.error(msg)
         raise ValueError(msg)
 
+    backend_config = _get_backend_config(doc)
+    if backend_config and getattr(backend_config, "max_retries", None) is not None:
+        max_retries = int(getattr(backend_config, "max_retries"))
+
     if doc.backend == "openai":
         if doc.model not in get_args(AVAILABLE_OPENAI_MODELS):
             raise CLTKException(
                 f"Doc has unsupported `.model`: {doc.model}. Supported: {get_args(AVAILABLE_OPENAI_MODELS)}."
             )
         openai_model: AVAILABLE_OPENAI_MODELS = cast(AVAILABLE_OPENAI_MODELS, doc.model)
-        conn: Any = AsyncOpenAIConnection(model=openai_model)
+        openai_cfg = (
+            backend_config if isinstance(backend_config, OpenAIBackendConfig) else None
+        )
+        conn: Any = AsyncOpenAIConnection(
+            model=openai_model,
+            api_key=getattr(openai_cfg, "api_key", None),
+            temperature=getattr(openai_cfg, "temperature", 1.0),
+        )
     elif doc.backend in ("ollama", "ollama-cloud"):
+        ollama_cfg = (
+            backend_config if isinstance(backend_config, OllamaBackendConfig) else None
+        )
+        host = None
+        if ollama_cfg:
+            host = ollama_cfg.base_url or ollama_cfg.host
         conn = AsyncOllamaConnection(
             model=str(doc.model),
             use_cloud=doc.backend == "ollama-cloud",
+            host=host,
+            api_key=getattr(ollama_cfg, "api_key", None),
+            temperature=getattr(ollama_cfg, "temperature", None),
+            top_p=getattr(ollama_cfg, "top_p", None),
+            num_ctx=getattr(ollama_cfg, "num_ctx", None),
+            num_predict=getattr(ollama_cfg, "num_predict", None),
+            options=getattr(ollama_cfg, "options", None),
         )
     elif doc.backend == "mistral":
         if doc.model not in get_args(AVAILABLE_MISTRAL_MODELS):
@@ -456,7 +530,14 @@ async def generate_gpt_dependency_async(
         mistral_model: AVAILABLE_MISTRAL_MODELS = cast(
             AVAILABLE_MISTRAL_MODELS, doc.model
         )
-        conn = AsyncMistralConnection(model=mistral_model)
+        mistral_cfg = (
+            backend_config if isinstance(backend_config, MistralBackendConfig) else None
+        )
+        conn = AsyncMistralConnection(
+            model=mistral_model,
+            api_key=getattr(mistral_cfg, "api_key", None),
+            temperature=getattr(mistral_cfg, "temperature", 1.0),
+        )
     else:
         raise CLTKException(
             f"Unsupported backend for async dependency parsing: {doc.backend}."
