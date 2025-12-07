@@ -1,90 +1,87 @@
 build:
-	poetry build
+	uv build
 
 docs:
 	@echo "Building MkDocs site..."
-	poetry run mkdocs build --strict
+	uv run mkdocs build --strict
 
 docsServe:
 	@echo "Serving MkDocs site at http://127.0.0.1:8000 ..."
-	poetry run mkdocs serve -a 127.0.0.1:8000
+	uv run mkdocs serve -a 127.0.0.1:8000
 
 fix:
-	poetry run ruff check --fix src/
+	uv run ruff check --fix src/
 
 format:
-	poetry run ruff format src/
+	uv run ruff format src/ tests/ scripts/
 
 freezeDependencies:
-	# Update lock file from pyptoject.toml, but do not install the changed/added packages
-	poetry lock
+	# Update uv.lock from pyproject.toml without installing packages
+	uv lock
 
 install:
-	poetry install --only main
+	uv sync --no-default-groups --frozen
 
 installOptionals:
-	poetry install -E openai
-	poetry install -E stanza
-	poetry install -E ollama
-	poetry install -E mistral
+# 	uv sync --no-default-groups --extra openai --extra stanza --extra ollama --extra mistral --frozen
+	uv sync --all-extras
 
 installDev:
-	poetry install
+	uv sync --frozen
 
 installPyPI:
-	poetry run pip install --pre cltk
+	uv pip install --pre cltk
 
 installPyPITest:
 	pip install --index-url https://test.pypi.org/simple/ --no-deps cltk
 
 lint:
-	poetry run ruff check src/
+	uv run ruff check src/
 
 notebook:
-	poetry run jupyter notebook notebooks
+	uv run jupyter notebook notebooks
 
 preCommitUpdate:
-	poetry run pre-commit autoupdate && poetry run pre-commit install --install-hooks && poetry run pre-commit autoupdate
+	uv run pre-commit autoupdate && uv run pre-commit install --install-hooks && uv run pre-commit autoupdate
 
 preCommitRun:
-	poetry run pre-commit run --all-files
+	uv run pre-commit run --all-files
 
 publishPyPI:
 	make build
-	poetry publish
+	uv publish
 
 publishPyPITest:
-	# poetry version prerelease
 	make build
-	poetry publish --repository=testpypi
+	uv publish --publish-url https://test.pypi.org/legacy/ --check-url https://test.pypi.org/simple
 
 publishPyPITestConfig:
-	poetry config repositories.testpypi https://test.pypi.org/legacy/
+	uv publish --dry-run --publish-url https://test.pypi.org/legacy/ --check-url https://test.pypi.org/simple
 
 shell:
 	echo 'Tip: Use `option ``doctest_mode`` when making doctests'
-	poetry run ipython --automagic
+	uv run ipython --automagic
 
 updateSnapshot:
-	poetry run pytest -k test_public_api_snapshot --snapshot-update
+	uv run pytest -k test_public_api_snapshot --snapshot-update
 
 testSnapshot:
-	poetry run pytest -k test_public_api_snapshot --snapshot-update
+	uv run pytest -k test_public_api_snapshot --snapshot-update
 
 test: typing
 	@echo "Running tests with coverage..."
-	poetry run pytest --cov=cltk --cov-report=term-missing
+	uv run pytest --cov=cltk --cov-report=term-missing
 
 docstrCoverage:
-	poetry run interrogate -c pyproject.toml -v src
+	uv run interrogate -c pyproject.toml -v src
 
 typing:
-	poetry run mypy --check-untyped-defs --html-report .mypy_cache src/cltk
+	uv run mypy --check-untyped-defs --html-report .mypy_cache src/cltk
 
 uninstall:
-	poetry run pip uninstall -y cltk
+	uv pip uninstall -y cltk
 
 updateDependencies:
-	poetry update
+	uv lock --upgrade
 
 .PHONY: build docs docsServe test typing

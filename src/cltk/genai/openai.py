@@ -24,9 +24,9 @@ class _OpenAIErrorFallback(Exception):
     """Fallback error raised when the OpenAI SDK is unavailable."""
 
 
-def _resolve_openai_classes() -> tuple[
-    Optional[type[Any]], Optional[type[Any]], type[BaseException]
-]:
+def _resolve_openai_classes() -> (
+    tuple[Optional[type[Any]], Optional[type[Any]], type[BaseException]]
+):
     """Import OpenAI client classes lazily, tolerating missing optional deps."""
     sync_cls: Optional[type[Any]]
     async_cls: Optional[type[Any]]
