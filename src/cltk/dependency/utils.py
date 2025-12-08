@@ -1,6 +1,6 @@
 import asyncio
 import concurrent.futures
-from typing import Any, Optional, cast, get_args
+from typing import Any, Callable, Optional, cast, get_args
 
 from colorama import Fore, Style
 from tqdm import tqdm
@@ -22,9 +22,12 @@ from cltk.core.logging_utils import bind_from_doc
 from cltk.genai.mistral import AsyncMistralConnection, MistralConnection
 from cltk.genai.ollama import AsyncOllamaConnection, OllamaConnection
 from cltk.genai.openai import AsyncOpenAIConnection, OpenAIConnection
+from cltk.genai.prompts import PromptInfo, _hash_prompt
 from cltk.morphosyntax.ud_deprels import UDDeprelTag, get_ud_deprel_tag
 from cltk.morphosyntax.ud_features import UDFeatureTagSet
 from cltk.morphosyntax.utils import _update_doc_genai_stage
+
+PromptBuilder = Callable[[str, str], PromptInfo] | PromptInfo | str
 
 
 def _get_backend_config(doc: Doc) -> Optional[ModelConfig]:
@@ -88,6 +91,8 @@ def generate_dependency_tree(
     sentence_idx: Optional[int] = None,
     max_retries: int = 2,
     client: Optional[Any] = None,
+    prompt_builder_from_tokens: Optional[PromptBuilder] = None,
+    prompt_builder_from_text: Optional[PromptBuilder] = None,
 ) -> Doc:
     """Call the configured generative backend and return UD dependency annotations for a short span.
 
@@ -96,6 +101,8 @@ def generate_dependency_tree(
         sentence_idx: Optional sentence index for logging/aggregation.
         max_retries: Number of attempts if the model fails to return a TSV code block.
         client: Optional connection instance (OpenAI or Ollama) for making API calls.
+        prompt_builder_from_tokens: Optional dependency prompt override when tokens are available.
+        prompt_builder_from_text: Optional dependency prompt override when only text is available.
 
     Returns:
         The same ``Doc`` instance with ``words`` and per‑call usage appended
@@ -128,14 +135,67 @@ def generate_dependency_tree(
             lines.append(f"{idx}\t{tok_form}\t{upos}\t{feats}")
         token_table = "\n".join(lines)
 
+    from cltk.genai.prompts import (
+        dependency_prompt_from_text,
+        dependency_prompt_from_tokens,
+    )
+
+    def _resolve_dep_prompt_from_tokens(
+        lang: str, table: str, builder: Optional[PromptBuilder]
+    ) -> PromptInfo:
+        if builder is None:
+            return dependency_prompt_from_tokens(table)
+        if isinstance(builder, PromptInfo):
+            return builder
+        if isinstance(builder, str):
+            formatted = builder.format(
+                lang_or_dialect_name=lang,
+                token_table=table,
+                text=table,
+            )
+            version = "custom-1"
+            return PromptInfo(
+                kind="dependency-tokens",
+                version=version,
+                text=formatted,
+                digest=_hash_prompt("dependency-tokens", version, formatted),
+            )
+        if callable(builder):
+            return builder(lang, table)
+        raise TypeError("Unsupported prompt_builder_from_tokens type.")
+
+    def _resolve_dep_prompt_from_text(
+        lang: str, sentence: str, builder: Optional[PromptBuilder]
+    ) -> PromptInfo:
+        if builder is None:
+            return dependency_prompt_from_text(lang, sentence)
+        if isinstance(builder, PromptInfo):
+            return builder
+        if isinstance(builder, str):
+            formatted = builder.format(
+                lang_or_dialect_name=lang,
+                sentence=sentence,
+                text=sentence,
+            )
+            version = "custom-1"
+            return PromptInfo(
+                kind="dependency-text",
+                version=version,
+                text=formatted,
+                digest=_hash_prompt("dependency-text", version, formatted),
+            )
+        if callable(builder):
+            return builder(lang, sentence)
+        raise TypeError("Unsupported prompt_builder_from_text type.")
+
     if token_table:
-        from cltk.genai.prompts import dependency_prompt_from_tokens
-
-        pinfo = dependency_prompt_from_tokens(token_table)
+        pinfo = _resolve_dep_prompt_from_tokens(
+            lang_or_dialect_name, token_table, prompt_builder_from_tokens
+        )
     else:
-        from cltk.genai.prompts import dependency_prompt_from_text
-
-        pinfo = dependency_prompt_from_text(lang_or_dialect_name, doc.normalized_text)
+        pinfo = _resolve_dep_prompt_from_text(
+            lang_or_dialect_name, doc.normalized_text, prompt_builder_from_text
+        )
     prompt = pinfo.text
     log = bind_from_doc(
         doc, sentence_idx=sentence_idx, prompt_version=str(pinfo.version)
@@ -328,7 +388,12 @@ def generate_dependency_tree(
     return doc
 
 
-def generate_gpt_dependency(doc: Doc) -> Doc:
+def generate_gpt_dependency(
+    doc: Doc,
+    *,
+    prompt_builder_from_tokens: Optional[PromptBuilder] = None,
+    prompt_builder_from_text: Optional[PromptBuilder] = None,
+) -> Doc:
     log = bind_from_doc(doc)
     if not doc.model:
         msg: str = "Document model is not set."
@@ -396,6 +461,8 @@ def generate_gpt_dependency(doc: Doc) -> Doc:
             doc=tmp_doc,
             sentence_idx=sent_idx,
             client=client,
+            prompt_builder_from_tokens=prompt_builder_from_tokens,
+            prompt_builder_from_text=prompt_builder_from_text,
         )
         tmp_docs.append(tmp_doc)
         bind_from_doc(doc, sentence_idx=sent_idx).info(
@@ -449,6 +516,8 @@ async def generate_gpt_dependency_async(
     *,
     max_concurrency: int = 4,
     max_retries: int = 2,
+    prompt_builder_from_tokens: Optional[PromptBuilder] = None,
+    prompt_builder_from_text: Optional[PromptBuilder] = None,
 ) -> Doc:
     """Async variant of ``generate_gpt_dependency`` with concurrency.
 
@@ -462,6 +531,8 @@ async def generate_gpt_dependency_async(
         doc: Document whose ``sentence_strings`` will be annotated.
         max_concurrency: Maximum number of in‑flight LLM requests.
         max_retries: Per‑request retry budget.
+        prompt_builder_from_tokens: Optional dependency prompt override when tokens are available.
+        prompt_builder_from_text: Optional dependency prompt override when only text is available.
 
     Returns:
         The input ``doc`` enriched with ``words`` and aggregated generative
@@ -546,38 +617,48 @@ async def generate_gpt_dependency_async(
     # Prepare prompts per sentence
     lang_or_dialect_name = doc.dialect.name if doc.dialect else doc.language.name
 
-    def build_prompt_from_words(words: list[Word]) -> str:
-        lines = ["INDEX\tFORM\tUPOS\tFEATS"]
-        for idx, w in enumerate(words, 1):
-            upos = getattr(getattr(w, "upos", None), "tag", None) or "_"
-            feats = _format_feats(getattr(w, "features", None))
-            tok_form = w.string or ""
-            lines.append(f"{idx}\t{tok_form}\t{upos}\t{feats}")
-        table = "\n".join(lines)
-        return (
-            "Using the following tokens with UPOS and FEATS, produce a dependency parse as TSV with exactly three columns: FORM, HEAD, DEPREL.\n\n"
-            "Rules:\n"
-            "- Use strict UD dependency relations only (e.g., nsubj, obj, obl:tmod, root).\n"
-            "- Do not change, split, merge, or reorder tokens. Use the tokens as given.\n"
-            "- HEAD refers to the 1-based index of the head token in the given token order (0 for root).\n"
-            "- Output must be a Markdown code block containing only a tab-delimited table with the header: FORM\tHEAD\tDEPREL.\n\n"
-            f"Tokens:\n\n{table}\n\n"
-            "Output only the dependency table."
-        )
+    from cltk.genai.prompts import (
+        dependency_prompt_from_text,
+        dependency_prompt_from_tokens,
+    )
+
+    builder_from_tokens = prompt_builder_from_tokens or (
+        lambda lang, table: dependency_prompt_from_tokens(table)
+    )
+    builder_from_text = prompt_builder_from_text or dependency_prompt_from_text
 
     sem = asyncio.Semaphore(max_concurrency)
 
     async def process_one(
         i: int, sentence: str, sentence_words: list[Word]
     ) -> tuple[int, Doc, dict[str, int]]:
-        prompt = (
-            build_prompt_from_words(sentence_words)
-            if sentence_words
-            else (
-                f"For the following {lang_or_dialect_name} text, first tokenize the sentence. For each token, output FORM, HEAD, DEPREL.\n\nText:\n\n{sentence}\n"
-            )
-        )
-        log_i = bind_from_doc(doc, sentence_idx=i)
+        token_table: Optional[str] = None
+        if sentence_words:
+            lines = ["INDEX\tFORM\tUPOS\tFEATS"]
+            for idx, w in enumerate(sentence_words, 1):
+                upos = getattr(getattr(w, "upos", None), "tag", None) or "_"
+                feats = _format_feats(getattr(w, "features", None))
+                tok_form = w.string or ""
+                lines.append(f"{idx}\t{tok_form}\t{upos}\t{feats}")
+            token_table = "\n".join(lines)
+
+        if token_table:
+            pinfo = builder_from_tokens(lang_or_dialect_name, token_table)
+        else:
+            pinfo = builder_from_text(lang_or_dialect_name, sentence)
+
+        prompt = pinfo.text
+        log_i = bind_from_doc(doc, sentence_idx=i, prompt_version=str(pinfo.version))
+        log_i.info("[prompt] %s v%s hash=%s", pinfo.kind, pinfo.version, pinfo.digest)
+        import os as _os
+
+        if _os.getenv("CLTK_LOG_CONTENT", "").strip().lower() in {
+            "1",
+            "true",
+            "yes",
+            "on",
+        }:
+            log_i.debug(prompt)
         log_i.debug("[async] Scheduling sentence #%s (%d chars)", i, len(sentence))
         async with sem:
             log_i.debug("[async] Dispatching sentence #%s", i)
@@ -701,6 +782,8 @@ def generate_gpt_dependency_concurrent(
     *,
     max_concurrency: int = 4,
     max_retries: int = 2,
+    prompt_builder_from_tokens: Optional[PromptBuilder] = None,
+    prompt_builder_from_text: Optional[PromptBuilder] = None,
 ) -> Doc:
     """Run the async dependency generator safely but appears synchronous from the outside.
 
@@ -718,6 +801,8 @@ def generate_gpt_dependency_concurrent(
         doc: Input document with sentences, language, and backend configured.
         max_concurrency: Maximum concurrent LLM requests.
         max_retries: Per‑request retry budget.
+        prompt_builder_from_tokens: Optional dependency prompt override when tokens are available.
+        prompt_builder_from_text: Optional dependency prompt override when only text is available.
 
     Returns:
         The input ``Doc`` updated in place, same as the async variant.
@@ -733,6 +818,8 @@ def generate_gpt_dependency_concurrent(
                 doc,
                 max_concurrency=max_concurrency,
                 max_retries=max_retries,
+                prompt_builder_from_tokens=prompt_builder_from_tokens,
+                prompt_builder_from_text=prompt_builder_from_text,
             )
         )
     else:
@@ -746,6 +833,8 @@ def generate_gpt_dependency_concurrent(
                     doc,
                     max_concurrency=max_concurrency,
                     max_retries=max_retries,
+                    prompt_builder_from_tokens=prompt_builder_from_tokens,
+                    prompt_builder_from_text=prompt_builder_from_text,
                 )
             )
 

@@ -2,6 +2,8 @@
 
 This page shows how to use the `CLTKConfig` model to configure `NLP()` beyond the basic constructor arguments. A `CLTKConfig` instance can be passed to `NLP(cltk_config=...)`, and its values override any other arguments.
 
+For customizing prompts used by GenAI processes (without forking), see [Advanced Prompting](advanced-prompting.md).
+
 ## General pattern
 
 ```python

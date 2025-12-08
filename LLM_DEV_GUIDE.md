@@ -19,8 +19,12 @@ This guide tells humans and LLM-based helpers how to extend or modify CLTK's Gen
 - Keep temperature, top_p, and timeouts explicit; set conservative defaults (e.g., low temperature) for reproducibility.
 - Do not add new network calls outside the existing clients; prefer dependency-free utilities from `src/cltk/utils/` and `src/cltk/text/`.
 
+## Coding style
+- Use modern typing directly (PEP 604 unions, standard generics); do not add `from __future__ import annotations` or other “old-style” typing shims.
+
 ## Prompt and model usage
 - Build prompts through `PromptInfo` helpers in `src/cltk/genai/prompts.py`. If you need a new task, add a new builder with versioned text and a digest; do not embed raw prompts in call sites.
+- Custom pipelines can override prompts by subclassing `GenAIMorphosyntaxProcess` or `GenAIDependencyProcess` and setting their prompt fields to a callable, `PromptInfo`, or string. Strings are formatted with `{lang_or_dialect_name}` plus `{text}`/`{token_table}`/`{sentence}` as applicable and wrapped into `PromptInfo`. Keep versions/digests meaningful and reuse shared parsing rules.
 - Structure: system/context (if required), short instruction, rules, and an explicit output schema. Favor TSV or JSON inside fenced code blocks for easy parsing.
 - Preserve the original text spelling, including diacritics and breathings; do not auto-normalize unless a caller explicitly requests it.
 - Keep prompts concise and avoid meta-conversation. Make the model return final answers in one shot (no "let's think step by step" unless the output requires it and you validate the result).
