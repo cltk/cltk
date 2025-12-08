@@ -622,10 +622,53 @@ async def generate_gpt_dependency_async(
         dependency_prompt_from_tokens,
     )
 
-    builder_from_tokens = prompt_builder_from_tokens or (
-        lambda lang, table: dependency_prompt_from_tokens(table)
-    )
-    builder_from_text = prompt_builder_from_text or dependency_prompt_from_text
+    def _resolve_dep_prompt_from_tokens_local(
+        lang: str, table: str, builder: Optional[PromptBuilder]
+    ) -> PromptInfo:
+        if builder is None:
+            return dependency_prompt_from_tokens(table)
+        if isinstance(builder, PromptInfo):
+            return builder
+        if isinstance(builder, str):
+            formatted = builder.format(
+                lang_or_dialect_name=lang,
+                token_table=table,
+                text=table,
+            )
+            version = "custom-1"
+            return PromptInfo(
+                kind="dependency-tokens",
+                version=version,
+                text=formatted,
+                digest=_hash_prompt("dependency-tokens", version, formatted),
+            )
+        if callable(builder):
+            return builder(lang, table)
+        raise TypeError("Unsupported prompt_builder_from_tokens type.")
+
+    def _resolve_dep_prompt_from_text_local(
+        lang: str, sentence: str, builder: Optional[PromptBuilder]
+    ) -> PromptInfo:
+        if builder is None:
+            return dependency_prompt_from_text(lang, sentence)
+        if isinstance(builder, PromptInfo):
+            return builder
+        if isinstance(builder, str):
+            formatted = builder.format(
+                lang_or_dialect_name=lang,
+                sentence=sentence,
+                text=sentence,
+            )
+            version = "custom-1"
+            return PromptInfo(
+                kind="dependency-text",
+                version=version,
+                text=formatted,
+                digest=_hash_prompt("dependency-text", version, formatted),
+            )
+        if callable(builder):
+            return builder(lang, sentence)
+        raise TypeError("Unsupported prompt_builder_from_text type.")
 
     sem = asyncio.Semaphore(max_concurrency)
 
@@ -643,9 +686,13 @@ async def generate_gpt_dependency_async(
             token_table = "\n".join(lines)
 
         if token_table:
-            pinfo = builder_from_tokens(lang_or_dialect_name, token_table)
+            pinfo = _resolve_dep_prompt_from_tokens_local(
+                lang_or_dialect_name, token_table, prompt_builder_from_tokens
+            )
         else:
-            pinfo = builder_from_text(lang_or_dialect_name, sentence)
+            pinfo = _resolve_dep_prompt_from_text_local(
+                lang_or_dialect_name, sentence, prompt_builder_from_text
+            )
 
         prompt = pinfo.text
         log_i = bind_from_doc(doc, sentence_idx=i, prompt_version=str(pinfo.version))

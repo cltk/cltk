@@ -28,7 +28,7 @@ class GenAIMorphosyntaxProcess(MorphosyntaxProcess):
     prompt_builder: Optional[PromptBuilder] = None
 
     @cached_property
-    def algorithm(self) -> Callable[[Doc], Doc]:
+    def algorithm(self) -> Callable[..., Doc]:
         if not self.glottolog_id:
             msg: str = "glottolog_id must be set for MorphosyntaxProcess"
             bind_context(glottolog_id=self.glottolog_id).error(msg)
