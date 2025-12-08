@@ -6,6 +6,8 @@ Each builder returns a PromptInfo with the prompt text, a semantic version, and
 an opaque content hash to aid logging and reproducibility.
 """
 
+# NOTE: For any changes to GenAI prompts or behavior, follow LLM_DEV_GUIDE.md.
+
 import hashlib
 
 from pydantic import BaseModel

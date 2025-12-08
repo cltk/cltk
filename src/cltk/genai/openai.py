@@ -9,6 +9,9 @@ LLMs for a given language (resolved by Glottolog ID).
 
 __license__ = "MIT License. See LICENSE."
 
+# NOTE: Keep OpenAI/LLM behavior aligned with LLM_DEV_GUIDE.md (prompts,
+# logging, retries, and safety).
+
 import os
 import re
 from typing import Any, Optional, cast
