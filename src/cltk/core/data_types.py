@@ -39,6 +39,26 @@ ISOType: TypeAlias = Literal["639-1", "639-2", "639-3"]
 ScriptDir: TypeAlias = Literal["ltr", "rtl", "ttb", "btt"]
 
 
+BACKEND_TYPES: TypeAlias = Literal[
+    "openai", "stanza", "spacy", "ollama", "ollama-cloud", "mistral"
+]
+AVAILABLE_OPENAI_MODELS: TypeAlias = Literal["gpt-5-mini", "gpt-5"]
+
+AVAILABLE_MISTRAL_MODELS: TypeAlias = Literal[
+    "mistral-large-latest",
+    "magistral-small-latest",
+    "mistral-medium-latest",
+    "mistral-large-latest",
+]
+
+# Pronunciation modes for IPA rendering (especially Ancient Greek)
+IPA_PRONUNCIATION_MODE: TypeAlias = Literal[
+    "attic_5c_bce",
+    "koine_1c_ce",
+    "byzantine_medieval",
+]
+
+
 class CLTKGenAIResponse(BaseModel):
     """Response model for generative backend interactions (OpenAI/Ollama).
 
@@ -50,6 +70,76 @@ class CLTKGenAIResponse(BaseModel):
 
     response: str
     usage: dict[str, int]
+
+
+class ScoredText(BaseModel):
+    """Generic scored alternative, used for glosses and translations."""
+
+    text: str
+    probability: Optional[float] = Field(default=None, ge=0.0, le=1.0)
+    note: Optional[str] = None
+
+
+class Gloss(BaseModel):
+    """Contextual and dictionary glosses plus alternatives."""
+
+    dictionary: Optional[str] = None
+    context: Optional[str] = None
+    alternatives: list[ScoredText] = Field(default_factory=list)
+
+
+class LemmaTranslationCandidate(BaseModel):
+    """Stable lemma-level translation candidate with an optional probability."""
+
+    text: str
+    probability: Optional[float] = Field(default=None, ge=0.0, le=1.0)
+    source: Optional[str] = None
+
+
+class IPAEnrichment(BaseModel):
+    """IPA transcription with explicit pronunciation mode."""
+
+    value: str
+    mode: IPA_PRONUNCIATION_MODE
+
+
+class OrthographyHelper(BaseModel):
+    """Orthography/phonology helpers to expose syllables and accent."""
+
+    syllables: list[str] = Field(default_factory=list)
+    stress: Optional[str] = None
+    accent_class: Optional[str] = None
+    phonology_trace: list[str] = Field(default_factory=list)
+
+
+class PedagogicalNote(BaseModel):
+    """Short, learner-facing note tied to a token or dependency relation."""
+
+    token_index: Optional[int] = None
+    relation: Optional[str] = None
+    note: Optional[str] = None
+    disambiguates: Optional[str] = None
+
+
+class IdiomSpan(BaseModel):
+    """Span-level idiom/MWE annotation."""
+
+    id: Optional[str] = None
+    token_indices: list[int] = Field(default_factory=list)
+    phrase_gloss: Optional[str] = None
+    kind: Optional[str] = None
+    confidence: Optional[float] = Field(default=None, ge=0.0, le=1.0)
+
+
+class WordEnrichment(BaseModel):
+    """Bundle of enrichment data layered on top of morph/dependency analysis."""
+
+    gloss: Optional[Gloss] = None
+    lemma_translations: list[LemmaTranslationCandidate] = Field(default_factory=list)
+    ipa: Optional[IPAEnrichment] = None
+    orthography: Optional[OrthographyHelper] = None
+    idiom_span_ids: list[str] = Field(default_factory=list)
+    pedagogical_notes: list[PedagogicalNote] = Field(default_factory=list)
 
 
 class NameVariant(BaseModel):
@@ -252,6 +342,7 @@ class Word(CLTKBaseModel):
     syllables: Optional[list[str]] = Field(default_factory=list)
     phonetic_transcription: Optional[str] = None
     definition: Optional[str] = None
+    enrichment: Optional[WordEnrichment] = None
 
     # def __getitem__(self, feature_name: Union[str, type[MorphosyntacticFeature]]) -> list[MorphosyntacticFeature]:
     #     return self.features[feature_name]
@@ -280,19 +371,6 @@ class Sentence(CLTKBaseModel):
     #     if not self.words:
     #         return 0
     #     return len(self.words)
-
-
-BACKEND_TYPES: TypeAlias = Literal[
-    "openai", "stanza", "spacy", "ollama", "ollama-cloud", "mistral"
-]
-AVAILABLE_OPENAI_MODELS: TypeAlias = Literal["gpt-5-mini", "gpt-5"]
-
-AVAILABLE_MISTRAL_MODELS: TypeAlias = Literal[
-    "mistral-large-latest",
-    "magistral-small-latest",
-    "mistral-medium-latest",
-    "mistral-large-latest",
-]
 
 
 class ModelConfig(BaseModel):
@@ -468,6 +546,7 @@ class Doc(CLTKBaseModel):
     topic: Optional[str] = None
     discourse_relations: list[str] = Field(default_factory=list)
     coreferences: list[tuple[str, str, int, int]] = Field(default_factory=list)
+    idiom_spans: list[IdiomSpan] = Field(default_factory=list)
     sentence_boundaries: list[tuple[int, int]] = Field(default_factory=list)
     genai_use: list[dict[str, Any]] = Field(default_factory=list)
     backend: Optional[BACKEND_TYPES] = None
