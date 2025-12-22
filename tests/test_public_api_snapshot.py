@@ -25,6 +25,7 @@ def test_public_manifest_enforced() -> None:
     # Allowed names must be present (attribute access, not dir())
     for n in allowed:
         assert hasattr(mod, n)
+
     # Ignore submodules (namespace exposure is OK for import machinery)
     def is_submodule(n: str) -> bool:
         try:
@@ -32,6 +33,7 @@ def test_public_manifest_enforced() -> None:
             return spec is not None
         except Exception:
             return False
+
     extras = {n for n in names if not is_submodule(n) and not n.isupper()}
     # No extras beyond the allowed manifest
     assert extras.issubset(allowed)
@@ -47,9 +49,9 @@ def test_morphosyntax_processes_subclasses_use_glottolog_ids() -> None:
     for cls in subclasses:
         fld = getattr(cls, "model_fields", {}).get("glottolog_id")
         default_glotto: Any = getattr(fld, "default", None)
-        assert isinstance(default_glotto, str) and pat.match(default_glotto), (
-            f"{cls.__name__} has non-Glottolog id: {default_glotto!r}"
-        )
+        assert isinstance(default_glotto, str) and pat.match(
+            default_glotto
+        ), f"{cls.__name__} has non-Glottolog id: {default_glotto!r}"
 
 
 def test_dependency_processes_subclasses_use_glottolog_ids() -> None:
@@ -62,9 +64,9 @@ def test_dependency_processes_subclasses_use_glottolog_ids() -> None:
     for cls in subclasses:
         fld = getattr(cls, "model_fields", {}).get("glottolog_id")
         default_glotto: Any = getattr(fld, "default", None)
-        assert isinstance(default_glotto, str) and pat.match(default_glotto), (
-            f"{cls.__name__} has non-Glottolog id: {default_glotto!r}"
-        )
+        assert isinstance(default_glotto, str) and pat.match(
+            default_glotto
+        ), f"{cls.__name__} has non-Glottolog id: {default_glotto!r}"
 
 
 def test_process_run_signature() -> None:

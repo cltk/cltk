@@ -23,6 +23,7 @@ from cltk.core.data_types import (
     OrthographyHelper,
     PedagogicalNote,
     ScoredText,
+    Sentence,
     Word,
     WordEnrichment,
 )
@@ -248,7 +249,7 @@ def _apply_payload_to_words(
             if ipa_value:
                 ipa_obj = IPAEnrichment(
                     value=str(ipa_value), mode=ipa_mode_val or "attic_5c_bce"
-                )  # type: ignore[arg-type]
+                )
 
         orth = _build_orthography(token_obj.get("orthography"))
         translations = _build_translations(token_obj.get("lemma_translations"))
@@ -280,9 +281,9 @@ def _apply_payload_to_words(
             continue
         global_idxs: list[int] = []
         for ti in token_idxs:
-            w = idx_to_word.get(ti)
-            if w and w.index_token is not None:
-                global_idxs.append(w.index_token)
+            w_opt = idx_to_word.get(ti)
+            if w_opt and w_opt.index_token is not None:
+                global_idxs.append(w_opt.index_token)
         idiom = IdiomSpan(
             id=str(idiom_obj.get("id")) if idiom_obj.get("id") else None,
             token_indices=global_idxs,
@@ -295,11 +296,11 @@ def _apply_payload_to_words(
         span_id = idiom.id
         if span_id:
             for ti in token_idxs:
-                w = idx_to_word.get(ti)
-                if w and w.enrichment:
-                    if span_id not in w.enrichment.idiom_span_ids:
-                        w.enrichment.idiom_span_ids.append(span_id)
-                    idx_to_word[ti] = w
+                w_opt = idx_to_word.get(ti)
+                if w_opt and w_opt.enrichment:
+                    if span_id not in w_opt.enrichment.idiom_span_ids:
+                        w_opt.enrichment.idiom_span_ids.append(span_id)
+                    idx_to_word[ti] = w_opt
 
     ordered_words = [idx_to_word[i] for i in sorted(idx_to_word.keys())]
     return ordered_words, idioms_out
@@ -397,6 +398,7 @@ def generate_gpt_enrichment(
         max_retries = int(getattr(backend_config, "max_retries"))
 
     # Reuse one client across all sentences
+    client: Any
     if doc.backend == "openai":
         if doc.model not in get_args(AVAILABLE_OPENAI_MODELS):
             msg_unsupported_backend_version: str = (
@@ -433,12 +435,12 @@ def generate_gpt_enrichment(
         )
     elif doc.backend == "mistral":
         if doc.model not in get_args(AVAILABLE_MISTRAL_MODELS):
-            msg_unsupported_backend_version: str = (
+            msg_unsupported_mistral_version: str = (
                 f"Doc has unsupported `.model`: {doc.model}. "
                 f"Supported versions are: {get_args(AVAILABLE_MISTRAL_MODELS)}."
             )
-            log.error(msg_unsupported_backend_version)
-            raise CLTKException(msg_unsupported_backend_version)
+            log.error(msg_unsupported_mistral_version)
+            raise CLTKException(msg_unsupported_mistral_version)
         mistral_cfg = (
             backend_config if isinstance(backend_config, MistralBackendConfig) else None
         )
@@ -454,11 +456,12 @@ def generate_gpt_enrichment(
     all_idioms: list[IdiomSpan] = []
 
     # Prefer sentence grouping from token annotations
+    sentences: list[Sentence]
     if doc.sentences:
         sentences = doc.sentences
     else:
         # Fallback: treat all words as one sentence
-        sentences = [type("TmpSent", (), {"words": doc.words, "index": 0})()]
+        sentences = [Sentence(words=doc.words, index=0)]
 
     for sent in sentences:
         if not sent.words:

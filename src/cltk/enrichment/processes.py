@@ -25,7 +25,7 @@ class GenAIEnrichmentProcess(Process):
     ipa_mode: IPA_PRONUNCIATION_MODE = "attic_5c_bce"
 
     @cached_property
-    def algorithm(self):
+    def algorithm(self) -> Callable[..., Doc]:
         if not self.glottolog_id:
             msg = "glottolog_id must be set for EnrichmentProcess"
             bind_context(glottolog_id=self.glottolog_id).error(msg)
@@ -33,7 +33,7 @@ class GenAIEnrichmentProcess(Process):
         return generate_gpt_enrichment_concurrent
 
     def run(self, input_doc: Doc) -> Doc:
-        output_doc = copy(input_doc)
+        output_doc: Doc = copy(input_doc)
         if not output_doc.normalized_text:
             msg = "Doc must have `normalized_text`."
             bind_from_doc(output_doc).error(msg)
