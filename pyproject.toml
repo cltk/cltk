@@ -1,6 +1,6 @@
 [project]
 name = "cltk"
-version = "2.1.0a4"
+version = "2.1.0a5"
 description = "The Classical Language Toolkit"
 authors = [
     {name = "Kyle P. Johnson", email = "kyle@kyle-p-johnson.com"},
@@ -43,12 +43,6 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/cltk"]
-
-[tool.hatch.build]
-include = [
-    "src/cltk/py.typed",
-    "src/cltk/languages/glottolog.json",
-]
 
 [dependency-groups]
 development = [
