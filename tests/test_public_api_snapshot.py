@@ -49,9 +49,9 @@ def test_morphosyntax_processes_subclasses_use_glottolog_ids() -> None:
     for cls in subclasses:
         fld = getattr(cls, "model_fields", {}).get("glottolog_id")
         default_glotto: Any = getattr(fld, "default", None)
-        assert isinstance(default_glotto, str) and pat.match(
-            default_glotto
-        ), f"{cls.__name__} has non-Glottolog id: {default_glotto!r}"
+        assert isinstance(default_glotto, str) and pat.match(default_glotto), (
+            f"{cls.__name__} has non-Glottolog id: {default_glotto!r}"
+        )
 
 
 def test_dependency_processes_subclasses_use_glottolog_ids() -> None:
@@ -64,9 +64,9 @@ def test_dependency_processes_subclasses_use_glottolog_ids() -> None:
     for cls in subclasses:
         fld = getattr(cls, "model_fields", {}).get("glottolog_id")
         default_glotto: Any = getattr(fld, "default", None)
-        assert isinstance(default_glotto, str) and pat.match(
-            default_glotto
-        ), f"{cls.__name__} has non-Glottolog id: {default_glotto!r}"
+        assert isinstance(default_glotto, str) and pat.match(default_glotto), (
+            f"{cls.__name__} has non-Glottolog id: {default_glotto!r}"
+        )
 
 
 def test_process_run_signature() -> None:
