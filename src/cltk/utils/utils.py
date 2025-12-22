@@ -921,3 +921,162 @@ def doc_to_feature_table(doc: Doc) -> Table:
 
 
 CLTK_DATA_DIR = get_cltk_data_dir()
+
+
+def format_readers_guide(doc: Doc) -> str:
+    """Render a human-friendly Markdown reader's guide for a Doc."""
+
+    def _safe_pos_name(word: Word) -> str:
+        upos = getattr(word, "upos", None)
+        if not upos:
+            return ""
+        if getattr(upos, "name", None):
+            return str(upos.name)
+        if getattr(upos, "tag", None):
+            return str(upos.tag)
+        return ""
+
+    def _best_gloss(word: Word) -> Optional[str]:
+        enrichment = getattr(word, "enrichment", None)
+        gloss = getattr(enrichment, "gloss", None)
+        if not gloss:
+            return None
+        if getattr(gloss, "context", None):
+            return str(gloss.context)
+        if getattr(gloss, "dictionary", None):
+            return str(gloss.dictionary)
+        alts = getattr(gloss, "alternatives", None) or []
+        if alts:
+            alt_text = getattr(alts[0], "text", None)
+            if alt_text:
+                return str(alt_text)
+        return None
+
+    def _dep_display(word: Word) -> str:
+        dep = getattr(word, "dependency_relation", None)
+        if not dep:
+            return ""
+        name = getattr(dep, "name", None)
+        code = getattr(dep, "tag", None) or getattr(dep, "code", None)
+        if name and code:
+            return f"{name} (`{code}`)"
+        if name:
+            return str(name)
+        if code:
+            return f"`{code}`"
+        return ""
+
+    def _syllables(word: Word) -> list[str]:
+        enrichment = getattr(word, "enrichment", None)
+        orth = getattr(enrichment, "orthography", None)
+        if orth and getattr(orth, "syllables", None):
+            return [str(s) for s in orth.syllables if s]
+        if getattr(word, "syllables", None):
+            return [str(s) for s in word.syllables if s]
+        return []
+
+    def _phonology_trace(word: Word) -> list[str]:
+        enrichment = getattr(word, "enrichment", None)
+        orth = getattr(enrichment, "orthography", None)
+        trace = getattr(orth, "phonology_trace", None)
+        if trace:
+            return [str(item) for item in trace if item]
+        return []
+
+    def _pedagogical_notes(word: Word) -> list[str]:
+        enrichment = getattr(word, "enrichment", None)
+        notes = getattr(enrichment, "pedagogical_notes", None) or []
+        lines: list[str] = []
+        for note in notes:
+            text = getattr(note, "note", None)
+            if not text:
+                continue
+            pieces = [str(text)]
+            relation = getattr(note, "relation", None)
+            if relation:
+                pieces.append(f"(relation: {relation})")
+            disambig = getattr(note, "disambiguates", None)
+            if disambig:
+                pieces.append(f"(disambiguates: {disambig})")
+            lines.append(" ".join(pieces))
+        return lines
+
+    lines: list[str] = []
+    metadata = getattr(doc, "metadata", {}) or {}
+    title = metadata.get("title") or metadata.get("reference") or "Reader's Guide"
+    lines.append(f"# {title}")
+
+    ipa_modes = {
+        getattr(getattr(getattr(w, "enrichment", None), "ipa", None), "mode", None)
+        for w in getattr(doc, "words", []) or []
+        if getattr(getattr(getattr(w, "enrichment", None), "ipa", None), "mode", None)
+    }
+    if ipa_modes and len(ipa_modes) == 1:
+        mode_val = ipa_modes.pop()
+        lines.append(f"**Pronunciation mode:** {mode_val}")
+        lines.append("")
+
+    sentences = getattr(doc, "sentences", None) or []
+    for s_idx, sentence in enumerate(sentences, 1):
+        lines.append(f"## Sentence {s_idx}")
+        sent_words = [
+            w.string for w in getattr(sentence, "words", []) or [] if w.string
+        ]
+        sent_text = " ".join(sent_words).strip()
+        if sent_text:
+            lines.append(f"> {sent_text}")
+        lines.append("")
+        lines.append("### Word-by-word")
+        lines.append("")
+        for word in getattr(sentence, "words", []) or []:
+            surface = word.string or "(missing)"
+            lines.append(f"### {surface}")
+            pos_name = _safe_pos_name(word)
+            gloss_val = _best_gloss(word)
+            if pos_name and gloss_val:
+                lines.append(f"*{pos_name}* · **{gloss_val}**")
+            elif pos_name:
+                lines.append(f"*{pos_name}*")
+            elif gloss_val:
+                lines.append(f"**{gloss_val}**")
+            if not (pos_name or gloss_val):
+                lines.append("")
+
+            lines.append(f"- **Lemma:** {word.lemma or ''}")
+            dep_display = _dep_display(word)
+            if dep_display:
+                lines.append(f"- **Dependency Role:** {dep_display}")
+            gov = getattr(word, "governor", None)
+            if gov is not None:
+                lines.append(f"- **Governor:** token {gov + 1}")
+
+            enrichment = getattr(word, "enrichment", None)
+            ipa = getattr(enrichment, "ipa", None)
+            if ipa and getattr(ipa, "value", None):
+                mode = getattr(ipa, "mode", None)
+                mode_str = f" ({mode})" if mode else ""
+                lines.append(f"- **IPA{mode_str}:** `{ipa.value}`")
+
+            syllables = _syllables(word)
+            if syllables:
+                lines.append(f"- **Syllables:** {' · '.join(syllables)}")
+
+            phonology = _phonology_trace(word)
+            if phonology:
+                lines.append("<details>")
+                lines.append("<summary>Phonology</summary>")
+                for item in phonology:
+                    lines.append(f"- {item}")
+                lines.append("</details>")
+
+            notes = _pedagogical_notes(word)
+            if notes:
+                lines.append("<details>")
+                lines.append("<summary>Notes</summary>")
+                for note in notes:
+                    lines.append(f"- {note}")
+                lines.append("</details>")
+
+            lines.append("")
+
+    return "\n".join(lines).strip() + "\n"
