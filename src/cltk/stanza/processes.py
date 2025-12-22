@@ -39,14 +39,17 @@ def _get_stanza_pipeline(
     lang: str,
     processors: str,
     tokenize_no_ssplit: bool,
+    package: Optional[str] = None,
 ) -> Any:
     """Return (and cache) an initialized stanza.Pipeline for the given config."""
     import stanza
 
+    stanza_package = package or "default"
     return stanza.Pipeline(
         lang=lang,
         processors=processors,
         tokenize_no_ssplit=tokenize_no_ssplit,
+        package=stanza_package,
         download_method=DownloadMethod.REUSE_RESOURCES,
     )
 
@@ -87,11 +90,19 @@ class StanzaAnalyzeProcess(Process):
                 f"No Stanza language mapping for glottolog_id='{self.glottolog_id}'."
             )
 
+        # Optional per-treebank override (e.g., different UD package)
+        stanza_package: Optional[str] = None
+        try:
+            stanza_package = output_doc.metadata.get("stanza_package")
+        except Exception:
+            stanza_package = None
+
         # Build Stanza pipeline; let it handle sentence splitting and tagging
         nlp = _get_stanza_pipeline(
             lang=lang,
             processors="tokenize,pos,lemma,depparse",
             tokenize_no_ssplit=False,
+            package=stanza_package,
         )
         sdoc = nlp(output_doc.normalized_text)
 

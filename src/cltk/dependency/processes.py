@@ -11,6 +11,10 @@ from cltk.core.logging_utils import bind_from_doc
 from cltk.dependency.utils import (
     generate_gpt_dependency_concurrent,
 )
+from cltk.genai.prompts import PromptInfo
+
+# Prompt overrides can be callables, PromptInfo, or literal strings.
+PromptBuilder = Callable[[str, str], PromptInfo] | PromptInfo | str
 
 
 class DependencyProcess(Process):
@@ -20,8 +24,12 @@ class DependencyProcess(Process):
 class GenAIDependencyProcess(DependencyProcess):
     """Language-specific dependency process using a generative GPT model."""
 
+    # Optional prompt builders for custom pipelines
+    prompt_builder_from_tokens: Optional[PromptBuilder] = None
+    prompt_builder_from_text: Optional[PromptBuilder] = None
+
     @cached_property
-    def algorithm(self) -> Callable[[Doc], Doc]:
+    def algorithm(self) -> Callable[..., Doc]:
         if not self.glottolog_id:
             msg: str = "glottolog_id must be set for DependencyProcess"
             bind_context(glottolog_id=self.glottolog_id).error(msg)
@@ -41,6 +49,8 @@ class GenAIDependencyProcess(DependencyProcess):
         # Callable typing does not retain keyword names; pass positionally
         output_doc = self.algorithm(
             output_doc,
+            prompt_builder_from_tokens=self.prompt_builder_from_tokens,
+            prompt_builder_from_text=self.prompt_builder_from_text,
         )
         return output_doc
 

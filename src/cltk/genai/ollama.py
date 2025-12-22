@@ -82,12 +82,22 @@ class OllamaConnection:
         *,
         use_cloud: bool = False,
         api_key: Optional[str] = None,
+        temperature: Optional[float] = None,
+        top_p: Optional[float] = None,
+        num_ctx: Optional[int] = None,
+        num_predict: Optional[int] = None,
+        options: Optional[dict[str, Any]] = None,
     ) -> None:
         self.model = model
         self.use_cloud = use_cloud
         self.log = bind_context(model=model)
         self.host = host or ("https://ollama.com" if use_cloud else _default_host())
         self.api_key = api_key
+        self.temperature = temperature
+        self.top_p = top_p
+        self.num_ctx = num_ctx
+        self.num_predict = num_predict
+        self.options: dict[str, Any] = options or {}
         headers: Optional[dict[str, str]] = None
         if self.use_cloud:
             load_env_file()
@@ -160,11 +170,22 @@ class OllamaConnection:
         # Ensure model is present (best-effort)
         self._pull_if_needed()
         last_err: Optional[Exception] = None
+        gen_options: dict[str, Any] = dict(self.options) if self.options else {}
+        if self.temperature is not None:
+            gen_options.setdefault("temperature", self.temperature)
+        if self.top_p is not None:
+            gen_options.setdefault("top_p", self.top_p)
+        if self.num_ctx is not None:
+            gen_options.setdefault("num_ctx", self.num_ctx)
+        if self.num_predict is not None:
+            gen_options.setdefault("num_predict", self.num_predict)
         for attempt in range(1, max_retries + 1):
             self.log.debug("[ollama] Attempt %s of %s", attempt, max_retries)
             try:
                 res: dict[str, Any] = self._client.generate(
-                    model=self.model, prompt=prompt
+                    model=self.model,
+                    prompt=prompt,
+                    options=gen_options or None,
                 )
                 text: str = str(res.get("response", ""))
                 usage = _usage_from_result(res)
@@ -188,12 +209,22 @@ class AsyncOllamaConnection:
         *,
         use_cloud: bool = False,
         api_key: Optional[str] = None,
+        temperature: Optional[float] = None,
+        top_p: Optional[float] = None,
+        num_ctx: Optional[int] = None,
+        num_predict: Optional[int] = None,
+        options: Optional[dict[str, Any]] = None,
     ) -> None:
         self.model = model
         self.use_cloud = use_cloud
         self.log = bind_context(model=model)
         self.host = host or ("https://ollama.com" if use_cloud else _default_host())
         self.api_key = api_key
+        self.temperature = temperature
+        self.top_p = top_p
+        self.num_ctx = num_ctx
+        self.num_predict = num_predict
+        self.options: dict[str, Any] = options or {}
         headers: Optional[dict[str, str]] = None
         if self.use_cloud:
             load_env_file()
@@ -260,11 +291,22 @@ class AsyncOllamaConnection:
             self.log.debug("[async-ollama] Prompt being sent to Ollama:\n%s", prompt)
         await self._pull_if_needed()
         last_err: Optional[Exception] = None
+        gen_options: dict[str, Any] = dict(self.options) if self.options else {}
+        if self.temperature is not None:
+            gen_options.setdefault("temperature", self.temperature)
+        if self.top_p is not None:
+            gen_options.setdefault("top_p", self.top_p)
+        if self.num_ctx is not None:
+            gen_options.setdefault("num_ctx", self.num_ctx)
+        if self.num_predict is not None:
+            gen_options.setdefault("num_predict", self.num_predict)
         for attempt in range(1, max_retries + 1):
             self.log.debug("[async-ollama] Attempt %s of %s", attempt, max_retries)
             try:
                 res: dict[str, Any] = await self._client.generate(
-                    model=self.model, prompt=prompt
+                    model=self.model,
+                    prompt=prompt,
+                    options=gen_options or None,
                 )
                 text: str = str(res.get("response", ""))
                 usage = _usage_from_result(res)

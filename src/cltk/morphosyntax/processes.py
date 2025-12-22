@@ -8,9 +8,13 @@ from typing import Optional
 from cltk.core.cltk_logger import bind_context
 from cltk.core.data_types import Doc, Process
 from cltk.core.logging_utils import bind_from_doc
+from cltk.genai.prompts import PromptInfo
 from cltk.morphosyntax.utils import (
     generate_gpt_morphosyntax_concurrent,
 )
+
+# A prompt override can be a callable, a PromptInfo, or a literal string.
+PromptBuilder = Callable[[str, str], PromptInfo] | PromptInfo | str
 
 
 class MorphosyntaxProcess(Process):
@@ -20,8 +24,11 @@ class MorphosyntaxProcess(Process):
 class GenAIMorphosyntaxProcess(MorphosyntaxProcess):
     """Language-specific morphosyntax process using a generative GPT model."""
 
+    # Optional prompt builder override for custom pipelines
+    prompt_builder: Optional[PromptBuilder] = None
+
     @cached_property
-    def algorithm(self) -> Callable[[Doc], Doc]:
+    def algorithm(self) -> Callable[..., Doc]:
         if not self.glottolog_id:
             msg: str = "glottolog_id must be set for MorphosyntaxProcess"
             bind_context(glottolog_id=self.glottolog_id).error(msg)
@@ -41,6 +48,7 @@ class GenAIMorphosyntaxProcess(MorphosyntaxProcess):
         # Callable typing does not retain keyword names; pass positionally
         output_doc = self.algorithm(
             output_doc,
+            prompt_builder=self.prompt_builder,
         )
         return output_doc
 

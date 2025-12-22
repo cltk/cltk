@@ -6,7 +6,7 @@
 import asyncio
 import concurrent.futures
 import hashlib
-from typing import Any, Optional, cast, get_args
+from typing import Any, Callable, Optional, cast, get_args
 
 from colorama import Fore, Style
 from pydantic import ValidationError as PydanticValidationError
@@ -18,6 +18,10 @@ from cltk.core.data_types import (
     AVAILABLE_OPENAI_MODELS,
     CLTKGenAIResponse,
     Doc,
+    MistralBackendConfig,
+    ModelConfig,
+    OllamaBackendConfig,
+    OpenAIBackendConfig,
     Word,
 )
 from cltk.core.exceptions import CLTKException
@@ -25,9 +29,21 @@ from cltk.core.logging_utils import bind_from_doc
 from cltk.genai.mistral import AsyncMistralConnection, MistralConnection
 from cltk.genai.ollama import AsyncOllamaConnection, OllamaConnection
 from cltk.genai.openai import AsyncOpenAIConnection, OpenAIConnection
-from cltk.genai.prompts import morphosyntax_prompt
+from cltk.genai.prompts import PromptInfo, _hash_prompt, morphosyntax_prompt
 from cltk.morphosyntax.ud_features import UDFeatureTagSet, convert_pos_features_to_ud
 from cltk.morphosyntax.ud_pos import UDPartOfSpeechTag
+
+# Prompt override type: callable, PromptInfo, or literal string.
+PromptBuilder = Callable[[str, str], PromptInfo] | PromptInfo | str
+
+
+def _get_backend_config(doc: Doc) -> Optional[ModelConfig]:
+    """Extract backend configuration attached to the document, if any."""
+    try:
+        cfg = doc.metadata.get("backend_config")
+    except Exception:
+        return None
+    return cfg if isinstance(cfg, ModelConfig) else None
 
 
 def _parse_tsv_table(tsv_string: str) -> list[dict[str, str]]:
@@ -56,6 +72,7 @@ def generate_pos(
     sentence_idx: Optional[int] = None,
     max_retries: int = 2,
     client: Optional[Any] = None,
+    prompt_builder: Optional[PromptBuilder] = None,
 ) -> Doc:
     """Call the configured generative backend and return UD token annotations for a short span.
 
@@ -64,6 +81,7 @@ def generate_pos(
         sentence_idx: Optional sentence index for logging/aggregation.
         max_retries: Number of attempts if the model fails to return a TSV code block.
         client: Optional connection instance (OpenAI or Ollama) for making API calls.
+        prompt_builder: Optional override prompt (callable, `PromptInfo`, or string) for morphosyntax.
 
     Returns:
         The same ``Doc`` instance with ``words`` and per‑call usage appended
@@ -85,7 +103,11 @@ def generate_pos(
     #     lang_or_dialect_name = self.language.selected_dialect_name
     # else:
     #     lang_or_dialect_name = self.language.name
-    pinfo = morphosyntax_prompt(lang_or_dialect_name, doc.normalized_text)
+    pinfo = _resolve_morph_prompt(
+        lang_or_dialect_name=lang_or_dialect_name,
+        text=doc.normalized_text,
+        builder=prompt_builder,
+    )
     prompt = pinfo.text
     # Structured logging context
     try:
@@ -116,6 +138,10 @@ def generate_pos(
     log.info("[prompt] %s v%s hash=%s", pinfo.kind, pinfo.version, pinfo.digest)
     import os as _os
 
+    backend_config = _get_backend_config(doc)
+    if backend_config and getattr(backend_config, "max_retries", None) is not None:
+        max_retries = int(getattr(backend_config, "max_retries"))
+
     if _os.getenv("CLTK_LOG_CONTENT", "").strip().lower() in {"1", "true", "yes", "on"}:
         log.debug(prompt)
     # code_blocks: list[Any] = []
@@ -138,19 +164,65 @@ def generate_pos(
             log.error(msg_unsupported_backend_version)
             raise CLTKException(msg_unsupported_backend_version)
         if not client:
+            openai_cfg = (
+                backend_config
+                if isinstance(backend_config, OpenAIBackendConfig)
+                else None
+            )
             openai_model: AVAILABLE_OPENAI_MODELS = cast(
                 AVAILABLE_OPENAI_MODELS, doc.model
             )
-            client = OpenAIConnection(model=openai_model)
+            client = OpenAIConnection(
+                model=openai_model,
+                api_key=getattr(openai_cfg, "api_key", None),
+                temperature=getattr(openai_cfg, "temperature", 1.0),
+            )
+    elif doc.backend == "mistral":
+        if doc.model not in get_args(AVAILABLE_MISTRAL_MODELS):
+            msg_unsupported_backend_version = (
+                f"Doc has unsupported `.model`: {doc.model}. "
+                f"Supported versions are: {get_args(AVAILABLE_MISTRAL_MODELS)}."
+            )
+            log.error(msg_unsupported_backend_version)
+            raise CLTKException(msg_unsupported_backend_version)
+        if not client:
+            mistral_cfg = (
+                backend_config
+                if isinstance(backend_config, MistralBackendConfig)
+                else None
+            )
+            mistral_model: AVAILABLE_MISTRAL_MODELS = cast(
+                AVAILABLE_MISTRAL_MODELS, doc.model
+            )
+            client = MistralConnection(
+                model=mistral_model,
+                api_key=getattr(mistral_cfg, "api_key", None),
+                temperature=getattr(mistral_cfg, "temperature", 1.0),
+            )
     elif doc.backend in ("ollama", "ollama-cloud"):
         if not client:
+            ollama_cfg = (
+                backend_config
+                if isinstance(backend_config, OllamaBackendConfig)
+                else None
+            )
+            host = None
+            if ollama_cfg:
+                host = ollama_cfg.base_url or ollama_cfg.host
             client = OllamaConnection(
                 model=str(doc.model),
                 use_cloud=doc.backend == "ollama-cloud",
+                host=host,
+                api_key=getattr(ollama_cfg, "api_key", None),
+                temperature=getattr(ollama_cfg, "temperature", None),
+                top_p=getattr(ollama_cfg, "top_p", None),
+                num_ctx=getattr(ollama_cfg, "num_ctx", None),
+                num_predict=getattr(ollama_cfg, "num_predict", None),
+                options=getattr(ollama_cfg, "options", None),
             )
     else:
         raise CLTKException(
-            f"Unsupported backend for generate_pos: {doc.backend}. Use 'openai', 'ollama', or 'ollama-cloud'."
+            f"Unsupported backend for generate_pos: {doc.backend}. Use 'openai', 'mistral', 'ollama', or 'ollama-cloud'."
         )
     openai_res_obj: CLTKGenAIResponse = client.generate(
         prompt=prompt, max_retries=max_retries
@@ -282,7 +354,9 @@ def generate_pos(
     return doc
 
 
-def generate_gpt_morphosyntax(doc: Doc) -> Doc:
+def generate_gpt_morphosyntax(
+    doc: Doc, *, prompt_builder: Optional[PromptBuilder] = None
+) -> Doc:
     log = bind_from_doc(doc)
     if not doc.model:
         msg: str = "Document model is not set."
@@ -340,6 +414,7 @@ def generate_gpt_morphosyntax(doc: Doc) -> Doc:
             doc=tmp_doc,
             sentence_idx=sent_idx,
             client=client,
+            prompt_builder=prompt_builder,
         )
         tmp_docs.append(tmp_doc)
         bind_from_doc(doc, sentence_idx=sent_idx).info(
@@ -382,6 +457,7 @@ async def generate_gpt_morphosyntax_async(
     *,
     max_concurrency: int = 4,
     max_retries: int = 2,
+    prompt_builder: Optional[PromptBuilder] = None,
 ) -> Doc:
     """Async variant of ``generate_gpt_morphosyntax`` with concurrency.
 
@@ -395,6 +471,7 @@ async def generate_gpt_morphosyntax_async(
         doc: Document whose ``sentence_strings`` will be annotated.
         max_concurrency: Maximum number of in‑flight LLM requests.
         max_retries: Per‑request retry budget.
+        prompt_builder: Optional override prompt (callable, `PromptInfo`, or string) for morphosyntax.
 
     Returns:
         The input ``doc`` enriched with ``words`` and aggregated generative
@@ -419,17 +496,41 @@ async def generate_gpt_morphosyntax_async(
         log.error(msg)
         raise ValueError(msg)
 
+    backend_config = _get_backend_config(doc)
+    if backend_config and getattr(backend_config, "max_retries", None) is not None:
+        max_retries = int(getattr(backend_config, "max_retries"))
+
     if doc.backend == "openai":
         if doc.model not in get_args(AVAILABLE_OPENAI_MODELS):
             raise CLTKException(
                 f"Doc has unsupported `.model`: {doc.model}. Supported: {get_args(AVAILABLE_OPENAI_MODELS)}."
             )
         openai_model: AVAILABLE_OPENAI_MODELS = cast(AVAILABLE_OPENAI_MODELS, doc.model)
-        conn: Any = AsyncOpenAIConnection(model=openai_model)
+        openai_cfg = (
+            backend_config if isinstance(backend_config, OpenAIBackendConfig) else None
+        )
+        conn: Any = AsyncOpenAIConnection(
+            model=openai_model,
+            api_key=getattr(openai_cfg, "api_key", None),
+            temperature=getattr(openai_cfg, "temperature", 1.0),
+        )
     elif doc.backend in ("ollama", "ollama-cloud"):
+        ollama_cfg = (
+            backend_config if isinstance(backend_config, OllamaBackendConfig) else None
+        )
+        host = None
+        if ollama_cfg:
+            host = ollama_cfg.base_url or ollama_cfg.host
         conn = AsyncOllamaConnection(
             model=str(doc.model),
             use_cloud=doc.backend == "ollama-cloud",
+            host=host,
+            api_key=getattr(ollama_cfg, "api_key", None),
+            temperature=getattr(ollama_cfg, "temperature", None),
+            top_p=getattr(ollama_cfg, "top_p", None),
+            num_ctx=getattr(ollama_cfg, "num_ctx", None),
+            num_predict=getattr(ollama_cfg, "num_predict", None),
+            options=getattr(ollama_cfg, "options", None),
         )
     elif doc.backend == "mistral":
         if doc.model not in get_args(AVAILABLE_MISTRAL_MODELS):
@@ -439,8 +540,13 @@ async def generate_gpt_morphosyntax_async(
         mistral_model: AVAILABLE_MISTRAL_MODELS = cast(
             AVAILABLE_MISTRAL_MODELS, doc.model
         )
+        mistral_cfg = (
+            backend_config if isinstance(backend_config, MistralBackendConfig) else None
+        )
         conn = AsyncMistralConnection(
             model=mistral_model,
+            api_key=getattr(mistral_cfg, "api_key", None),
+            temperature=getattr(mistral_cfg, "temperature", 1.0),
         )
     else:
         raise CLTKException(
@@ -450,33 +556,27 @@ async def generate_gpt_morphosyntax_async(
     # Prepare prompts per sentence
     lang_or_dialect_name = doc.dialect.name if doc.dialect else doc.language.name
 
-    def build_prompt(sentence: str) -> str:
-        return (
-            f"For the following {lang_or_dialect_name} text, tokenize the text and return one line per token. "
-            "For each token, provide the FORM, LEMMA, UPOS, and FEATS fields following Universal Dependencies (UD) guidelines.\n\n"
-            "Rules:\n"
-            "- Always use strict UD morphological tags (not a simplified system).\n"
-            "- Split off enclitics and contractions as separate tokens.\n"
-            "- Always include punctuation as separate tokens with UPOS=PUNCT and FEATS=_.\n"
-            "- For uncertain, rare, or dialectal forms, always provide the most standard dictionary lemma and supply a best‑effort UD tag. Do not skip any tokens.\n"
-            '- Separate UD features with a pipe ("|"). Do not use a semi‑colon or other characters.\n'
-            "- Preserve the spelling of the text exactly as given (including diacritics, breathings, and subscripts). Do not normalize.\n"
-            "- If a lemma or feature is uncertain, still provide the closest standard form and UD features. Never leave fields blank and never ask for clarification.\n"
-            "- If full accuracy is not possible, always provide a best‑effort output without asking for clarification.\n"
-            "- Never request to perform the task in multiple stages; always deliver the final TSV in one step.\n"
-            "- Do not ask for confirmation, do not explain your reasoning, and do not include any commentary. Output only the TSV table.\n"
-            "- Always output all four fields: FORM, LEMMA, UPOS, FEATS.\n"
-            '- The result **must be a markdown code block** (beginning and ending in "```") containing only a tab‑delimited table (TSV) with the following header row:\n\n'
-            "FORM\tLEMMA\tUPOS\tFEATS\n\n"
-            f"Text:\n\n{sentence}\n"
-        )
-
     sem = asyncio.Semaphore(max_concurrency)
 
     async def process_one(i: int, sentence: str) -> tuple[int, Doc, dict[str, int]]:
-        prompt = build_prompt(sentence)
-        log_i = bind_from_doc(doc, sentence_idx=i)
+        pinfo = _resolve_morph_prompt(
+            lang_or_dialect_name=lang_or_dialect_name,
+            text=sentence,
+            builder=prompt_builder,
+        )
+        prompt = pinfo.text
+        log_i = bind_from_doc(doc, sentence_idx=i, prompt_version=str(pinfo.version))
+        log_i.info("[prompt] %s v%s hash=%s", pinfo.kind, pinfo.version, pinfo.digest)
         log_i.debug("[async] Scheduling sentence #%s (%d chars)", i, len(sentence))
+        import os as _os
+
+        if _os.getenv("CLTK_LOG_CONTENT", "").strip().lower() in {
+            "1",
+            "true",
+            "yes",
+            "on",
+        }:
+            log_i.debug(prompt)
         async with sem:
             log_i.debug("[async] Dispatching sentence #%s", i)
             res: CLTKGenAIResponse = await conn.generate_async(
@@ -583,6 +683,7 @@ def generate_gpt_morphosyntax_concurrent(
     *,
     max_concurrency: int = 4,
     max_retries: int = 2,
+    prompt_builder: Optional[PromptBuilder] = None,
 ) -> Doc:
     """Run the async morphosyntax generator safely but appears synchronous from the outside.
 
@@ -600,6 +701,7 @@ def generate_gpt_morphosyntax_concurrent(
         doc: Input document with sentences, language, and backend configured.
         max_concurrency: Maximum concurrent LLM requests.
         max_retries: Per‑request retry budget.
+        prompt_builder: Optional override prompt (callable, `PromptInfo`, or string) for morphosyntax.
 
     Returns:
         The input ``Doc`` updated in place, same as the async variant.
@@ -615,6 +717,7 @@ def generate_gpt_morphosyntax_concurrent(
                 doc,
                 max_concurrency=max_concurrency,
                 max_retries=max_retries,
+                prompt_builder=prompt_builder,
             )
         )
     else:
@@ -628,6 +731,7 @@ def generate_gpt_morphosyntax_concurrent(
                     doc,
                     max_concurrency=max_concurrency,
                     max_retries=max_retries,
+                    prompt_builder=prompt_builder,
                 )
             )
 
@@ -679,3 +783,30 @@ def _update_doc_genai_stage(
                 pass
     entries.append({"stage": "overall", **overall})
     doc.genai_use = entries
+
+
+def _resolve_morph_prompt(
+    *,
+    lang_or_dialect_name: str,
+    text: str,
+    builder: Optional[PromptBuilder],
+) -> PromptInfo:
+    if builder is None:
+        return morphosyntax_prompt(lang_or_dialect_name, text)
+    if isinstance(builder, PromptInfo):
+        return builder
+    if isinstance(builder, str):
+        formatted = builder.format(
+            lang_or_dialect_name=lang_or_dialect_name,
+            text=text,
+        )
+        version = "custom-1"
+        return PromptInfo(
+            kind="morphosyntax",
+            version=version,
+            text=formatted,
+            digest=_hash_prompt("morphosyntax", version, formatted),
+        )
+    if callable(builder):
+        return builder(lang_or_dialect_name, text)
+    raise TypeError("Unsupported prompt_builder type for morphosyntax.")

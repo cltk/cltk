@@ -11,11 +11,14 @@ from cltk.core.cltk_logger import bind_context, logger
 from cltk.core.data_types import (
     AVAILABLE_OPENAI_MODELS,
     BACKEND_TYPES,
+    CLTKConfig,
     Dialect,
     Doc,
     Language,
+    ModelConfig,
     Pipeline,
     Process,
+    StanzaBackendConfig,
 )
 from cltk.core.exceptions import UnimplementedAlgorithmError
 from cltk.core.logging_utils import bind_from_doc
@@ -36,6 +39,7 @@ class NLP:
 
     Args:
       language_code: Language key (Glottolog code, ISO code, or exact name).
+        Required unless ``cltk_config`` is provided.
       backend: One of ``"stanza"`` (default), ``"openai"``, ``"ollama"``,
         ``"ollama-cloud"``, or ``mistral``. The ``"spacy"`` backend is not
         yet implemented and will raise ``NotImplementedError``.
@@ -44,6 +48,8 @@ class NLP:
         ``"stanza"``.
       custom_pipeline: Optional pipeline to use instead of the default mapping.
       suppress_banner: If true, suppresses informational console output.
+      cltk_config: Optional :class:`~cltk.core.data_types.CLTKConfig` bundle.
+        When provided, its values override the other constructor arguments.
 
     Notes:
       - When ``backend == "openai"`` and no ``model`` is provided, defaults to
@@ -58,12 +64,39 @@ class NLP:
 
     def __init__(
         self,
-        language_code: str,
+        language_code: Optional[str] = None,
         backend: BACKEND_TYPES = "stanza",
         model: Optional[Union[str, AVAILABLE_OPENAI_MODELS]] = None,
         custom_pipeline: Optional[Pipeline] = None,
         suppress_banner: bool = False,
+        cltk_config: Optional["CLTKConfig"] = None,
     ) -> None:
+        self.cltk_config: Optional[CLTKConfig] = cltk_config
+        backend_config: Optional[ModelConfig] = (
+            cltk_config.active_backend_config if cltk_config else None
+        )
+        stanza_model_override: Optional[str] = None
+        if cltk_config:
+            language_code = cltk_config.language_code
+            backend = cltk_config.backend
+            suppress_banner = cltk_config.suppress_banner
+            if cltk_config.custom_pipeline is not None:
+                custom_pipeline = cltk_config.custom_pipeline
+            config_model_value = cltk_config.model
+            if config_model_value is not None:
+                model = config_model_value
+            if model is None and backend_config is not None:
+                model = getattr(backend_config, "model", None)
+            if isinstance(backend_config, StanzaBackendConfig):
+                stanza_model_override = backend_config.model
+                # Preserve stanza restriction against explicit model arg
+                model = None
+
+        if language_code is None:
+            raise ValueError(
+                "language_code is required when no CLTKConfig is provided."
+            )
+
         bind_context(glottolog_id=language_code).info(
             f"Initializing NLP for language: {language_code}"
         )
@@ -78,26 +111,36 @@ class NLP:
             self.language_code = self.language.glottolog_id
         self.backend: BACKEND_TYPES = backend
         self.model: Optional[str] = model
+        self._backend_config: Optional[ModelConfig] = backend_config
+        self._stanza_model_override: Optional[str] = stanza_model_override
         self._ollama_cloud_api_key: Optional[str] = None
         self.api_key: Optional[str] = None
         if self.backend == "openai":
-            load_env_file()
-            self.api_key = os.getenv("OPENAI_API_KEY")
+            # Prefer API key from config when provided
+            self.api_key = getattr(backend_config, "api_key", None)
+            if not self.api_key:
+                load_env_file()
+                self.api_key = os.getenv("OPENAI_API_KEY")
             if not self.api_key:
                 openai_msg: str = "API key for OpenAI not found."
                 logger.error(openai_msg)
                 raise ValueError(openai_msg)
             # Default model if none provided
+            self.model = self.model or getattr(backend_config, "model", None)
             self.model = self.model or "gpt-5-mini"
         elif self.backend in ("ollama", "ollama-cloud"):
             if self.backend == "ollama-cloud":
-                load_env_file()
-                self._ollama_cloud_api_key = os.getenv("OLLAMA_CLOUD_API_KEY")
+                # Prefer API key from config when provided
+                self._ollama_cloud_api_key = getattr(backend_config, "api_key", None)
+                if not self._ollama_cloud_api_key:
+                    load_env_file()
+                    self._ollama_cloud_api_key = os.getenv("OLLAMA_CLOUD_API_KEY")
                 if not self._ollama_cloud_api_key:
                     msg = "API key for Ollama Cloud not found."
                     logger.error(msg)
                     raise ValueError(msg)
             # Default model if none provided
+            self.model = self.model or getattr(backend_config, "model", None)
             self.model = self.model or "llama3.1:8b"
         elif self.backend == "stanza":
             try:
@@ -111,13 +154,17 @@ class NLP:
                     "The 'stanza' backend does not accept a model parameter; models are hardcoded per language."
                 )
         elif self.backend == "mistral":
-            load_env_file()
-            self.api_key = os.getenv("MISTRAL_API_KEY")
+            # Prefer API key from config when provided
+            self.api_key = getattr(backend_config, "api_key", None)
+            if not self.api_key:
+                load_env_file()
+                self.api_key = os.getenv("MISTRAL_API_KEY")
             if not self.api_key:
                 mistral_msg: str = "API key for Mistral not found."
                 logger.error(mistral_msg)
                 raise ValueError(mistral_msg)
             # Default model if none provided
+            self.model = self.model or getattr(backend_config, "model", None)
             self.model = self.model or "mistral-medium-latest"
         self.pipeline: Pipeline = (
             custom_pipeline if custom_pipeline else self._get_pipeline()
@@ -154,6 +201,11 @@ class NLP:
         doc: Doc = Doc(language=self.language, raw=text)
         doc.backend = self.backend
         doc.model = getattr(self, "model", None)
+        # Expose backend config to downstream processes (LLM options, stanza package)
+        if self._backend_config:
+            doc.metadata["backend_config"] = self._backend_config
+        if self._stanza_model_override:
+            doc.metadata["stanza_package"] = self._stanza_model_override
         log = bind_from_doc(doc)
 
         processes: list[type[Process]] = cast(
