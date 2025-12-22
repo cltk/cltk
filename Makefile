@@ -1,3 +1,5 @@
+SHELL := /usr/bin/env bash
+
 build:
 	uv build
 
