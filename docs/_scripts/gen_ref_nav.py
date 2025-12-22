@@ -30,6 +30,7 @@ children: dict[str, set[str]] = defaultdict(set)
 # Ensure top-level Home and Reference are present in nav
 nav["Home"] = "index.md"
 nav["Quickstart"] = "quickstart.md"
+nav["Output Formats"] = "output-formats.md"
 nav["Advanced Configuration"] = "advanced-model-configuration.md"
 nav["Advanced Prompting"] = "advanced-prompting.md"
 nav["Troubleshooting"] = "troubleshooting.md"
@@ -69,6 +70,7 @@ with mkdocs_gen_files.open(ref_index, "w") as fd:
         for pkg in sorted(top_packages):
             fd.write(f"- [`cltk.{pkg}`](cltk/{pkg}/index.md)\n")
 
+
 # Augment package pages with a recursive submodule table of contents
 def _write_subtree(fd, base_parts: list[str], parent: str, level: int = 0) -> None:
     kids = sorted(children.get(parent, []))
@@ -86,6 +88,7 @@ def _write_subtree(fd, base_parts: list[str], parent: str, level: int = 0) -> No
         if k in packages_set:
             _write_subtree(fd, base_parts, k, level + 1)
 
+
 for pkg in sorted(packages_set):
     parts = pkg.split(".")
     out_path = REF_ROOT.joinpath(*parts, "index.md")
@@ -101,14 +104,17 @@ for pkg in sorted(packages_set):
 
 # --- Add subclass indexes for key base/process classes -----------------------
 
+
 def _collect_subclasses(cls: type) -> list[type]:
     seen: set[type] = set()
+
     def _walk(c: type) -> None:
         for sub in c.__subclasses__():
             if sub in seen:
                 continue
             seen.add(sub)
             _walk(sub)
+
     _walk(cls)
     # Stable order by qualified name
     return sorted(seen, key=lambda c: f"{c.__module__}.{c.__qualname__}")

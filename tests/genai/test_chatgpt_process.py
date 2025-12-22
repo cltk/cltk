@@ -11,6 +11,7 @@ def test_openai_connection_requires_api_key(monkeypatch):  # type: ignore[no-unt
     openai_mod = importlib.import_module("cltk.genai.openai")
     # Prevent reading from a local .env during the test
     monkeypatch.setattr(openai_mod, "load_env_file", lambda: None)
+
     # Provide a benign OpenAI stub so import doesn't error when constructing
     class _OpenAIStub:  # noqa: D401 - trivial stub
         def __init__(self, **_: Any) -> None:

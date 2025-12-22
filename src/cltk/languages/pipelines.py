@@ -121,6 +121,113 @@ from cltk.dependency.processes import (
     UrduGenAIDependencyProcess,
     VedicSanskritGenAIDependencyProcess,
 )
+from cltk.enrichment.processes import (
+    AkkadianGenAIEnrichmentProcess,
+    AlbanianGenAIEnrichmentProcess,
+    AmmoniteGenAIEnrichmentProcess,
+    AncientGreekGenAIEnrichmentProcess,
+    AssameseGenAIEnrichmentProcess,
+    AvestanGenAIEnrichmentProcess,
+    AwadhiGenAIEnrichmentProcess,
+    BactrianGenAIEnrichmentProcess,
+    BagriGenAIEnrichmentProcess,
+    BaihuaChineseGenAIEnrichmentProcess,
+    BengaliGenAIEnrichmentProcess,
+    BiblicalHebrewGenAIEnrichmentProcess,
+    BrajGenAIEnrichmentProcess,
+    CarianGenAIEnrichmentProcess,
+    ChagataiGenAIEnrichmentProcess,
+    ChurchSlavicGenAIEnrichmentProcess,
+    ClassicalArabicGenAIEnrichmentProcess,
+    ClassicalArmenianGenAIEnrichmentProcess,
+    ClassicalBurmeseGenAIEnrichmentProcess,
+    ClassicalMandaicGenAIEnrichmentProcess,
+    ClassicalMongolianGenAIEnrichmentProcess,
+    ClassicalSanskritGenAIEnrichmentProcess,
+    ClassicalSyriacGenAIEnrichmentProcess,
+    CopticGenAIEnrichmentProcess,
+    CuneiformLuwianGenAIEnrichmentProcess,
+    DemoticGenAIEnrichmentProcess,
+    EarlyIrishGenAIEnrichmentProcess,
+    EasternPanjabiGenAIEnrichmentProcess,
+    EdomiteGenAIEnrichmentProcess,
+    GandhariGenAIEnrichmentProcess,
+    GeezGenAIEnrichmentProcess,
+    GothicGenAIEnrichmentProcess,
+    GujaratiGenAIEnrichmentProcess,
+    HatranGenAIEnrichmentProcess,
+    HausaGenAIEnrichmentProcess,
+    HieroglyphicLuwianGenAIEnrichmentProcess,
+    HindiGenAIEnrichmentProcess,
+    HittiteGenAIEnrichmentProcess,
+    JewishBabylonianAramaicGenAIEnrichmentProcess,
+    KashmiriGenAIEnrichmentProcess,
+    KhariBoliGenAIEnrichmentProcess,
+    KhotaneseGenAIEnrichmentProcess,
+    LateEgyptianGenAIEnrichmentProcess,
+    LatinGenAIEnrichmentProcess,
+    LatvianGenAIEnrichmentProcess,
+    LiteraryChineseGenAIEnrichmentProcess,
+    LithuanianGenAIEnrichmentProcess,
+    LycianAGenAIEnrichmentProcess,
+    LydianGenAIEnrichmentProcess,
+    MagadhiPrakritGenAIEnrichmentProcess,
+    MaharastriPrakritGenAIEnrichmentProcess,
+    MarathiGenAIEnrichmentProcess,
+    MeiteiGenAIEnrichmentProcess,
+    MiddleAramaicGenAIEnrichmentProcess,
+    MiddleArmenianGenAIEnrichmentProcess,
+    MiddleBretonGenAIEnrichmentProcess,
+    MiddleChineseGenAIEnrichmentProcess,
+    MiddleCornishGenAIEnrichmentProcess,
+    MiddleEgyptianGenAIEnrichmentProcess,
+    MiddleEnglishGenAIEnrichmentProcess,
+    MiddleFrenchGenAIEnrichmentProcess,
+    MiddleHighGermanGenAIEnrichmentProcess,
+    MiddleMongolGenAIEnrichmentProcess,
+    MiddlePersianGenAIEnrichmentProcess,
+    MoabiteGenAIEnrichmentProcess,
+    MogholiGenAIEnrichmentProcess,
+    NewarGenAIEnrichmentProcess,
+    NumidianGenAIEnrichmentProcess,
+    OdiaGenAIEnrichmentProcess,
+    OfficialAramaicGenAIEnrichmentProcess,
+    OldAramaicGenAIEnrichmentProcess,
+    OldAramaicSamalianGenAIEnrichmentProcess,
+    OldBurmeseGenAIEnrichmentProcess,
+    OldChineseGenAIEnrichmentProcess,
+    OldEgyptianGenAIEnrichmentProcess,
+    OldEnglishGenAIEnrichmentProcess,
+    OldFrenchGenAIEnrichmentProcess,
+    OldHighGermanGenAIEnrichmentProcess,
+    OldHungarianGenAIEnrichmentProcess,
+    OldJapaneseGenAIEnrichmentProcess,
+    OldJurchenGenAIEnrichmentProcess,
+    OldMiddleWelshGenAIEnrichmentProcess,
+    OldNorseGenAIEnrichmentProcess,
+    OldPersianGenAIEnrichmentProcess,
+    OldPrussianGenAIEnrichmentProcess,
+    OldTamilGenAIEnrichmentProcess,
+    OldTurkicGenAIEnrichmentProcess,
+    PalaicGenAIEnrichmentProcess,
+    PaliGenAIEnrichmentProcess,
+    ParthianGenAIEnrichmentProcess,
+    PhoenicianGenAIEnrichmentProcess,
+    SamalianGenAIEnrichmentProcess,
+    SauraseniPrakritGenAIEnrichmentProcess,
+    SgawKarenGenAIEnrichmentProcess,
+    SindhiGenAIEnrichmentProcess,
+    SinhalaGenAIEnrichmentProcess,
+    SogdianGenAIEnrichmentProcess,
+    TaitaGenAIEnrichmentProcess,
+    TangutGenAIEnrichmentProcess,
+    TokharianAGenAIEnrichmentProcess,
+    TokharianBGenAIEnrichmentProcess,
+    TumshuqeseGenAIEnrichmentProcess,
+    UgariticGenAIEnrichmentProcess,
+    UrduGenAIEnrichmentProcess,
+    VedicSanskritGenAIEnrichmentProcess,
+)
 from cltk.morphosyntax.processes import (
     AkkadianGenAIMorphosyntaxProcess,
     AlbanianGenAIMorphosyntaxProcess,
@@ -417,6 +524,7 @@ class AkkadianGenAIPipeline(Pipeline):
             AkkadianSentenceSplittingProcess,
             AkkadianGenAIMorphosyntaxProcess,
             AkkadianGenAIDependencyProcess,
+            AkkadianGenAIEnrichmentProcess,
         ]
     )
 
@@ -439,6 +547,7 @@ class ClassicalArabicGenAIPipeline(Pipeline):
             ClassicalArabicSentenceSplittingProcess,
             ClassicalArabicGenAIMorphosyntaxProcess,
             ClassicalArabicGenAIDependencyProcess,
+            ClassicalArabicGenAIEnrichmentProcess,
         ]
     )
 
@@ -461,6 +570,7 @@ class ClassicalSyriacGenAIPipeline(Pipeline):
             ClassicalSyriacSentenceSplittingProcess,
             ClassicalSyriacGenAIMorphosyntaxProcess,
             ClassicalSyriacGenAIDependencyProcess,
+            ClassicalSyriacGenAIEnrichmentProcess,
         ]
     )
 
@@ -506,6 +616,7 @@ class CopticGenAIPipeline(Pipeline):
             CopticSentenceSplittingProcess,
             CopticGenAIMorphosyntaxProcess,
             CopticGenAIDependencyProcess,
+            CopticGenAIEnrichmentProcess,
         ]
     )
 
@@ -521,6 +632,7 @@ class GothicGenAIPipeline(Pipeline):
             GothicSentenceSplittingProcess,
             GothicGenAIMorphosyntaxProcess,
             GothicGenAIDependencyProcess,
+            GothicGenAIEnrichmentProcess,
         ]
     )
 
@@ -543,6 +655,7 @@ class AncientGreekGenAIPipeline(Pipeline):
             AncientGreekSentenceSplittingProcess,
             AncientGreekGenAIMorphosyntaxProcess,
             AncientGreekGenAIDependencyProcess,
+            AncientGreekGenAIEnrichmentProcess,
         ]
     )
 
@@ -564,6 +677,7 @@ class BiblicalHebrewGenAIPipeline(Pipeline):
             AncientHebrewSentenceSplittingProcess,
             BiblicalHebrewGenAIMorphosyntaxProcess,
             BiblicalHebrewGenAIDependencyProcess,
+            BiblicalHebrewGenAIEnrichmentProcess,
         ]
     )
 
@@ -584,6 +698,7 @@ class LatinGenAIPipeline(Pipeline):
             LatinSentenceSplittingProcess,
             LatinGenAIMorphosyntaxProcess,
             LatinGenAIDependencyProcess,
+            LatinGenAIEnrichmentProcess,
         ]
     )
 
@@ -603,6 +718,7 @@ class MiddleEnglishGenAIPipeline(Pipeline):
             MiddleEnglishSentenceSplittingProcess,
             MiddleEnglishGenAIMorphosyntaxProcess,
             MiddleEnglishGenAIDependencyProcess,
+            MiddleEnglishGenAIEnrichmentProcess,
         ]
     )
 
@@ -624,6 +740,7 @@ class MiddleFrenchGenAIPipeline(Pipeline):
             MiddleFrenchSentenceSplittingProcess,
             MiddleFrenchGenAIMorphosyntaxProcess,
             MiddleFrenchGenAIDependencyProcess,
+            MiddleFrenchGenAIEnrichmentProcess,
         ]
     )
 
@@ -645,6 +762,7 @@ class MiddlePersianGenAIPipeline(Pipeline):
             MiddlePersianSentenceSplittingProcess,
             MiddlePersianGenAIMorphosyntaxProcess,
             MiddlePersianGenAIDependencyProcess,
+            MiddlePersianGenAIEnrichmentProcess,
         ]
     )
 
@@ -666,6 +784,7 @@ class ImperialAramaicGenAIPipeline(Pipeline):
             OfficialAramaicSentenceSplittingProcess,
             OfficialAramaicGenAIMorphosyntaxProcess,
             OfficialAramaicGenAIDependencyProcess,
+            OfficialAramaicGenAIEnrichmentProcess,
         ]
     )
 
@@ -681,6 +800,7 @@ class ChurchSlavonicGenAIPipeline(Pipeline):
             ChurchSlavonicSentenceSplittingProcess,
             ChurchSlavicGenAIMorphosyntaxProcess,
             ChurchSlavicGenAIDependencyProcess,
+            ChurchSlavicGenAIEnrichmentProcess,
         ]
     )
 
@@ -702,6 +822,7 @@ class OldEnglishGenAIPipeline(Pipeline):
             OldEnglishSentenceSplittingProcess,
             OldEnglishGenAIMorphosyntaxProcess,
             OldEnglishGenAIDependencyProcess,
+            OldEnglishGenAIEnrichmentProcess,
         ]
     )
 
@@ -724,6 +845,7 @@ class OldFrenchGenAIPipeline(Pipeline):
             OldFrenchSentenceSplittingProcess,
             OldFrenchGenAIMorphosyntaxProcess,
             OldFrenchGenAIDependencyProcess,
+            OldFrenchGenAIEnrichmentProcess,
         ]
     )
 
@@ -745,6 +867,7 @@ class OldNorseGenAIPipeline(Pipeline):
             OldNorseSentenceSplittingProcess,
             OldNorseGenAIMorphosyntaxProcess,
             OldNorseGenAIDependencyProcess,
+            OldNorseGenAIEnrichmentProcess,
         ]
     )
 
@@ -766,6 +889,7 @@ class PaliGenAIPipeline(Pipeline):
             PaliSentenceSplittingProcess,
             PaliGenAIMorphosyntaxProcess,
             PaliGenAIDependencyProcess,
+            PaliGenAIEnrichmentProcess,
         ]
     )
 
@@ -785,6 +909,7 @@ class ClassicalSanskritGenAIPipeline(Pipeline):
             ClassicalSanskritSentenceSplittingProcess,
             ClassicalSanskritGenAIMorphosyntaxProcess,
             ClassicalSanskritGenAIDependencyProcess,
+            ClassicalSanskritGenAIEnrichmentProcess,
         ]
     )
 
@@ -806,6 +931,7 @@ class VedicSanskritGenAIPipeline(Pipeline):
             VedicSanskritSentenceSplittingProcess,
             VedicSanskritGenAIMorphosyntaxProcess,
             VedicSanskritGenAIDependencyProcess,
+            VedicSanskritGenAIEnrichmentProcess,
         ]
     )
 
@@ -828,6 +954,7 @@ class OldHighGermanGenAIPipeline(Pipeline):
             OldHighGermanSentenceSplittingProcess,
             OldHighGermanGenAIMorphosyntaxProcess,
             OldHighGermanGenAIDependencyProcess,
+            OldHighGermanGenAIEnrichmentProcess,
         ]
     )
 
@@ -849,6 +976,7 @@ class MiddleHighGermanGenAIPipeline(Pipeline):
             MiddleHighGermanSentenceSplittingProcess,
             MiddleHighGermanGenAIMorphosyntaxProcess,
             MiddleHighGermanGenAIDependencyProcess,
+            MiddleHighGermanGenAIEnrichmentProcess,
         ]
     )
 
@@ -872,6 +1000,7 @@ class LiteraryChineseGenAIPipeline(Pipeline):
             LiteraryChineseSentenceSplittingProcess,
             LiteraryChineseGenAIMorphosyntaxProcess,
             LiteraryChineseGenAIDependencyProcess,
+            LiteraryChineseGenAIEnrichmentProcess,
         ]
     )
 
@@ -1074,6 +1203,7 @@ class DemoticGenAIPipeline(Pipeline):
             DemoticSentenceSplittingProcess,
             DemoticGenAIMorphosyntaxProcess,
             DemoticGenAIDependencyProcess,
+            DemoticGenAIEnrichmentProcess,
         ]
     )
 
@@ -1095,6 +1225,7 @@ class HittiteGenAIPipeline(Pipeline):
             HittiteSentenceSplittingProcess,
             HittiteGenAIMorphosyntaxProcess,
             HittiteGenAIDependencyProcess,
+            HittiteGenAIEnrichmentProcess,
         ]
     )
 
@@ -1116,6 +1247,7 @@ class TocharianAGenAIPipeline(Pipeline):
             TocharianASentenceSplittingProcess,
             TokharianAGenAIMorphosyntaxProcess,
             TokharianAGenAIDependencyProcess,
+            TokharianAGenAIEnrichmentProcess,
         ]
     )
 
@@ -1137,6 +1269,7 @@ class TocharianBGenAIPipeline(Pipeline):
             TocharianBSentenceSplittingProcess,
             TokharianBGenAIMorphosyntaxProcess,
             TokharianBGenAIDependencyProcess,
+            TokharianBGenAIEnrichmentProcess,
         ]
     )
 
@@ -1158,6 +1291,7 @@ class AvestanGenAIPipeline(Pipeline):
             AvestanSentenceSplittingProcess,
             AvestanGenAIMorphosyntaxProcess,
             AvestanGenAIDependencyProcess,
+            AvestanGenAIEnrichmentProcess,
         ]
     )
 
@@ -1179,6 +1313,7 @@ class BactrianGenAIPipeline(Pipeline):
             BactrianSentenceSplittingProcess,
             BactrianGenAIMorphosyntaxProcess,
             BactrianGenAIDependencyProcess,
+            BactrianGenAIEnrichmentProcess,
         ]
     )
 
@@ -1200,6 +1335,7 @@ class SogdianGenAIPipeline(Pipeline):
             SogdianSentenceSplittingProcess,
             SogdianGenAIMorphosyntaxProcess,
             SogdianGenAIDependencyProcess,
+            SogdianGenAIEnrichmentProcess,
         ]
     )
 
@@ -1221,6 +1357,7 @@ class KhotaneseGenAIPipeline(Pipeline):
             KhotaneseSentenceSplittingProcess,
             KhotaneseGenAIMorphosyntaxProcess,
             KhotaneseGenAIDependencyProcess,
+            KhotaneseGenAIEnrichmentProcess,
         ]
     )
 
@@ -1242,6 +1379,7 @@ class TumshuqeseGenAIPipeline(Pipeline):
             TumshuqeseSentenceSplittingProcess,
             TumshuqeseGenAIMorphosyntaxProcess,
             TumshuqeseGenAIDependencyProcess,
+            TumshuqeseGenAIEnrichmentProcess,
         ]
     )
 
@@ -1263,6 +1401,7 @@ class OldPersianGenAIPipeline(Pipeline):
             OldPersianSentenceSplittingProcess,
             OldPersianGenAIMorphosyntaxProcess,
             OldPersianGenAIDependencyProcess,
+            OldPersianGenAIEnrichmentProcess,
         ]
     )
 
@@ -1284,6 +1423,7 @@ class EarlyIrishGenAIPipeline(Pipeline):
             EarlyIrishSentenceSplittingProcess,
             EarlyIrishGenAIMorphosyntaxProcess,
             EarlyIrishGenAIDependencyProcess,
+            EarlyIrishGenAIEnrichmentProcess,
         ]
     )
 
@@ -1305,6 +1445,7 @@ class UgariticGenAIPipeline(Pipeline):
             UgariticSentenceSplittingProcess,
             UgariticGenAIMorphosyntaxProcess,
             UgariticGenAIDependencyProcess,
+            UgariticGenAIEnrichmentProcess,
         ]
     )
 
@@ -1326,6 +1467,7 @@ class PhoenicianGenAIPipeline(Pipeline):
             PhoenicianSentenceSplittingProcess,
             PhoenicianGenAIMorphosyntaxProcess,
             PhoenicianGenAIDependencyProcess,
+            PhoenicianGenAIEnrichmentProcess,
         ]
     )
 
@@ -1347,6 +1489,7 @@ class GeezGenAIPipeline(Pipeline):
             GeezSentenceSplittingProcess,
             GeezGenAIMorphosyntaxProcess,
             GeezGenAIDependencyProcess,
+            GeezGenAIEnrichmentProcess,
         ]
     )
 
@@ -1368,6 +1511,7 @@ class MiddleEgyptianGenAIPipeline(Pipeline):
             MiddleEgyptianSentenceSplittingProcess,
             MiddleEgyptianGenAIMorphosyntaxProcess,
             MiddleEgyptianGenAIDependencyProcess,
+            MiddleEgyptianGenAIEnrichmentProcess,
         ]
     )
 
@@ -1389,6 +1533,7 @@ class OldEgyptianGenAIPipeline(Pipeline):
             OldEgyptianSentenceSplittingProcess,
             OldEgyptianGenAIMorphosyntaxProcess,
             OldEgyptianGenAIDependencyProcess,
+            OldEgyptianGenAIEnrichmentProcess,
         ]
     )
 
@@ -1410,6 +1555,7 @@ class LateEgyptianGenAIPipeline(Pipeline):
             LateEgyptianSentenceSplittingProcess,
             LateEgyptianGenAIMorphosyntaxProcess,
             LateEgyptianGenAIDependencyProcess,
+            LateEgyptianGenAIEnrichmentProcess,
         ]
     )
 
@@ -1431,6 +1577,7 @@ class ParthianGenAIPipeline(Pipeline):
             ParthianSentenceSplittingProcess,
             ParthianGenAIMorphosyntaxProcess,
             ParthianGenAIDependencyProcess,
+            ParthianGenAIEnrichmentProcess,
         ]
     )
 
@@ -1452,6 +1599,7 @@ class OldMiddleWelshGenAIPipeline(Pipeline):
             OldMiddleWelshSentenceSplittingProcess,
             OldMiddleWelshGenAIMorphosyntaxProcess,
             OldMiddleWelshGenAIDependencyProcess,
+            OldMiddleWelshGenAIEnrichmentProcess,
         ]
     )
 
@@ -1473,6 +1621,7 @@ class MiddleBretonGenAIPipeline(Pipeline):
             MiddleBretonSentenceSplittingProcess,
             MiddleBretonGenAIMorphosyntaxProcess,
             MiddleBretonGenAIDependencyProcess,
+            MiddleBretonGenAIEnrichmentProcess,
         ]
     )
 
@@ -1483,7 +1632,7 @@ class MiddleBretonGenAIPipeline(Pipeline):
         plog(self).info("MiddleBretonGenAIPipeline created.")
 
 
-class CornishGenAIPipeline(Pipeline):
+class MiddleCornishGenAIPipeline(Pipeline):
     """Default ``Pipeline`` for Cornish."""
 
     description: Optional[str] = "Pipeline for the Cornish language"
@@ -1494,6 +1643,7 @@ class CornishGenAIPipeline(Pipeline):
             MiddleCornishSentenceSplittingProcess,
             MiddleCornishGenAIMorphosyntaxProcess,
             MiddleCornishGenAIDependencyProcess,
+            MiddleCornishGenAIEnrichmentProcess,
         ]
     )
 
@@ -1515,6 +1665,7 @@ class OldPrussianGenAIPipeline(Pipeline):
             OldPrussianSentenceSplittingProcess,
             OldPrussianGenAIMorphosyntaxProcess,
             OldPrussianGenAIDependencyProcess,
+            OldPrussianGenAIEnrichmentProcess,
         ]
     )
 
@@ -1536,6 +1687,7 @@ class LithuanianGenAIPipeline(Pipeline):
             LithuanianSentenceSplittingProcess,
             LithuanianGenAIMorphosyntaxProcess,
             LithuanianGenAIDependencyProcess,
+            LithuanianGenAIEnrichmentProcess,
         ]
     )
 
@@ -1557,6 +1709,7 @@ class LatvianGenAIPipeline(Pipeline):
             LatvianSentenceSplittingProcess,
             LatvianGenAIMorphosyntaxProcess,
             LatvianGenAIDependencyProcess,
+            LatvianGenAIEnrichmentProcess,
         ]
     )
 
@@ -1578,6 +1731,7 @@ class AlbanianGenAIPipeline(Pipeline):
             AlbanianSentenceSplittingProcess,
             AlbanianGenAIMorphosyntaxProcess,
             AlbanianGenAIDependencyProcess,
+            AlbanianGenAIEnrichmentProcess,
         ]
     )
 
@@ -1599,6 +1753,7 @@ class ClassicalArmenianGenAIPipeline(Pipeline):
             ClassicalArmenianSentenceSplittingProcess,
             ClassicalArmenianGenAIMorphosyntaxProcess,
             ClassicalArmenianGenAIDependencyProcess,
+            ClassicalArmenianGenAIEnrichmentProcess,
         ]
     )
 
@@ -1620,6 +1775,7 @@ class MiddleArmenianGenAIPipeline(Pipeline):
             MiddleArmenianSentenceSplittingProcess,
             MiddleArmenianGenAIMorphosyntaxProcess,
             MiddleArmenianGenAIDependencyProcess,
+            MiddleArmenianGenAIEnrichmentProcess,
         ]
     )
 
@@ -1640,6 +1796,7 @@ class CuneiformLuwianGenAIPipeline(Pipeline):
             CuneiformLuwianSentenceSplittingProcess,
             CuneiformLuwianGenAIMorphosyntaxProcess,
             CuneiformLuwianGenAIDependencyProcess,
+            CuneiformLuwianGenAIEnrichmentProcess,
         ]
     )
 
@@ -1661,6 +1818,7 @@ class HieroglyphicLuwianGenAIPipeline(Pipeline):
             HieroglyphicLuwianSentenceSplittingProcess,
             HieroglyphicLuwianGenAIMorphosyntaxProcess,
             HieroglyphicLuwianGenAIDependencyProcess,
+            HieroglyphicLuwianGenAIEnrichmentProcess,
         ]
     )
 
@@ -1682,6 +1840,7 @@ class LycianAGenAIPipeline(Pipeline):
             LycianASentenceSplittingProcess,
             LycianAGenAIMorphosyntaxProcess,
             LycianAGenAIDependencyProcess,
+            LycianAGenAIEnrichmentProcess,
         ]
     )
 
@@ -1703,6 +1862,7 @@ class LydianGenAIPipeline(Pipeline):
             LydianSentenceSplittingProcess,
             LydianGenAIMorphosyntaxProcess,
             LydianGenAIDependencyProcess,
+            LydianGenAIEnrichmentProcess,
         ]
     )
 
@@ -1724,6 +1884,7 @@ class PalaicGenAIPipeline(Pipeline):
             PalaicSentenceSplittingProcess,
             PalaicGenAIMorphosyntaxProcess,
             PalaicGenAIDependencyProcess,
+            PalaicGenAIEnrichmentProcess,
         ]
     )
 
@@ -1745,6 +1906,7 @@ class CarianGenAIPipeline(Pipeline):
             CarianSentenceSplittingProcess,
             CarianGenAIMorphosyntaxProcess,
             CarianGenAIDependencyProcess,
+            CarianGenAIEnrichmentProcess,
         ]
     )
 
@@ -1765,6 +1927,7 @@ class SauraseniPrakritGenAIPipeline(Pipeline):
             SauraseniPrakritSentenceSplittingProcess,
             SauraseniPrakritGenAIMorphosyntaxProcess,
             SauraseniPrakritGenAIDependencyProcess,
+            SauraseniPrakritGenAIEnrichmentProcess,
         ]
     )
 
@@ -1786,6 +1949,7 @@ class MaharastriPrakritGenAIPipeline(Pipeline):
             MaharastriPrakritSentenceSplittingProcess,
             MaharastriPrakritGenAIMorphosyntaxProcess,
             MaharastriPrakritGenAIDependencyProcess,
+            MaharastriPrakritGenAIEnrichmentProcess,
         ]
     )
 
@@ -1807,6 +1971,7 @@ class MagadhiPrakritGenAIPipeline(Pipeline):
             MagadhiPrakritSentenceSplittingProcess,
             MagadhiPrakritGenAIMorphosyntaxProcess,
             MagadhiPrakritGenAIDependencyProcess,
+            MagadhiPrakritGenAIEnrichmentProcess,
         ]
     )
 
@@ -1828,6 +1993,7 @@ class GandhariGenAIPipeline(Pipeline):
             GandhariSentenceSplittingProcess,
             GandhariGenAIMorphosyntaxProcess,
             GandhariGenAIDependencyProcess,
+            GandhariGenAIEnrichmentProcess,
         ]
     )
 
@@ -1850,6 +2016,7 @@ class HindiGenAIPipeline(Pipeline):
             HindiSentenceSplittingProcess,
             HindiGenAIMorphosyntaxProcess,
             HindiGenAIDependencyProcess,
+            HindiGenAIEnrichmentProcess,
         ]
     )
 
@@ -1871,6 +2038,7 @@ class KhariBoliGenAIPipeline(Pipeline):
             KhariBoliSentenceSplittingProcess,
             KhariBoliGenAIMorphosyntaxProcess,
             KhariBoliGenAIDependencyProcess,
+            KhariBoliGenAIEnrichmentProcess,
         ]
     )
 
@@ -1892,6 +2060,7 @@ class BrajGenAIPipeline(Pipeline):
             BrajSentenceSplittingProcess,
             BrajGenAIMorphosyntaxProcess,
             BrajGenAIDependencyProcess,
+            BrajGenAIEnrichmentProcess,
         ]
     )
 
@@ -1913,6 +2082,7 @@ class AwadhiGenAIPipeline(Pipeline):
             AwadhiSentenceSplittingProcess,
             AwadhiGenAIMorphosyntaxProcess,
             AwadhiGenAIDependencyProcess,
+            AwadhiGenAIEnrichmentProcess,
         ]
     )
 
@@ -1934,6 +2104,7 @@ class UrduGenAIPipeline(Pipeline):
             UrduSentenceSplittingProcess,
             UrduGenAIMorphosyntaxProcess,
             UrduGenAIDependencyProcess,
+            UrduGenAIEnrichmentProcess,
         ]
     )
 
@@ -1956,6 +2127,7 @@ class BengaliGenAIPipeline(Pipeline):
             BengaliSentenceSplittingProcess,
             BengaliGenAIMorphosyntaxProcess,
             BengaliGenAIDependencyProcess,
+            BengaliGenAIEnrichmentProcess,
         ]
     )
 
@@ -1977,6 +2149,7 @@ class OdiaGenAIPipeline(Pipeline):
             OdiaSentenceSplittingProcess,
             OdiaGenAIMorphosyntaxProcess,
             OdiaGenAIDependencyProcess,
+            OdiaGenAIEnrichmentProcess,
         ]
     )
 
@@ -1998,6 +2171,7 @@ class AssameseGenAIPipeline(Pipeline):
             AssameseSentenceSplittingProcess,
             AssameseGenAIMorphosyntaxProcess,
             AssameseGenAIDependencyProcess,
+            AssameseGenAIEnrichmentProcess,
         ]
     )
 
@@ -2019,6 +2193,7 @@ class GujaratiGenAIPipeline(Pipeline):
             GujaratiSentenceSplittingProcess,
             GujaratiGenAIMorphosyntaxProcess,
             GujaratiGenAIDependencyProcess,
+            GujaratiGenAIEnrichmentProcess,
         ]
     )
 
@@ -2040,6 +2215,7 @@ class MarathiGenAIPipeline(Pipeline):
             MarathiSentenceSplittingProcess,
             MarathiGenAIMorphosyntaxProcess,
             MarathiGenAIDependencyProcess,
+            MarathiGenAIEnrichmentProcess,
         ]
     )
 
@@ -2061,6 +2237,7 @@ class SinhalaGenAIPipeline(Pipeline):
             SinhalaSentenceSplittingProcess,
             SinhalaGenAIMorphosyntaxProcess,
             SinhalaGenAIDependencyProcess,
+            SinhalaGenAIEnrichmentProcess,
         ]
     )
 
@@ -2082,6 +2259,7 @@ class EasternPanjabiGenAIPipeline(Pipeline):
             PanjabiSentenceSplittingProcess,
             EasternPanjabiGenAIMorphosyntaxProcess,
             EasternPanjabiGenAIDependencyProcess,
+            EasternPanjabiGenAIEnrichmentProcess,
         ]
     )
 
@@ -2103,6 +2281,7 @@ class SindhiGenAIPipeline(Pipeline):
             SindhiSentenceSplittingProcess,
             SindhiGenAIMorphosyntaxProcess,
             SindhiGenAIDependencyProcess,
+            SindhiGenAIEnrichmentProcess,
         ]
     )
 
@@ -2124,6 +2303,7 @@ class KashmiriGenAIPipeline(Pipeline):
             KashmiriSentenceSplittingProcess,
             KashmiriGenAIMorphosyntaxProcess,
             KashmiriGenAIDependencyProcess,
+            KashmiriGenAIEnrichmentProcess,
         ]
     )
 
@@ -2146,6 +2326,7 @@ class OldChineseGenAIPipeline(Pipeline):
             OldChineseSentenceSplittingProcess,
             OldChineseGenAIMorphosyntaxProcess,
             OldChineseGenAIDependencyProcess,
+            OldChineseGenAIEnrichmentProcess,
         ]
     )
 
@@ -2161,6 +2342,7 @@ class MiddleChineseGenAIPipeline(Pipeline):
             MiddleChineseSentenceSplittingProcess,
             MiddleChineseGenAIMorphosyntaxProcess,
             MiddleChineseGenAIDependencyProcess,
+            MiddleChineseGenAIEnrichmentProcess,
         ]
     )
 
@@ -2176,6 +2358,7 @@ class BaihuaChineseGenAIPipeline(Pipeline):
             BaihuaChineseSentenceSplittingProcess,
             BaihuaChineseGenAIMorphosyntaxProcess,
             BaihuaChineseGenAIDependencyProcess,
+            BaihuaChineseGenAIEnrichmentProcess,
         ]
     )
 
@@ -2191,6 +2374,7 @@ class OldBurmeseGenAIPipeline(Pipeline):
             OldBurmeseSentenceSplittingProcess,
             OldBurmeseGenAIMorphosyntaxProcess,
             OldBurmeseGenAIDependencyProcess,
+            OldBurmeseGenAIEnrichmentProcess,
         ]
     )
 
@@ -2206,6 +2390,7 @@ class ClassicalBurmeseGenAIPipeline(Pipeline):
             ClassicalBurmeseSentenceSplittingProcess,
             ClassicalBurmeseGenAIMorphosyntaxProcess,
             ClassicalBurmeseGenAIDependencyProcess,
+            ClassicalBurmeseGenAIEnrichmentProcess,
         ]
     )
 
@@ -2221,6 +2406,7 @@ class TangutGenAIPipeline(Pipeline):
             TangutSentenceSplittingProcess,
             TangutGenAIMorphosyntaxProcess,
             TangutGenAIDependencyProcess,
+            TangutGenAIEnrichmentProcess,
         ]
     )
 
@@ -2236,6 +2422,7 @@ class NewarGenAIPipeline(Pipeline):
             NewarSentenceSplittingProcess,
             NewarGenAIMorphosyntaxProcess,
             NewarGenAIDependencyProcess,
+            NewarGenAIEnrichmentProcess,
         ]
     )
 
@@ -2251,6 +2438,7 @@ class MeiteiGenAIPipeline(Pipeline):
             MeiteiSentenceSplittingProcess,
             MeiteiGenAIMorphosyntaxProcess,
             MeiteiGenAIDependencyProcess,
+            MeiteiGenAIEnrichmentProcess,
         ]
     )
 
@@ -2266,6 +2454,7 @@ class SgawKarenGenAIPipeline(Pipeline):
             SgawKarenSentenceSplittingProcess,
             SgawKarenGenAIMorphosyntaxProcess,
             SgawKarenGenAIDependencyProcess,
+            SgawKarenGenAIEnrichmentProcess,
         ]
     )
 
@@ -2281,6 +2470,7 @@ class MiddleMongolGenAIPipeline(Pipeline):
             MiddleMongolSentenceSplittingProcess,
             MiddleMongolGenAIMorphosyntaxProcess,
             MiddleMongolGenAIDependencyProcess,
+            MiddleMongolGenAIEnrichmentProcess,
         ]
     )
 
@@ -2296,6 +2486,7 @@ class ClassicalMongolianGenAIPipeline(Pipeline):
             ClassicalMongolianSentenceSplittingProcess,
             ClassicalMongolianGenAIMorphosyntaxProcess,
             ClassicalMongolianGenAIDependencyProcess,
+            ClassicalMongolianGenAIEnrichmentProcess,
         ]
     )
 
@@ -2311,6 +2502,7 @@ class MogholiGenAIPipeline(Pipeline):
             MogholiSentenceSplittingProcess,
             MogholiGenAIMorphosyntaxProcess,
             MogholiGenAIDependencyProcess,
+            MogholiGenAIEnrichmentProcess,
         ]
     )
 
@@ -2326,6 +2518,7 @@ class BagriGenAIPipeline(Pipeline):
             BagriSentenceSplittingProcess,
             BagriGenAIMorphosyntaxProcess,
             BagriGenAIDependencyProcess,
+            BagriGenAIEnrichmentProcess,
         ]
     )
 
@@ -2348,6 +2541,7 @@ class NumidianGenAIPipeline(Pipeline):
             NumidianSentenceSplittingProcess,
             NumidianGenAIMorphosyntaxProcess,
             NumidianGenAIDependencyProcess,
+            NumidianGenAIEnrichmentProcess,
         ]
     )
 
@@ -2363,6 +2557,7 @@ class TaitaGenAIPipeline(Pipeline):
             TaitaSentenceSplittingProcess,
             TaitaGenAIMorphosyntaxProcess,
             TaitaGenAIDependencyProcess,
+            TaitaGenAIEnrichmentProcess,
         ]
     )
 
@@ -2378,6 +2573,7 @@ class HausaGenAIPipeline(Pipeline):
             HausaSentenceSplittingProcess,
             HausaGenAIMorphosyntaxProcess,
             HausaGenAIDependencyProcess,
+            HausaGenAIEnrichmentProcess,
         ]
     )
 
@@ -2393,6 +2589,7 @@ class OldJurchenGenAIPipeline(Pipeline):
             OldJurchenSentenceSplittingProcess,
             OldJurchenGenAIMorphosyntaxProcess,
             OldJurchenGenAIDependencyProcess,
+            OldJurchenGenAIEnrichmentProcess,
         ]
     )
 
@@ -2408,6 +2605,7 @@ class OldJapaneseGenAIPipeline(Pipeline):
             OldJapaneseSentenceSplittingProcess,
             OldJapaneseGenAIMorphosyntaxProcess,
             OldJapaneseGenAIDependencyProcess,
+            OldJapaneseGenAIEnrichmentProcess,
         ]
     )
 
@@ -2423,6 +2621,7 @@ class OldHungarianGenAIPipeline(Pipeline):
             OldHungarianSentenceSplittingProcess,
             OldHungarianGenAIMorphosyntaxProcess,
             OldHungarianGenAIDependencyProcess,
+            OldHungarianGenAIEnrichmentProcess,
         ]
     )
 
@@ -2438,6 +2637,7 @@ class ChagataiGenAIPipeline(Pipeline):
             ChagataiSentenceSplittingProcess,
             ChagataiGenAIMorphosyntaxProcess,
             ChagataiGenAIDependencyProcess,
+            ChagataiGenAIEnrichmentProcess,
         ]
     )
 
@@ -2453,6 +2653,7 @@ class OldTurkicGenAIPipeline(Pipeline):
             OldTurkicSentenceSplittingProcess,
             OldTurkicGenAIMorphosyntaxProcess,
             OldTurkicGenAIDependencyProcess,
+            OldTurkicGenAIEnrichmentProcess,
         ]
     )
 
@@ -2468,6 +2669,7 @@ class OldTamilGenAIPipeline(Pipeline):
             OldTamilSentenceSplittingProcess,
             OldTamilGenAIMorphosyntaxProcess,
             OldTamilGenAIDependencyProcess,
+            OldTamilGenAIEnrichmentProcess,
         ]
     )
 
@@ -2484,6 +2686,7 @@ class MoabiteGenAIPipeline(Pipeline):
             MoabiteSentenceSplittingProcess,
             MoabiteGenAIMorphosyntaxProcess,
             MoabiteGenAIDependencyProcess,
+            MoabiteGenAIEnrichmentProcess,
         ]
     )
 
@@ -2499,6 +2702,7 @@ class AmmoniteGenAIPipeline(Pipeline):
             AmmoniteSentenceSplittingProcess,
             AmmoniteGenAIMorphosyntaxProcess,
             AmmoniteGenAIDependencyProcess,
+            AmmoniteGenAIEnrichmentProcess,
         ]
     )
 
@@ -2514,6 +2718,7 @@ class EdomiteGenAIPipeline(Pipeline):
             EdomiteSentenceSplittingProcess,
             EdomiteGenAIMorphosyntaxProcess,
             EdomiteGenAIDependencyProcess,
+            EdomiteGenAIEnrichmentProcess,
         ]
     )
 
@@ -2529,6 +2734,7 @@ class OldAramaicGenAIPipeline(Pipeline):
             OldAramaicSentenceSplittingProcess,
             OldAramaicGenAIMorphosyntaxProcess,
             OldAramaicGenAIDependencyProcess,
+            OldAramaicGenAIEnrichmentProcess,
         ]
     )
 
@@ -2544,6 +2750,7 @@ class OldAramaicSamalianGenAIPipeline(Pipeline):
             OldAramaicSamalianSentenceSplittingProcess,
             OldAramaicSamalianGenAIMorphosyntaxProcess,
             OldAramaicSamalianGenAIDependencyProcess,
+            OldAramaicSamalianGenAIEnrichmentProcess,
         ]
     )
 
@@ -2559,6 +2766,7 @@ class MiddleAramaicGenAIPipeline(Pipeline):
             MiddleAramaicSentenceSplittingProcess,
             MiddleAramaicGenAIMorphosyntaxProcess,
             MiddleAramaicGenAIDependencyProcess,
+            MiddleAramaicGenAIEnrichmentProcess,
         ]
     )
 
@@ -2574,6 +2782,7 @@ class ClassicalMandaicGenAIPipeline(Pipeline):
             ClassicalMandaicSentenceSplittingProcess,
             ClassicalMandaicGenAIMorphosyntaxProcess,
             ClassicalMandaicGenAIDependencyProcess,
+            ClassicalMandaicGenAIEnrichmentProcess,
         ]
     )
 
@@ -2589,6 +2798,7 @@ class HatranGenAIPipeline(Pipeline):
             HatranSentenceSplittingProcess,
             HatranGenAIMorphosyntaxProcess,
             HatranGenAIDependencyProcess,
+            HatranGenAIEnrichmentProcess,
         ]
     )
 
@@ -2604,6 +2814,7 @@ class JewishBabylonianAramaicGenAIPipeline(Pipeline):
             JewishBabylonianAramaicSentenceSplittingProcess,
             JewishBabylonianAramaicGenAIMorphosyntaxProcess,
             JewishBabylonianAramaicGenAIDependencyProcess,
+            JewishBabylonianAramaicGenAIEnrichmentProcess,
         ]
     )
 
@@ -2619,6 +2830,7 @@ class SamalianGenAIPipeline(Pipeline):
             SamalianSentenceSplittingProcess,
             SamalianGenAIMorphosyntaxProcess,
             SamalianGenAIDependencyProcess,
+            SamalianGenAIEnrichmentProcess,
         ]
     )
 
@@ -2656,7 +2868,7 @@ MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, type[Pipeline]] = {
     "oldi1245": EarlyIrishGenAIPipeline,
     "oldw1239": OldMiddleWelshGenAIPipeline,
     "bret1244": MiddleBretonGenAIPipeline,
-    "corn1251": CornishGenAIPipeline,
+    "corn1251": MiddleCornishGenAIPipeline,
     ## Germanic
     # Proto-Norse
     "goth1244": GothicGenAIPipeline,

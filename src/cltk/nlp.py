@@ -22,6 +22,7 @@ from cltk.core.data_types import (
 )
 from cltk.core.exceptions import UnimplementedAlgorithmError
 from cltk.core.logging_utils import bind_from_doc
+from cltk.enrichment.processes import GenAIEnrichmentProcess
 from cltk.languages.glottolog import resolve_languoid
 from cltk.languages.pipelines import (  # MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE_LOCAL,
     MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE,
@@ -169,6 +170,8 @@ class NLP:
         self.pipeline: Pipeline = (
             custom_pipeline if custom_pipeline else self._get_pipeline()
         )
+        # Ensure GenAI enrichment runs after dependency for generative backends.
+        self._maybe_attach_enrichment_process()
         bind_context(
             glottolog_id=self.language_code,
             model=str(self.model) if getattr(self, "model", None) else None,
@@ -312,6 +315,26 @@ class NLP:
             # + "\n"
             + Style.RESET_ALL
         )
+
+    def _maybe_attach_enrichment_process(self) -> None:
+        """Append GenAI enrichment to generative pipelines if missing."""
+        if self.backend not in ("openai", "ollama", "ollama-cloud", "mistral"):
+            return
+        try:
+            processes = (
+                self.pipeline.processes if self.pipeline.processes is not None else []
+            )
+        except Exception:
+            return
+        for proc in processes:
+            try:
+                if issubclass(proc, GenAIEnrichmentProcess):
+                    return
+            except Exception:
+                continue
+        if self.pipeline.processes is None:
+            self.pipeline.processes = []
+        self.pipeline.processes.append(GenAIEnrichmentProcess)
 
     def _get_process_object(self, process_object: type[Process]) -> Process:
         """Instantiate a process passing the resolved ``glottolog_id``.
