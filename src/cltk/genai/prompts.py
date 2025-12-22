@@ -29,6 +29,7 @@ class PromptInfo(BaseModel):
 
 
 def _hash_prompt(kind: str, version: str, text: str) -> str:
+    """Return a short SHA1-based digest for a prompt triple."""
     h = hashlib.sha1()
     h.update(kind.encode("utf-8"))
     h.update(version.encode("utf-8"))

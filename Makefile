@@ -75,7 +75,8 @@ test: typing
 	uv run pytest --cov=cltk --cov-report=term-missing
 
 docstrCoverage:
-	uv run interrogate -c pyproject.toml -v src
+	@echo "Measure and report on documentation coverage in Python modules..."
+	uv run interrogate -c pyproject.toml -vv src
 
 typing:
 	uv run mypy --check-untyped-defs --html-report .mypy_cache src/cltk

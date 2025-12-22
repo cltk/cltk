@@ -13,10 +13,13 @@ from cltk.core.data_types import Doc
 
 
 class HasGlottologId(Protocol):
+    """Protocol for objects exposing a ``glottolog_id`` attribute."""
+
     glottolog_id: Optional[str]
 
 
 def _maybe_hash(text: Optional[str]) -> Optional[str]:
+    """Return a short SHA1 hash of text or None if not available."""
     if not text:
         return None
     try:
@@ -28,6 +31,7 @@ def _maybe_hash(text: Optional[str]) -> Optional[str]:
 
 
 def _glottolog_id_from_doc(doc: Doc) -> Optional[str]:
+    """Extract glottolog_id from a Doc, preferring dialect over language."""
     try:
         if doc.dialect and doc.dialect.glottolog_id:
             return doc.dialect.glottolog_id

@@ -126,6 +126,7 @@ def _parse_enrichment_payload(raw: str) -> dict[str, Any]:
 
 
 def _safe_probability(val: Any) -> Optional[float]:
+    """Return a probability in [0,1] or None if invalid."""
     try:
         fval = float(val)
         if 0.0 <= fval <= 1.0:
@@ -157,6 +158,7 @@ def _build_gloss(gloss_obj: Any) -> Optional[Gloss]:
 
 
 def _build_translations(candidates: Any) -> list[LemmaTranslationCandidate]:
+    """Convert raw translation candidates to LemmaTranslationCandidate objects."""
     out: list[LemmaTranslationCandidate] = []
     if not candidates:
         return out
@@ -177,6 +179,7 @@ def _build_translations(candidates: Any) -> list[LemmaTranslationCandidate]:
 
 
 def _build_orthography(orth_dict: Any) -> Optional[OrthographyHelper]:
+    """Construct an OrthographyHelper from a dict payload."""
     if not isinstance(orth_dict, dict):
         return None
     return OrthographyHelper(
@@ -188,6 +191,7 @@ def _build_orthography(orth_dict: Any) -> Optional[OrthographyHelper]:
 
 
 def _build_pedagogical_notes(notes: Any) -> list[PedagogicalNote]:
+    """Convert raw pedagogical note entries to PedagogicalNote objects."""
     out: list[PedagogicalNote] = []
     if not notes:
         return out
@@ -316,6 +320,7 @@ def _resolve_enrichment_prompt(
     ipa_mode: IPA_PRONUNCIATION_MODE,
     builder: Optional[PromptBuilder],
 ) -> PromptInfo:
+    """Resolve the enrichment prompt from defaults or a custom builder."""
     if builder is None:
         return enrichment_prompt(lang_or_dialect_name, token_table, ipa_mode)
     if isinstance(builder, PromptInfo):
@@ -520,6 +525,7 @@ def generate_gpt_enrichment_concurrent(
         )
 
     def _runner() -> Doc:
+        """Run enrichment inside a worker thread when an event loop exists."""
         return generate_gpt_enrichment(
             doc,
             ipa_mode=ipa_mode,

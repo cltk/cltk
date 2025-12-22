@@ -66,6 +66,7 @@ class StanzaAnalyzeProcess(Process):
     """
 
     def run(self, input_doc: Doc) -> Doc:
+        """Run a Stanza pipeline and populate the Doc with UD annotations."""
         output_doc = Doc(**input_doc.model_dump())
         log = bind_context(
             glottolog_id=getattr(self, "glottolog_id", None), model="stanza"

@@ -30,6 +30,7 @@ class GenAIDependencyProcess(DependencyProcess):
 
     @cached_property
     def algorithm(self) -> Callable[..., Doc]:
+        """Return the dependency generation function for this process."""
         if not self.glottolog_id:
             msg: str = "glottolog_id must be set for DependencyProcess"
             bind_context(glottolog_id=self.glottolog_id).error(msg)
@@ -38,6 +39,7 @@ class GenAIDependencyProcess(DependencyProcess):
         return generate_gpt_dependency_concurrent
 
     def run(self, input_doc: Doc) -> Doc:
+        """Run the configured GPT dependency parsing workflow."""
         output_doc = copy(input_doc)
         if not output_doc.normalized_text:
             msg: str = "Doc must have `normalized_text`."
