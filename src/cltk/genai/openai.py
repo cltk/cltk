@@ -9,6 +9,9 @@ LLMs for a given language (resolved by Glottolog ID).
 
 __license__ = "MIT License. See LICENSE."
 
+# NOTE: Keep OpenAI/LLM behavior aligned with LLM_DEV_GUIDE.md (prompts,
+# logging, retries, and safety).
+
 import os
 import re
 from typing import Any, Optional, cast
@@ -24,9 +27,9 @@ class _OpenAIErrorFallback(Exception):
     """Fallback error raised when the OpenAI SDK is unavailable."""
 
 
-def _resolve_openai_classes() -> tuple[
-    Optional[type[Any]], Optional[type[Any]], type[BaseException]
-]:
+def _resolve_openai_classes() -> (
+    tuple[Optional[type[Any]], Optional[type[Any]], type[BaseException]]
+):
     """Import OpenAI client classes lazily, tolerating missing optional deps."""
     sync_cls: Optional[type[Any]]
     async_cls: Optional[type[Any]]

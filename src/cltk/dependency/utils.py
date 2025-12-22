@@ -1,6 +1,6 @@
 import asyncio
 import concurrent.futures
-from typing import Any, Optional, cast, get_args
+from typing import Any, Callable, Optional, cast, get_args
 
 from colorama import Fore, Style
 from tqdm import tqdm
@@ -11,6 +11,10 @@ from cltk.core.data_types import (
     AVAILABLE_OPENAI_MODELS,
     CLTKGenAIResponse,
     Doc,
+    MistralBackendConfig,
+    ModelConfig,
+    OllamaBackendConfig,
+    OpenAIBackendConfig,
     Word,
 )
 from cltk.core.exceptions import CLTKException
@@ -18,9 +22,21 @@ from cltk.core.logging_utils import bind_from_doc
 from cltk.genai.mistral import AsyncMistralConnection, MistralConnection
 from cltk.genai.ollama import AsyncOllamaConnection, OllamaConnection
 from cltk.genai.openai import AsyncOpenAIConnection, OpenAIConnection
+from cltk.genai.prompts import PromptInfo, _hash_prompt
 from cltk.morphosyntax.ud_deprels import UDDeprelTag, get_ud_deprel_tag
 from cltk.morphosyntax.ud_features import UDFeatureTagSet
 from cltk.morphosyntax.utils import _update_doc_genai_stage
+
+PromptBuilder = Callable[[str, str], PromptInfo] | PromptInfo | str
+
+
+def _get_backend_config(doc: Doc) -> Optional[ModelConfig]:
+    """Extract backend configuration attached to the document, if any."""
+    try:
+        cfg = doc.metadata.get("backend_config")
+    except Exception:
+        return None
+    return cfg if isinstance(cfg, ModelConfig) else None
 
 
 def _parse_dep_tsv_table(tsv_string: str) -> list[dict[str, str]]:
@@ -75,6 +91,8 @@ def generate_dependency_tree(
     sentence_idx: Optional[int] = None,
     max_retries: int = 2,
     client: Optional[Any] = None,
+    prompt_builder_from_tokens: Optional[PromptBuilder] = None,
+    prompt_builder_from_text: Optional[PromptBuilder] = None,
 ) -> Doc:
     """Call the configured generative backend and return UD dependency annotations for a short span.
 
@@ -83,6 +101,8 @@ def generate_dependency_tree(
         sentence_idx: Optional sentence index for logging/aggregation.
         max_retries: Number of attempts if the model fails to return a TSV code block.
         client: Optional connection instance (OpenAI or Ollama) for making API calls.
+        prompt_builder_from_tokens: Optional dependency prompt override when tokens are available.
+        prompt_builder_from_text: Optional dependency prompt override when only text is available.
 
     Returns:
         The same ``Doc`` instance with ``words`` and per‑call usage appended
@@ -115,14 +135,67 @@ def generate_dependency_tree(
             lines.append(f"{idx}\t{tok_form}\t{upos}\t{feats}")
         token_table = "\n".join(lines)
 
+    from cltk.genai.prompts import (
+        dependency_prompt_from_text,
+        dependency_prompt_from_tokens,
+    )
+
+    def _resolve_dep_prompt_from_tokens(
+        lang: str, table: str, builder: Optional[PromptBuilder]
+    ) -> PromptInfo:
+        if builder is None:
+            return dependency_prompt_from_tokens(table)
+        if isinstance(builder, PromptInfo):
+            return builder
+        if isinstance(builder, str):
+            formatted = builder.format(
+                lang_or_dialect_name=lang,
+                token_table=table,
+                text=table,
+            )
+            version = "custom-1"
+            return PromptInfo(
+                kind="dependency-tokens",
+                version=version,
+                text=formatted,
+                digest=_hash_prompt("dependency-tokens", version, formatted),
+            )
+        if callable(builder):
+            return builder(lang, table)
+        raise TypeError("Unsupported prompt_builder_from_tokens type.")
+
+    def _resolve_dep_prompt_from_text(
+        lang: str, sentence: str, builder: Optional[PromptBuilder]
+    ) -> PromptInfo:
+        if builder is None:
+            return dependency_prompt_from_text(lang, sentence)
+        if isinstance(builder, PromptInfo):
+            return builder
+        if isinstance(builder, str):
+            formatted = builder.format(
+                lang_or_dialect_name=lang,
+                sentence=sentence,
+                text=sentence,
+            )
+            version = "custom-1"
+            return PromptInfo(
+                kind="dependency-text",
+                version=version,
+                text=formatted,
+                digest=_hash_prompt("dependency-text", version, formatted),
+            )
+        if callable(builder):
+            return builder(lang, sentence)
+        raise TypeError("Unsupported prompt_builder_from_text type.")
+
     if token_table:
-        from cltk.genai.prompts import dependency_prompt_from_tokens
-
-        pinfo = dependency_prompt_from_tokens(token_table)
+        pinfo = _resolve_dep_prompt_from_tokens(
+            lang_or_dialect_name, token_table, prompt_builder_from_tokens
+        )
     else:
-        from cltk.genai.prompts import dependency_prompt_from_text
-
-        pinfo = dependency_prompt_from_text(lang_or_dialect_name, doc.normalized_text)
+        pinfo = _resolve_dep_prompt_from_text(
+            lang_or_dialect_name, doc.normalized_text, prompt_builder_from_text
+        )
     prompt = pinfo.text
     log = bind_from_doc(
         doc, sentence_idx=sentence_idx, prompt_version=str(pinfo.version)
@@ -130,11 +203,15 @@ def generate_dependency_tree(
     log.info("[prompt] %s v%s hash=%s", pinfo.kind, pinfo.version, pinfo.digest)
     import os as _os
 
+    backend_config = _get_backend_config(doc)
+    if backend_config and getattr(backend_config, "max_retries", None) is not None:
+        max_retries = int(getattr(backend_config, "max_retries"))
+
     if _os.getenv("CLTK_LOG_CONTENT", "").strip().lower() in {"1", "true", "yes", "on"}:
         log.debug(prompt)
     # code_blocks: list[Any] = []
     if not doc.backend:
-        msg_no_backend: str = "Doc must have `.backend` set to 'openai', 'ollama', or 'ollama-cloud' to use generate_dependency_tree."
+        msg_no_backend: str = "Doc must have `.backend` set to 'openai', 'mistral', 'ollama', or 'ollama-cloud' to use generate_dependency_tree."
         log.error(msg_no_backend)
         raise CLTKException(msg_no_backend)
     if not doc.model:
@@ -150,15 +227,39 @@ def generate_dependency_tree(
             log.error(msg_unsupported_backend_version)
             raise CLTKException(msg_unsupported_backend_version)
         if not client:
+            openai_cfg = (
+                backend_config
+                if isinstance(backend_config, OpenAIBackendConfig)
+                else None
+            )
             openai_model: AVAILABLE_OPENAI_MODELS = cast(
                 AVAILABLE_OPENAI_MODELS, doc.model
             )
-            client = OpenAIConnection(model=openai_model)
+            client = OpenAIConnection(
+                model=openai_model,
+                api_key=getattr(openai_cfg, "api_key", None),
+                temperature=getattr(openai_cfg, "temperature", 1.0),
+            )
     elif doc.backend in ("ollama", "ollama-cloud"):
         if not client:
+            ollama_cfg = (
+                backend_config
+                if isinstance(backend_config, OllamaBackendConfig)
+                else None
+            )
+            host = None
+            if ollama_cfg:
+                host = ollama_cfg.base_url or ollama_cfg.host
             client = OllamaConnection(
                 model=str(doc.model),
                 use_cloud=doc.backend == "ollama-cloud",
+                host=host,
+                api_key=getattr(ollama_cfg, "api_key", None),
+                temperature=getattr(ollama_cfg, "temperature", None),
+                top_p=getattr(ollama_cfg, "top_p", None),
+                num_ctx=getattr(ollama_cfg, "num_ctx", None),
+                num_predict=getattr(ollama_cfg, "num_predict", None),
+                options=getattr(ollama_cfg, "options", None),
             )
     elif doc.backend == "mistral":
         if doc.model not in get_args(AVAILABLE_MISTRAL_MODELS):
@@ -169,10 +270,19 @@ def generate_dependency_tree(
             log.error(mistral_msg_unsupported_backend_version)
             raise CLTKException(mistral_msg_unsupported_backend_version)
         if not client:
+            mistral_cfg = (
+                backend_config
+                if isinstance(backend_config, MistralBackendConfig)
+                else None
+            )
             mistral_model: AVAILABLE_MISTRAL_MODELS = cast(
                 AVAILABLE_MISTRAL_MODELS, doc.model
             )
-            client = MistralConnection(model=mistral_model)
+            client = MistralConnection(
+                model=mistral_model,
+                api_key=getattr(mistral_cfg, "api_key", None),
+                temperature=getattr(mistral_cfg, "temperature", 1.0),
+            )
     else:
         raise CLTKException(
             f"Unsupported backend for dependency generation: {doc.backend}."
@@ -278,7 +388,12 @@ def generate_dependency_tree(
     return doc
 
 
-def generate_gpt_dependency(doc: Doc) -> Doc:
+def generate_gpt_dependency(
+    doc: Doc,
+    *,
+    prompt_builder_from_tokens: Optional[PromptBuilder] = None,
+    prompt_builder_from_text: Optional[PromptBuilder] = None,
+) -> Doc:
     log = bind_from_doc(doc)
     if not doc.model:
         msg: str = "Document model is not set."
@@ -346,6 +461,8 @@ def generate_gpt_dependency(doc: Doc) -> Doc:
             doc=tmp_doc,
             sentence_idx=sent_idx,
             client=client,
+            prompt_builder_from_tokens=prompt_builder_from_tokens,
+            prompt_builder_from_text=prompt_builder_from_text,
         )
         tmp_docs.append(tmp_doc)
         bind_from_doc(doc, sentence_idx=sent_idx).info(
@@ -399,6 +516,8 @@ async def generate_gpt_dependency_async(
     *,
     max_concurrency: int = 4,
     max_retries: int = 2,
+    prompt_builder_from_tokens: Optional[PromptBuilder] = None,
+    prompt_builder_from_text: Optional[PromptBuilder] = None,
 ) -> Doc:
     """Async variant of ``generate_gpt_dependency`` with concurrency.
 
@@ -412,6 +531,8 @@ async def generate_gpt_dependency_async(
         doc: Document whose ``sentence_strings`` will be annotated.
         max_concurrency: Maximum number of in‑flight LLM requests.
         max_retries: Per‑request retry budget.
+        prompt_builder_from_tokens: Optional dependency prompt override when tokens are available.
+        prompt_builder_from_text: Optional dependency prompt override when only text is available.
 
     Returns:
         The input ``doc`` enriched with ``words`` and aggregated generative
@@ -436,17 +557,41 @@ async def generate_gpt_dependency_async(
         log.error(msg)
         raise ValueError(msg)
 
+    backend_config = _get_backend_config(doc)
+    if backend_config and getattr(backend_config, "max_retries", None) is not None:
+        max_retries = int(getattr(backend_config, "max_retries"))
+
     if doc.backend == "openai":
         if doc.model not in get_args(AVAILABLE_OPENAI_MODELS):
             raise CLTKException(
                 f"Doc has unsupported `.model`: {doc.model}. Supported: {get_args(AVAILABLE_OPENAI_MODELS)}."
             )
         openai_model: AVAILABLE_OPENAI_MODELS = cast(AVAILABLE_OPENAI_MODELS, doc.model)
-        conn: Any = AsyncOpenAIConnection(model=openai_model)
+        openai_cfg = (
+            backend_config if isinstance(backend_config, OpenAIBackendConfig) else None
+        )
+        conn: Any = AsyncOpenAIConnection(
+            model=openai_model,
+            api_key=getattr(openai_cfg, "api_key", None),
+            temperature=getattr(openai_cfg, "temperature", 1.0),
+        )
     elif doc.backend in ("ollama", "ollama-cloud"):
+        ollama_cfg = (
+            backend_config if isinstance(backend_config, OllamaBackendConfig) else None
+        )
+        host = None
+        if ollama_cfg:
+            host = ollama_cfg.base_url or ollama_cfg.host
         conn = AsyncOllamaConnection(
             model=str(doc.model),
             use_cloud=doc.backend == "ollama-cloud",
+            host=host,
+            api_key=getattr(ollama_cfg, "api_key", None),
+            temperature=getattr(ollama_cfg, "temperature", None),
+            top_p=getattr(ollama_cfg, "top_p", None),
+            num_ctx=getattr(ollama_cfg, "num_ctx", None),
+            num_predict=getattr(ollama_cfg, "num_predict", None),
+            options=getattr(ollama_cfg, "options", None),
         )
     elif doc.backend == "mistral":
         if doc.model not in get_args(AVAILABLE_MISTRAL_MODELS):
@@ -456,7 +601,14 @@ async def generate_gpt_dependency_async(
         mistral_model: AVAILABLE_MISTRAL_MODELS = cast(
             AVAILABLE_MISTRAL_MODELS, doc.model
         )
-        conn = AsyncMistralConnection(model=mistral_model)
+        mistral_cfg = (
+            backend_config if isinstance(backend_config, MistralBackendConfig) else None
+        )
+        conn = AsyncMistralConnection(
+            model=mistral_model,
+            api_key=getattr(mistral_cfg, "api_key", None),
+            temperature=getattr(mistral_cfg, "temperature", 1.0),
+        )
     else:
         raise CLTKException(
             f"Unsupported backend for async dependency parsing: {doc.backend}."
@@ -465,38 +617,95 @@ async def generate_gpt_dependency_async(
     # Prepare prompts per sentence
     lang_or_dialect_name = doc.dialect.name if doc.dialect else doc.language.name
 
-    def build_prompt_from_words(words: list[Word]) -> str:
-        lines = ["INDEX\tFORM\tUPOS\tFEATS"]
-        for idx, w in enumerate(words, 1):
-            upos = getattr(getattr(w, "upos", None), "tag", None) or "_"
-            feats = _format_feats(getattr(w, "features", None))
-            tok_form = w.string or ""
-            lines.append(f"{idx}\t{tok_form}\t{upos}\t{feats}")
-        table = "\n".join(lines)
-        return (
-            "Using the following tokens with UPOS and FEATS, produce a dependency parse as TSV with exactly three columns: FORM, HEAD, DEPREL.\n\n"
-            "Rules:\n"
-            "- Use strict UD dependency relations only (e.g., nsubj, obj, obl:tmod, root).\n"
-            "- Do not change, split, merge, or reorder tokens. Use the tokens as given.\n"
-            "- HEAD refers to the 1-based index of the head token in the given token order (0 for root).\n"
-            "- Output must be a Markdown code block containing only a tab-delimited table with the header: FORM\tHEAD\tDEPREL.\n\n"
-            f"Tokens:\n\n{table}\n\n"
-            "Output only the dependency table."
-        )
+    from cltk.genai.prompts import (
+        dependency_prompt_from_text,
+        dependency_prompt_from_tokens,
+    )
+
+    def _resolve_dep_prompt_from_tokens_local(
+        lang: str, table: str, builder: Optional[PromptBuilder]
+    ) -> PromptInfo:
+        if builder is None:
+            return dependency_prompt_from_tokens(table)
+        if isinstance(builder, PromptInfo):
+            return builder
+        if isinstance(builder, str):
+            formatted = builder.format(
+                lang_or_dialect_name=lang,
+                token_table=table,
+                text=table,
+            )
+            version = "custom-1"
+            return PromptInfo(
+                kind="dependency-tokens",
+                version=version,
+                text=formatted,
+                digest=_hash_prompt("dependency-tokens", version, formatted),
+            )
+        if callable(builder):
+            return builder(lang, table)
+        raise TypeError("Unsupported prompt_builder_from_tokens type.")
+
+    def _resolve_dep_prompt_from_text_local(
+        lang: str, sentence: str, builder: Optional[PromptBuilder]
+    ) -> PromptInfo:
+        if builder is None:
+            return dependency_prompt_from_text(lang, sentence)
+        if isinstance(builder, PromptInfo):
+            return builder
+        if isinstance(builder, str):
+            formatted = builder.format(
+                lang_or_dialect_name=lang,
+                sentence=sentence,
+                text=sentence,
+            )
+            version = "custom-1"
+            return PromptInfo(
+                kind="dependency-text",
+                version=version,
+                text=formatted,
+                digest=_hash_prompt("dependency-text", version, formatted),
+            )
+        if callable(builder):
+            return builder(lang, sentence)
+        raise TypeError("Unsupported prompt_builder_from_text type.")
 
     sem = asyncio.Semaphore(max_concurrency)
 
     async def process_one(
         i: int, sentence: str, sentence_words: list[Word]
     ) -> tuple[int, Doc, dict[str, int]]:
-        prompt = (
-            build_prompt_from_words(sentence_words)
-            if sentence_words
-            else (
-                f"For the following {lang_or_dialect_name} text, first tokenize the sentence. For each token, output FORM, HEAD, DEPREL.\n\nText:\n\n{sentence}\n"
+        token_table: Optional[str] = None
+        if sentence_words:
+            lines = ["INDEX\tFORM\tUPOS\tFEATS"]
+            for idx, w in enumerate(sentence_words, 1):
+                upos = getattr(getattr(w, "upos", None), "tag", None) or "_"
+                feats = _format_feats(getattr(w, "features", None))
+                tok_form = w.string or ""
+                lines.append(f"{idx}\t{tok_form}\t{upos}\t{feats}")
+            token_table = "\n".join(lines)
+
+        if token_table:
+            pinfo = _resolve_dep_prompt_from_tokens_local(
+                lang_or_dialect_name, token_table, prompt_builder_from_tokens
             )
-        )
-        log_i = bind_from_doc(doc, sentence_idx=i)
+        else:
+            pinfo = _resolve_dep_prompt_from_text_local(
+                lang_or_dialect_name, sentence, prompt_builder_from_text
+            )
+
+        prompt = pinfo.text
+        log_i = bind_from_doc(doc, sentence_idx=i, prompt_version=str(pinfo.version))
+        log_i.info("[prompt] %s v%s hash=%s", pinfo.kind, pinfo.version, pinfo.digest)
+        import os as _os
+
+        if _os.getenv("CLTK_LOG_CONTENT", "").strip().lower() in {
+            "1",
+            "true",
+            "yes",
+            "on",
+        }:
+            log_i.debug(prompt)
         log_i.debug("[async] Scheduling sentence #%s (%d chars)", i, len(sentence))
         async with sem:
             log_i.debug("[async] Dispatching sentence #%s", i)
@@ -620,6 +829,8 @@ def generate_gpt_dependency_concurrent(
     *,
     max_concurrency: int = 4,
     max_retries: int = 2,
+    prompt_builder_from_tokens: Optional[PromptBuilder] = None,
+    prompt_builder_from_text: Optional[PromptBuilder] = None,
 ) -> Doc:
     """Run the async dependency generator safely but appears synchronous from the outside.
 
@@ -637,6 +848,8 @@ def generate_gpt_dependency_concurrent(
         doc: Input document with sentences, language, and backend configured.
         max_concurrency: Maximum concurrent LLM requests.
         max_retries: Per‑request retry budget.
+        prompt_builder_from_tokens: Optional dependency prompt override when tokens are available.
+        prompt_builder_from_text: Optional dependency prompt override when only text is available.
 
     Returns:
         The input ``Doc`` updated in place, same as the async variant.
@@ -652,6 +865,8 @@ def generate_gpt_dependency_concurrent(
                 doc,
                 max_concurrency=max_concurrency,
                 max_retries=max_retries,
+                prompt_builder_from_tokens=prompt_builder_from_tokens,
+                prompt_builder_from_text=prompt_builder_from_text,
             )
         )
     else:
@@ -665,6 +880,8 @@ def generate_gpt_dependency_concurrent(
                     doc,
                     max_concurrency=max_concurrency,
                     max_retries=max_retries,
+                    prompt_builder_from_tokens=prompt_builder_from_tokens,
+                    prompt_builder_from_text=prompt_builder_from_text,
                 )
             )
 

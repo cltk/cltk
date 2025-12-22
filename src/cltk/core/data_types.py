@@ -295,6 +295,146 @@ AVAILABLE_MISTRAL_MODELS: TypeAlias = Literal[
 ]
 
 
+class ModelConfig(BaseModel):
+    """Common base for backend configuration blocks."""
+
+    model_config = {"extra": "forbid"}
+
+
+class StanzaBackendConfig(ModelConfig):
+    """Options specific to the Stanza backend."""
+
+    model: Optional[str] = Field(
+        default=None,
+        description="Optional non-default Stanza model/treebank name to load.",
+    )
+
+
+class OpenAIBackendConfig(ModelConfig):
+    """Options specific to the OpenAI/ChatGPT backend."""
+
+    model: Optional[Union[AVAILABLE_OPENAI_MODELS, str]] = None
+    temperature: float = Field(default=1.0, ge=0, le=2)
+    max_output_tokens: Optional[int] = Field(default=None, gt=0)
+    top_p: Optional[float] = Field(default=None, ge=0, le=1)
+    presence_penalty: Optional[float] = Field(default=None, ge=-2, le=2)
+    frequency_penalty: Optional[float] = Field(default=None, ge=-2, le=2)
+    max_retries: int = Field(default=2, ge=0)
+    api_key: Optional[str] = None
+
+
+class MistralBackendConfig(ModelConfig):
+    """Options specific to the Mistral backend."""
+
+    model: Optional[Union[AVAILABLE_MISTRAL_MODELS, str]] = None
+    temperature: float = Field(default=1.0, ge=0, le=2)
+    max_tokens: Optional[int] = Field(default=None, gt=0)
+    top_p: Optional[float] = Field(default=None, ge=0, le=1)
+    random_seed: Optional[int] = Field(default=None, ge=0)
+    max_retries: int = Field(default=2, ge=0)
+    api_key: Optional[str] = None
+
+
+class OllamaBackendConfig(ModelConfig):
+    """Options specific to the Ollama backend (local or remote)."""
+
+    model: Optional[str] = None
+    temperature: float = Field(default=0.8, ge=0)
+    top_p: Optional[float] = Field(default=None, ge=0, le=1)
+    num_ctx: Optional[int] = Field(default=None, gt=0)
+    num_predict: Optional[int] = Field(default=None, gt=0)
+    host: Optional[str] = Field(
+        default="http://127.0.0.1",
+        description="Base URL for the Ollama server, e.g., http://localhost or https://ollama.example.com.",
+    )
+    port: Optional[int] = Field(default=11434, ge=1, le=65535)
+    use_cloud: bool = False
+    api_key: Optional[str] = None
+    options: dict[str, Any] = Field(
+        default_factory=dict,
+        description="Additional model options passed directly to the Ollama client.",
+    )
+    max_retries: int = Field(default=2, ge=0)
+
+    @property
+    def base_url(self) -> Optional[str]:
+        """Return a combined host:port string when both are provided."""
+        if not self.host:
+            return None
+        base = self.host.rstrip("/")
+        if self.port:
+            # Avoid duplicating ports if the host already includes one
+            if ":" in base.split("//")[-1]:
+                return base
+            return f"{base}:{self.port}"
+        return base
+
+
+class CLTKConfig(BaseModel):
+    """Bundled configuration for initializing :class:`~cltk.nlp.NLP`."""
+
+    language_code: str
+    backend: BACKEND_TYPES = "stanza"
+    model: Optional[str] = None
+    custom_pipeline: Optional["Pipeline"] = None
+    suppress_banner: bool = False
+
+    stanza: Optional[StanzaBackendConfig] = None
+    openai: Optional[OpenAIBackendConfig] = None
+    mistral: Optional[MistralBackendConfig] = None
+    ollama: Optional[OllamaBackendConfig] = None
+
+    model_config = {"extra": "forbid"}
+
+    @property
+    def active_backend_config(
+        self,
+    ) -> Optional[ModelConfig]:
+        """Return the config block matching ``backend``."""
+        mapping: dict[str, Optional[ModelConfig]] = {
+            "stanza": self.stanza,
+            "openai": self.openai,
+            "mistral": self.mistral,
+            "ollama": self.ollama,
+            "ollama-cloud": self.ollama,
+            "spacy": None,
+        }
+        return mapping.get(self.backend)
+
+    @model_validator(mode="after")
+    def _ensure_single_backend_config(self) -> "CLTKConfig":
+        """Ensure only one backend config block is provided at a time."""
+        configured = [
+            name
+            for name, cfg in (
+                ("stanza", self.stanza),
+                ("openai", self.openai),
+                ("mistral", self.mistral),
+                ("ollama", self.ollama),
+            )
+            if cfg is not None
+        ]
+        if len(configured) > 1:
+            raise ValueError(
+                f"Provide configuration for only one backend at a time: {', '.join(configured)}"
+            )
+        if configured:
+            allowed_for_backend: dict[str, set[str]] = {
+                "stanza": {"stanza"},
+                "openai": {"openai"},
+                "mistral": {"mistral"},
+                "ollama": {"ollama"},
+                "ollama-cloud": {"ollama"},
+                "spacy": set(),
+            }
+            allowed = allowed_for_backend.get(self.backend, set())
+            if allowed and configured[0] not in allowed:
+                raise ValueError(
+                    f"Config for '{configured[0]}' provided but backend is '{self.backend}'."
+                )
+        return self
+
+
 class Doc(CLTKBaseModel):
     """Top‑level container returned from ``NLP()`` pipelines.
 

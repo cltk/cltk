@@ -30,6 +30,8 @@ children: dict[str, set[str]] = defaultdict(set)
 # Ensure top-level Home and Reference are present in nav
 nav["Home"] = "index.md"
 nav["Quickstart"] = "quickstart.md"
+nav["Advanced Configuration"] = "advanced-model-configuration.md"
+nav["Advanced Prompting"] = "advanced-prompting.md"
 nav["Troubleshooting"] = "troubleshooting.md"
 
 for dotted, src_path in iter_python_modules(PKG_ROOT):

@@ -55,6 +55,7 @@ Development Guidelines
 
 - Tests: add unit tests for new behavior and regression tests for bug fixes.
 - Type hints: we use Python 3.11+ type hints with `mypy` for static checking.
+- GenAI changes: follow `LLM_DEV_GUIDE.md` for prompts, model usage, safety, and testing requirements before modifying any LLM-backed code.
 - Linting/formatting: `ruff` is used for lint and format; run pre‑commit hooks.
 - Docs: keep docstrings updated; user‑facing changes should be documented.
 

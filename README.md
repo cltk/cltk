@@ -77,6 +77,10 @@ For more information, see [Installation docs](https://docs.cltk.org/en/latest/in
 
 Pre-1.0 software remains available on the [branch v0.1.x](https://github.com/cltk/cltk/tree/v0.1.x) and docs at <https://legacy.cltk.org>. Install it with `pip install "cltk<1.0"`.
 
+## LLM development guide
+
+If you are changing CLTK's GenAI code, prompts, or pipelines, read the [LLM development guide](LLM_DEV_GUIDE.md) first.
+
 ## Documentation
 
 Documentation at <https://docs.cltk.org>.
