@@ -7,6 +7,8 @@ This page documents the helper functions that turn a processed `Doc` into human�
 Render a Markdown “reader’s guide” aimed at students and scholars. The output is UTF‑8 Markdown with headings, blockquotes, and details blocks.
 
 **Structure**
+
+- A
 - H1 title from `doc.metadata["title"]` or `doc.metadata["reference"]`, else “Reader’s Guide”.
 - Optional pronunciation line when all enriched words share the same IPA mode.
 - Per sentence:
@@ -53,6 +55,7 @@ Use this when you need a study‑friendly breakdown with enrichment fields (glos
 Convert a `Doc` into a tidy `pyarrow.Table` with one row per token, combining morphosyntax, dependencies, UD features, and selected metadata.
 
 **Columns**
+
 - Sentence index, global token index, token index in sentence
 - `FORM`, `LEMMA`, `UPOS`, `HEAD`, `DEPREL`
 - Metadata columns (if present on words): e.g., translation, definitions
@@ -75,6 +78,7 @@ Useful for analytics, export to Parquet/CSV, or downstream ML pipelines.
 Render a `Doc` as CoNLL‑U v2 text. One sentence per block, 10 tab‑separated fields per token.
 
 **Behavior**
+
 - Uses `doc.sentences` ordering; falls back to `doc.words` if sentences are absent.
 - Writes `ID`, `FORM`, `LEMMA`, `UPOS`, `XPOS`, `FEATS`, `HEAD`, `DEPREL`, `DEPS`, `MISC`.
 - Preserves existing lemmas/UPOS/FEATS/DEPREL/governor; leaves blanks (`_`) when data is missing.
