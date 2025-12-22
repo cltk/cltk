@@ -135,17 +135,22 @@ def _safe_probability(val: Any) -> Optional[float]:
     return None
 
 
-def _build_gloss(gloss_dict: dict[str, Any]) -> Gloss:
+def _build_gloss(gloss_obj: Any) -> Optional[Gloss]:
+    """Build a Gloss from a dict or a simple string."""
+    if isinstance(gloss_obj, str):
+        return Gloss(context=gloss_obj)
+    if not isinstance(gloss_obj, dict):
+        return None
     return Gloss(
-        dictionary=gloss_dict.get("dictionary"),
-        context=gloss_dict.get("context"),
+        dictionary=gloss_obj.get("dictionary"),
+        context=gloss_obj.get("context"),
         alternatives=[
             ScoredText(
                 text=str(alt.get("text", "")),
                 probability=_safe_probability(alt.get("probability")),
                 note=alt.get("note"),
             )
-            for alt in gloss_dict.get("alternatives", []) or []
+            for alt in gloss_obj.get("alternatives", []) or []
             if isinstance(alt, dict) and alt.get("text")
         ],
     )
@@ -230,9 +235,7 @@ def _apply_payload_to_words(
         if word is None:
             continue
 
-        gloss = None
-        if isinstance(token_obj.get("gloss"), dict):
-            gloss = _build_gloss(token_obj["gloss"])
+        gloss = _build_gloss(token_obj.get("gloss"))
 
         ipa_raw = token_obj.get("ipa")
         ipa_obj = None
