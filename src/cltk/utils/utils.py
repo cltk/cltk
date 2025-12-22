@@ -936,21 +936,21 @@ def format_readers_guide(doc: Doc) -> str:
             return str(upos.tag)
         return ""
 
-    def _best_gloss(word: Word) -> Optional[str]:
+    def _gloss_parts(word: Word) -> tuple[Optional[str], Optional[str]]:
         enrichment = getattr(word, "enrichment", None)
         gloss = getattr(enrichment, "gloss", None)
         if not gloss:
-            return None
+            return None, None
         if getattr(gloss, "context", None):
-            return str(gloss.context)
+            return str(gloss.context), getattr(gloss, "dictionary", None)
         if getattr(gloss, "dictionary", None):
-            return str(gloss.dictionary)
+            return str(gloss.dictionary), None
         alts = getattr(gloss, "alternatives", None) or []
         if alts:
             alt_text = getattr(alts[0], "text", None)
             if alt_text:
-                return str(alt_text)
-        return None
+                return str(alt_text), None
+        return None, None
 
     def _dep_display(word: Word) -> str:
         dep = getattr(word, "dependency_relation", None)
@@ -1032,17 +1032,22 @@ def format_readers_guide(doc: Doc) -> str:
             surface = word.string or "(missing)"
             lines.append(f"### {surface}")
             pos_name = _safe_pos_name(word)
-            gloss_val = _best_gloss(word)
-            if pos_name and gloss_val:
-                lines.append(f"*{pos_name}* · **{gloss_val}**")
+            gloss_context, gloss_dict = _gloss_parts(word)
+            primary_gloss = gloss_context or gloss_dict
+            if pos_name and primary_gloss:
+                lines.append(f"*{pos_name}* · **{primary_gloss}**")
             elif pos_name:
                 lines.append(f"*{pos_name}*")
-            elif gloss_val:
-                lines.append(f"**{gloss_val}**")
-            if not (pos_name or gloss_val):
+            elif primary_gloss:
+                lines.append(f"**{primary_gloss}**")
+            if not (pos_name or primary_gloss):
                 lines.append("")
 
             lines.append(f"- **Lemma:** {word.lemma or ''}")
+            if primary_gloss:
+                lines.append(f"- **Gloss:** {primary_gloss}")
+            if gloss_dict and gloss_dict != primary_gloss:
+                lines.append(f"- **Dictionary Gloss:** {gloss_dict}")
             dep_display = _dep_display(word)
             if dep_display:
                 lines.append(f"- **Dependency Role:** {dep_display}")
