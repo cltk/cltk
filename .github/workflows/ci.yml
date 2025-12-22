@@ -51,7 +51,7 @@ jobs:
           pip install uv
 
       - name: Test built wheel with all extras
-        run: make testBuilt
+        run: make SHELL=/usr/bin/bash testBuilt
 
   publish-pypi:
     runs-on: ubuntu-latest
