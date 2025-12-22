@@ -78,10 +78,29 @@ docstrCoverage:
 typing:
 	uv run mypy --check-untyped-defs --html-report .mypy_cache src/cltk
 
+testBuilt:
+	@set -euo pipefail; \
+	tmpdir=$$(mktemp -d); \
+	trap 'rm -rf "$$tmpdir"' EXIT; \
+	echo "Building wheel into $$tmpdir/dist ..."; \
+	uv build --out-dir $$tmpdir/dist; \
+	echo "Creating temp venv at $$tmpdir/venv ..."; \
+	python3 -m venv $$tmpdir/venv; \
+	$$tmpdir/venv/bin/python -m pip install --upgrade pip >/dev/null; \
+	echo "Exporting dev requirements ..."; \
+	uv export --group development --frozen --no-emit-project --no-editable > $$tmpdir/dev-requirements.txt; \
+	echo "Installing development dependencies ..."; \
+	$$tmpdir/venv/bin/python -m pip install -r $$tmpdir/dev-requirements.txt; \
+	whl_path=$$(ls $$tmpdir/dist/cltk-*.whl); \
+	echo "Installing built wheel with all extras ..."; \
+	$$tmpdir/venv/bin/python -m pip install "$$whl_path[stanza,openai,mistral,ollama]"; \
+	echo "Running pytest against installed wheel ..."; \
+	$$tmpdir/venv/bin/python -m pytest tests
+
 uninstall:
 	uv pip uninstall -y cltk
 
 updateDependencies:
 	uv lock --upgrade
 
-.PHONY: build docs docsServe test typing
+.PHONY: build docs docsServe test typing testBuilt
