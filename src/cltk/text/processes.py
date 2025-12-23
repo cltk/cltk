@@ -19,6 +19,7 @@ class NormalizeProcess(Process):
 
     @cached_property
     def algorithm(self) -> Callable[[str], str]:
+        """Return the normalization function used for this process."""
         # TODO: Decide whether to strip out section numbers with `text = strip_section_numbers(text)`
         bind_context(glottolog_id=self.language_code).debug(
             f"`NormalizeProcess()`: Generic normalization for: {self.language_code}"

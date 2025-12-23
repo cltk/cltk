@@ -1,3 +1,5 @@
+"""Code for ingesting, processing, and producing CoNLL-U formatted data."""
+
 from typing import Iterable, Optional
 
 from cltk.core.cltk_logger import logger
@@ -51,6 +53,7 @@ _UD_VALUE_NORMALIZE = {
 
 
 def _norm_ud_key(k: str) -> str:
+    """Normalize a UD feature key to standard casing/code form."""
     # Best-effort: keep standard capitalization if it matches a typical UD key
     # Otherwise, title-case without spaces.
     known = {
@@ -79,6 +82,7 @@ def _norm_ud_key(k: str) -> str:
 
 
 def _norm_ud_val(v: str) -> str:
+    """Normalize a UD feature value to its canonical code."""
     s = v.strip()
     if not s:
         return s
@@ -114,12 +118,14 @@ def _iter_ud_pairs_from_set(feats: UDFeatureTagSet) -> list[tuple[str, str]]:
 
 
 def _upos_to_str(upos: Optional[UDPartOfSpeechTag]) -> str:
+    """Convert a UDPartOfSpeechTag to its CoNLL-U string form."""
     if upos is None:
         return "_"
     return getattr(upos, "tag", str(upos)) or "_"
 
 
 def _feats_to_str(feats: Optional[UDFeatureTagSet]) -> str:
+    """Serialize a UDFeatureTagSet (or string) into the CoNLL-U FEATS column."""
     if feats is None:
         return "_"
     # Prefer registry-backed tags (keys and codes) from UDFeatureTagSet
@@ -141,6 +147,7 @@ def _feats_to_str(feats: Optional[UDFeatureTagSet]) -> str:
 
 
 def _deprel_to_str(dep_obj: Optional[object]) -> str:
+    """Render a dependency relation object as a CoNLL-U DEPREL string."""
     if dep_obj is None:
         return "_"
     if isinstance(dep_obj, str):

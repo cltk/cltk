@@ -29,6 +29,7 @@ class PromptInfo(BaseModel):
 
 
 def _hash_prompt(kind: str, version: str, text: str) -> str:
+    """Return a short SHA1-based digest for a prompt triple."""
     h = hashlib.sha1()
     h.update(kind.encode("utf-8"))
     h.update(version.encode("utf-8"))
@@ -125,6 +126,28 @@ def enrichment_prompt(
         "- Do not re-tokenize or change morphological/dep decisions. If uncertain, provide best-effort alternatives with probabilities.\n\n"
         f"Tokens:\n\n{token_table}\n\n"
         "Output only the JSON payload."
+    )
+    return PromptInfo(
+        kind=kind, version=version, text=text, digest=_hash_prompt(kind, version, text)
+    )
+
+
+def translation_prompt(
+    lang_or_dialect_name: str,
+    target_language: str,
+    context: str,
+) -> PromptInfo:
+    """Build a translation prompt that leverages prior annotations."""
+    kind: str = "translation"
+    version: str = "1.0"
+    text: str = (
+        f"Translate the following {lang_or_dialect_name} sentence into {target_language}. "
+        "Use the provided morphosyntax, dependency relations, glosses, lemma translations, idiom hints, and pedagogy notes instead of translating from scratch. "
+        "Rely on those annotations as much as possible; adjust only when a gloss or valence appears inaccurate.\n\n"
+        "Return a JSON object inside a markdown code block with:\n"
+        "- `translation`: the final fluent translation.\n"
+        "- `notes`: 1-3 sentences highlighting difficult or non-obvious decisions (e.g., idioms, ambiguous morphology, pragmatic nuance).\n\n"
+        f"Context:\n\n{context}\n"
     )
     return PromptInfo(
         kind=kind, version=version, text=text, digest=_hash_prompt(kind, version, text)

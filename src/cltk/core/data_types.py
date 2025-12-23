@@ -142,6 +142,15 @@ class WordEnrichment(BaseModel):
     pedagogical_notes: list[PedagogicalNote] = Field(default_factory=list)
 
 
+class Translation(BaseModel):
+    """Structured translation with language metadata and notes."""
+
+    source_lang_id: Optional[str] = None
+    target_lang_id: Optional[str] = None
+    text: str
+    notes: Optional[str] = None
+
+
 class NameVariant(BaseModel):
     """Alternative name or label for a language or dialect.
 
@@ -361,6 +370,7 @@ class Sentence(CLTKBaseModel):
     words: Optional[list[Word]] = Field(default_factory=list)
     index: Optional[int] = None
     embedding: Optional[np.ndarray] = None
+    translation: Optional[Translation] = None
 
     # def __getitem__(self, item: int) -> Word:
     #     if not self.words:
@@ -523,7 +533,9 @@ class Doc(CLTKBaseModel):
       raw: Original raw text.
       normalized_text: Normalized version of the text.
       sentence_embeddings: Optional embeddings per sentence index.
-      translation: Optional translation of the document.
+      sentence_translations: Structured translations keyed by sentence index.
+      translation: Optional document-level translation string (usually aggregated).
+      translations: Collected structured translations (e.g., per sentence).
       summary: Optional summary of the document.
       topic: Optional topic classification.
       discourse_relations: Discourse relation labels (if available).
@@ -541,7 +553,9 @@ class Doc(CLTKBaseModel):
     normalized_text: Optional[str] = None
     embeddings_model: Optional[Any] = None
     sentence_embeddings: dict[int, np.ndarray] = Field(default_factory=dict)
+    sentence_translations: dict[int, Translation] = Field(default_factory=dict)
     translation: Optional[str] = None
+    translations: list[Translation] = Field(default_factory=list)
     summary: Optional[str] = None
     topic: Optional[str] = None
     discourse_relations: list[str] = Field(default_factory=list)
@@ -597,7 +611,12 @@ class Doc(CLTKBaseModel):
         if self.sentence_embeddings is None:
             self.sentence_embeddings = dict()
         return [
-            Sentence(words=val, index=key, embedding=self.sentence_embeddings.get(key))
+            Sentence(
+                words=val,
+                index=key,
+                embedding=self.sentence_embeddings.get(key),
+                translation=self.sentence_translations.get(key),
+            )
             for key, val in sorted(sents.items(), key=lambda x: x[0])
         ]
 

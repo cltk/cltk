@@ -47,6 +47,7 @@ def _get_backend_config(doc: Doc) -> Optional[ModelConfig]:
 
 
 def _parse_tsv_table(tsv_string: str) -> list[dict[str, str]]:
+    """Parse a TSV code block of morphosyntactic tags into dict rows."""
     # TODO: Remove duplicate name -- this is the one being invoked, I think
     lines = [line.strip() for line in tsv_string.strip().splitlines() if line.strip()]
     header = ["form", "lemma", "upos", "feats"]
@@ -357,6 +358,7 @@ def generate_pos(
 def generate_gpt_morphosyntax(
     doc: Doc, *, prompt_builder: Optional[PromptBuilder] = None
 ) -> Doc:
+    """Generate POS and UD features for each sentence using a sync LLM backend."""
     log = bind_from_doc(doc)
     if not doc.model:
         msg: str = "Document model is not set."
@@ -559,6 +561,7 @@ async def generate_gpt_morphosyntax_async(
     sem = asyncio.Semaphore(max_concurrency)
 
     async def process_one(i: int, sentence: str) -> tuple[int, Doc, dict[str, int]]:
+        """Process a single sentence asynchronously and return a Doc plus usage."""
         pinfo = _resolve_morph_prompt(
             lang_or_dialect_name=lang_or_dialect_name,
             text=sentence,
@@ -726,6 +729,7 @@ def generate_gpt_morphosyntax_concurrent(
         )
 
         def _runner() -> Doc:
+            """Run the async morphosyntax workflow inside a fresh event loop."""
             return asyncio.run(
                 generate_gpt_morphosyntax_async(
                     doc,
@@ -791,6 +795,7 @@ def _resolve_morph_prompt(
     text: str,
     builder: Optional[PromptBuilder],
 ) -> PromptInfo:
+    """Resolve the morphosyntax prompt from defaults or a custom builder."""
     if builder is None:
         return morphosyntax_prompt(lang_or_dialect_name, text)
     if isinstance(builder, PromptInfo):
