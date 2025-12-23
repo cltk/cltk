@@ -26,6 +26,7 @@ class GenAIEnrichmentProcess(Process):
 
     @cached_property
     def algorithm(self) -> Callable[..., Doc]:
+        """Return the enrichment generation function for this process."""
         if not self.glottolog_id:
             msg = "glottolog_id must be set for EnrichmentProcess"
             bind_context(glottolog_id=self.glottolog_id).error(msg)
@@ -33,6 +34,7 @@ class GenAIEnrichmentProcess(Process):
         return generate_gpt_enrichment_concurrent
 
     def run(self, input_doc: Doc) -> Doc:
+        """Run the configured GPT enrichment workflow."""
         output_doc: Doc = copy(input_doc)
         if not output_doc.normalized_text:
             msg = "Doc must have `normalized_text`."

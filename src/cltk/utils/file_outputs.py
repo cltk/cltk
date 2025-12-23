@@ -27,6 +27,7 @@ def doc_to_conllu(doc: Doc) -> str:
     """
 
     def _clean_field(value: Optional[Any]) -> str:
+        """Normalize a CoNLL-U column value to a safe string or underscore."""
         if value is None:
             return "_"
         text = str(value)
@@ -34,6 +35,7 @@ def doc_to_conllu(doc: Doc) -> str:
         return text if text else "_"
 
     def _format_feats(word: "Word") -> str:
+        """Serialize UD features into the CoNLL-U feats column."""
         feats = getattr(word, "features", None)
         feature_list = getattr(feats, "features", None)
         if not feature_list:
@@ -47,6 +49,7 @@ def doc_to_conllu(doc: Doc) -> str:
         return "|".join(sorted(items)) if items else "_"
 
     def _format_head(word: "Word") -> str:
+        """Return the 1-based head index or underscore for CoNLL-U."""
         governor = getattr(word, "governor", None)
         if governor is None:
             return "0"
@@ -56,6 +59,7 @@ def doc_to_conllu(doc: Doc) -> str:
             return "_"
 
     def _format_deprel(word: "Word") -> str:
+        """Format dependency relation code and subtype for CoNLL-U."""
         dep = getattr(word, "dependency_relation", None)
         if dep is None:
             return "_"
@@ -80,6 +84,7 @@ def doc_to_conllu(doc: Doc) -> str:
     for _, sentence_entries in grouped.items():
 
         def _sentence_sort_key(item: tuple[int, "Word"]) -> int:
+            """Sort tokens within a sentence by index_token, falling back to doc order."""
             idx_token: Optional[int] = getattr(item[1], "index_token", None)
             if idx_token is None:
                 return item[0]
@@ -187,6 +192,7 @@ def doc_to_feature_table(doc: Doc) -> Table:
     dep_feats_by_doc_idx: dict[int, dict[str, Union[str, int, float, None]]] = {}
 
     def _cross(a1: int, a2: int, b1: int, b2: int) -> bool:
+        """Return True if the arcs (a1, a2) and (b1, b2) cross."""
         x1, x2 = (a1, a2) if a1 <= a2 else (a2, a1)
         y1, y2 = (b1, b2) if b1 <= b2 else (b2, b1)
         return (x1 < y1 < x2 < y2) or (y1 < x1 < y2 < x2)
@@ -194,6 +200,7 @@ def doc_to_feature_table(doc: Doc) -> Table:
     for sidx, entries in sent_groups.items():
         # Sort sentence tokens by in-sentence order: prefer index_token else doc order
         def sort_key(item: tuple[int, Word]) -> int:
+            """Order tokens within a sentence by index_token, then document index."""
             _, w = item
             tok = getattr(w, "index_token", None)
             return int(tok) if tok is not None else item[0]
@@ -292,6 +299,7 @@ def doc_to_feature_table(doc: Doc) -> Table:
         def subtree_metrics(
             i: int, _stack: tuple[int, ...] = ()
         ) -> tuple[Optional[int], Optional[int], int, int]:
+            """Compute height, size, and span bounds for a token's subtree."""
             if i in _stack:
                 return None, None, i, i
             kids = children[i]
@@ -536,6 +544,7 @@ def doc_to_feature_table(doc: Doc) -> Table:
         ) from exc
 
     def _build_schema(feature_keys: list[str], metadata_keys: list[str]) -> "pa.Schema":
+        """Construct the Arrow schema for the feature table."""
         base_fields = [
             pa.field("sentence_index", pa.int64()),
             pa.field("token_index", pa.int64()),
@@ -586,6 +595,7 @@ def doc_to_feature_table(doc: Doc) -> Table:
     columns: dict[str, list[Any]] = {name: [] for name in header}
 
     def _serialize_metadata_value(value: Any) -> Optional[str]:
+        """Convert metadata values to JSON-safe strings where possible."""
         if value is None:
             return None
         if isinstance(value, str):
@@ -658,6 +668,7 @@ def format_readers_guide(doc: Doc) -> str:
     """Render a human-friendly Markdown reader's guide for a Doc."""
 
     def _safe_pos_name(word: Word) -> str:
+        """Return a readable POS name or tag for a word."""
         upos = getattr(word, "upos", None)
         if not upos:
             return ""
@@ -668,6 +679,7 @@ def format_readers_guide(doc: Doc) -> str:
         return ""
 
     def _gloss_parts(word: Word) -> tuple[Optional[str], Optional[str]]:
+        """Extract primary gloss text and dictionary gloss, if available."""
         enrichment = getattr(word, "enrichment", None)
         gloss = getattr(enrichment, "gloss", None)
         if not gloss:
@@ -684,6 +696,7 @@ def format_readers_guide(doc: Doc) -> str:
         return None, None
 
     def _dep_display(word: Word) -> str:
+        """Render dependency role with code for display."""
         dep = getattr(word, "dependency_relation", None)
         if not dep:
             return ""
@@ -698,6 +711,7 @@ def format_readers_guide(doc: Doc) -> str:
         return ""
 
     def _syllables(word: Word) -> list[str]:
+        """Collect syllable strings from enrichment or word attribute."""
         enrichment = getattr(word, "enrichment", None)
         orth = getattr(enrichment, "orthography", None)
         if orth and getattr(orth, "syllables", None):
@@ -708,6 +722,7 @@ def format_readers_guide(doc: Doc) -> str:
         return []
 
     def _phonology_trace(word: Word) -> list[str]:
+        """Return a list of phonology trace items, if present."""
         enrichment = getattr(word, "enrichment", None)
         orth = getattr(enrichment, "orthography", None)
         trace = getattr(orth, "phonology_trace", None)
@@ -716,6 +731,7 @@ def format_readers_guide(doc: Doc) -> str:
         return []
 
     def _pedagogical_notes(word: Word) -> list[str]:
+        """Format any pedagogical notes for display."""
         enrichment = getattr(word, "enrichment", None)
         notes = getattr(enrichment, "pedagogical_notes", None) or []
         lines: list[str] = []
@@ -757,6 +773,13 @@ def format_readers_guide(doc: Doc) -> str:
         sent_text = " ".join(sent_words).strip()
         if sent_text:
             lines.append(f"> {sent_text}")
+        translation = getattr(sentence, "translation", None)
+        if translation and getattr(translation, "text", None):
+            target = getattr(translation, "target_lang_id", None)
+            label = "Translation" if not target else f"Translation ({target})"
+            lines.append(f"> {label}: {translation.text}")
+        if translation and getattr(translation, "notes", None):
+            lines.append(f"> Notes: {translation.notes}")
         lines.append("")
         lines.append("### Word-by-word")
         lines.append("")

@@ -59,6 +59,7 @@ class _CLTKContextFilter(logging.Filter):
     )
 
     def filter(self, record: logging.LogRecord) -> bool:
+        """Inject default structured fields into a log record."""
         for k in self.KEYS:
             if not hasattr(record, k):
                 setattr(record, k, "-")
@@ -71,6 +72,7 @@ class _ContextAdapter(logging.LoggerAdapter):
     def process(
         self, msg: Any, kwargs: MutableMapping[str, Any]
     ) -> tuple[Any, MutableMapping[str, Any]]:
+        """Merge adapter context with call-time extras on each log call."""
         extra: dict[str, Any] = kwargs.get("extra", {}) or {}
         # Existing adapter.extra should take precedence over call-time extras
         merged = (

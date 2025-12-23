@@ -112,6 +112,7 @@ class OpenAIConnection:
         prompt: str,
         max_retries: int = 2,
     ) -> CLTKGenAIResponse:
+        """Call the OpenAI responses API synchronously with retries and code-block parsing."""
         # Avoid logging full prompt contents unless explicitly enabled
         import os as _os
 
@@ -230,6 +231,7 @@ class OpenAIConnection:
 
         # Normalize key names across OpenAI endpoints
         def _get(u: object, *names: str) -> int:
+            """Attempt to read an integer field from a response usage object."""
             for nm in names:
                 if hasattr(u, nm):
                     try:
@@ -261,6 +263,7 @@ class OpenAIConnection:
         return tokens
 
     def _extract_code_blocks(self, text: str) -> str:
+        """Return the first fenced code block from an OpenAI response string."""
         # This regex finds all text between triple backticks
         code_blocks: list[str] = re.findall(
             r"```(?:[a-zA-Z]*\n)?(.*?)```", text, re.DOTALL
@@ -326,6 +329,7 @@ class AsyncOpenAIConnection:
         prompt: str,
         max_retries: int = 2,
     ) -> CLTKGenAIResponse:
+        """Call the OpenAI responses API asynchronously with retries."""
         import os as _os
 
         if _os.getenv("CLTK_LOG_CONTENT", "").strip().lower() in {
@@ -401,6 +405,7 @@ class AsyncOpenAIConnection:
         return CLTKGenAIResponse(response=raw_normalized, usage=usage)
 
     def _openai_response_tokens(self, response: Any) -> dict[str, int]:
+        """Extract token usage fields from an async OpenAI response."""
         usage = getattr(response, "usage", None)
         tokens: dict[str, int] = {"input": 0, "output": 0, "total": 0}
         if not usage:
@@ -408,6 +413,7 @@ class AsyncOpenAIConnection:
             return tokens
 
         def _get(u: object, *names: str) -> int:
+            """Attempt to read an integer field from an async response usage object."""
             for nm in names:
                 if hasattr(u, nm):
                     try:
@@ -434,6 +440,7 @@ class AsyncOpenAIConnection:
         return tokens
 
     def _extract_code_blocks(self, text: str) -> str:
+        """Return the first fenced code block from an async OpenAI response string."""
         code_blocks: list[str] = re.findall(
             r"```(?:[a-zA-Z]*\n)?(.*?)```", text, re.DOTALL
         )

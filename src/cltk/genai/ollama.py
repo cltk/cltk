@@ -28,6 +28,7 @@ HTTPX_INCOMPAT_HINT = "Ollama client is incompatible with httpx>=0.29. Install a
 
 
 def _default_host() -> str:
+    """Return the configured Ollama host or the local default."""
     host = os.environ.get(OLLAMA_HOST_ENV)
     if host:
         return host
@@ -59,6 +60,7 @@ def _usage_from_result(res: Any) -> dict[str, int]:
 
 
 def _bearer(token: str) -> str:
+    """Normalize a token string to a Bearer auth header value."""
     t = token.strip()
     return t if t.lower().startswith("bearer ") else f"Bearer {t}"
 
@@ -159,6 +161,7 @@ class OllamaConnection:
             self.log.warning("Could not verify/pull model '%s' via Ollama.", self.model)
 
     def generate(self, prompt: str, *, max_retries: int = 2) -> CLTKGenAIResponse:
+        """Call the Ollama API synchronously with retries and option merging."""
         # Avoid logging prompt contents unless explicitly enabled
         if os.getenv("CLTK_LOG_CONTENT", "").strip().lower() in {
             "1",
@@ -262,6 +265,7 @@ class AsyncOllamaConnection:
             raise ImportError(OLLAMA_INSTALL_HINT) from e
 
     async def _pull_if_needed(self) -> None:
+        """Pull the model if absent before async generation (no-op for cloud)."""
         if self.use_cloud:
             return
         try:
@@ -282,6 +286,7 @@ class AsyncOllamaConnection:
     async def generate_async(
         self, *, prompt: str, max_retries: int = 2
     ) -> CLTKGenAIResponse:
+        """Call the Ollama API asynchronously with retries and option merging."""
         if os.getenv("CLTK_LOG_CONTENT", "").strip().lower() in {
             "1",
             "true",

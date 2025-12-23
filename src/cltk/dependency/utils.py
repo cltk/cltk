@@ -1,3 +1,5 @@
+"""Helper functions for depenedency parsing."""
+
 import asyncio
 import concurrent.futures
 from typing import Any, Callable, Optional, cast, get_args
@@ -143,6 +145,7 @@ def generate_dependency_tree(
     def _resolve_dep_prompt_from_tokens(
         lang: str, table: str, builder: Optional[PromptBuilder]
     ) -> PromptInfo:
+        """Resolve the dependency prompt when a token table is available."""
         if builder is None:
             return dependency_prompt_from_tokens(table)
         if isinstance(builder, PromptInfo):
@@ -167,6 +170,7 @@ def generate_dependency_tree(
     def _resolve_dep_prompt_from_text(
         lang: str, sentence: str, builder: Optional[PromptBuilder]
     ) -> PromptInfo:
+        """Resolve the dependency prompt when only raw text is available."""
         if builder is None:
             return dependency_prompt_from_text(lang, sentence)
         if isinstance(builder, PromptInfo):
@@ -394,6 +398,7 @@ def generate_gpt_dependency(
     prompt_builder_from_tokens: Optional[PromptBuilder] = None,
     prompt_builder_from_text: Optional[PromptBuilder] = None,
 ) -> Doc:
+    """Generate dependency parses per sentence using a synchronous LLM backend."""
     log = bind_from_doc(doc)
     if not doc.model:
         msg: str = "Document model is not set."
@@ -625,6 +630,7 @@ async def generate_gpt_dependency_async(
     def _resolve_dep_prompt_from_tokens_local(
         lang: str, table: str, builder: Optional[PromptBuilder]
     ) -> PromptInfo:
+        """Resolve the dependency prompt for async flow when tokens are available."""
         if builder is None:
             return dependency_prompt_from_tokens(table)
         if isinstance(builder, PromptInfo):
@@ -649,6 +655,7 @@ async def generate_gpt_dependency_async(
     def _resolve_dep_prompt_from_text_local(
         lang: str, sentence: str, builder: Optional[PromptBuilder]
     ) -> PromptInfo:
+        """Resolve the dependency prompt for async flow when only text is available."""
         if builder is None:
             return dependency_prompt_from_text(lang, sentence)
         if isinstance(builder, PromptInfo):
@@ -675,6 +682,7 @@ async def generate_gpt_dependency_async(
     async def process_one(
         i: int, sentence: str, sentence_words: list[Word]
     ) -> tuple[int, Doc, dict[str, int]]:
+        """Process one sentence asynchronously and return parsed Doc plus usage."""
         token_table: Optional[str] = None
         if sentence_words:
             lines = ["INDEX\tFORM\tUPOS\tFEATS"]
@@ -875,6 +883,7 @@ def generate_gpt_dependency_concurrent(
         )
 
         def _runner() -> Doc:
+            """Run the async dependency workflow inside a fresh event loop."""
             return asyncio.run(
                 generate_gpt_dependency_async(
                     doc,

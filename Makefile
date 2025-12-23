@@ -60,9 +60,9 @@ publishPyPITest:
 publishPyPITestConfig:
 	uv publish --dry-run --publish-url https://test.pypi.org/legacy/ --check-url https://test.pypi.org/simple
 
-shell:
-	echo 'Tip: Use `option ``doctest_mode`` when making doctests'
-	uv run ipython --automagic
+simplee2eCheck:
+	@echo "Running simple e2e check..."
+	uv run scripts/example_greek_nlp.py
 
 updateSnapshot:
 	uv run pytest -k test_public_api_snapshot --snapshot-update
@@ -75,7 +75,8 @@ test: typing
 	uv run pytest --cov=cltk --cov-report=term-missing
 
 docstrCoverage:
-	uv run interrogate -c pyproject.toml -v src
+	@echo "Measure and report on documentation coverage in Python modules..."
+	uv run interrogate -c pyproject.toml -vv src
 
 typing:
 	uv run mypy --check-untyped-defs --html-report .mypy_cache src/cltk

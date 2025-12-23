@@ -232,10 +232,12 @@ def mk_dirs_for_file(file_path: str) -> None:
 
 
 def pascal_case(value: str) -> str:
+    """Convert a string to PascalCase."""
     return capital_case(camel_case(value))
 
 
 def camel_case(value: str) -> str:
+    """Convert a string to camelCase, removing separators."""
     string = re.sub(r"\w[\s\W]+\w", "", str(value))
     if not string:
         return string
@@ -245,6 +247,7 @@ def camel_case(value: str) -> str:
 
 
 def capital_case(value: str) -> str:
+    """Capitalize the first character of a string."""
     return value[0].upper() + value[1:]
 
 
@@ -262,6 +265,7 @@ def load_env_file(env_file: str = ".env") -> None:
 
 
 def strip_accents(s: str) -> str:
+    """Remove all accent marks from a string."""
     return "".join(
         c for c in unicodedata.normalize("NFD", s) if unicodedata.category(c) != "Mn"
     )

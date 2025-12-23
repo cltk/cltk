@@ -6,6 +6,7 @@ from unicodedata import normalize
 
 
 def cltk_normalize(text: str, compatibility: bool = True) -> str:
+    """Normalize text to NFC or NFKC, defaulting to compatibility form."""
     if compatibility:
         return normalize("NFKC", text)
     else:

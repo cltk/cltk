@@ -27,6 +27,7 @@ class _MistralErrorFallback(Exception):
 
 
 def _resolve_mistral_classes() -> tuple[Optional[Any], Optional[Any]]:
+    """Import Mistral client and SDKError lazily, returning None when missing."""
     try:
         from mistralai import Mistral as imported_mistral
     except Exception:
@@ -95,6 +96,7 @@ class MistralConnection:
         prompt: str,
         max_retries: int = 2,
     ) -> CLTKGenAIResponse:
+        """Call the Mistral chat API synchronously with retries and code-block extraction."""
         # Avoid logging full prompt contents unless explicitly enabled
         import os as _os
 
@@ -210,6 +212,7 @@ class MistralConnection:
 
         # Normalize key names across Mistral endpoints
         def _get(u: object, *names: str) -> int:
+            """Attempt to read an integer field from a response usage object."""
             for nm in names:
                 if hasattr(u, nm):
                     try:
@@ -241,6 +244,7 @@ class MistralConnection:
         return tokens
 
     def _extract_code_blocks(self, text: str) -> str:
+        """Return the first fenced code block from a Mistral response string."""
         # This regex finds all text between triple backticks
         code_blocks: list[str] = re.findall(
             r"```(?:[a-zA-Z]*\n)?(.*?)```", text, re.DOTALL
@@ -307,6 +311,7 @@ class AsyncMistralConnection:
         prompt: str,
         max_retries: int = 2,
     ) -> CLTKGenAIResponse:
+        """Call the Mistral chat API asynchronously with retries."""
         import os as _os
 
         if _os.getenv("CLTK_LOG_CONTENT", "").strip().lower() in {
@@ -383,6 +388,7 @@ class AsyncMistralConnection:
         return CLTKGenAIResponse(response=raw_normalized, usage=usage)
 
     def _mistral_response_tokens(self, response: Any) -> dict[str, int]:
+        """Extract token usage fields from an async Mistral response."""
         usage = getattr(response, "usage", None)
         tokens: dict[str, int] = {"input": 0, "output": 0, "total": 0}
         if not usage:
@@ -390,6 +396,7 @@ class AsyncMistralConnection:
             return tokens
 
         def _get(u: object, *names: str) -> int:
+            """Attempt to read an integer field from an async response usage object."""
             for nm in names:
                 if hasattr(u, nm):
                     try:
@@ -416,6 +423,7 @@ class AsyncMistralConnection:
         return tokens
 
     def _extract_code_blocks(self, text: str) -> str:
+        """Return the first fenced code block from an async Mistral response string."""
         code_blocks: list[str] = re.findall(
             r"```(?:[a-zA-Z]*\n)?(.*?)```", text, re.DOTALL
         )
