@@ -30,6 +30,7 @@ children: dict[str, set[str]] = defaultdict(set)
 # Ensure top-level Home and Reference are present in nav
 nav["Home"] = "index.md"
 nav["Quickstart"] = "quickstart.md"
+nav["Translation"] = "translation.md"
 nav["Output Formats"] = "output-formats.md"
 nav["Advanced Configuration"] = "advanced-model-configuration.md"
 nav["Advanced Prompting"] = "advanced-prompting.md"
