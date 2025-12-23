@@ -60,10 +60,6 @@ publishPyPITest:
 publishPyPITestConfig:
 	uv publish --dry-run --publish-url https://test.pypi.org/legacy/ --check-url https://test.pypi.org/simple
 
-shell:
-	echo 'Tip: Use `option ``doctest_mode`` when making doctests'
-	uv run ipython --automagic
-
 updateSnapshot:
 	uv run pytest -k test_public_api_snapshot --snapshot-update
 
