@@ -2,42 +2,41 @@
 
 This document describes how to obtain machine translations from CLTK’s GenAI pipelines, how translations are represented in the data model, and how to request non‑English targets.
 
-### Quick start
+Translations run after morphosyntax, dependency, and enrichment steps so the model can use glosses, lemma translations, idiom spans, and pedagogy notes rather than translating from scratch.
+
+### Example
 
 ```python
 from cltk.nlp import NLP
 
 # Language with a GenAI pipeline, using OpenAI as backend
-nlp = NLP(language_code="lati1261", backend="openai", model="gpt-5-mini")
+nlp = NLP(language_code="lati1261", backend="openai", model="gpt-5-mini", suppress_banner=True)
 
 doc = nlp.analyze("Gallia est omnis divisa in partes tres.")
 
 # Access translations
-print(doc.translation)                      # document-level string
-print(doc.translations)                     # list[Translation] (per sentence)
-print(doc.sentences[0].translation.text)    # first sentence translation
-print(doc.sentences[0].translation.notes)   # notes on difficult decisions
+# print(doc.translation)                      # document-level string
+# print(doc.translations)                     # list[Translation] (per sentence)
+print("Translation:", doc.sentences[0].translation.text)    # first sentence translation
+print("Notes:", doc.sentences[0].translation.notes)   # notes on difficult decisions
+```
+
+The above outputs:
+
+```
+Translation: All of Gaul is divided into three parts.
+Notes: The participle divisa (perfect passive) with est yields a present-state reading—'is divided'—rather than a simple past. omnis modifies Gallia ('all of Gaul').
 ```
 
 Outputs:
+
 - `doc.translation`: concatenated translation text (when sentences were translated)
 - `doc.translations`: list of `Translation` objects (`text`, `notes`, `source_lang_id`, `target_lang_id`)
 - `sentence.translation`: structured translation for that sentence
 
-Translations run after morphosyntax, dependency, and enrichment steps so the model can use glosses, lemma translations, idiom spans, and pedagogy notes rather than translating from scratch.
+### Requesting a non‑English target
 
-### Requesting a non‑English target (first pass)
-
-Set a different target before translation runs by overriding the translation process defaults inside a custom pipeline. For Latin, the default GenAI pipeline is:
-
-1. `MultilingualNormalizeProcess`
-2. `LatinSentenceSplittingProcess`
-3. `LatinGenAIMorphosyntaxProcess`
-4. `LatinGenAIDependencyProcess`
-5. `LatinGenAIEnrichmentProcess`
-6. `LatinGenAITranslationProcess`
-
-You can subclass `LatinGenAITranslationProcess` and adjust the target language by changing `target_language` and `target_language_id`.
+The default target language is U.S. English (`"en-US"`), but this may be changed. First, subclass `LatinGenAITranslationProcess` and adjust the target language by changing `target_language` and `target_language_id`.
 
 ```python
 """End-to-end example of translating into a non-English language."""
@@ -60,11 +59,11 @@ from cltk.translation.processes import LatinGenAITranslationProcess
 
 class LatinToFrenchTranslation(LatinGenAITranslationProcess):
     target_language: str = "Modern French"
-    target_language_id = "fr-FR"
+    target_language_id: str = "fr-FR"
 
 class LatinFrenchPipeline(Pipeline):
-    glottolog_id = "lati1261"
-    processes: Optional[list[type]] = Field(
+    glottolog_id: str = "lati1261"
+    processes: Optional[list[Any]] = Field(
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             LatinSentenceSplittingProcess,
@@ -75,45 +74,32 @@ class LatinFrenchPipeline(Pipeline):
         ]
     )
 
-nlp = NLP(language_code="lati1261", backend="openai", model="gpt-5-mini",
-          custom_pipeline=LatinFrenchPipeline())
+nlp = NLP(
+    language_code="lati1261",
+    backend="openai",
+    model="gpt-5-mini",
+    custom_pipeline=LatinFrenchPipeline(),
+    suppress_banner=True
+)
 doc = nlp.analyze("Gallia est omnis divisa in partes tres.")
 
-print(doc.translation)
-print(doc.sentences[0].translation.text)
-print(doc.sentences[0].translation.notes)
+# print(doc.translation)
+print("Translation:", doc.sentences[0].translation.text)
+print("Notes:", doc.sentences[0].translation.notes)
 ```
 
-If you save the above to `non_en_translation.py`, it will output:
+The above outputs:
 
-```bash
-% python non_en_translation.py
-𐤀 CLTK version '2.2.0'. When using the CLTK in research, please cite: https://aclanthology.org/2021.acl-demo.3/
-Selected language "Latin" ("lati1261") without dialect.
-Pipeline for `NLP("lati1261", backend="openai")`: ['MultilingualNormalizeProcess', 'LatinSentenceSplittingProcess', 'LatinGenAIMorphosyntaxProcess', 'LatinGenAIDependencyProcess', 'LatinGenAIEnrichmentProcess', 'LatinToFrenchTranslation']
-⸖ Process name: MultilingualNormalizeProcess
-⸖ Process name: LatinSentenceSplittingProcess
-⸖ Process name: LatinGenAIMorphosyntaxProcess
-    Process author: CLTK
-    Description: Default morphology tagging process using a generative GPT model for the Latin language.
-⸖ Process name: LatinGenAIDependencyProcess
-    Process author: CLTK
-    Description: Default dependency syntax parsing process using a generative GPT model for the Latin language.
-⸖ Process name: LatinGenAIEnrichmentProcess
-    Process author: CLTK
-    Description: Default textual enrichment process using a generative GPT model for the Latin language.
-⸖ Process name: LatinToFrenchTranslation
-    Process author: CLTK
-    Description: Default textual translation process using a generative GPT model for the Latin language.
-Toute la Gaule est divisée en trois parties.
-Toute la Gaule est divisée en trois parties.
-«Gallia omnis» rendu par «Toute la Gaule» (could also be «La Gaule tout entière»). Verbe parfait passif «divisa» → «est divisée»; «partes tres» → «trois parties». Agreement respects feminine singular «Gaule».
+```
+Translation: Toute la Gaule est divisée en trois parties.
+Notes: «omnis» rendered as «toute» to convey ‘all/whole’; «divisa» is a perfect passive participle agreeing with «Gallia», hence passive French «est divisée». Word order follows natural French syntax.
 ```
 
 
 ### Reader’s guide rendering
 
 `format_readers_guide(doc)` will display, per sentence:
+
 - original sentence text
 - translation (with target language identifier when present)
 - translation notes summarizing ambiguous or idiomatic choices
