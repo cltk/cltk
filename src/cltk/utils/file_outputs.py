@@ -773,6 +773,13 @@ def format_readers_guide(doc: Doc) -> str:
         sent_text = " ".join(sent_words).strip()
         if sent_text:
             lines.append(f"> {sent_text}")
+        translation = getattr(sentence, "translation", None)
+        if translation and getattr(translation, "text", None):
+            target = getattr(translation, "target_lang_id", None)
+            label = "Translation" if not target else f"Translation ({target})"
+            lines.append(f"> {label}: {translation.text}")
+        if translation and getattr(translation, "notes", None):
+            lines.append(f"> Notes: {translation.notes}")
         lines.append("")
         lines.append("### Word-by-word")
         lines.append("")
