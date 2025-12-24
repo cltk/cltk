@@ -3,7 +3,7 @@
 import json
 from typing import TYPE_CHECKING, Any, Optional, Union
 
-from cltk.core.data_types import Doc, Word
+from cltk.core.data_types import Doc, Sentence, Word
 
 if TYPE_CHECKING:
     import pyarrow as pa  # type: ignore[import-untyped]
@@ -839,4 +839,102 @@ def format_readers_guide(doc: Doc) -> str:
 
             lines.append("")
 
+        lines.append("### Dependency tree")
+        lines.append("")
+        dep_tree = sentence_to_dep_tree(sentence)
+        if dep_tree:
+            lines.append("```text")
+            lines.append(dep_tree.rstrip())
+            lines.append("```")
+        else:
+            lines.append("(No dependency tree available.)")
+        lines.append("")
+
     return "\n".join(lines).strip() + "\n"
+
+
+def sentence_to_dep_tree(sentence: Sentence) -> str:
+    """Return an ASCII dependency tree string for a sentence."""
+    raw_words: list[Optional[Word]] = getattr(sentence, "words", []) or []
+    words = [word for word in raw_words if word is not None]
+    if not words:
+        return ""
+
+    def _token_sort_key(item: tuple[int, Word]) -> int:
+        """Sort tokens by index_token, falling back to sentence order."""
+        idx_token: Optional[int] = getattr(item[1], "index_token", None)
+        return idx_token if isinstance(idx_token, int) else item[0]
+
+    def _format_deprel(word: Word) -> str:
+        """Format dependency relation code and subtype for display."""
+        dep = getattr(word, "dependency_relation", None)
+        if dep is None:
+            return ""
+        code = getattr(dep, "code", None) or getattr(dep, "tag", None)
+        subtype = getattr(dep, "subtype", None)
+        if not code:
+            return ""
+        return f"{code}:{subtype}" if subtype else str(code)
+
+    entries = sorted(enumerate(words), key=_token_sort_key)
+    local_to_word = [word for _, word in entries]
+    n = len(local_to_word)
+
+    index_token_to_local: dict[int, int] = {}
+    for i, word in enumerate(local_to_word):
+        tok = getattr(word, "index_token", None)
+        if isinstance(tok, int):
+            index_token_to_local[tok] = i
+
+    head_local: list[Optional[int]] = [None] * n
+    for i, word in enumerate(local_to_word):
+        gov = getattr(word, "governor", None)
+        if isinstance(gov, int) and 0 <= gov < n:
+            head_local[i] = gov
+        elif isinstance(gov, int) and gov in index_token_to_local:
+            head_local[i] = index_token_to_local[gov]
+
+    children: list[list[int]] = [[] for _ in range(n)]
+    for i, head in enumerate(head_local):
+        if isinstance(head, int) and 0 <= head < n:
+            children[head].append(i)
+    for kids in children:
+        kids.sort()
+
+    roots = [i for i, head in enumerate(head_local) if head is None]
+    if not roots:
+        roots = list(range(n))
+
+    def _node_label(idx: int) -> str:
+        """Build a readable label for the dependency node."""
+        word = local_to_word[idx]
+        form = getattr(word, "string", None) or getattr(word, "lemma", None) or ""
+        if not form:
+            form = f"token_{idx + 1}"
+        upos = getattr(getattr(word, "upos", None), "tag", None)
+        rel = _format_deprel(word)
+        pieces = [f"{idx + 1} {form}"]
+        if upos:
+            pieces.append(f"[{upos}]")
+        if rel:
+            pieces.append(f"<{rel}>")
+        return " ".join(pieces)
+
+    lines: list[str] = []
+
+    def _render(node: int, prefix: str, is_last: bool) -> None:
+        connector = "`-- " if is_last else "|-- "
+        lines.append(f"{prefix}{connector}{_node_label(node)}")
+        kids = children[node]
+        if not kids:
+            return
+        next_prefix = prefix + ("    " if is_last else "|   ")
+        for idx, child in enumerate(kids):
+            _render(child, next_prefix, idx == len(kids) - 1)
+
+    for idx, root in enumerate(roots):
+        _render(root, "", idx == len(roots) - 1)
+
+    if not lines:
+        return ""
+    return "\n".join(lines).rstrip() + "\n"
