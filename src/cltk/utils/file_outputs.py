@@ -840,3 +840,107 @@ def format_readers_guide(doc: Doc) -> str:
             lines.append("")
 
     return "\n".join(lines).strip() + "\n"
+
+
+def doc_to_dep_tree(doc: Doc) -> str:
+    """Return an ASCII dependency tree string for the document."""
+    words: list[Optional[Word]] = getattr(doc, "words", []) or []
+    if not words:
+        return ""
+
+    grouped: dict[Optional[int], list[tuple[int, Word]]] = {}
+    for order_idx, word in enumerate(words):
+        if word is None:
+            continue
+        sent_idx = getattr(word, "index_sentence", None)
+        grouped.setdefault(sent_idx, []).append((order_idx, word))
+
+    def _sentence_sort_key(item: tuple[int, Word]) -> int:
+        """Sort tokens within a sentence by index_token, falling back to doc order."""
+        idx_token: Optional[int] = getattr(item[1], "index_token", None)
+        return idx_token if isinstance(idx_token, int) else item[0]
+
+    def _format_deprel(word: Word) -> str:
+        """Format dependency relation code and subtype for display."""
+        dep = getattr(word, "dependency_relation", None)
+        if dep is None:
+            return ""
+        code = getattr(dep, "code", None) or getattr(dep, "tag", None)
+        subtype = getattr(dep, "subtype", None)
+        if not code:
+            return ""
+        return f"{code}:{subtype}" if subtype else str(code)
+
+    lines: list[str] = []
+    sent_number = 0
+    multiple_sentences = len(grouped) > 1
+
+    for _, sentence_entries in grouped.items():
+        sentence_words = sorted(sentence_entries, key=_sentence_sort_key)
+        if not sentence_words:
+            continue
+
+        sent_number += 1
+        local_to_word = [w for _, w in sentence_words]
+        n = len(local_to_word)
+
+        index_token_to_local: dict[int, int] = {}
+        for i, w in enumerate(local_to_word):
+            tok = getattr(w, "index_token", None)
+            if isinstance(tok, int):
+                index_token_to_local[tok] = i
+
+        head_local: list[Optional[int]] = [None] * n
+        for i, w in enumerate(local_to_word):
+            gov = getattr(w, "governor", None)
+            if isinstance(gov, int) and 0 <= gov < n:
+                head_local[i] = gov
+            elif isinstance(gov, int) and gov in index_token_to_local:
+                head_local[i] = index_token_to_local[gov]
+
+        children: list[list[int]] = [[] for _ in range(n)]
+        for i, head in enumerate(head_local):
+            if isinstance(head, int) and 0 <= head < n:
+                children[head].append(i)
+        for kids in children:
+            kids.sort()
+
+        roots = [i for i, head in enumerate(head_local) if head is None]
+        if not roots:
+            roots = list(range(n))
+
+        def _node_label(idx: int) -> str:
+            """Build a readable label for the dependency node."""
+            word = local_to_word[idx]
+            form = getattr(word, "string", None) or getattr(word, "lemma", None) or ""
+            if not form:
+                form = f"token_{idx + 1}"
+            upos = getattr(getattr(word, "upos", None), "tag", None)
+            rel = _format_deprel(word)
+            pieces = [f"{idx + 1} {form}"]
+            if upos:
+                pieces.append(f"[{upos}]")
+            if rel:
+                pieces.append(f"<{rel}>")
+            return " ".join(pieces)
+
+        def _render(node: int, prefix: str, is_last: bool) -> None:
+            connector = "`-- " if is_last else "|-- "
+            lines.append(f"{prefix}{connector}{_node_label(node)}")
+            kids = children[node]
+            if not kids:
+                return
+            next_prefix = prefix + ("    " if is_last else "|   ")
+            for idx, child in enumerate(kids):
+                _render(child, next_prefix, idx == len(kids) - 1)
+
+        if multiple_sentences:
+            lines.append(f"Sentence {sent_number}")
+        for idx, root in enumerate(roots):
+            _render(root, "", idx == len(roots) - 1)
+        if multiple_sentences:
+            lines.append("")
+
+    if not lines:
+        return ""
+    return "\n".join(lines).rstrip() + "\n"
