@@ -6,7 +6,7 @@ from cltk import NLP
 from cltk.languages.example_texts import get_example_text
 from cltk.utils.file_outputs import format_readers_guide
 
-lang_code = 'anci1242'
+lang_code = "anci1242"
 text = get_example_text(lang_code)
 # print(text)
 # input()
