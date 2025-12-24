@@ -11,8 +11,8 @@ lang_code = "anci1242"
 text = get_example_text(lang_code)
 # print(text)
 # input()
-text = text[:77]  # first colon
-# text = text[:642]  # first four sentences
+# text = text[:77]  # first colon
+text = text[:642]  # first four sentences
 print("Text:", text)
 nlp = NLP(language_code=lang_code, backend="openai")
 doc = nlp.analyze(text)
@@ -31,7 +31,7 @@ with open(md_file, "w") as f:
     f.write(md)
 print("Readers' guide written to:", md_file)
 
-sentece: Sentence
-for sentence in doc.sentences:
-    tree: str = sentence_to_dep_tree(sentence=sentence)
-    print(tree)
+# sentence: Sentence
+# for sentence in doc.sentences:
+#     tree: str = sentence_to_dep_tree(sentence=sentence)
+#     print(tree)
