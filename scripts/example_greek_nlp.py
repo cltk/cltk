@@ -3,8 +3,9 @@
 import pickle
 
 from cltk import NLP
+from cltk.core.data_types import Sentence
 from cltk.languages.example_texts import get_example_text
-from cltk.utils.file_outputs import doc_to_dep_tree, format_readers_guide
+from cltk.utils.file_outputs import format_readers_guide, sentence_to_dep_tree
 
 lang_code = "anci1242"
 text = get_example_text(lang_code)
@@ -30,5 +31,7 @@ with open(md_file, "w") as f:
     f.write(md)
 print("Readers' guide written to:", md_file)
 
-tree: str = doc_to_dep_tree(doc=doc)
-print(tree)
+sentece: Sentence
+for sentence in doc.sentences:
+    tree: str = sentence_to_dep_tree(sentence=sentence)
+    print(tree)
