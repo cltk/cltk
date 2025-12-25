@@ -15,7 +15,7 @@ fix:
 	uv run ruff check --fix src/
 
 format:
-	uv run ruff format src/ tests/ scripts/
+	uv run ruff format src/ tests/ scripts/ evaluation/
 
 freezeDependencies:
 	# Update uv.lock from pyproject.toml without installing packages
@@ -74,12 +74,16 @@ test: typing
 	@echo "Running tests with coverage..."
 	uv run pytest --cov=cltk --cov-report=term-missing
 
+testIntegration:
+	@echo "Running integration tests..."
+	env CLTK_RUN_INTEGRATION_TESTS=1 uv run pytest -m integration
+
 docstrCoverage:
 	@echo "Measure and report on documentation coverage in Python modules..."
 	uv run interrogate -c pyproject.toml -vv src
 
 typing:
-	uv run mypy --check-untyped-defs --html-report .mypy_cache src/cltk
+	uv run mypy --check-untyped-defs --html-report .mypy_cache src/cltk/ evaluation/ scripts/
 
 testBuilt:
 	@set -euo pipefail; \
