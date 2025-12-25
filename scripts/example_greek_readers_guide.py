@@ -11,8 +11,8 @@ lang_code = "anci1242"
 text = get_example_text(lang_code)
 # print(text)
 # input()
-# text = text[:77]  # first colon
-text = text[:642]  # first four sentences
+text = text[:77]  # first colon
+# text = text[:642]  # first four sentences
 print("Text:", text)
 nlp = NLP(language_code=lang_code, backend="openai")
 doc = nlp.analyze(text)
