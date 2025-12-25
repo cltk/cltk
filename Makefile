@@ -3,6 +3,10 @@ SHELL := /usr/bin/env bash
 build:
 	uv build
 
+modelComparison:
+	@echo "Running model comparison script..."
+	uv run evaluation/compare_all_models.py
+
 docs:
 	@echo "Building MkDocs site..."
 	uv run mkdocs build --strict
