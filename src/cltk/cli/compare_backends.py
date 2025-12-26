@@ -12,6 +12,7 @@ from cltk.evaluation.compare_backends import (
 
 
 def main(argv: Optional[list[str]] = None) -> int:
+    """Run the compare-backends CLI."""
     args = _parse_args(argv)
     text = _load_text(args)
     backends = _parse_backends(args.backends)
@@ -41,6 +42,7 @@ def main(argv: Optional[list[str]] = None) -> int:
 
 
 def _parse_args(argv: Optional[list[str]]) -> argparse.Namespace:
+    """Parse CLI arguments."""
     parser = argparse.ArgumentParser(
         prog="cltk.compare_backends",
         description="Compare CLTK NLP backends on the same text.",
@@ -83,6 +85,7 @@ def _parse_args(argv: Optional[list[str]]) -> argparse.Namespace:
 
 
 def _load_text(args: argparse.Namespace) -> str:
+    """Load input text from args or file."""
     if args.text and args.text_file:
         raise SystemExit("Provide either --text or --text-file, not both.")
     if args.text_file:
@@ -97,6 +100,7 @@ def _load_text(args: argparse.Namespace) -> str:
 
 
 def _parse_backends(value: str) -> list[str]:
+    """Parse comma-separated backend list."""
     backends = [part.strip() for part in value.split(",") if part.strip()]
     if not backends:
         raise SystemExit("No backends provided.")
@@ -104,6 +108,7 @@ def _parse_backends(value: str) -> list[str]:
 
 
 def _validate_limits(args: argparse.Namespace) -> None:
+    """Validate max-sentences and max-tokens settings."""
     if args.max_sentences is not None and args.max_sentences <= 0:
         raise SystemExit("--max-sentences must be a positive integer.")
     if args.max_tokens is not None and args.max_tokens <= 0:
@@ -111,6 +116,7 @@ def _validate_limits(args: argparse.Namespace) -> None:
 
 
 def _seed_overrides(backends: list[str], seed: int) -> dict[str, dict[str, Any]]:
+    """Build per-backend seed overrides."""
     configs: dict[str, dict[str, Any]] = {}
     for backend in backends:
         if backend == "mistral":

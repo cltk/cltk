@@ -3,10 +3,6 @@ SHELL := /usr/bin/env bash
 build:
 	uv build
 
-modelComparison:
-	@echo "Running model comparison script..."
-	uv run evaluation/compare_all_models.py
-
 docs:
 	@echo "Building MkDocs site..."
 	uv run mkdocs build --strict
@@ -44,6 +40,10 @@ installPyPITest:
 lint:
 	uv run ruff check src/
 
+modelComparison:
+	@echo "Running model comparison script..."
+	uv run evaluation/compare_all_models.py
+
 notebook:
 	uv run jupyter notebook notebooks
 
@@ -67,9 +67,6 @@ publishPyPITestConfig:
 simplee2eCheck:
 	@echo "Running simple e2e check..."
 	uv run scripts/example_greek_nlp.py
-
-updateSnapshot:
-	uv run pytest -k test_public_api_snapshot --snapshot-update
 
 testSnapshot:
 	uv run pytest -k test_public_api_snapshot --snapshot-update
@@ -113,5 +110,8 @@ uninstall:
 
 updateDependencies:
 	uv lock --upgrade
+
+updateSnapshot:
+	uv run pytest -k test_public_api_snapshot --snapshot-update
 
 .PHONY: build docs docsServe test typing testBuilt

@@ -117,6 +117,8 @@ COMPARE_FIELDS: tuple[FieldName, ...] = (
 
 @dataclass(frozen=True)
 class NormalizedToken:
+    """Comparable token representation extracted from a CLTK word."""
+
     index: Optional[int]
     string: Optional[str]
     lemma: Optional[str]
@@ -128,6 +130,8 @@ class NormalizedToken:
 
 @dataclass(frozen=True)
 class NormalizedSentence:
+    """Comparable sentence representation with normalized tokens."""
+
     index: int
     text: Optional[str]
     tokens: list[NormalizedToken]
@@ -135,6 +139,8 @@ class NormalizedSentence:
 
 @dataclass(frozen=True)
 class AlignmentOp:
+    """Single alignment operation between base and other token lists."""
+
     op: str
     base_index: Optional[int]
     other_index: Optional[int]
@@ -144,12 +150,16 @@ class AlignmentOp:
 
 @dataclass(frozen=True)
 class AlignmentResult:
+    """Alignment output with ops and edit cost metadata."""
+
     strategy: str
     cost: int
     ops: list[AlignmentOp]
 
 
 class AlignmentRow(TypedDict):
+    """Row structure for aligned token comparisons."""
+
     base_index: Optional[int]
     by_backend: dict[str, dict[str, Any] | None]
 
@@ -331,6 +341,7 @@ def _compare_docs(
     max_sentences: int | None,
     max_tokens: int | None,
 ) -> dict[str, Any]:
+    """Compare normalized docs and build a full report payload."""
     base_backend = backends[0]
     backend_meta = {backend: backend_meta.get(backend, {}) for backend in backends}
     normalized: dict[str, list[NormalizedSentence]] = {}
@@ -394,6 +405,7 @@ def _compare_sentence(
     backends: list[str],
     sentences: dict[str, NormalizedSentence],
 ) -> dict[str, Any]:
+    """Align tokens for one sentence and compute per-field diffs."""
     base_sentence = sentences[base_backend]
     base_tokens = base_sentence.tokens
     base_strings = [_token_surface(tok) for tok in base_tokens]
@@ -506,6 +518,7 @@ def _normalize_doc(
     max_sentences: int | None,
     max_tokens: int | None,
 ) -> list[NormalizedSentence]:
+    """Normalize a Doc into comparable sentences and tokens."""
     sentences: list[NormalizedSentence] = []
     sentence_texts: list[str] = []
     try:
@@ -564,6 +577,7 @@ def _normalize_doc(
 
 
 def _fill_token_indices(tokens: list[NormalizedToken]) -> list[NormalizedToken]:
+    """Ensure tokens have local indices for alignment."""
     filled: list[NormalizedToken] = []
     for i, token in enumerate(tokens):
         if token.index is not None:
@@ -584,6 +598,7 @@ def _fill_token_indices(tokens: list[NormalizedToken]) -> list[NormalizedToken]:
 
 
 def _normalize_word(word: Word) -> NormalizedToken:
+    """Extract normalized fields from a CLTK Word."""
     token_str = _normalize_str(getattr(word, "string", None))
     if token_str is None:
         for attr in ("text", "form"):
@@ -615,6 +630,7 @@ def _normalize_word(word: Word) -> NormalizedToken:
 
 
 def _normalize_str(value: Any) -> Optional[str]:
+    """Normalize a value to a stripped string."""
     if value is None:
         return None
     if isinstance(value, str):
@@ -628,6 +644,7 @@ def _normalize_str(value: Any) -> Optional[str]:
 
 
 def _normalize_tag(value: Any) -> Optional[str]:
+    """Normalize a UD tag-like value to a string."""
     if value is None:
         return None
     if isinstance(value, str):
@@ -645,6 +662,7 @@ def _normalize_tag(value: Any) -> Optional[str]:
 
 
 def _normalize_feats(value: Any) -> Optional[str]:
+    """Normalize feature bundles to a stable string form."""
     if value is None:
         return None
     if isinstance(value, str):
@@ -673,6 +691,7 @@ def _normalize_feats(value: Any) -> Optional[str]:
 
 
 def _normalize_head(word: Word) -> Optional[int]:
+    """Normalize head/governor index to an int."""
     for attr in ("governor", "head", "head_index", "head_id"):
         val = getattr(word, attr, None)
         if val is not None:
@@ -681,6 +700,7 @@ def _normalize_head(word: Word) -> Optional[int]:
 
 
 def _normalize_deprel(value: Any) -> Optional[str]:
+    """Normalize dependency relation to a string."""
     if value is None:
         return None
     if isinstance(value, str):
@@ -698,6 +718,7 @@ def _normalize_deprel(value: Any) -> Optional[str]:
 
 
 def _fallback_sentence_split(text: str, language: str) -> list[str]:
+    """Split text into sentences when no boundaries exist."""
     if not text:
         return []
     try:
@@ -711,6 +732,7 @@ def _fallback_sentence_split(text: str, language: str) -> list[str]:
 
 
 def _fallback_tokenize(text: str) -> list[NormalizedToken]:
+    """Tokenize text by whitespace as a fallback."""
     if not text:
         return []
     tokens: list[NormalizedToken] = []
@@ -730,6 +752,7 @@ def _fallback_tokenize(text: str) -> list[NormalizedToken]:
 
 
 def _align_tokens(base: list[str], other: list[str]) -> AlignmentResult:
+    """Align token strings using positional or DP alignment."""
     if base == other:
         positional_ops = [
             AlignmentOp(
@@ -818,6 +841,7 @@ def _diff_row(
     by_backend: dict[str, dict[str, Any] | None],
     backends: list[str],
 ) -> dict[str, dict[str, Any]]:
+    """Compute per-field agreement for one aligned row."""
     diff: dict[str, dict[str, Any]] = {}
     for field in COMPARE_FIELDS:
         values: dict[str, Any] = {}
@@ -839,6 +863,7 @@ def _agreement_rates(
     tokens: list[dict[str, Any]],
     backends: list[str],
 ) -> dict[str, dict[str, dict[str, Any]]]:
+    """Compute pairwise agreement rates across aligned rows."""
     rates: dict[str, dict[str, dict[str, Any]]] = {
         field: {} for field in COMPARE_FIELDS
     }
@@ -867,12 +892,14 @@ def _field_comparable(
     a_token: dict[str, Any] | None,
     b_token: dict[str, Any] | None,
 ) -> bool:
+    """Check whether a field is comparable for a token pair."""
     if field == "tokenization":
         return (a_token is not None) or (b_token is not None)
     return (a_token is not None) and (b_token is not None)
 
 
 def _field_value(field: FieldName, token: dict[str, Any] | None) -> Any:
+    """Extract a comparable field value from a token dict."""
     if token is None:
         return None
     if field == "tokenization":
@@ -884,6 +911,7 @@ def _build_summary(
     rows: list[dict[str, Any]],
     backends: list[str],
 ) -> dict[str, Any]:
+    """Aggregate overall metrics and confusion tables."""
     summary = {
         "agreement_rates": _agreement_rates(rows, backends),
         "most_disagreed_tokens": _top_disagreements(rows, backends),
@@ -901,6 +929,7 @@ def _top_disagreements(
     *,
     limit: int = 10,
 ) -> list[dict[str, Any]]:
+    """Return the highest-disagreement rows for summary."""
     scored: list[tuple[int, dict[str, Any]]] = []
     for row in rows:
         diff = row.get("diff", {})
@@ -938,6 +967,7 @@ def _confusion(
     *,
     field: FieldName,
 ) -> dict[str, dict[str, dict[str, int]]]:
+    """Build a confusion-like table for a field."""
     table: dict[str, dict[str, dict[str, int]]] = {}
     for a, b in combinations(backends, 2):
         pair = _pair_key(a, b)
@@ -964,6 +994,7 @@ def _write_csv_tables(
     out_path: Path,
     basename: str,
 ) -> list[str]:
+    """Write CSV tables for summary metrics and disagreements."""
     written: list[str] = []
     pd = _optional_pandas()
 
@@ -1030,6 +1061,7 @@ def _write_csv(
     *,
     pd: Optional[Any],
 ) -> list[str]:
+    """Write rows to a CSV file using pandas if available."""
     if pd is not None:
         df = pd.DataFrame(rows)
         df.to_csv(path, index=False)
@@ -1049,6 +1081,7 @@ def _write_csv(
 
 
 def _optional_pandas() -> Optional[Any]:
+    """Return pandas if installed, otherwise None."""
     if importlib.util.find_spec("pandas") is None:
         return None
     return importlib.import_module("pandas")
@@ -1060,6 +1093,7 @@ def _build_cltk_config(
     backend: str,
     overrides: Optional[dict[str, Any]],
 ) -> CLTKConfig:
+    """Build a CLTKConfig for a specific backend with overrides."""
     overrides = overrides or {}
     backend_config: Optional[ModelConfig] = None
     if backend == "stanza":
@@ -1098,6 +1132,7 @@ def _build_cltk_config(
 
 
 def _collect_backend_meta(doc: Doc) -> dict[str, Any]:
+    """Collect backend metadata from a Doc."""
     backend_config = doc.metadata.get("backend_config")
     if backend_config is not None and hasattr(backend_config, "model_dump"):
         backend_config = backend_config.model_dump()
@@ -1116,10 +1151,12 @@ def _collect_backend_meta(doc: Doc) -> dict[str, Any]:
 
 
 def _token_surface(token: NormalizedToken) -> str:
+    """Choose the best surface string for alignment."""
     return token.string or token.lemma or ""
 
 
 def _token_to_dict(token: NormalizedToken) -> dict[str, Any]:
+    """Serialize a normalized token to a dict."""
     return asdict(token)
 
 
@@ -1127,6 +1164,7 @@ def _pick_sentence_text(
     sentences: dict[str, NormalizedSentence],
     backends: list[str],
 ) -> Optional[str]:
+    """Pick the first available sentence text among backends."""
     for backend in backends:
         text = sentences[backend].text
         if text:
@@ -1135,6 +1173,7 @@ def _pick_sentence_text(
 
 
 def _shift_mapping(mapping: dict[int, int], insert_at: int) -> None:
+    """Shift row indices after inserting an alignment row."""
     for key, idx in list(mapping.items()):
         if idx >= insert_at:
             mapping[key] = idx + 1
@@ -1144,6 +1183,7 @@ def _ensure_backend_keys(
     rows: list[AlignmentRow],
     backends: list[str],
 ) -> None:
+    """Ensure each row has keys for all backends."""
     for row in rows:
         by_backend = row["by_backend"]
         for backend in backends:
@@ -1151,10 +1191,12 @@ def _ensure_backend_keys(
 
 
 def _pair_key(a: str, b: str) -> str:
+    """Format a stable backend pair key."""
     return f"{a} vs {b}"
 
 
 def _as_int(value: Any) -> Optional[int]:
+    """Safely coerce a value to int."""
     try:
         return int(value)
     except Exception:
@@ -1162,10 +1204,12 @@ def _as_int(value: Any) -> Optional[int]:
 
 
 def _text_hash(text: str) -> str:
+    """Return a short hash for the input text."""
     return hashlib.sha1(text.encode("utf-8"), usedforsecurity=False).hexdigest()[:10]
 
 
 def _cltk_version() -> Optional[str]:
+    """Return the installed CLTK version when available."""
     try:
         return importlib.metadata.version("cltk")
     except Exception:
