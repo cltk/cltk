@@ -1,6 +1,6 @@
 [project]
 name = "cltk"
-version = "2.3.1"
+version = "2.3.2"
 description = "The Classical Language Toolkit"
 authors = [
     {name = "Kyle P. Johnson", email = "kyle@kyle-p-johnson.com"},
@@ -123,6 +123,7 @@ namespace_packages = true
 explicit_package_bases = true
 mypy_path = "src"
 plugins = ["pydantic.mypy"]
+exclude = 'temp_.*'
 
 # Interrogate: docstring coverage (non-blocking; run locally or in optional CI job)
 [tool.interrogate]
@@ -137,7 +138,8 @@ verbose = 1
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-addopts = "-ra"
+addopts = "-ra -m 'not integration'"
+markers = ["integration: integration tests (opt-in)"]
 xfail_strict = true
 filterwarnings = [
     "error::DeprecationWarning",

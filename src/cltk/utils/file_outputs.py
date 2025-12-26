@@ -753,6 +753,7 @@ def format_readers_guide(doc: Doc) -> str:
     metadata = getattr(doc, "metadata", {}) or {}
     title = metadata.get("title") or metadata.get("reference") or "Reader's Guide"
     lines.append(f"# {title}")
+    lines.append("")
 
     ipa_modes = {
         getattr(getattr(getattr(w, "enrichment", None), "ipa", None), "mode", None)
@@ -767,17 +768,20 @@ def format_readers_guide(doc: Doc) -> str:
     sentences = getattr(doc, "sentences", None) or []
     for s_idx, sentence in enumerate(sentences, 1):
         lines.append(f"## Sentence {s_idx}")
+        lines.append("")
         sent_words = [
             w.string for w in getattr(sentence, "words", []) or [] if w.string
         ]
         sent_text = " ".join(sent_words).strip()
         if sent_text:
             lines.append(f"> {sent_text}")
+            lines.append("")
         translation = getattr(sentence, "translation", None)
         if translation and getattr(translation, "text", None):
             target = getattr(translation, "target_lang_id", None)
             label = "Translation" if not target else f"Translation ({target})"
             lines.append(f"> {label}: {translation.text}")
+            lines.append("")
         if translation and getattr(translation, "notes", None):
             lines.append(f"> Notes: {translation.notes}")
         lines.append("")
@@ -785,16 +789,19 @@ def format_readers_guide(doc: Doc) -> str:
         lines.append("")
         for word in getattr(sentence, "words", []) or []:
             surface = word.string or "(missing)"
-            lines.append(f"### {surface}")
+            lines.append(f"#### {surface}")
+            lines.append("")
             pos_name = _safe_pos_name(word)
             gloss_context, gloss_dict = _gloss_parts(word)
             primary_gloss = gloss_context or gloss_dict
             if pos_name and primary_gloss:
                 lines.append(f"*{pos_name}* · **{primary_gloss}**")
+                lines.append("")
             elif pos_name:
                 lines.append(f"*{pos_name}*")
             elif primary_gloss:
                 lines.append(f"**{primary_gloss}**")
+                lines.append("")
             if not (pos_name or primary_gloss):
                 lines.append("")
 
@@ -923,6 +930,7 @@ def sentence_to_dep_tree(sentence: Sentence) -> str:
     lines: list[str] = []
 
     def _render(node: int, prefix: str, is_last: bool) -> None:
+        """Append a tree-formatted subtree rooted at ``node`` to ``lines``."""
         connector = "`-- " if is_last else "|-- "
         lines.append(f"{prefix}{connector}{_node_label(node)}")
         kids = children[node]

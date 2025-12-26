@@ -15,7 +15,7 @@ fix:
 	uv run ruff check --fix src/
 
 format:
-	uv run ruff format src/ tests/ scripts/
+	uv run ruff format src/ tests/ scripts/ evaluation/
 
 freezeDependencies:
 	# Update uv.lock from pyproject.toml without installing packages
@@ -39,6 +39,10 @@ installPyPITest:
 
 lint:
 	uv run ruff check src/
+
+modelComparison:
+	@echo "Running model comparison script..."
+	uv run evaluation/compare_all_models.py
 
 notebook:
 	uv run jupyter notebook notebooks
@@ -64,9 +68,6 @@ simplee2eCheck:
 	@echo "Running simple e2e check..."
 	uv run scripts/example_greek_nlp.py
 
-updateSnapshot:
-	uv run pytest -k test_public_api_snapshot --snapshot-update
-
 testSnapshot:
 	uv run pytest -k test_public_api_snapshot --snapshot-update
 
@@ -74,12 +75,16 @@ test: typing
 	@echo "Running tests with coverage..."
 	uv run pytest --cov=cltk --cov-report=term-missing
 
+testIntegration:
+	@echo "Running integration tests..."
+	uv run pytest -m integration
+
 docstrCoverage:
 	@echo "Measure and report on documentation coverage in Python modules..."
 	uv run interrogate -c pyproject.toml -vv src
 
 typing:
-	uv run mypy --check-untyped-defs --html-report .mypy_cache src/cltk
+	uv run mypy --check-untyped-defs --html-report .mypy_cache src/cltk/ evaluation/ scripts/
 
 testBuilt:
 	@set -euo pipefail; \
@@ -105,5 +110,8 @@ uninstall:
 
 updateDependencies:
 	uv lock --upgrade
+
+updateSnapshot:
+	uv run pytest -k test_public_api_snapshot --snapshot-update
 
 .PHONY: build docs docsServe test typing testBuilt
