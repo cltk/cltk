@@ -1,15 +1,14 @@
 """Utilities for loading and resolving Glottolog-derived language data.
 
-This module ships a compact Glottolog export (``glottolog.json``) and exposes
-helpers to load it into Pydantic models, build fast lookup indices, and resolve
-user-supplied keys (ISO codes, names, glottocodes) into
-``(Language, Optional[Dialect])`` pairs. It is used throughout CLTK to map
-human-facing inputs into canonical language identifiers.
+This module ships a curated subset of Glottolog-derived data (see
+``languages.py``) and exposes helpers to load it into Pydantic models, build
+fast lookup indices, and resolve user-supplied keys (ISO codes, names,
+glottocodes) into ``(Language, Optional[Dialect])`` pairs. It is used
+throughout CLTK to map human-facing inputs into canonical language identifiers.
 """
 
 import json
 from functools import lru_cache
-from importlib.resources import files as pkg_files
 from pathlib import Path
 from typing import Any, Literal, Optional, cast
 
@@ -18,58 +17,44 @@ from pydantic import TypeAdapter
 from cltk.core.cltk_logger import logger
 from cltk.core.data_types import Dialect, Language
 from cltk.core.logging_utils import glog
-
-# If you ship the JSON with the package, place it under cltk/languages/
-_DEFAULT_RESOURCE = "glottolog.json"
+from cltk.languages.languages import LANGUAGES as CURATED_LANGUAGES
 
 
-def _read_bytes(path: Optional[Path]) -> bytes:
-    """Return JSON bytes from a file path or the packaged resource.
+def _read_bytes(path: Path) -> bytes:
+    """Return JSON bytes from a file path.
 
     Args:
-      path: Optional path to a JSON file. If ``None``, reads the packaged
-        ``glottolog.json`` resource.
+      path: Path to a JSON file.
 
     Returns:
       Raw JSON bytes.
 
     Raises:
-      FileNotFoundError: If a file ``path`` is provided but does not exist.
-      Exception: If the packaged resource cannot be read.
+      FileNotFoundError: If ``path`` does not exist.
 
     """
-    if path:
-        logger.debug(f"Reading Glottolog JSON from file: {path}")
-        p = Path(path)
-        if not p.exists():
-            logger.error(f"Glottolog JSON not found at path: {p}")
-            raise FileNotFoundError(f"Glottolog JSON not found at path: {p}")
-        data = p.read_bytes()
-        logger.debug(f"Read {len(data)} bytes from {p}")
-        return data
-    # packaged data (cltk/languages/glottolog.json)
-    try:
-        logger.debug(f"Reading packaged Glottolog JSON resource: {_DEFAULT_RESOURCE}")
-        data = (pkg_files(__package__) / _DEFAULT_RESOURCE).read_bytes()
-        logger.debug(f"Read {len(data)} bytes from packaged resource")
-        return data
-    except Exception as e:
-        logger.error(
-            f"Failed to read packaged Glottolog JSON '{_DEFAULT_RESOURCE}': {e}"
-        )
-        raise
+    logger.debug(f"Reading Glottolog JSON from file: {path}")
+    p = Path(path)
+    if not p.exists():
+        logger.error(f"Glottolog JSON not found at path: {p}")
+        raise FileNotFoundError(f"Glottolog JSON not found at path: {p}")
+    data = p.read_bytes()
+    logger.debug(f"Read {len(data)} bytes from {p}")
+    return data
 
 
 @lru_cache(maxsize=1)
 def load_languages(path: Optional[str] = None) -> dict[str, Language]:
     """Load ``Language`` models from JSON.
 
-    The JSON may be a dict mapping glottocode to objects, or a list of
-    language objects. The return value always maps glottocode -> ``Language``.
+    When ``path`` is ``None``, loads the curated language subset bundled in
+    ``languages.py``. When a path is provided, the JSON may be a dict mapping
+    glottocode to objects, or a list of language objects. The return value
+    always maps glottocode -> ``Language``.
 
     Args:
       path: Optional filesystem path to a Glottolog JSON file. If omitted, the
-        packaged resource is used.
+        curated in-package languages are used.
 
     Returns:
       Mapping from glottocode to :class:`~cltk.core.data_types.Language`.
@@ -79,11 +64,12 @@ def load_languages(path: Optional[str] = None) -> dict[str, Language]:
       ValueError: If the top-level JSON is neither an object nor an array.
 
     """
-    logger.info(
-        f"Loading Glottolog languages (path={'packaged' if not path else path})"
-    )
+    if not path:
+        logger.info("Loading curated Glottolog languages from languages.py")
+        return CURATED_LANGUAGES
+    logger.info(f"Loading Glottolog languages (path={path})")
     try:
-        raw = _read_bytes(Path(path) if path else None)
+        raw = _read_bytes(Path(path))
     except Exception as e:
         logger.error(f"Failed to read Glottolog JSON: {e}")
         raise
@@ -203,9 +189,7 @@ def build_indices(
       A dict of four indices as described above.
 
     """
-    logger.debug(
-        f"Building Glottolog indices (path={'packaged' if not path else path})"
-    )
+    logger.debug(f"Building Glottolog indices (path={'curated' if not path else path})")
     langs = load_languages(path)
     by_iso: dict[str, str] = {}
     by_name_lang: dict[str, list[str]] = {}
@@ -251,7 +235,7 @@ def get_language(key: str, path: Optional[str] = None) -> Language:
 
     """
     logger.debug(
-        f"Looking up language for key='{key}' (path={'packaged' if not path else path})"
+        f"Looking up language for key='{key}' (path={'curated' if not path else path})"
     )
     langs: dict[str, Language] = load_languages(path)
     idx: dict[
@@ -299,7 +283,7 @@ def get_dialect(key: str, path: Optional[str] = None) -> tuple[Language, Dialect
 
     """
     logger.debug(
-        f"Looking up dialect for key='{key}' (path={'packaged' if not path else path})"
+        f"Looking up dialect for key='{key}' (path={'curated' if not path else path})"
     )
     langs: dict[str, Language] = load_languages(path)
     idx: dict[
@@ -407,7 +391,7 @@ def resolve_languoid(
 
     """
     logger.debug(
-        f"Resolving languoid for key='{key}' (path={'packaged' if not path else path})"
+        f"Resolving languoid for key='{key}' (path={'curated' if not path else path})"
     )
 
     langs: dict[str, Language] = load_languages(path)
