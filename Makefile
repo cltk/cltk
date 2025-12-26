@@ -80,7 +80,7 @@ test: typing
 
 testIntegration:
 	@echo "Running integration tests..."
-	env CLTK_RUN_INTEGRATION_TESTS=1 uv run pytest -m integration
+	uv run pytest -m integration
 
 docstrCoverage:
 	@echo "Measure and report on documentation coverage in Python modules..."

@@ -115,7 +115,7 @@ def enrichment_prompt(
 ) -> PromptInfo:
     """Build the enrichment prompt that consumes morph+dependency tokens."""
     kind: str = "enrichment"
-    version: str = "1.1"
+    version: str = "1.3"
     text: str = (
         f"Using the following {lang_or_dialect_name} tokens (with lemma, UPOS, FEATS, HEAD, DEPREL), add enrichment fields without changing the tokens.\n\n"
         "Return a single JSON object inside a markdown code block with keys `tokens` and `idioms`.\n"
@@ -123,7 +123,8 @@ def enrichment_prompt(
         f"ipa (use pronunciation mode {ipa_mode} and provide `value`), orthography (syllables list, stress or accent class, phonology_trace of rules), idiom_span_ids (if part of an idiom), "
         "and pedagogy (short learner-facing notes such as case usage or disambiguation hints).\n"
         "- `gloss.dictionary` MUST be a single string (not a list). If there are multiple senses, join with '; ' or put alternates in `gloss.alternatives`.\n"
-        "- `idioms` is a list of span objects with: id, token_indices (1-based indices matching the table), phrase_gloss, kind (idiom/fixed-expression/particle-chain), and confidence.\n"
+        '- `orthography.stress` MUST be a single string (e.g., "unstressed"), not a dict or object.\n'
+        "- `idioms` is a list of span objects with: id, token_indices (1-based indices matching the table), phrase_gloss (single string, not a dict), kind (idiom/fixed-expression/particle-chain), and confidence.\n"
         "- Do not re-tokenize or change morphological/dep decisions. If uncertain, provide best-effort alternatives with probabilities.\n\n"
         f"Tokens:\n\n{token_table}\n\n"
         "Output only the JSON payload."

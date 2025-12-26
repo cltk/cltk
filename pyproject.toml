@@ -138,7 +138,8 @@ verbose = 1
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-addopts = "-ra"
+addopts = "-ra -m 'not integration'"
+markers = ["integration: integration tests (opt-in)"]
 xfail_strict = true
 filterwarnings = [
     "error::DeprecationWarning",
