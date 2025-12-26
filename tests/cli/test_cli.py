@@ -115,5 +115,7 @@ def test_feature_table_csv_tsv_writing(tmp_path: Path) -> None:
 
 def test_parquet_requires_deps(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setattr("cltk.cli.utils._module_available", lambda _: False)
-    with pytest.raises(RuntimeError, match="Parquet export requires pandas and pyarrow"):
+    with pytest.raises(
+        RuntimeError, match="Parquet export requires pandas and pyarrow"
+    ):
         require_parquet_deps()
