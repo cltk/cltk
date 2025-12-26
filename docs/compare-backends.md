@@ -1,5 +1,7 @@
 # Compare Backends
 
+> Warning: This is an alpha feature. APIs and behaviors may change; use in production with care.
+
 The compare backends feature runs the same input through multiple CLTK NLP
 backends and produces a structured diff report. Use it to spot disagreements
 in tokenization, lemma, UPOS, features, head, and dependency relations.
