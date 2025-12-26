@@ -8,10 +8,10 @@ def main(lang_code: str, text: str) -> None:
         lang_code,
         text,
         [
-            # "stanza",
-            # "openai",
+            "stanza",
+            "openai",
             "mistral",
-            # "ollama",
+            "ollama",
         ],
     )
     print(report_to_markdown(report))
