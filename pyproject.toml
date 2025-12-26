@@ -1,6 +1,6 @@
 [project]
 name = "cltk"
-version = "2.3.2"
+version = "2.3.3"
 description = "The Classical Language Toolkit"
 authors = [
     {name = "Kyle P. Johnson", email = "kyle@kyle-p-johnson.com"},
@@ -36,6 +36,9 @@ mistral = [
 Homepage = "http://cltk.org"
 Repository = "https://github.com/cltk/cltk"
 Documentation = "https://docs.cltk.org"
+
+[project.scripts]
+cltk = "cltk.cli.main:main"
 
 [build-system]
 requires = ["hatchling>=1.25.0"]

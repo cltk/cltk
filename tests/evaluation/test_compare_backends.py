@@ -113,6 +113,7 @@ def test_compare_docs_confusion_upos() -> None:
         backend_meta={"a": {}, "b": {}},
         max_sentences=None,
         max_tokens=None,
+        top_n=None,
     )
     confusion = report["summary"]["confusion"]["upos"]
     assert confusion["a vs b"]["VERB"]["NOUN"] == 1

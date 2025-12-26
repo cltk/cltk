@@ -44,6 +44,7 @@ This guide tells humans and LLM-based helpers how to extend or modify CLTK's Gen
 - Add unit tests for new prompt builders and parsers. Use small, realistic classical-language fixtures (Latin, Greek, Hebrew, etc.) with diacritics preserved.
 - Integration tests that hit external APIs must be skipped when keys are absent (e.g., check `OPENAI_API_KEY`) and should prefer recorded or stubbed responses. Do not make live calls in default CI.
 - Ensure pre-commit hooks stay green (ruff, mypy, tests). Favor deterministic assertions; avoid brittle string matches on full model prose.
+- Do not run Python scripts with `python ...`; use `uv run ...` instead (including for `pytest`).
 
 ## Checklist for GenAI pull requests
 - [ ] Prompt text lives in `src/cltk/genai/prompts.py` with a version and digest.

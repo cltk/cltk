@@ -727,7 +727,12 @@ def format_readers_guide(doc: Doc) -> str:
         orth = getattr(enrichment, "orthography", None)
         trace = getattr(orth, "phonology_trace", None)
         if trace:
-            return [str(item) for item in trace if item]
+            if isinstance(trace, str):
+                lines = [line for line in trace.splitlines() if line.strip()]
+                return lines if lines else [trace]
+            if isinstance(trace, (list, tuple)):
+                return [str(item) for item in trace if item]
+            return [str(trace)]
         return []
 
     def _pedagogical_notes(word: Word) -> list[str]:

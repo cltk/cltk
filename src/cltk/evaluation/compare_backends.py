@@ -172,6 +172,7 @@ def compare_backends(
     configs: dict[str, dict[str, Any]] | None = None,
     max_sentences: int | None = None,
     max_tokens: int | None = None,
+    top_n: int | None = None,
 ) -> dict[str, Any]:
     """Run multiple NLP backends on the same text and compare their outputs.
 
@@ -182,6 +183,7 @@ def compare_backends(
         configs: Optional per-backend config overrides, keyed by backend name.
         max_sentences: Optional cap on number of sentences to compare.
         max_tokens: Optional cap on tokens per sentence.
+        top_n: Optional number of top disagreements to include in summary.
 
     Returns:
         A structured report dict. See module docstring for schema.
@@ -215,6 +217,7 @@ def compare_backends(
         backend_meta=backend_meta,
         max_sentences=max_sentences,
         max_tokens=max_tokens,
+        top_n=top_n,
     )
 
 
@@ -340,6 +343,7 @@ def _compare_docs(
     backend_meta: dict[str, dict[str, Any]],
     max_sentences: int | None,
     max_tokens: int | None,
+    top_n: int | None,
 ) -> dict[str, Any]:
     """Compare normalized docs and build a full report payload."""
     base_backend = backends[0]
@@ -381,7 +385,7 @@ def _compare_docs(
             }
             all_rows.append(row_entry)
 
-    summary = _build_summary(all_rows, backends)
+    summary = _build_summary(all_rows, backends, top_n=top_n)
     meta = {
         "language": language,
         "backends": backends,
@@ -910,11 +914,14 @@ def _field_value(field: FieldName, token: dict[str, Any] | None) -> Any:
 def _build_summary(
     rows: list[dict[str, Any]],
     backends: list[str],
+    *,
+    top_n: int | None = None,
 ) -> dict[str, Any]:
     """Aggregate overall metrics and confusion tables."""
+    limit = top_n if top_n is not None else 10
     summary = {
         "agreement_rates": _agreement_rates(rows, backends),
-        "most_disagreed_tokens": _top_disagreements(rows, backends),
+        "most_disagreed_tokens": _top_disagreements(rows, backends, limit=limit),
         "confusion": {
             "upos": _confusion(rows, backends, field="upos"),
             "deprel": _confusion(rows, backends, field="deprel"),
