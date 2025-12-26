@@ -136,6 +136,39 @@ def _safe_probability(val: Any) -> Optional[float]:
     return None
 
 
+def _normalize_gloss_dictionary(value: Any) -> Optional[str]:
+    """Normalize gloss dictionary values to a single string."""
+    if value is None:
+        return None
+    if isinstance(value, str):
+        s = value.strip()
+        return s if s else None
+    if isinstance(value, list):
+        parts: list[str] = []
+        for item in value:
+            if isinstance(item, str):
+                if item.strip():
+                    parts.append(item.strip())
+                continue
+            if isinstance(item, dict):
+                text = item.get("text")
+                if isinstance(text, str) and text.strip():
+                    parts.append(text.strip())
+                continue
+            try:
+                text = str(item).strip()
+                if text:
+                    parts.append(text)
+            except Exception:
+                continue
+        return "; ".join(parts) if parts else None
+    try:
+        text = str(value).strip()
+        return text if text else None
+    except Exception:
+        return None
+
+
 def _build_gloss(gloss_obj: Any) -> Optional[Gloss]:
     """Build a Gloss from a dict or a simple string."""
     if isinstance(gloss_obj, str):
@@ -143,7 +176,7 @@ def _build_gloss(gloss_obj: Any) -> Optional[Gloss]:
     if not isinstance(gloss_obj, dict):
         return None
     return Gloss(
-        dictionary=gloss_obj.get("dictionary"),
+        dictionary=_normalize_gloss_dictionary(gloss_obj.get("dictionary")),
         context=gloss_obj.get("context"),
         alternatives=[
             ScoredText(

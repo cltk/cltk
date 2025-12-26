@@ -18,7 +18,7 @@ import subprocess
 from dataclasses import dataclass, field as dc_field
 from datetime import date, datetime
 from pathlib import Path
-from typing import Any, Dict, Final, List, Optional
+from typing import Any, Dict, Final, List, Optional, cast
 
 from pydantic import AnyUrl, TypeAdapter
 
@@ -74,8 +74,13 @@ def as_status(raw: Optional[str]) -> Status:
 
 
 def safe_float(x: Optional[str]) -> Optional[float]:
+    if x is None:
+        return None
+    s = x.strip()
+    if not s or s == "None":
+        return None
     try:
-        return float(x) if x not in (None, "", "None") else None
+        return float(s)
     except Exception:
         return None
 
@@ -181,7 +186,7 @@ def build_raw_nodes(tree_root: Path) -> Dict[str, RawNode]:
             glottocode=gcode,
             path=md.parent,
             parent_glottocode=parent_g,
-            level=lvl,  # type: ignore
+            level=cast(Level, lvl),
             core=core,
             altnames=altnames,
             links=links,
@@ -363,13 +368,13 @@ def raw_to_models(
                 name=name,
                 glottolog_id=g,
                 identifiers=identifiers,
-                level=rn.level,  # type: ignore
+                level=rn.level,
                 status=status,
                 type=core.get("type"),
                 geo=geo,
                 timespan=timespan,
                 classification=Classification(
-                    level=rn.level,  # type: ignore
+                    level=rn.level,
                     parent_glottocode=parent,
                     lineage=lineage,
                     children_glottocodes=children,
@@ -468,7 +473,7 @@ def to_newick(glottocode: str, langs: Dict[str, Language]) -> Optional[str]:
 # -------------------- Main CLI --------------------
 
 
-def main():
+def main() -> None:
     ap = argparse.ArgumentParser(
         description="Build Language/Dialect models from Glottolog languoids/tree (ALL languages, ALL dialects)."
     )

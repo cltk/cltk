@@ -930,6 +930,7 @@ def sentence_to_dep_tree(sentence: Sentence) -> str:
     lines: list[str] = []
 
     def _render(node: int, prefix: str, is_last: bool) -> None:
+        """Append a tree-formatted subtree rooted at ``node`` to ``lines``."""
         connector = "`-- " if is_last else "|-- "
         lines.append(f"{prefix}{connector}{_node_label(node)}")
         kids = children[node]

@@ -1,27 +1,28 @@
-"""Example using `tlg_indices` package to convert TLG corpus and clean text."""
+"""Example using `tlg-indices` package to convert TLG corpus and clean text."""
 
 import os
 import pickle
 
-import pandas as pd
-import pyarrow as pa
-import pyarrow.csv as pacsv
-import pyarrow.feather as feather
-from tlg_indices.file_utils import (
+import pandas as pd  # type: ignore[import-untyped]
+import pyarrow as pa  # type: ignore[import-untyped]
+import pyarrow.csv as pacsv  # type: ignore[import-untyped]
+import pyarrow.feather as feather  # type: ignore[import-untyped]
+from tlg_indices.file_utils import (  # type: ignore[import-not-found, unused-ignore]
     assemble_tlg_works_filepaths,  # noqa: F401
     assemble_tlg_works_filepaths_for_author,
 )
-from tlg_indices.text_cleaning import tlg_plaintext_cleanup
-from tlg_indices.tlgu import tlgu_convert_corpus
+from tlg_indices.text_cleaning import tlg_plaintext_cleanup  # type: ignore[import-not-found, unused-ignore]
+from tlg_indices.tlgu import tlgu_convert_corpus  # type: ignore[import-not-found, unused-ignore]
 
 from cltk import NLP
+from cltk.core.data_types import BACKEND_TYPES
 from cltk.utils.file_outputs import (
     doc_to_conllu,
     doc_to_feature_table,
     format_readers_guide,
 )
 
-backend: str = "stanza"  # or "openai", "ollama", "mistral"
+backend: BACKEND_TYPES = "stanza"  # or "openai", "ollama", "mistral"
 nlp_grc: NLP = NLP(language_code="anci1242", backend=backend)
 
 # Convert entire TLG corpus into author files

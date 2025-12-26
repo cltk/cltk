@@ -131,10 +131,7 @@ class MistralConnection:
                 "yes",
                 "on",
             }:
-                # Safely handle cases where mistral_response may be None or missing the attribute
-                out_text = getattr(mistral_response, "output_text", "")
-                if out_text is None:
-                    out_text = ""
+                out_text = self._response_text(mistral_response)
                 self.log.debug(f"Raw response from Mistral: {out_text}")
             # Add usage from this attempt even if parsing fails
             try:
@@ -144,7 +141,7 @@ class MistralConnection:
             except Exception:
                 pass
             try:
-                out_text = getattr(mistral_response, "output_text", "") or ""
+                out_text = self._response_text(mistral_response)
                 code_block = self._extract_code_blocks(text=out_text)
             except Exception as e:
                 # TODO: Count tokens used for failed attempts, too
@@ -170,7 +167,7 @@ class MistralConnection:
         mistral_usage: dict[str, int] = agg_tokens
         # Normalize the same response_text as used for code extraction/logging
         raw_mistral_response_normalized: str = cltk_normalize(
-            text=mistral_response.output_text
+            text=self._response_text(mistral_response)
         )
         if _os.getenv("CLTK_LOG_CONTENT", "").strip().lower() in {
             "1",
@@ -243,12 +240,40 @@ class MistralConnection:
         self.log.info(f"Mistral usage: {tokens}")
         return tokens
 
+    def _response_text(self, response: Optional[Any]) -> str:
+        """Extract output text from multiple Mistral SDK response shapes."""
+        if response is None:
+            return ""
+        try:
+            out_text = getattr(response, "output_text", None)
+            if isinstance(out_text, str) and out_text:
+                return out_text
+        except Exception:
+            pass
+        try:
+            choices = getattr(response, "choices", None)
+            if choices:
+                first = choices[0]
+                message = getattr(first, "message", None)
+                if message is not None:
+                    content = getattr(message, "content", None)
+                    if content is not None:
+                        return str(content)
+                content = getattr(first, "content", None)
+                if content is not None:
+                    return str(content)
+        except Exception:
+            pass
+        return ""
+
     def _extract_code_blocks(self, text: str) -> str:
         """Return the first fenced code block from a Mistral response string."""
         # This regex finds all text between triple backticks
         code_blocks: list[str] = re.findall(
             r"```(?:[a-zA-Z]*\n)?(.*?)```", text, re.DOTALL
         )
+        if not code_blocks:
+            return ""
         code_block: str = code_blocks[0].strip()
         import os as _os
 
