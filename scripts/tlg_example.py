@@ -1,4 +1,4 @@
-"""Example using `tlg_indices` package to convert TLG corpus and clean text."""
+"""Example using `tlg-indices` package to convert TLG corpus and clean text."""
 
 import os
 import pickle
