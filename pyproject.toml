@@ -37,6 +37,9 @@ Homepage = "http://cltk.org"
 Repository = "https://github.com/cltk/cltk"
 Documentation = "https://docs.cltk.org"
 
+[project.scripts]
+cltk = "cltk.cli.main:main"
+
 [build-system]
 requires = ["hatchling>=1.25.0"]
 build-backend = "hatchling.build"
