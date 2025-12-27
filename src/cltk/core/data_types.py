@@ -10,7 +10,7 @@ and render well in documentation.
 from abc import abstractmethod
 from collections import defaultdict
 from datetime import date
-from typing import Any, Literal, Optional, TypeAlias, Union
+from typing import Any, ClassVar, Iterable, Literal, Optional, TypeAlias, Union
 
 import numpy as np
 from pydantic import AnyUrl, BaseModel, Field, PrivateAttr, model_validator
@@ -724,6 +724,8 @@ class Process(BaseModel):
 
     """
 
+    # Stable, user-facing identifier for configuration and discovery.
+    process_id: ClassVar[str] = ""
     glottolog_id: Optional[str] = None
 
     @abstractmethod
@@ -749,10 +751,13 @@ class Pipeline(BaseModel):
     # ModelMetaclass rather than type[Process]. To avoid metaclass typing
     # conflicts in subclasses' default_factory lists, keep this as list[Any]
     # while callers can still treat items as type[Process] at runtime.
+    # Spec-driven pipelines may store Process instances with configured fields.
     processes: Optional[list[Any]] = Field(default_factory=list)
     language: Optional[Language] = None
     dialect: Optional[Dialect] = None
     glottolog_id: Optional[str] = None
+    # Optional PipelineSpec companion used by declarative pipelines.
+    spec: Optional[Any] = None
 
     @model_validator(mode="after")
     def _auto_resolve_language_and_dialect(self) -> "Pipeline":
@@ -781,7 +786,7 @@ class Pipeline(BaseModel):
                 )
         return self
 
-    def add_process(self, process: type[Process]) -> None:
+    def add_process(self, process: Any) -> None:
         """Append a process class to the pipeline order.
 
         Args:
@@ -791,3 +796,279 @@ class Pipeline(BaseModel):
         if self.processes is None:
             self.processes = []
         self.processes.append(process)
+
+    def describe(self) -> list[str]:
+        """Return a human-friendly list describing pipeline order."""
+        lines: list[str] = []
+        if self.spec and getattr(self.spec, "steps", None):
+            try:
+                from cltk.core.process_registry import ProcessRegistry
+
+                registry = ProcessRegistry.list_processes()
+            except Exception:
+                registry = {}
+            for idx, step in enumerate(self.spec.steps, 1):
+                proc_cls = registry.get(step.id)
+                class_name = proc_cls.__name__ if proc_cls else step.id
+                provides = getattr(proc_cls, "provides", None) if proc_cls else None
+                requires = getattr(proc_cls, "requires", None) if proc_cls else None
+                status = "enabled" if step.enabled else "disabled"
+                line = f"{idx}. {step.id} ({class_name}) [{status}]"
+                if provides:
+                    line += f" provides={_format_list(provides)}"
+                if requires:
+                    line += f" requires={_format_list(requires)}"
+                lines.append(line)
+            return lines
+        for idx, proc in enumerate(self.processes or [], 1):
+            pid = _process_id(proc)
+            class_name = _process_name(proc)
+            provides = getattr(proc, "provides", None)
+            requires = getattr(proc, "requires", None)
+            line = f"{idx}. {pid} ({class_name})"
+            if provides:
+                line += f" provides={_format_list(provides)}"
+            if requires:
+                line += f" requires={_format_list(requires)}"
+            lines.append(line)
+        return lines
+
+    def enable(self, process_id: str) -> None:
+        """Enable a step by process_id or class name."""
+        if self.spec and getattr(self.spec, "steps", None):
+            idx = _find_step_index(self.spec.steps, process_id)
+            if idx is not None:
+                self.spec.steps[idx].enabled = True
+                self._sync_processes_from_spec()
+            return
+        if self.processes is None:
+            self.processes = []
+        if any(
+            _matches_identifier(_process_id(p), process_id)
+            or _process_name(p) == process_id
+            for p in self.processes
+        ):
+            return
+        try:
+            from cltk.core.process_registry import ProcessRegistry
+
+            registry = ProcessRegistry.list_processes()
+        except Exception:
+            registry = {}
+        proc_cls = registry.get(process_id)
+        if not proc_cls:
+            for candidate in registry.values():
+                if candidate.__name__ == process_id:
+                    proc_cls = candidate
+                    break
+        if proc_cls:
+            self.processes.append(proc_cls)
+
+    def disable(self, process_id: str) -> None:
+        """Disable a step by process_id or class name."""
+        if self.spec and getattr(self.spec, "steps", None):
+            idx = _find_step_index(self.spec.steps, process_id)
+            if idx is not None:
+                self.spec.steps[idx].enabled = False
+                self._sync_processes_from_spec()
+            return
+        self._remove_process(process_id)
+
+    def remove(self, process_id: str) -> None:
+        """Remove a step from the pipeline entirely."""
+        if self.spec and getattr(self.spec, "steps", None):
+            registry = {}
+            try:
+                from cltk.core.process_registry import ProcessRegistry
+
+                registry = ProcessRegistry.list_processes()
+            except Exception:
+                registry = {}
+            original = list(self.spec.steps)
+            self.spec.steps = [
+                step
+                for step in self.spec.steps
+                if not _step_matches(step.id, process_id, registry)
+            ]
+            if self.spec.steps != original:
+                self._sync_processes_from_spec()
+            return
+        self._remove_process(process_id)
+
+    def move_before(self, process_id: str, before_process_id: str) -> None:
+        """Move a step before another step."""
+        if self.spec and getattr(self.spec, "steps", None):
+            self._move_step(process_id, before_process_id, before=True)
+            return
+        self._move_process(process_id, before_process_id, before=True)
+
+    def move_after(self, process_id: str, after_process_id: str) -> None:
+        """Move a step after another step."""
+        if self.spec and getattr(self.spec, "steps", None):
+            self._move_step(process_id, after_process_id, before=False)
+            return
+        self._move_process(process_id, after_process_id, before=False)
+
+    def to_spec(self) -> Any:
+        """Return a best-effort PipelineSpec from this pipeline."""
+        if self.spec is not None:
+            return self.spec
+        try:
+            from cltk.pipeline.specs import PipelineSpec, StepSpec
+
+            steps = [
+                StepSpec(
+                    id=_process_id(proc),
+                    enabled=True,
+                    config=(
+                        proc.model_dump(exclude_none=True, exclude={"glottolog_id"})
+                        if isinstance(proc, Process)
+                        else {}
+                    ),
+                )
+                for proc in (self.processes or [])
+            ]
+            return PipelineSpec(
+                language=self.glottolog_id,
+                steps=steps,
+            )
+        except Exception:
+            return None
+
+    @classmethod
+    def from_toml(cls, path: str) -> "Pipeline":
+        """Build a Pipeline from a TOML spec file."""
+        from cltk.pipeline.compiler import compile_pipeline
+        from cltk.pipeline.spec_io import load_pipeline_spec
+
+        spec = load_pipeline_spec(path)
+        pipeline = compile_pipeline(spec)
+        return pipeline
+
+    def _sync_processes_from_spec(self) -> None:
+        """Rebuild process list from the stored PipelineSpec."""
+        if not self.spec:
+            return
+        from cltk.pipeline.compiler import compile_processes
+
+        self.processes = compile_processes(self.spec)
+
+    def _remove_process(self, process_id: str) -> None:
+        """Drop a process from the list by process_id or class name."""
+        if not self.processes:
+            return
+        self.processes = [
+            proc
+            for proc in self.processes
+            if not (
+                _matches_identifier(_process_id(proc), process_id)
+                or _process_name(proc) == process_id
+            )
+        ]
+
+    def _move_process(self, process_id: str, anchor_id: str, *, before: bool) -> None:
+        """Reorder processes by moving one before/after an anchor."""
+        if not self.processes:
+            return
+        source_idx = _find_index(self.processes, process_id)
+        target_idx = _find_index(self.processes, anchor_id)
+        if source_idx is None or target_idx is None:
+            return
+        item = self.processes.pop(source_idx)
+        insert_at = target_idx if before else target_idx + 1
+        if source_idx < target_idx and before:
+            insert_at -= 1
+        if source_idx < target_idx and not before:
+            insert_at -= 1
+        self.processes.insert(insert_at, item)
+
+    def _move_step(self, process_id: str, anchor_id: str, *, before: bool) -> None:
+        """Reorder spec steps by moving one before/after an anchor."""
+        if not self.spec or not getattr(self.spec, "steps", None):
+            return
+        source_idx = _find_step_index(self.spec.steps, process_id)
+        target_idx = _find_step_index(self.spec.steps, anchor_id)
+        if source_idx is None or target_idx is None:
+            return
+        item = self.spec.steps.pop(source_idx)
+        insert_at = target_idx if before else target_idx + 1
+        if source_idx < target_idx and before:
+            insert_at -= 1
+        if source_idx < target_idx and not before:
+            insert_at -= 1
+        self.spec.steps.insert(insert_at, item)
+        self._sync_processes_from_spec()
+
+
+def _process_name(proc: Any) -> str:
+    """Return the class name for a process class or instance."""
+    if isinstance(proc, type):
+        return proc.__name__
+    return str(proc.__class__.__name__)
+
+
+def _process_id(proc: Any) -> str:
+    """Return the stable process_id or fall back to class name."""
+    pid = getattr(proc, "process_id", None)
+    if isinstance(pid, str) and pid:
+        return pid
+    return _process_name(proc)
+
+
+def _matches_identifier(value: str, identifier: str) -> bool:
+    """Return True when identifiers match exactly."""
+    return value == identifier
+
+
+def _step_matches(
+    step_id: Optional[str],
+    identifier: str,
+    registry: dict[str, type[Any]],
+) -> bool:
+    """Return True when a step id or class name matches the identifier."""
+    if step_id == identifier:
+        return True
+    proc_cls = registry.get(step_id or "")
+    return bool(proc_cls and proc_cls.__name__ == identifier)
+
+
+def _find_index(processes: Iterable[Any], identifier: str) -> Optional[int]:
+    """Find the index of a process by id or class name."""
+    for idx, proc in enumerate(processes):
+        if (
+            _matches_identifier(_process_id(proc), identifier)
+            or _process_name(proc) == identifier
+        ):
+            return idx
+    return None
+
+
+def _find_step_index(steps: Iterable[Any], identifier: str) -> Optional[int]:
+    """Find the index of a spec step by id or class name."""
+    for idx, step in enumerate(steps):
+        step_id = getattr(step, "id", None)
+        if step_id == identifier:
+            return idx
+    try:
+        from cltk.core.process_registry import ProcessRegistry
+
+        registry = ProcessRegistry.list_processes()
+    except Exception:
+        registry = {}
+    for idx, step in enumerate(steps):
+        step_id = getattr(step, "id", None)
+        if not isinstance(step_id, str):
+            continue
+        proc_cls = registry.get(step_id)
+        if proc_cls and proc_cls.__name__ == identifier:
+            return idx
+    return None
+
+
+def _format_list(value: Any) -> str:
+    """Format a list-like value as a comma-separated string."""
+    if isinstance(value, str):
+        return value
+    if isinstance(value, Iterable):
+        return ",".join(str(v) for v in value)
+    return str(value)

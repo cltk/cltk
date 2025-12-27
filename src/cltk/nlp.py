@@ -2,7 +2,7 @@
 
 import os
 import shutil
-from typing import Optional, Union, cast
+from typing import Any, Optional, Union, cast
 
 from colorama import Fore, Style
 
@@ -237,8 +237,8 @@ class NLP:
         add_provenance_record(doc, run_record, set_default=True)
         log = bind_from_doc(doc)
 
-        processes: list[type[Process]] = cast(
-            list[type[Process]],
+        processes = cast(
+            list[Any],
             self.pipeline.processes if self.pipeline.processes is not None else [],
         )
         if not processes:
@@ -284,11 +284,16 @@ class NLP:
     def _print_pipelines_for_current_lang(self) -> None:
         """Print the resolved language/dialect and process list."""
         logger.info(f"Printing pipeline for language: {self.language.name}")
-        processes: list[type[Process]] = cast(
-            list[type[Process]],
+        processes = cast(
+            list[Any],
             self.pipeline.processes if self.pipeline.processes is not None else [],
         )
-        processes_name: list[str] = [process.__name__ for process in processes]
+        processes_name: list[str] = [
+            process.__name__
+            if isinstance(process, type)
+            else process.__class__.__name__
+            for process in processes
+        ]
         lang_and_dialect_selected: str = ""
         if self.dialect:
             lang_and_dialect_selected = f'Selected language "{self.language.name}" ("{self.language.glottolog_id}") with dialect "{self.dialect.name}" ("{self.dialect.glottolog_id}").'
@@ -300,7 +305,7 @@ class NLP:
             + "\n"
             + f'Pipeline for `NLP("{self.language_code}", backend="{self.backend}")`:'
             + Fore.GREEN
-            + f" {[process.__name__ for process in processes]}"
+            + f" {[p.__name__ if isinstance(p, type) else p.__class__.__name__ for p in processes]}"
             + Style.RESET_ALL
         )
         logger.debug(f"Processes in pipeline: {processes_name}")
@@ -325,7 +330,7 @@ class NLP:
     def _print_special_authorship_messages_for_current_lang(self) -> None:
         """Print any special authorship messages exposed by processes."""
         logger.info("Printing special authorship messages for current language.")
-        processes: list[type[Process]] = (
+        processes = (
             self.pipeline.processes if self.pipeline.processes is not None else []
         )
         for process_class in processes:
@@ -359,7 +364,9 @@ class NLP:
             return
         for proc in processes:
             try:
-                if issubclass(proc, GenAIEnrichmentProcess):
+                if isinstance(proc, GenAIEnrichmentProcess):
+                    return
+                if isinstance(proc, type) and issubclass(proc, GenAIEnrichmentProcess):
                     return
             except Exception:
                 continue
@@ -367,7 +374,7 @@ class NLP:
             self.pipeline.processes = []
         self.pipeline.processes.append(GenAIEnrichmentProcess)
 
-    def _get_process_object(self, process_object: type[Process]) -> Process:
+    def _get_process_object(self, process_object: type[Process] | Process) -> Process:
         """Instantiate a process passing the resolved ``glottolog_id``.
 
         Args:
@@ -380,14 +387,24 @@ class NLP:
           RuntimeError: If instantiation fails.
 
         """
-        logger.debug(f"Getting process object for: {process_object.__name__}")
+        name = (
+            process_object.__name__
+            if isinstance(process_object, type)
+            else process_object.__class__.__name__
+        )
+        logger.debug(f"Getting process object for: {name}")
         try:
+            if isinstance(process_object, Process):
+                proc = process_object.model_copy(deep=True)
+                if proc.glottolog_id is None:
+                    proc.glottolog_id = self.language_code
+                return proc
             return process_object(glottolog_id=self.language_code)
         # except TypeError:
         #     # TODO: Revisit this and standardize passing Language object to all Processes
         #     return process_object(language=self.language.iso)
         except Exception as e:
-            msg: str = f"Failed to instantiate process {process_object.__name__}: {e}"
+            msg: str = f"Failed to instantiate process {name}: {e}"
             logger.error(msg)
             raise RuntimeError(msg) from e
 

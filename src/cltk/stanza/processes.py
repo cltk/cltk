@@ -8,12 +8,13 @@ Requires optional extra: pip install "cltk[stanza]"
 """
 
 from functools import lru_cache
-from typing import Any, Optional
+from typing import Any, ClassVar, Optional
 
 from stanza import DownloadMethod
 
 from cltk.core.cltk_logger import bind_context
 from cltk.core.data_types import Doc, Process, Word
+from cltk.core.process_registry import register_process
 from cltk.core.provenance import (
     add_provenance_record,
     build_provenance_record,
@@ -59,6 +60,7 @@ def _get_stanza_pipeline(
     )
 
 
+@register_process
 class StanzaAnalyzeProcess(Process):
     """Run Stanza and populate a Doc with UD annotations.
 
@@ -69,6 +71,8 @@ class StanzaAnalyzeProcess(Process):
         will trigger Stanza's download mechanism externally.
 
     """
+
+    process_id: ClassVar[str] = "stanza.analyze"
 
     def run(self, input_doc: Doc) -> Doc:
         """Run a Stanza pipeline and populate the Doc with UD annotations."""

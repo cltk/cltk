@@ -38,7 +38,7 @@ installPyPITest:
 	pip install --index-url https://test.pypi.org/simple/ --no-deps cltk
 
 lint:
-	uv run ruff check src/
+	uv run ruff check --fix src/
 
 modelComparison:
 	@echo "Running model comparison script..."

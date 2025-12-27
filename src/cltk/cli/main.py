@@ -3,7 +3,7 @@
 import argparse
 from typing import Callable, Optional, cast
 
-from cltk.cli import analyze, compare, export
+from cltk.cli import analyze, compare, export, pipeline
 from cltk.cli.utils import HelpFormatter
 
 
@@ -18,6 +18,7 @@ def build_parser() -> argparse.ArgumentParser:
     analyze.configure_parser(subparsers)
     compare.configure_parser(subparsers)
     export.configure_parser(subparsers)
+    pipeline.configure_parser(subparsers)
     return parser
 
 

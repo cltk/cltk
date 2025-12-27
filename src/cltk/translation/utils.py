@@ -303,6 +303,8 @@ def generate_translation_for_sentence(
     target_language_id: Optional[str],
     source_lang_id: Optional[str],
     prompt_builder: Optional[PromptBuilder],
+    prompt_profile: Optional[str],
+    prompt_digest: Optional[str],
     max_retries: int,
     provenance_process: Optional[str] = None,
 ) -> tuple[Optional[Translation], dict[str, int]]:
@@ -345,6 +347,14 @@ def generate_translation_for_sentence(
     except Exception:
         lang_id = None
     config_snapshot = extract_doc_config(doc)
+    notes = {
+        "prompt_kind": pinfo.kind,
+        "sentence_idx": sentence_idx,
+        "target_language": target_language,
+        "target_language_id": target_language_id,
+    }
+    if prompt_profile:
+        notes["prompt_profile"] = prompt_profile
     prov_record = build_provenance_record(
         language=lang_id,
         backend=doc.backend,
@@ -353,13 +363,9 @@ def generate_translation_for_sentence(
         provider=str(doc.backend) if doc.backend else None,
         prompt_version=str(pinfo.version),
         prompt_text=prompt,
+        prompt_digest=prompt_digest,
         config=config_snapshot,
-        notes={
-            "prompt_kind": pinfo.kind,
-            "sentence_idx": sentence_idx,
-            "target_language": target_language,
-            "target_language_id": target_language_id,
-        },
+        notes=notes,
     )
     prov_id = add_provenance_record(
         doc, prov_record, set_default=doc.default_provenance_id is None
@@ -390,6 +396,8 @@ def generate_gpt_translation(
     target_language: str = "Modern US English",
     target_language_id: Optional[str] = "en-US",
     prompt_builder: Optional[PromptBuilder] = None,
+    prompt_profile: Optional[str] = None,
+    prompt_digest: Optional[str] = None,
     max_retries: int = 2,
     provenance_process: Optional[str] = None,
 ) -> Doc:
@@ -497,6 +505,8 @@ def generate_gpt_translation(
             target_language_id=target_language_id,
             source_lang_id=source_lang_id,
             prompt_builder=prompt_builder,
+            prompt_profile=prompt_profile,
+            prompt_digest=prompt_digest,
             max_retries=max_retries,
             provenance_process=provenance_process,
         )
@@ -534,6 +544,8 @@ def generate_gpt_translation_concurrent(
     target_language: str = "Modern US English",
     target_language_id: Optional[str] = "en-US",
     prompt_builder: Optional[PromptBuilder] = None,
+    prompt_profile: Optional[str] = None,
+    prompt_digest: Optional[str] = None,
     max_retries: int = 2,
     provenance_process: Optional[str] = None,
 ) -> Doc:
@@ -548,6 +560,8 @@ def generate_gpt_translation_concurrent(
             target_language=target_language,
             target_language_id=target_language_id,
             prompt_builder=prompt_builder,
+            prompt_profile=prompt_profile,
+            prompt_digest=prompt_digest,
             max_retries=max_retries,
             provenance_process=provenance_process,
         )
@@ -559,6 +573,8 @@ def generate_gpt_translation_concurrent(
             target_language=target_language,
             target_language_id=target_language_id,
             prompt_builder=prompt_builder,
+            prompt_profile=prompt_profile,
+            prompt_digest=prompt_digest,
             max_retries=max_retries,
             provenance_process=provenance_process,
         )
