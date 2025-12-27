@@ -53,6 +53,7 @@ class GenAIDependencyProcess(DependencyProcess):
             output_doc,
             prompt_builder_from_tokens=self.prompt_builder_from_tokens,
             prompt_builder_from_text=self.prompt_builder_from_text,
+            provenance_process=self.__class__.__name__,
         )
         return output_doc
 

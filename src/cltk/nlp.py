@@ -22,6 +22,11 @@ from cltk.core.data_types import (
 )
 from cltk.core.exceptions import UnimplementedAlgorithmError
 from cltk.core.logging_utils import bind_from_doc
+from cltk.core.provenance import (
+    add_provenance_record,
+    build_provenance_record,
+    extract_doc_config,
+)
 from cltk.enrichment.processes import GenAIEnrichmentProcess
 from cltk.languages.glottolog import get_language
 from cltk.languages.pipelines import (  # MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE_LOCAL,
@@ -209,6 +214,27 @@ class NLP:
             doc.metadata["backend_config"] = self._backend_config
         if self._stanza_model_override:
             doc.metadata["stanza_package"] = self._stanza_model_override
+        lang_id = None
+        try:
+            if doc.dialect and doc.dialect.glottolog_id:
+                lang_id = doc.dialect.glottolog_id
+            else:
+                lang_id = doc.language.glottolog_id
+        except Exception:
+            lang_id = None
+        config_snapshot = extract_doc_config(doc)
+        run_record = build_provenance_record(
+            language=lang_id,
+            backend=doc.backend,
+            process="NLP.analyze",
+            model=str(doc.model) if doc.model else None,
+            provider=str(doc.backend) if doc.backend else None,
+            config=config_snapshot,
+            notes={
+                "pipeline": self.pipeline.__class__.__name__ if self.pipeline else None
+            },
+        )
+        add_provenance_record(doc, run_record, set_default=True)
         log = bind_from_doc(doc)
 
         processes: list[type[Process]] = cast(
@@ -232,6 +258,11 @@ class NLP:
         if doc.words is None or not isinstance(doc.words, list):
             msg = "Pipeline did not produce any words. Check your pipeline configuration and input text."
             log.warning(msg)
+        for word in doc.words or []:
+            try:
+                word._doc = doc
+            except Exception:
+                pass
         log.info("NLP analysis complete.")
         return doc
 

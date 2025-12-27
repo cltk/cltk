@@ -46,6 +46,7 @@ class GenAIEnrichmentProcess(Process):
             output_doc,
             ipa_mode=self.ipa_mode,
             prompt_builder=self.prompt_builder,
+            provenance_process=self.__class__.__name__,
         )
         return output_doc
 

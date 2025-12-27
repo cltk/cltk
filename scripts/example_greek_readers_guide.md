@@ -6,43 +6,193 @@
 
 > ὅτι μὲν ὑμεῖς , ὦ ἄνδρες Ἀθηναῖοι , πεπόνθατε ὑπὸ τῶν ἐμῶν κατηγόρων , οὐκ οἶδα :
 
-> Translation (en-US): That you, O men of Athens, have suffered at the hands of my accusers, I do not know.
+> Translation (en-US): I do not know that you, O men of Athens, have suffered at the hands of my accusers.
 
-> Notes: The clause ὅτι introduces the content of 'I do not know' (οὐκ οἶδα). ὦ ἄνδρες Ἀθηναῖοι is a vocative address ('O men of Athens'), and ὑπὸ + gen. (τῶν ἐμῶν κατηγόρων) marks the agent/author of the suffering.
+> Notes: The vocative phrase ὦ ἄνδρες Ἀθηναῖοι is rendered as “O men of Athens.” πεπόνθατε is perfect (you have suffered) with present relevance. ὑπὸ plus the genitive indicates the agent/source: “at the hands of my accusers.”
 
 ### Word-by-word
 
 #### ὅτι
 
-*subordinating conjunction* · **that, because; (introducing content clause)**
+*subordinating conjunction* · **that, because; (introduces content clause)**
 
 - **Lemma:** ὅτι
-- **Gloss:** that, because; (introducing content clause)
+- **Gloss:** that, because; (introduces content clause)
 - **Dependency Role:** marker (`mark`)
 - **Governor:** token 9
-- **IPA (attic_5c_bce):** `ˈhó.ti`
-- **Syllables:** ὅ-τι
+- **IPA (attic_5c_bce):** `ˈhoti`
+- **Syllables:** ὅ · τι
 <details>
 <summary>Phonology</summary>
-- syllabified as CV-CV
-- initial rough breathing realized as /h/
-- accent retained on first syllable
+- s
+- y
+- l
+- l
+- a
+- b
+- i
+- f
+- y
+-
+- C
+- V
+- |
+- C
+- V
+- ;
+-
+- a
+- c
+- c
+- e
+- n
+- t
+-
+- o
+- n
+-
+- f
+- i
+- r
+- s
+- t
+-
+- s
+- y
+- l
+- l
+- a
+- b
+- l
+- e
+- ;
+-
+- n
+- o
+-
+- e
+- l
+- i
+- s
+- i
+- o
+- n
 </details>
 
 #### μὲν
 
-*particle* · **indeed; (part of correlative μὲν...δὲ/δέ)**
+*particle* · **on the one hand; (contrast marker)**
 
-- **Lemma:** μέν
-- **Gloss:** indeed; (part of correlative μὲν...δὲ/δέ)
+- **Lemma:** μὲν
+- **Gloss:** on the one hand; (contrast marker)
 - **Dependency Role:** discourse element (`discourse`)
-- **Governor:** token 9
-- **IPA (attic_5c_bce):** `mèn`
+- **Governor:** token 3
+- **IPA (attic_5c_bce):** `mɛ̂n`
 - **Syllables:** μὲν
 <details>
 <summary>Phonology</summary>
-- monosyllabic
-- epsilon with grave realized as short /e/ with low tone
+- m
+- o
+- n
+- o
+- s
+- y
+- l
+- l
+- a
+- b
+- l
+- e
+-
+- w
+- i
+- t
+- h
+-
+- g
+- r
+- a
+- v
+- e
+- /
+- a
+- c
+- u
+- t
+- e
+-
+- a
+- l
+- t
+- e
+- r
+- n
+- a
+- t
+- i
+- o
+- n
+-
+- i
+- n
+-
+- d
+- i
+- s
+- c
+- o
+- u
+- r
+- s
+- e
+- ;
+-
+- e
+- n
+- c
+- l
+- i
+- t
+- i
+- c
+- -
+- l
+- i
+- k
+- e
+-
+- d
+- i
+- s
+- t
+- r
+- i
+- b
+- u
+- t
+- i
+- o
+- n
+-
+- o
+- f
+- t
+- e
+- n
+-
+- p
+- a
+- i
+- r
+- s
+-
+- w
+- i
+- t
+- h
+-
+- δ
+- έ
 </details>
 
 #### ὑμεῖς
@@ -54,88 +204,421 @@
 - **Dependency Role:** nominal subject (`nsubj`)
 - **Governor:** token 9
 - **IPA (attic_5c_bce):** `hyˈmeːs`
-- **Syllables:** ὑ-μεῖς
+- **Syllables:** ὑ- · μεις
 <details>
 <summary>Phonology</summary>
-- diphthong ει pronounced /eː/ or /ei̯/ in attic
-- initial ὑ realized as /hy-/
+- d
+- i
+- p
+- h
+- t
+- h
+- o
+- n
+- g
+-
+- ε
+- ι
+-
+- r
+- e
+- a
+- l
+- i
+- z
+- e
+- d
+-
+- /
+- e
+- ː
+- /
+- ;
+-
+- i
+- n
+- i
+- t
+- i
+- a
+- l
+-
+- a
+- s
+- p
+- i
+- r
+- a
+- t
+- e
+- d
+-
+- v
+- o
+- w
+- e
+- l
+-
+- /
+- h
+- y
+- /
+- ;
+-
+- n
+- o
+- m
+- i
+- n
+- a
+- t
+- i
+- v
+- e
+-
+- p
+- l
+- u
+- r
+- a
+- l
+-
+- p
+- r
+- o
+- n
+- o
+- u
+- n
 </details>
 
 #### ,
 
-*punctuation* · **comma**
+*punctuation* · **punctuation**
 
 - **Lemma:** ,
-- **Gloss:** comma
+- **Gloss:** punctuation
 - **Dependency Role:** punctuation (`punct`)
 - **Governor:** token 9
 - **IPA (attic_5c_bce):** `,`
 <details>
 <summary>Phonology</summary>
-- punctuation mark, no phonological realization
+- p
+- u
+- n
+- c
+- t
+- u
+- a
+- t
+- i
+- o
+- n
+-
+- m
+- a
+- r
+- k
 </details>
 
 #### ὦ
 
-*interjection* · **O (vocative particle used in direct address)**
+*particle* · **O (vocative particle)**
 
 - **Lemma:** ὦ
-- **Gloss:** O (vocative particle used in direct address)
+- **Gloss:** O (vocative particle)
 - **Dependency Role:** discourse element (`discourse`)
 - **Governor:** token 6
 - **IPA (attic_5c_bce):** `ɔ̂ː`
 - **Syllables:** ὦ
 <details>
 <summary>Phonology</summary>
-- long omega pronounced /ɔː/ with circumflex contour
-- vocative particle with sustained tone
+- l
+- o
+- n
+- g
+-
+- v
+- o
+- w
+- e
+- l
+-
+- /
+- ɔ
+- ː
+- /
+-
+- w
+- i
+- t
+- h
+-
+- c
+- i
+- r
+- c
+- u
+- m
+- f
+- l
+- e
+- x
+- ;
+-
+- v
+- o
+- c
+- a
+- t
+- i
+- v
+- e
+-
+- p
+- a
+- r
+- t
+- i
+- c
+- l
+- e
+-
+- p
+- r
+- e
+- c
+- e
+- d
+- e
+- s
+-
+- a
+- d
+- d
+- r
+- e
+- s
+- s
+- e
+- e
 </details>
 
 #### ἄνδρες
 
-*noun* · **men (vocative plural of ἀνήρ)**
+*noun* · **men (vocative plural of ἄνθρωπος/ἄνδρας)**
 
-- **Lemma:** ἀνήρ
-- **Gloss:** men (vocative plural of ἀνήρ)
+- **Lemma:** ἄνδρας
+- **Gloss:** men (vocative plural of ἄνθρωπος/ἄνδρας)
 - **Dependency Role:** vocative (`vocative`)
 - **Governor:** token 9
-- **IPA (attic_5c_bce):** `ˈán.dres`
-- **Syllables:** ἄν-δρες
+- **IPA (attic_5c_bce):** `ˈándres`
+- **Syllables:** ἄν- · δρες
 <details>
 <summary>Phonology</summary>
-- sigma clusters realized as /dr/
-- vocalic accent on first syllable (oxytone absent here because vocative)
+- a
+- c
+- u
+- t
+- e
+-
+- o
+- n
+-
+- f
+- i
+- r
+- s
+- t
+-
+- s
+- y
+- l
+- l
+- a
+- b
+- l
+- e
+- ;
+-
+- r
+- h
+- o
+-
+- a
+- s
+- p
+- i
+- r
+- a
+- t
+- e
+-
+- a
+- b
+- s
+- e
+- n
+- t
+- ;
+-
+- v
+- o
+- c
+- a
+- t
+- i
+- v
+- e
+-
+- p
+- l
+- u
+- r
+- a
+- l
+-
+- e
+- n
+- d
+- i
+- n
+- g
+-
+- -
+- ε
+- ς
 </details>
 
 #### Ἀθηναῖοι
 
-*adjective* · **Athenians (vocative plural)**
+*proper noun* · **Athenians (people of Athens)**
 
 - **Lemma:** Ἀθηναῖος
-- **Gloss:** Athenians (vocative plural)
-- **Dependency Role:** adjectival modifier (`amod`)
+- **Gloss:** Athenians (people of Athens)
+- **Dependency Role:** appositional modifier (`appos`)
 - **Governor:** token 6
-- **IPA (attic_5c_bce):** `a.thɛˈnai.oi`
-- **Syllables:** Ἀ-θη-ναῖ-οι
+- **IPA (attic_5c_bce):** `a.thɛˈnaː.i̯oi̯`
+- **Syllables:** Ἀ- · θη- · ναῖ- · οι
 <details>
 <summary>Phonology</summary>
-- diphthong αι realized /ai̯/ in final syllable cluster
-- aspiration of θ realized as /th/
-- polysyllabic accent placed according to original paradigm (recessive rules produce accent on third syllable here)
+- d
+- i
+- p
+- h
+- t
+- h
+- o
+- n
+- g
+-
+- α
+- ι
+-
+- r
+- e
+- a
+- l
+- i
+- z
+- e
+- d
+-
+- /
+- a
+- ː
+- .
+- i
+- ̯
+- /
+- ;
+-
+- p
+- l
+- u
+- r
+- a
+- l
+-
+- m
+- a
+- s
+- c
+- u
+- l
+- i
+- n
+- e
+-
+- e
+- n
+- d
+- i
+- n
+- g
+-
+- -
+- ο
+- ι
+- ;
+-
+- i
+- n
+- i
+- t
+- i
+- a
+- l
+-
+- a
+- s
+- p
+- i
+- r
+- a
+- t
+- e
+- d
+-
+- t
+- h
+- e
+- t
+- a
+-
+- /
+- t
+- h
+- /
 </details>
 
 #### ,
 
-*punctuation* · **comma**
+*punctuation* · **punctuation**
 
 - **Lemma:** ,
-- **Gloss:** comma
+- **Gloss:** punctuation
 - **Dependency Role:** punctuation (`punct`)
 - **Governor:** token 9
 - **IPA (attic_5c_bce):** `,`
 <details>
 <summary>Phonology</summary>
-- punctuation mark
+- p
+- u
+- n
+- c
+- t
+- u
+- a
+- t
+- i
+- o
+- n
+-
+- m
+- a
+- r
+- k
 </details>
 
 #### πεπόνθατε
@@ -146,45 +629,296 @@
 - **Gloss:** you have suffered; you have experienced
 - **Dependency Role:** clausal complement (`ccomp`)
 - **Governor:** token 16
-- **IPA (attic_5c_bce):** `peˈpón.tha.te`
-- **Syllables:** πε-πόν-θα-τε
+- **IPA (attic_5c_bce):** `peˈponthate`
+- **Syllables:** πε- · πόν- · θα- · τε
 <details>
 <summary>Phonology</summary>
-- perfect stem reduplication (πε-)
-- aspirated theta /th/ retained
-- stress on the syllable bearing the classical accent (πέ-? realized on pó(n) in this form)
+- p
+- e
+- r
+- f
+- e
+- c
+- t
+-
+- s
+- t
+- e
+- m
+-
+- π
+- ε
+- π
+- ό
+- ν
+- θ
+- -
+-
+- +
+-
+- 2
+- p
+- l
+-
+- e
+- n
+- d
+- i
+- n
+- g
+-
+- -
+- α
+- τ
+- ε
+- ;
+-
+- t
+- h
+- e
+- t
+- a
+-
+- /
+- t
+- h
+- /
+-
+- a
+- s
+- p
+- i
+- r
+- a
+- t
+- e
+- d
+- ;
+-
+- r
+- e
+- d
+- u
+- p
+- l
+- i
+- c
+- a
+- t
+- i
+- o
+- n
+-
+- r
+- e
+- f
+- l
+- e
+- c
+- t
+- e
+- d
+-
+- i
+- n
+-
+- s
+- t
+- e
+- m
 </details>
 
 #### ὑπὸ
 
-*adposition* · **by (with agent in passive or with persons)**
+*adposition* · **by (agent with genitive); under**
 
 - **Lemma:** ὑπό
-- **Gloss:** by (with agent in passive or with persons)
+- **Gloss:** by (agent with genitive); under
 - **Dependency Role:** case marking (`case`)
 - **Governor:** token 13
-- **IPA (attic_5c_bce):** `hyˈpò`
-- **Syllables:** ὑ-πὸ
+- **IPA (attic_5c_bce):** `hyˈpo`
+- **Syllables:** ὑ- · πὸ
 <details>
 <summary>Phonology</summary>
-- initial ὑ realized as /hy-/
-- preposition takes genitive here marking agent
+- p
+- r
+- e
+- p
+- o
+- s
+- i
+- t
+- i
+- o
+- n
+-
+- t
+- a
+- k
+- i
+- n
+- g
+-
+- g
+- e
+- n
+- i
+- t
+- i
+- v
+- e
+-
+- f
+- o
+- r
+-
+- a
+- g
+- e
+- n
+- t
+- ;
+-
+- b
+- r
+- e
+- a
+- t
+- h
+- i
+- n
+- g
+-
+- o
+- n
+-
+- i
+- n
+- i
+- t
+- i
+- a
+- l
+-
+- u
+- p
+- s
+- i
+- l
+- o
+- n
+-
+- i
+- n
+- d
+- i
+- c
+- a
+- t
+- e
+- s
+-
+- /
+- h
+- y
+- -
+- /
 </details>
 
 #### τῶν
 
-*determiner* · **the (genitive plural)**
+*determiner* · **the (genitive plural masculine/feminine/neuter article)**
 
 - **Lemma:** ὁ
-- **Gloss:** the (genitive plural)
+- **Gloss:** the (genitive plural masculine/feminine/neuter article)
 - **Dependency Role:** determiner (`det`)
 - **Governor:** token 13
 - **IPA (attic_5c_bce):** `tɔ̂ːn`
 - **Syllables:** τῶν
 <details>
 <summary>Phonology</summary>
-- omega with circumflex realized as long /ɔː/
-- genitive plural article used to mark possession/agent
+- l
+- o
+- n
+- g
+-
+- v
+- o
+- w
+- e
+- l
+-
+- o
+- m
+- e
+- g
+- a
+-
+- w
+- i
+- t
+- h
+-
+- c
+- i
+- r
+- c
+- u
+- m
+- f
+- l
+- e
+- x
+- ;
+-
+- g
+- e
+- n
+- i
+- t
+- i
+- v
+- e
+-
+- p
+- l
+- u
+- r
+- a
+- l
+-
+- a
+- r
+- t
+- i
+- c
+- l
+- e
+-
+- m
+- a
+- r
+- k
+- i
+- n
+- g
+-
+- p
+- o
+- s
+- s
+- e
+- s
+- s
+- i
+- o
+- n
+- /
+- a
+- g
+- e
+- n
+- t
 </details>
 
 #### ἐμῶν
@@ -195,12 +929,73 @@
 - **Gloss:** my (genitive plural)
 - **Dependency Role:** nominal modifier (`nmod`)
 - **Governor:** token 13
-- **IPA (attic_5c_bce):** `eˈmɔ̂ːn`
-- **Syllables:** ἐ-μῶν
+- **IPA (attic_5c_bce):** `eˈmoːn`
+- **Syllables:** ἐ- · μῶν
 <details>
 <summary>Phonology</summary>
-- omega with circumflex realized long /ɔː/
-- possessive pronoun in genitive plural agreeing with κατηγόρων
+- p
+- o
+- s
+- s
+- e
+- s
+- s
+- i
+- v
+- e
+-
+- p
+- r
+- o
+- n
+- o
+- u
+- n
+-
+- 1
+- s
+- t
+-
+- p
+- e
+- r
+- s
+- o
+- n
+-
+- g
+- e
+- n
+- i
+- t
+- i
+- v
+- e
+-
+- p
+- l
+- u
+- r
+- a
+- l
+- ;
+-
+- o
+- m
+- e
+- g
+- a
+-
+- l
+- o
+- n
+- g
+-
+- v
+- o
+- w
+- e
+- l
 </details>
 
 #### κατηγόρων
@@ -211,27 +1006,133 @@
 - **Gloss:** accusers, prosecutors (genitive plural)
 - **Dependency Role:** oblique nominal (`obl`)
 - **Governor:** token 9
-- **IPA (attic_5c_bce):** `ka.tɛˈɡó.rɔn`
-- **Syllables:** κα-τη-γό-ρων
+- **IPA (attic_5c_bce):** `kaː.teˈɡorɔːn`
+- **Syllables:** κα- · τη- · γό- · ρων
 <details>
 <summary>Phonology</summary>
-- eta realized /ɛː/ or /e/ in attic
-- o-long realized as /o/ with stress on gó
-- genitive plural ending -ων realized /on/
+- g
+- e
+- n
+- i
+- t
+- i
+- v
+- e
+-
+- p
+- l
+- u
+- r
+- a
+- l
+-
+- o
+- f
+-
+- κ
+- α
+- τ
+- ή
+- γ
+- ο
+- ρ
+- ο
+- ς
+-
+- w
+- i
+- t
+- h
+-
+- l
+- o
+- n
+- g
+-
+- v
+- o
+- w
+- e
+- l
+-
+- q
+- u
+- a
+- l
+- i
+- t
+- y
+-
+- i
+- n
+-
+- p
+- e
+- n
+- u
+- l
+- t
+- ;
+-
+- c
+- i
+- r
+- c
+- u
+- m
+- f
+- l
+- e
+- x
+-
+- e
+- f
+- f
+- e
+- c
+- t
+- s
+-
+- o
+- n
+-
+- q
+- u
+- a
+- n
+- t
+- i
+- t
+- y
 </details>
 
 #### ,
 
-*punctuation* · **comma**
+*punctuation* · **punctuation**
 
 - **Lemma:** ,
-- **Gloss:** comma
+- **Gloss:** punctuation
 - **Dependency Role:** punctuation (`punct`)
 - **Governor:** token 9
 - **IPA (attic_5c_bce):** `,`
 <details>
 <summary>Phonology</summary>
-- punctuation
+- p
+- u
+- n
+- c
+- t
+- u
+- a
+- t
+- i
+- o
+- n
+-
+- m
+- a
+- r
+- k
 </details>
 
 #### οὐκ
@@ -245,37 +1146,258 @@
 - **Syllables:** οὐκ
 <details>
 <summary>Phonology</summary>
-- diphthong ου realized /uː/ or /u/
-- final consonant -κ pronounced /k/
+- c
+- o
+- n
+- t
+- r
+- a
+- c
+- t
+- i
+- o
+- n
+-
+- o
+- f
+-
+- ο
+- ὖ
+-
+- a
+- n
+- d
+-
+- κ
+-
+- i
+- n
+-
+- c
+- e
+- r
+- t
+- a
+- i
+- n
+-
+- c
+- o
+- n
+- t
+- e
+- x
+- t
+- s
+- ;
+-
+- u
+- s
+- e
+- d
+-
+- b
+- e
+- f
+- o
+- r
+- e
+-
+- v
+- o
+- w
+- e
+- l
+- s
+- /
+- c
+- o
+- n
+- s
+- o
+- n
+- a
+- n
+- t
+- s
+-
+- w
+- i
+- t
+- h
+-
+- p
+- h
+- o
+- n
+- e
+- t
+- i
+- c
+-
+- a
+- s
+- s
+- i
+- m
+- i
+- l
+- a
+- t
+- i
+- o
+- n
 </details>
 
 #### οἶδα
 
-*verb* · **I know; I have learned**
+*verb* · **I know**
 
 - **Lemma:** οἶδα
-- **Gloss:** I know; I have learned
+- **Gloss:** I know
 - **Dependency Role:** root (`root`)
-- **IPA (attic_5c_bce):** `ˈoi.da`
-- **Syllables:** οἶ-δα
+- **IPA (attic_5c_bce):** `ˈoi̯.da`
+- **Syllables:** οἶ- · δα
 <details>
 <summary>Phonology</summary>
-- diphthong οι realized /oi̯/
-- circumflex on diphthong realized as falling tone
+- d
+- i
+- p
+- h
+- t
+- h
+- o
+- n
+- g
+-
+- ο
+- ἶ
+-
+- r
+- e
+- a
+- l
+- i
+- z
+- e
+- d
+-
+- /
+- o
+- i
+- ̯
+- /
+- ;
+-
+- p
+- r
+- e
+- s
+- e
+- n
+- t
+-
+- w
+- i
+- t
+- h
+-
+- p
+- e
+- r
+- f
+- e
+- c
+- t
+- i
+- v
+- e
+-
+- s
+- e
+- n
+- s
+- e
+-
+- i
+- n
+-
+- s
+- o
+- m
+- e
+-
+- c
+- o
+- n
+- t
+- e
+- x
+- t
+- s
 </details>
 
 #### :
 
-*punctuation* · **colon / punctuation**
+*punctuation* · **punctuation (colon)**
 
 - **Lemma:** :
-- **Gloss:** colon / punctuation
+- **Gloss:** punctuation (colon)
 - **Dependency Role:** punctuation (`punct`)
 - **Governor:** token 16
 - **IPA (attic_5c_bce):** `:`
 <details>
 <summary>Phonology</summary>
-- punctuation
+- p
+- u
+- n
+- c
+- t
+- u
+- a
+- t
+- i
+- o
+- n
+-
+- m
+- a
+- r
+- k
+-
+- i
+- n
+- d
+- i
+- c
+- a
+- t
+- i
+- n
+- g
+-
+- p
+- a
+- u
+- s
+- e
+-
+- o
+- r
+-
+- d
+- i
+- r
+- e
+- c
+- t
+-
+- s
+- p
+- e
+- e
+- c
+- h
 </details>
 
 ### Dependency tree
@@ -284,12 +1406,12 @@
 `-- 16 οἶδα [VERB] <root>
     |-- 9 πεπόνθατε [VERB] <ccomp>
     |   |-- 1 ὅτι [SCONJ] <mark>
-    |   |-- 2 μὲν [PART] <discourse>
     |   |-- 3 ὑμεῖς [PRON] <nsubj>
+    |   |   `-- 2 μὲν [PART] <discourse>
     |   |-- 4 , [PUNCT] <punct>
     |   |-- 6 ἄνδρες [NOUN] <vocative>
-    |   |   |-- 5 ὦ [INTJ] <discourse>
-    |   |   `-- 7 Ἀθηναῖοι [ADJ] <amod>
+    |   |   |-- 5 ὦ [PART] <discourse>
+    |   |   `-- 7 Ἀθηναῖοι [PROPN] <appos>
     |   |-- 8 , [PUNCT] <punct>
     |   |-- 13 κατηγόρων [NOUN] <obl:agent>
     |   |   |-- 10 ὑπὸ [ADP] <case>

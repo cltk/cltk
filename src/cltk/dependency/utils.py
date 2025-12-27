@@ -21,6 +21,11 @@ from cltk.core.data_types import (
 )
 from cltk.core.exceptions import CLTKException
 from cltk.core.logging_utils import bind_from_doc
+from cltk.core.provenance import (
+    add_provenance_record,
+    build_provenance_record,
+    extract_doc_config,
+)
 from cltk.genai.mistral import AsyncMistralConnection, MistralConnection
 from cltk.genai.ollama import AsyncOllamaConnection, OllamaConnection
 from cltk.genai.openai import AsyncOpenAIConnection, OpenAIConnection
@@ -95,6 +100,7 @@ def generate_dependency_tree(
     client: Optional[Any] = None,
     prompt_builder_from_tokens: Optional[PromptBuilder] = None,
     prompt_builder_from_text: Optional[PromptBuilder] = None,
+    provenance_process: Optional[str] = None,
 ) -> Doc:
     """Call the configured generative backend and return UD dependency annotations for a short span.
 
@@ -105,6 +111,7 @@ def generate_dependency_tree(
         client: Optional connection instance (OpenAI or Ollama) for making API calls.
         prompt_builder_from_tokens: Optional dependency prompt override when tokens are available.
         prompt_builder_from_text: Optional dependency prompt override when only text is available.
+        provenance_process: Optional process name to store in provenance records.
 
     Returns:
         The same ``Doc`` instance with ``words`` and per‑call usage appended
@@ -210,6 +217,30 @@ def generate_dependency_tree(
     backend_config = _get_backend_config(doc)
     if backend_config and getattr(backend_config, "max_retries", None) is not None:
         max_retries = int(getattr(backend_config, "max_retries"))
+
+    lang_id = None
+    try:
+        if doc.dialect and doc.dialect.glottolog_id:
+            lang_id = doc.dialect.glottolog_id
+        else:
+            lang_id = doc.language.glottolog_id
+    except Exception:
+        lang_id = None
+    config_snapshot = extract_doc_config(doc)
+    prov_record = build_provenance_record(
+        language=lang_id,
+        backend=doc.backend,
+        process=provenance_process or "dependency",
+        model=str(doc.model) if doc.model else None,
+        provider=str(doc.backend) if doc.backend else None,
+        prompt_version=str(pinfo.version),
+        prompt_text=prompt,
+        config=config_snapshot,
+        notes={"prompt_kind": pinfo.kind, "sentence_idx": sentence_idx},
+    )
+    prov_id = add_provenance_record(
+        doc, prov_record, set_default=doc.default_provenance_id is None
+    )
 
     if _os.getenv("CLTK_LOG_CONTENT", "").strip().lower() in {"1", "true", "yes", "on"}:
         log.debug(prompt)
@@ -337,6 +368,9 @@ def generate_dependency_tree(
                 w.string = form_val
             w.dependency_relation = tag
             w.governor = governor
+            if prov_id:
+                w.annotation_sources["dependency_relation"] = prov_id
+                w.annotation_sources["governor"] = prov_id
             words[i] = w
         else:
             word = Word(
@@ -345,6 +379,9 @@ def generate_dependency_tree(
                 dependency_relation=tag,
                 governor=governor,
             )
+            if prov_id:
+                word.annotation_sources["dependency_relation"] = prov_id
+                word.annotation_sources["governor"] = prov_id
             words.append(word)
     log.debug("[dep] Created %d Word objects with dependency info.", len(words))
     if not doc.words:
@@ -397,6 +434,7 @@ def generate_gpt_dependency(
     *,
     prompt_builder_from_tokens: Optional[PromptBuilder] = None,
     prompt_builder_from_text: Optional[PromptBuilder] = None,
+    provenance_process: Optional[str] = None,
 ) -> Doc:
     """Generate dependency parses per sentence using a synchronous LLM backend."""
     log = bind_from_doc(doc)
@@ -453,6 +491,8 @@ def generate_gpt_dependency(
             backend=doc.backend,
             model=doc.model,
         )
+        if doc.metadata:
+            tmp_doc.metadata = dict(doc.metadata)
         # Use existing morphosyntax tokens for this sentence if available
         if doc.words:
             sent_words = [
@@ -468,6 +508,7 @@ def generate_gpt_dependency(
             client=client,
             prompt_builder_from_tokens=prompt_builder_from_tokens,
             prompt_builder_from_text=prompt_builder_from_text,
+            provenance_process=provenance_process,
         )
         tmp_docs.append(tmp_doc)
         bind_from_doc(doc, sentence_idx=sent_idx).info(
@@ -503,6 +544,14 @@ def generate_gpt_dependency(
     for k in combined_tokens:
         combined_tokens[k] += int(genai_total_tokens.get(k, 0))
     _update_doc_genai_stage(doc, stage="dep", stage_tokens=genai_total_tokens)
+    if not doc.provenance:
+        doc.provenance = {}
+    for tmp_doc in tmp_docs:
+        for prov_id, record in (tmp_doc.provenance or {}).items():
+            if prov_id not in doc.provenance:
+                doc.provenance[prov_id] = record
+        if doc.default_provenance_id is None and tmp_doc.default_provenance_id:
+            doc.default_provenance_id = tmp_doc.default_provenance_id
     log.debug(
         f"Combined {len(all_words)} words from all tmp_docs and updated token indices."
     )
@@ -523,6 +572,7 @@ async def generate_gpt_dependency_async(
     max_retries: int = 2,
     prompt_builder_from_tokens: Optional[PromptBuilder] = None,
     prompt_builder_from_text: Optional[PromptBuilder] = None,
+    provenance_process: Optional[str] = None,
 ) -> Doc:
     """Async variant of ``generate_gpt_dependency`` with concurrency.
 
@@ -538,6 +588,7 @@ async def generate_gpt_dependency_async(
         max_retries: Per‑request retry budget.
         prompt_builder_from_tokens: Optional dependency prompt override when tokens are available.
         prompt_builder_from_text: Optional dependency prompt override when only text is available.
+        provenance_process: Optional process name to store in provenance records.
 
     Returns:
         The input ``doc`` enriched with ``words`` and aggregated generative
@@ -621,6 +672,15 @@ async def generate_gpt_dependency_async(
 
     # Prepare prompts per sentence
     lang_or_dialect_name = doc.dialect.name if doc.dialect else doc.language.name
+    config_snapshot = extract_doc_config(doc)
+    lang_id = None
+    try:
+        if doc.dialect and doc.dialect.glottolog_id:
+            lang_id = doc.dialect.glottolog_id
+        else:
+            lang_id = doc.language.glottolog_id
+    except Exception:
+        lang_id = None
 
     from cltk.genai.prompts import (
         dependency_prompt_from_text,
@@ -727,6 +787,20 @@ async def generate_gpt_dependency_async(
             backend=doc.backend,
             model=doc.model,
         )
+        prov_record = build_provenance_record(
+            language=lang_id,
+            backend=doc.backend,
+            process=provenance_process or "dependency",
+            model=str(doc.model) if doc.model else None,
+            provider=str(doc.backend) if doc.backend else None,
+            prompt_version=str(pinfo.version),
+            prompt_text=prompt,
+            config=config_snapshot,
+            notes={"prompt_kind": pinfo.kind, "sentence_idx": i},
+        )
+        prov_id = add_provenance_record(
+            tmp, prov_record, set_default=tmp.default_provenance_id is None
+        )
         # Parse TSV and update words in place if available
         parsed = _parse_dep_tsv_table(res.response)
         words: list[Word] = (
@@ -765,6 +839,9 @@ async def generate_gpt_dependency_async(
                     w.string = form_val
                 w.dependency_relation = tag
                 w.governor = governor
+                if prov_id:
+                    w.annotation_sources["dependency_relation"] = prov_id
+                    w.annotation_sources["governor"] = prov_id
                 words[word_idx] = w
             else:
                 word = Word(
@@ -773,6 +850,9 @@ async def generate_gpt_dependency_async(
                     dependency_relation=tag,
                     governor=governor,
                 )
+                if prov_id:
+                    word.annotation_sources["dependency_relation"] = prov_id
+                    word.annotation_sources["governor"] = prov_id
                 words.append(word)
 
         # Character offsets within the sentence string
@@ -824,6 +904,14 @@ async def generate_gpt_dependency_async(
 
     doc.words = all_words
     _update_doc_genai_stage(doc, stage="dep", stage_tokens=aggregated_usage)
+    if not doc.provenance:
+        doc.provenance = {}
+    for _, tmp, _ in results_sorted:
+        for prov_id, record in (tmp.provenance or {}).items():
+            if prov_id not in doc.provenance:
+                doc.provenance[prov_id] = record
+        if doc.default_provenance_id is None and tmp.default_provenance_id:
+            doc.default_provenance_id = tmp.default_provenance_id
     log.info(
         "[async-dep] Completed dependency generation: %d tokens across %d sentences",
         len(all_words),
@@ -839,6 +927,7 @@ def generate_gpt_dependency_concurrent(
     max_retries: int = 2,
     prompt_builder_from_tokens: Optional[PromptBuilder] = None,
     prompt_builder_from_text: Optional[PromptBuilder] = None,
+    provenance_process: Optional[str] = None,
 ) -> Doc:
     """Run the async dependency generator safely but appears synchronous from the outside.
 
@@ -858,6 +947,7 @@ def generate_gpt_dependency_concurrent(
         max_retries: Per‑request retry budget.
         prompt_builder_from_tokens: Optional dependency prompt override when tokens are available.
         prompt_builder_from_text: Optional dependency prompt override when only text is available.
+        provenance_process: Optional process name to store in provenance records.
 
     Returns:
         The input ``Doc`` updated in place, same as the async variant.
@@ -875,6 +965,7 @@ def generate_gpt_dependency_concurrent(
                 max_retries=max_retries,
                 prompt_builder_from_tokens=prompt_builder_from_tokens,
                 prompt_builder_from_text=prompt_builder_from_text,
+                provenance_process=provenance_process,
             )
         )
     else:
@@ -891,6 +982,7 @@ def generate_gpt_dependency_concurrent(
                     max_retries=max_retries,
                     prompt_builder_from_tokens=prompt_builder_from_tokens,
                     prompt_builder_from_text=prompt_builder_from_text,
+                    provenance_process=provenance_process,
                 )
             )
 

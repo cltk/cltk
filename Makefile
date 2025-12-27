@@ -64,8 +64,8 @@ publishPyPITest:
 publishPyPITestConfig:
 	uv publish --dry-run --publish-url https://test.pypi.org/legacy/ --check-url https://test.pypi.org/simple
 
-simplee2eCheck:
-	@echo "Running simple e2e check..."
+simpleCheck:
+	@echo "Running simple end-to-end check of NLP("grc").analyize()..."
 	uv run scripts/example_greek_readers_guide.py
 
 testSnapshot:

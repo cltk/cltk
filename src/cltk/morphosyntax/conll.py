@@ -215,11 +215,24 @@ def words_to_conllu(words: Iterable[Word]) -> str:
     return "\n".join(lines) + ("\n" if lines else "")
 
 
-def doc_to_conllu(doc: Doc) -> str:
+def doc_to_conllu(
+    doc: Doc,
+    *,
+    include_provenance: bool = False,
+    include_confidence: bool = False,
+) -> str:
     """Serialize Doc.words to a single-sentence CoNLL-U string."""
     log = bind_from_doc(doc)
     words = getattr(doc, "words", []) or []
     log.debug("Serializing %s tokens to CoNLL-U", len(words))
+    if include_provenance or include_confidence:
+        from cltk.utils.file_outputs import doc_to_conllu as _doc_to_conllu
+
+        return _doc_to_conllu(
+            doc,
+            include_provenance=include_provenance,
+            include_confidence=include_confidence,
+        )
     return words_to_conllu(words)
 
 
