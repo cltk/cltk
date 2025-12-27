@@ -3,7 +3,7 @@
 # pylint: disable=line-too-long
 
 from cltk.core.exceptions import UnimplementedAlgorithmError
-from cltk.languages.glottolog import resolve_languoid
+from cltk.languages.glottolog import get_language
 
 # from cltk.languages.utils import get_lang
 
@@ -529,7 +529,7 @@ def get_example_text(language_code: str) -> str:
         ```
 
     """
-    resolve_languoid(key=language_code)
+    get_language(lang_id=language_code)
     try:
         return EXAMPLE_TEXTS[language_code]
     except KeyError:

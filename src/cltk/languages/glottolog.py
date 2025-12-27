@@ -5,7 +5,6 @@ This module resolves user-supplied keys (ISO codes, names, Glottolog IDs) into
 ``languages.py``.
 """
 
-from functools import lru_cache
 from typing import Any, Literal, Optional
 
 from cltk.core.cltk_logger import logger
@@ -81,8 +80,7 @@ def _historic_rank(
     return (is_hist, has_mod, -earliest)
 
 
-@lru_cache(maxsize=1)
-def _indices() -> (
+def _build_indices() -> (
     dict[
         Literal["by_iso", "by_name_lang", "by_name_dialect", "by_dialect"],
         dict[str, Any],
@@ -142,12 +140,12 @@ def get_dialect(key: str) -> tuple[Language, Dialect]:
     """
     logger.debug(f"Looking up dialect for key='{key}'")
     langs: dict[str, Language] = LANGUAGES
-    idx = _indices()
+    idx = _build_indices()
 
     k = key.lower()
 
     if key in langs or k in langs:
-        msg = f"'{key}' is a language glottocode. Use resolve_languoid('{key}')."
+        msg = f"'{key}' is a language glottocode. Use get_language('{key}')."
         glog(k).info(msg)
         raise KeyError(msg)
 
@@ -156,7 +154,7 @@ def get_dialect(key: str) -> tuple[Language, Dialect]:
         lang = langs[lang_id]
         msg = (
             f"'{key}' resolves to the language {lang.name} (glottolog_id={lang_id}). "
-            f"Use resolve_languoid('{key}') for languages."
+            f"Use get_language('{key}') for languages."
         )
         glog(lang_id).info(msg)
         raise KeyError(msg)
@@ -224,14 +222,11 @@ def get_dialect(key: str) -> tuple[Language, Dialect]:
     raise KeyError(msg)
 
 
-def resolve_languoid(
-    lang_id: Optional[str] = None, *, key: Optional[str] = None
-) -> tuple[Language, Optional[Dialect]]:
+def get_language(lang_id: str) -> tuple[Language, Optional[Dialect]]:
     """Resolve a language or dialect key.
 
     Args:
       lang_id: Language glottocode/ISO/name or dialect glottocode/name.
-      key: Backward-compatible alias for ``lang_id``.
 
     Returns:
       (``Language``, ``None``) for a language; (``Language``, ``Dialect``) for a
@@ -241,15 +236,10 @@ def resolve_languoid(
       KeyError: If nothing matches (or name is ambiguous without a glottocode).
 
     """
-    if lang_id is None:
-        if key is None:
-            raise TypeError("resolve_languoid() requires 'lang_id' or 'key'")
-        lang_id = key
-
     logger.debug(f"Resolving languoid for key='{lang_id}'")
 
     langs: dict[str, Language] = LANGUAGES
-    idx = _indices()
+    idx = _build_indices()
 
     k = lang_id.strip()
     if not k:

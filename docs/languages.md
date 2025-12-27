@@ -31,13 +31,28 @@ Each Language entry includes:
 You can resolve any Glottolog ID, ISO code, or exact name with:
 
 ```python
-from cltk.languages.glottolog import resolve_languoid
+from cltk.languages.glottolog import get_language
 
-language, dialect = resolve_languoid("lati1261")
+language, dialect = get_language(lang_id="lati1261")
 # or
-language, dialect = resolve_languoid("lat")
+language, dialect = get_language(lang_id="lat")
 # or
-language, dialect = resolve_languoid("Latin")
+language, dialect = get_language(lang_id="Latin")
+```
+
+## Dialect examples
+
+Dialect resolution requires a Glottolog dialect ID or an exact dialect name.
+ISO 639-3 codes do not identify dialects.
+
+```python
+from cltk.languages.glottolog import get_dialect, get_language
+
+# Resolve a dialect glottocode
+language, dialect = get_language(lang_id="otto1234")
+
+# Or ask for a dialect explicitly
+language, dialect = get_dialect("otto1234")
 ```
 
 ## Notes
@@ -45,7 +60,7 @@ language, dialect = resolve_languoid("Latin")
 - Glottolog IDs are stable identifiers used throughout CLTK.
 - ISO 639-3 codes are available for many (but not all) languages.
 - Some entries are dialects under a parent language; in those cases
-  `resolve_languoid` returns the parent Language and a Dialect.
+  `get_language` returns the parent Language and a Dialect.
 
 ## Resources
 
