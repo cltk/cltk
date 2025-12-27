@@ -120,6 +120,8 @@ def generate_dependency_tree(
     client: Optional[Any] = None,
     prompt_builder_from_tokens: Optional[PromptBuilder] = None,
     prompt_builder_from_text: Optional[PromptBuilder] = None,
+    prompt_profile: Optional[str] = None,
+    prompt_digest: Optional[str] = None,
     provenance_process: Optional[str] = None,
 ) -> Doc:
     """Call the configured generative backend and return UD dependency annotations for a short span.
@@ -131,6 +133,8 @@ def generate_dependency_tree(
         client: Optional connection instance (OpenAI or Ollama) for making API calls.
         prompt_builder_from_tokens: Optional dependency prompt override when tokens are available.
         prompt_builder_from_text: Optional dependency prompt override when only text is available.
+        prompt_profile: Optional prompt profile name for provenance.
+        prompt_digest: Optional digest for the prompt template.
         provenance_process: Optional process name to store in provenance records.
 
     Returns:
@@ -247,6 +251,9 @@ def generate_dependency_tree(
     except Exception:
         lang_id = None
     config_snapshot = extract_doc_config(doc)
+    notes = {"prompt_kind": pinfo.kind, "sentence_idx": sentence_idx}
+    if prompt_profile:
+        notes["prompt_profile"] = prompt_profile
     prov_record = build_provenance_record(
         language=lang_id,
         backend=doc.backend,
@@ -255,8 +262,9 @@ def generate_dependency_tree(
         provider=str(doc.backend) if doc.backend else None,
         prompt_version=str(pinfo.version),
         prompt_text=prompt,
+        prompt_digest=prompt_digest,
         config=config_snapshot,
-        notes={"prompt_kind": pinfo.kind, "sentence_idx": sentence_idx},
+        notes=notes,
     )
     prov_id = add_provenance_record(
         doc, prov_record, set_default=doc.default_provenance_id is None
@@ -468,6 +476,8 @@ def generate_gpt_dependency(
     *,
     prompt_builder_from_tokens: Optional[PromptBuilder] = None,
     prompt_builder_from_text: Optional[PromptBuilder] = None,
+    prompt_profile: Optional[str] = None,
+    prompt_digest: Optional[str] = None,
     provenance_process: Optional[str] = None,
 ) -> Doc:
     """Generate dependency parses per sentence using a synchronous LLM backend."""
@@ -542,6 +552,8 @@ def generate_gpt_dependency(
             client=client,
             prompt_builder_from_tokens=prompt_builder_from_tokens,
             prompt_builder_from_text=prompt_builder_from_text,
+            prompt_profile=prompt_profile,
+            prompt_digest=prompt_digest,
             provenance_process=provenance_process,
         )
         tmp_docs.append(tmp_doc)
@@ -606,6 +618,8 @@ async def generate_gpt_dependency_async(
     max_retries: int = 2,
     prompt_builder_from_tokens: Optional[PromptBuilder] = None,
     prompt_builder_from_text: Optional[PromptBuilder] = None,
+    prompt_profile: Optional[str] = None,
+    prompt_digest: Optional[str] = None,
     provenance_process: Optional[str] = None,
 ) -> Doc:
     """Async variant of ``generate_gpt_dependency`` with concurrency.
@@ -622,6 +636,8 @@ async def generate_gpt_dependency_async(
         max_retries: Per‑request retry budget.
         prompt_builder_from_tokens: Optional dependency prompt override when tokens are available.
         prompt_builder_from_text: Optional dependency prompt override when only text is available.
+        prompt_profile: Optional prompt profile name for provenance.
+        prompt_digest: Optional digest for the prompt template.
         provenance_process: Optional process name to store in provenance records.
 
     Returns:
@@ -821,6 +837,9 @@ async def generate_gpt_dependency_async(
             backend=doc.backend,
             model=doc.model,
         )
+        notes = {"prompt_kind": pinfo.kind, "sentence_idx": i}
+        if prompt_profile:
+            notes["prompt_profile"] = prompt_profile
         prov_record = build_provenance_record(
             language=lang_id,
             backend=doc.backend,
@@ -829,8 +848,9 @@ async def generate_gpt_dependency_async(
             provider=str(doc.backend) if doc.backend else None,
             prompt_version=str(pinfo.version),
             prompt_text=prompt,
+            prompt_digest=prompt_digest,
             config=config_snapshot,
-            notes={"prompt_kind": pinfo.kind, "sentence_idx": i},
+            notes=notes,
         )
         prov_id = add_provenance_record(
             tmp, prov_record, set_default=tmp.default_provenance_id is None
@@ -975,6 +995,8 @@ def generate_gpt_dependency_concurrent(
     max_retries: int = 2,
     prompt_builder_from_tokens: Optional[PromptBuilder] = None,
     prompt_builder_from_text: Optional[PromptBuilder] = None,
+    prompt_profile: Optional[str] = None,
+    prompt_digest: Optional[str] = None,
     provenance_process: Optional[str] = None,
 ) -> Doc:
     """Run the async dependency generator safely but appears synchronous from the outside.
@@ -995,6 +1017,8 @@ def generate_gpt_dependency_concurrent(
         max_retries: Per‑request retry budget.
         prompt_builder_from_tokens: Optional dependency prompt override when tokens are available.
         prompt_builder_from_text: Optional dependency prompt override when only text is available.
+        prompt_profile: Optional prompt profile name for provenance.
+        prompt_digest: Optional digest for the prompt template.
         provenance_process: Optional process name to store in provenance records.
 
     Returns:
@@ -1013,6 +1037,8 @@ def generate_gpt_dependency_concurrent(
                 max_retries=max_retries,
                 prompt_builder_from_tokens=prompt_builder_from_tokens,
                 prompt_builder_from_text=prompt_builder_from_text,
+                prompt_profile=prompt_profile,
+                prompt_digest=prompt_digest,
                 provenance_process=provenance_process,
             )
         )
@@ -1030,6 +1056,8 @@ def generate_gpt_dependency_concurrent(
                     max_retries=max_retries,
                     prompt_builder_from_tokens=prompt_builder_from_tokens,
                     prompt_builder_from_text=prompt_builder_from_text,
+                    prompt_profile=prompt_profile,
+                    prompt_digest=prompt_digest,
                     provenance_process=provenance_process,
                 )
             )

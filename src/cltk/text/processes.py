@@ -4,17 +4,20 @@ Usually used before the text is sent to other processes.
 """
 
 from functools import cached_property
-from typing import Callable, Optional
+from typing import Callable, ClassVar, Optional
 
 from cltk.core.cltk_logger import bind_context, logger
 from cltk.core.data_types import Doc, Process
 from cltk.core.logging_utils import bind_from_doc
+from cltk.core.process_registry import register_process
 from cltk.text.utils import cltk_normalize
 
 
+@register_process
 class NormalizeProcess(Process):
     """Generic process for text normalization."""
 
+    process_id: ClassVar[str] = "normalize"
     language_code: Optional[str] = None
 
     @cached_property

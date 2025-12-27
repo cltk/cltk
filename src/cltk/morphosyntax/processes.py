@@ -3,11 +3,17 @@
 from collections.abc import Callable
 from copy import copy
 from functools import cached_property
-from typing import Optional
+from typing import ClassVar, Optional
 
 from cltk.core.cltk_logger import bind_context
 from cltk.core.data_types import Doc, Process
 from cltk.core.logging_utils import bind_from_doc
+from cltk.core.process_registry import register_process
+from cltk.genai.prompt_registry import (
+    PromptProfileRegistry,
+    PromptTemplate,
+    build_prompt_info,
+)
 from cltk.genai.prompts import PromptInfo
 from cltk.morphosyntax.utils import (
     generate_gpt_morphosyntax_concurrent,
@@ -21,11 +27,15 @@ class MorphosyntaxProcess(Process):
     """Base class for morphosyntactic processes."""
 
 
+@register_process
 class GenAIMorphosyntaxProcess(MorphosyntaxProcess):
     """Language-specific morphosyntax process using a generative GPT model."""
 
+    process_id: ClassVar[str] = "morphosyntax.genai"
     # Optional prompt builder override for custom pipelines
     prompt_builder: Optional[PromptBuilder] = None
+    prompt_profile: Optional[str] = None
+    prompt_version: Optional[str] = None
 
     @cached_property
     def algorithm(self) -> Callable[..., Doc]:
@@ -47,11 +57,30 @@ class GenAIMorphosyntaxProcess(MorphosyntaxProcess):
         # Ensure required attributes are present
         if self.glottolog_id is None:
             raise ValueError("glottolog_id must be set for sentence splitting")
+        prompt_builder = self.prompt_builder
+        prompt_digest = None
+        if prompt_builder is None and self.prompt_profile:
+            template = PromptProfileRegistry.get_prompt(
+                self.prompt_profile, self.process_id, self.prompt_version
+            )
+            prompt_digest = template.digest
+
+            def _builder(
+                lang: str, text: str, _template: PromptTemplate = template
+            ) -> PromptInfo:
+                """Build a morphosyntax prompt from a profile template."""
+                return build_prompt_info(
+                    _template, lang_or_dialect_name=lang, text=text
+                )
+
+            prompt_builder = _builder
         # Callable typing does not retain keyword names; pass positionally
         output_doc = self.algorithm(
             output_doc,
-            prompt_builder=self.prompt_builder,
-            provenance_process=self.__class__.__name__,
+            prompt_builder=prompt_builder,
+            prompt_profile=self.prompt_profile,
+            prompt_digest=prompt_digest,
+            provenance_process=f"{self.process_id}:{self.__class__.__name__}",
         )
         return output_doc
 

@@ -250,8 +250,10 @@ def _build_pedagogical_notes(notes: Any) -> list[PedagogicalNote]:
     return out
 
 
-def _apply_token_confidence(word: Word, conf_obj: Any) -> None:
-    """Attach token-level confidence values from a payload object."""
+def _apply_token_confidence(
+    word: Word, conf_obj: Any, fields: Optional[set[str]] = None
+) -> None:
+    """Attach token-level confidence values, optionally filtered by fields."""
     if not isinstance(conf_obj, dict):
         return
     mapping = {
@@ -261,7 +263,19 @@ def _apply_token_confidence(word: Word, conf_obj: Any) -> None:
         "orthography": "orthography",
         "pedagogy": "pedagogical_notes",
     }
+    if fields is None:
+        allowed = set(mapping)
+    else:
+        allowed = set()
+        if "lexicon" in fields:
+            allowed.update({"gloss", "lemma_translations"})
+        if "phonology" in fields:
+            allowed.update({"ipa", "orthography"})
+        if "pedagogy" in fields:
+            allowed.update({"pedagogy"})
     for key, field in mapping.items():
+        if key not in allowed:
+            continue
         conf_val = _safe_probability(conf_obj.get(key))
         if conf_val is not None:
             word.confidence[field] = conf_val
@@ -272,12 +286,18 @@ def _apply_payload_to_words(
     payload: dict[str, Any],
     sentence_idx: int,
     provenance_id: Optional[str] = None,
+    fields: Optional[set[str]] = None,
 ) -> tuple[list[Word], list[IdiomSpan]]:
-    """Attach enrichment fields to sentence words and return idiom spans."""
+    """Attach enrichment fields and return idiom spans, honoring field filters."""
     idioms_out: list[IdiomSpan] = []
     token_items = payload.get("tokens") if isinstance(payload, dict) else None
     if not isinstance(token_items, list):
         return sent_words, idioms_out
+
+    include_lexicon = fields is None or "lexicon" in fields
+    include_phonology = fields is None or "phonology" in fields
+    include_idioms = fields is None or "idioms" in fields
+    include_pedagogy = fields is None or "pedagogy" in fields
 
     # Map sentence-local idx (1-based) to Word
     idx_to_word: dict[int, Word] = {}
@@ -295,53 +315,88 @@ def _apply_payload_to_words(
         if word is None:
             continue
 
-        gloss = _build_gloss(token_obj.get("gloss"))
+        gloss = _build_gloss(token_obj.get("gloss")) if include_lexicon else None
 
-        ipa_raw = token_obj.get("ipa")
         ipa_obj = None
-        if isinstance(ipa_raw, dict):
-            mode = ipa_raw.get("mode")
-            if mode:
-                try:
-                    ipa_mode_val = cast(IPA_PRONUNCIATION_MODE, mode)
-                except Exception:
+        orth = None
+        if include_phonology:
+            ipa_raw = token_obj.get("ipa")
+            if isinstance(ipa_raw, dict):
+                mode = ipa_raw.get("mode")
+                if mode:
+                    try:
+                        ipa_mode_val = cast(IPA_PRONUNCIATION_MODE, mode)
+                    except Exception:
+                        ipa_mode_val = None
+                else:
                     ipa_mode_val = None
-            else:
-                ipa_mode_val = None
-            ipa_value = ipa_raw.get("value")
-            if ipa_value:
-                ipa_obj = IPAEnrichment(
-                    value=str(ipa_value), mode=ipa_mode_val or "attic_5c_bce"
-                )
+                ipa_value = ipa_raw.get("value")
+                if ipa_value:
+                    ipa_obj = IPAEnrichment(
+                        value=str(ipa_value), mode=ipa_mode_val or "attic_5c_bce"
+                    )
+            orth = _build_orthography(token_obj.get("orthography"))
 
-        orth = _build_orthography(token_obj.get("orthography"))
-        translations = _build_translations(token_obj.get("lemma_translations"))
-        notes = _build_pedagogical_notes(token_obj.get("pedagogy"))
-        idiom_ids = [str(iid) for iid in token_obj.get("idiom_span_ids", []) or []]
-
-        word.enrichment = WordEnrichment(
-            gloss=gloss,
-            lemma_translations=translations,
-            ipa=ipa_obj,
-            orthography=orth,
-            idiom_span_ids=idiom_ids,
-            pedagogical_notes=notes,
+        translations = (
+            _build_translations(token_obj.get("lemma_translations"))
+            if include_lexicon
+            else []
         )
-        _apply_token_confidence(word, token_obj.get("confidence"))
+        notes = (
+            _build_pedagogical_notes(token_obj.get("pedagogy"))
+            if include_pedagogy
+            else []
+        )
+        idiom_ids = (
+            [str(iid) for iid in token_obj.get("idiom_span_ids", []) or []]
+            if include_idioms
+            else []
+        )
+
+        if fields is None:
+            word.enrichment = WordEnrichment(
+                gloss=gloss,
+                lemma_translations=translations,
+                ipa=ipa_obj,
+                orthography=orth,
+                idiom_span_ids=idiom_ids,
+                pedagogical_notes=notes,
+            )
+        else:
+            enrichment = word.enrichment or WordEnrichment()
+            if include_lexicon:
+                enrichment.gloss = gloss
+                enrichment.lemma_translations = translations
+            if include_phonology:
+                enrichment.ipa = ipa_obj
+                enrichment.orthography = orth
+            if include_idioms:
+                enrichment.idiom_span_ids = idiom_ids
+            if include_pedagogy:
+                enrichment.pedagogical_notes = notes
+            word.enrichment = enrichment
+
+        _apply_token_confidence(word, token_obj.get("confidence"), fields=fields)
         if provenance_id:
-            word.annotation_sources["gloss"] = provenance_id
-            word.annotation_sources["lemma_translations"] = provenance_id
-            word.annotation_sources["ipa"] = provenance_id
-            word.annotation_sources["orthography"] = provenance_id
-            word.annotation_sources["pedagogical_notes"] = provenance_id
+            if include_lexicon:
+                word.annotation_sources["gloss"] = provenance_id
+                word.annotation_sources["lemma_translations"] = provenance_id
+            if include_phonology:
+                word.annotation_sources["ipa"] = provenance_id
+                word.annotation_sources["orthography"] = provenance_id
+            if include_pedagogy:
+                word.annotation_sources["pedagogical_notes"] = provenance_id
         # Optionally propagate syllables/IPA to existing fields for convenience
-        if orth and orth.syllables:
+        if include_phonology and orth and orth.syllables:
             word.syllables = orth.syllables
-        if ipa_obj and ipa_obj.value:
+        if include_phonology and ipa_obj and ipa_obj.value:
             word.phonetic_transcription = ipa_obj.value
         idx_to_word[idx] = word
 
     # Build idiom spans (span-level)
+    if not include_idioms:
+        ordered_words = [idx_to_word[i] for i in sorted(idx_to_word.keys())]
+        return ordered_words, idioms_out
     for idiom_obj in payload.get("idioms", []) or []:
         if not isinstance(idiom_obj, dict):
             continue
@@ -415,9 +470,12 @@ def generate_enrichment_for_sentence(
     ipa_mode: IPA_PRONUNCIATION_MODE,
     max_retries: int,
     prompt_builder: Optional[PromptBuilder],
+    prompt_profile: Optional[str],
+    prompt_digest: Optional[str],
+    fields: Optional[set[str]] = None,
     provenance_process: Optional[str] = None,
 ) -> tuple[list[Word], list[IdiomSpan], dict[str, int]]:
-    """Call the LLM for a single sentence worth of tokens."""
+    """Call the LLM for one sentence, optionally filtered by fields."""
     lang_or_dialect_name = doc.dialect.name if doc.dialect else doc.language.name
     token_table = _build_token_table(words)
     pinfo = _resolve_enrichment_prompt(
@@ -446,6 +504,13 @@ def generate_enrichment_for_sentence(
     except Exception:
         lang_id = None
     config_snapshot = extract_doc_config(doc)
+    notes = {
+        "prompt_kind": pinfo.kind,
+        "sentence_idx": sentence_idx,
+        "ipa_mode": ipa_mode,
+    }
+    if prompt_profile:
+        notes["prompt_profile"] = prompt_profile
     prov_record = build_provenance_record(
         language=lang_id,
         backend=doc.backend,
@@ -454,12 +519,9 @@ def generate_enrichment_for_sentence(
         provider=str(doc.backend) if doc.backend else None,
         prompt_version=str(pinfo.version),
         prompt_text=prompt,
+        prompt_digest=prompt_digest,
         config=config_snapshot,
-        notes={
-            "prompt_kind": pinfo.kind,
-            "sentence_idx": sentence_idx,
-            "ipa_mode": ipa_mode,
-        },
+        notes=notes,
     )
     prov_id = add_provenance_record(
         doc, prov_record, set_default=doc.default_provenance_id is None
@@ -468,7 +530,7 @@ def generate_enrichment_for_sentence(
     res_obj: CLTKGenAIResponse = client.generate(prompt=prompt, max_retries=max_retries)
     payload = _parse_enrichment_payload(res_obj.response)
     updated_words, idioms = _apply_payload_to_words(
-        words, payload, sentence_idx, provenance_id=prov_id
+        words, payload, sentence_idx, provenance_id=prov_id, fields=fields
     )
     return updated_words, idioms, res_obj.usage
 
@@ -478,10 +540,13 @@ def generate_gpt_enrichment(
     *,
     ipa_mode: IPA_PRONUNCIATION_MODE = "attic_5c_bce",
     prompt_builder: Optional[PromptBuilder] = None,
+    prompt_profile: Optional[str] = None,
+    prompt_digest: Optional[str] = None,
+    fields: Optional[set[str]] = None,
     max_retries: int = 2,
     provenance_process: Optional[str] = None,
 ) -> Doc:
-    """Sequential enrichment across sentences (gloss, IPA, idioms)."""
+    """Sequential enrichment across sentences, optionally scoped by fields."""
     log = bind_from_doc(doc)
     if not doc.words:
         msg = "Doc must contain tokens (with morph + dependency) before enrichment."
@@ -579,6 +644,9 @@ def generate_gpt_enrichment(
             ipa_mode=ipa_mode,
             max_retries=max_retries,
             prompt_builder=prompt_builder,
+            prompt_profile=prompt_profile,
+            prompt_digest=prompt_digest,
+            fields=fields,
             provenance_process=provenance_process,
         )
         # updated_words are references into doc.words via doc.sentences; no reassignment needed
@@ -589,8 +657,9 @@ def generate_gpt_enrichment(
             f"[enrich] Completed enrichment for sentence #{(sent_idx or 0) + 1}"
         )
 
-    # Store idiom spans at doc level
-    doc.idiom_spans = all_idioms
+    # Store idiom spans at doc level only when idioms are included.
+    if fields is None or "idioms" in fields:
+        doc.idiom_spans = all_idioms
     _update_doc_genai_stage(doc, stage="enrich", stage_tokens=genai_total_tokens)
     log.info(
         "[enrich] Completed enrichment: %d tokens across %d sentences",
@@ -605,10 +674,13 @@ def generate_gpt_enrichment_concurrent(
     *,
     ipa_mode: IPA_PRONUNCIATION_MODE = "attic_5c_bce",
     prompt_builder: Optional[PromptBuilder] = None,
+    prompt_profile: Optional[str] = None,
+    prompt_digest: Optional[str] = None,
+    fields: Optional[set[str]] = None,
     max_retries: int = 2,
     provenance_process: Optional[str] = None,
 ) -> Doc:
-    """Safely call enrichment even when an event loop is running."""
+    """Safely call enrichment even when an event loop is running, honoring field filters."""
     log = bind_from_doc(doc)
     try:
         asyncio.get_running_loop()
@@ -618,6 +690,9 @@ def generate_gpt_enrichment_concurrent(
             doc,
             ipa_mode=ipa_mode,
             prompt_builder=prompt_builder,
+            prompt_profile=prompt_profile,
+            prompt_digest=prompt_digest,
+            fields=fields,
             max_retries=max_retries,
             provenance_process=provenance_process,
         )
@@ -628,6 +703,9 @@ def generate_gpt_enrichment_concurrent(
             doc,
             ipa_mode=ipa_mode,
             prompt_builder=prompt_builder,
+            prompt_profile=prompt_profile,
+            prompt_digest=prompt_digest,
+            fields=fields,
             max_retries=max_retries,
             provenance_process=provenance_process,
         )

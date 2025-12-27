@@ -109,6 +109,8 @@ def generate_pos(
     max_retries: int = 2,
     client: Optional[Any] = None,
     prompt_builder: Optional[PromptBuilder] = None,
+    prompt_profile: Optional[str] = None,
+    prompt_digest: Optional[str] = None,
     provenance_process: Optional[str] = None,
 ) -> Doc:
     """Call the configured generative backend and return UD token annotations for a short span.
@@ -119,6 +121,8 @@ def generate_pos(
         max_retries: Number of attempts if the model fails to return a TSV code block.
         client: Optional connection instance (OpenAI or Ollama) for making API calls.
         prompt_builder: Optional override prompt (callable, `PromptInfo`, or string) for morphosyntax.
+        prompt_profile: Optional prompt profile name for provenance.
+        prompt_digest: Optional digest for the prompt template.
         provenance_process: Optional process name to store in provenance records.
 
     Returns:
@@ -181,6 +185,9 @@ def generate_pos(
         max_retries = int(getattr(backend_config, "max_retries"))
 
     config_snapshot = extract_doc_config(doc)
+    notes = {"prompt_kind": pinfo.kind, "sentence_idx": sentence_idx}
+    if prompt_profile:
+        notes["prompt_profile"] = prompt_profile
     prov_record = build_provenance_record(
         language=glottolog_id,
         backend=doc.backend,
@@ -189,8 +196,9 @@ def generate_pos(
         provider=str(doc.backend) if doc.backend else None,
         prompt_version=str(pinfo.version),
         prompt_text=prompt,
+        prompt_digest=prompt_digest,
         config=config_snapshot,
-        notes={"prompt_kind": pinfo.kind, "sentence_idx": sentence_idx},
+        notes=notes,
     )
     prov_id = add_provenance_record(
         doc, prov_record, set_default=doc.default_provenance_id is None
@@ -425,6 +433,8 @@ def generate_gpt_morphosyntax(
     doc: Doc,
     *,
     prompt_builder: Optional[PromptBuilder] = None,
+    prompt_profile: Optional[str] = None,
+    prompt_digest: Optional[str] = None,
     provenance_process: Optional[str] = None,
 ) -> Doc:
     """Generate POS and UD features for each sentence using a sync LLM backend."""
@@ -488,6 +498,8 @@ def generate_gpt_morphosyntax(
             sentence_idx=sent_idx,
             client=client,
             prompt_builder=prompt_builder,
+            prompt_profile=prompt_profile,
+            prompt_digest=prompt_digest,
             provenance_process=provenance_process,
         )
         tmp_docs.append(tmp_doc)
@@ -540,6 +552,8 @@ async def generate_gpt_morphosyntax_async(
     max_concurrency: int = 4,
     max_retries: int = 2,
     prompt_builder: Optional[PromptBuilder] = None,
+    prompt_profile: Optional[str] = None,
+    prompt_digest: Optional[str] = None,
     provenance_process: Optional[str] = None,
 ) -> Doc:
     """Async variant of ``generate_gpt_morphosyntax`` with concurrency.
@@ -555,6 +569,8 @@ async def generate_gpt_morphosyntax_async(
         max_concurrency: Maximum number of in‑flight LLM requests.
         max_retries: Per‑request retry budget.
         prompt_builder: Optional override prompt (callable, `PromptInfo`, or string) for morphosyntax.
+        prompt_profile: Optional prompt profile name for provenance.
+        prompt_digest: Optional digest for the prompt template.
         provenance_process: Optional process name to store in provenance records.
 
     Returns:
@@ -683,6 +699,9 @@ async def generate_gpt_morphosyntax_async(
             backend=doc.backend,
             model=doc.model,
         )
+        notes = {"prompt_kind": pinfo.kind, "sentence_idx": i}
+        if prompt_profile:
+            notes["prompt_profile"] = prompt_profile
         prov_record = build_provenance_record(
             language=lang_id,
             backend=doc.backend,
@@ -691,8 +710,9 @@ async def generate_gpt_morphosyntax_async(
             provider=str(doc.backend) if doc.backend else None,
             prompt_version=str(pinfo.version),
             prompt_text=prompt,
+            prompt_digest=prompt_digest,
             config=config_snapshot,
-            notes={"prompt_kind": pinfo.kind, "sentence_idx": i},
+            notes=notes,
         )
         prov_id = add_provenance_record(
             tmp, prov_record, set_default=tmp.default_provenance_id is None
@@ -813,6 +833,8 @@ def generate_gpt_morphosyntax_concurrent(
     max_concurrency: int = 4,
     max_retries: int = 2,
     prompt_builder: Optional[PromptBuilder] = None,
+    prompt_profile: Optional[str] = None,
+    prompt_digest: Optional[str] = None,
     provenance_process: Optional[str] = None,
 ) -> Doc:
     """Run the async morphosyntax generator safely but appears synchronous from the outside.
@@ -832,6 +854,8 @@ def generate_gpt_morphosyntax_concurrent(
         max_concurrency: Maximum concurrent LLM requests.
         max_retries: Per‑request retry budget.
         prompt_builder: Optional override prompt (callable, `PromptInfo`, or string) for morphosyntax.
+        prompt_profile: Optional prompt profile name for provenance.
+        prompt_digest: Optional digest for the prompt template.
         provenance_process: Optional process name to store in provenance records.
 
     Returns:
@@ -849,6 +873,8 @@ def generate_gpt_morphosyntax_concurrent(
                 max_concurrency=max_concurrency,
                 max_retries=max_retries,
                 prompt_builder=prompt_builder,
+                prompt_profile=prompt_profile,
+                prompt_digest=prompt_digest,
                 provenance_process=provenance_process,
             )
         )
@@ -865,6 +891,8 @@ def generate_gpt_morphosyntax_concurrent(
                     max_concurrency=max_concurrency,
                     max_retries=max_retries,
                     prompt_builder=prompt_builder,
+                    prompt_profile=prompt_profile,
+                    prompt_digest=prompt_digest,
                     provenance_process=provenance_process,
                 )
             )

@@ -1,3 +1,5 @@
+"""CLI parser and output handling tests."""
+
 from pathlib import Path
 
 import pytest
@@ -11,6 +13,7 @@ from cltk.utils.file_outputs import doc_to_conllu
 
 
 def _language() -> Language:
+    """Return a minimal Language stub."""
     return Language(
         name="TestLang",
         glottolog_id="test1234",
@@ -20,6 +23,7 @@ def _language() -> Language:
 
 
 def _doc() -> Doc:
+    """Return a minimal Doc stub with one token."""
     word = Word(
         index_sentence=0,
         index_token=0,
@@ -33,6 +37,7 @@ def _doc() -> Doc:
 
 
 def test_parse_analyze_smoke() -> None:
+    """Parse analyze CLI arguments."""
     parser = build_parser()
     args = parser.parse_args(
         [
@@ -52,6 +57,7 @@ def test_parse_analyze_smoke() -> None:
 
 
 def test_parse_compare_smoke() -> None:
+    """Parse compare CLI arguments."""
     parser = build_parser()
     args = parser.parse_args(
         [
@@ -69,6 +75,7 @@ def test_parse_compare_smoke() -> None:
 
 
 def test_parse_export_smoke() -> None:
+    """Parse export CLI arguments."""
     parser = build_parser()
     args = parser.parse_args(
         [
@@ -87,12 +94,30 @@ def test_parse_export_smoke() -> None:
     assert args.conllu == "out.conllu"
 
 
+def test_parse_pipeline_describe_smoke() -> None:
+    """Parse pipeline describe CLI arguments."""
+    parser = build_parser()
+    args = parser.parse_args(
+        [
+            "pipeline",
+            "describe",
+            "--toml",
+            "pipeline.toml",
+        ]
+    )
+    assert args.command == "pipeline"
+    assert args.pipeline_command == "describe"
+
+
 def test_dispatch_conllu_mapping() -> None:
+    """Map dispatch output to CoNLL-U."""
     doc = _doc()
     assert dispatch.render_output(doc, "conllu") == doc_to_conllu(doc)
 
 
 def test_feature_table_csv_tsv_writing(tmp_path: Path) -> None:
+    """Write feature tables to CSV and TSV outputs."""
+
     class StubTable:
         column_names = ["token", "lemma"]
 
@@ -114,6 +139,7 @@ def test_feature_table_csv_tsv_writing(tmp_path: Path) -> None:
 
 
 def test_parquet_requires_deps(monkeypatch: pytest.MonkeyPatch) -> None:
+    """Raise when parquet dependencies are missing."""
     monkeypatch.setattr("cltk.cli.utils._module_available", lambda _: False)
     with pytest.raises(
         RuntimeError, match="Parquet export requires pandas and pyarrow"

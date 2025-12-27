@@ -3,23 +3,34 @@
 from collections.abc import Callable
 from copy import copy
 from functools import cached_property
-from typing import Optional
+from typing import ClassVar, Optional
 
 from cltk.core.cltk_logger import bind_context
 from cltk.core.data_types import Doc, Process
 from cltk.core.logging_utils import bind_from_doc
+from cltk.core.process_registry import register_process
+from cltk.genai.prompt_registry import (
+    PromptProfileRegistry,
+    PromptTemplate,
+    build_prompt_info,
+)
+from cltk.genai.prompts import PromptInfo
 from cltk.translation.utils import (
     TranslationPromptBuilder,
     generate_gpt_translation_concurrent,
 )
 
 
+@register_process
 class GenAITranslationProcess(Process):
     """Language-agnostic translation process using a generative GPT model."""
 
+    process_id: ClassVar[str] = "translation.genai"
     prompt_builder: Optional[TranslationPromptBuilder] = None
     target_language: str = "Modern US English"
     target_language_id: Optional[str] = "en-US"
+    prompt_profile: Optional[str] = None
+    prompt_version: Optional[str] = None
 
     @cached_property
     def algorithm(self) -> Callable[..., Doc]:
@@ -50,12 +61,37 @@ class GenAITranslationProcess(Process):
                 )
         except Exception:
             pass
+        prompt_builder = self.prompt_builder
+        prompt_digest = None
+        if prompt_builder is None and self.prompt_profile:
+            template = PromptProfileRegistry.get_prompt(
+                self.prompt_profile, self.process_id, self.prompt_version
+            )
+            prompt_digest = template.digest
+
+            def _builder(
+                lang: str,
+                target: str,
+                context: str,
+                _template: PromptTemplate = template,
+            ) -> PromptInfo:
+                """Build a translation prompt from a profile template."""
+                return build_prompt_info(
+                    _template,
+                    lang_or_dialect_name=lang,
+                    target_language=target,
+                    context=context,
+                )
+
+            prompt_builder = _builder
         output_doc = self.algorithm(
             output_doc,
             target_language=target_language,
             target_language_id=target_language_id,
-            prompt_builder=self.prompt_builder,
-            provenance_process=self.__class__.__name__,
+            prompt_builder=prompt_builder,
+            prompt_profile=self.prompt_profile,
+            prompt_digest=prompt_digest,
+            provenance_process=f"{self.process_id}:{self.__class__.__name__}",
         )
         return output_doc
 

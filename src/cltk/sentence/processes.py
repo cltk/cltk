@@ -8,17 +8,19 @@ subclasses, one per language or stage.
 
 from copy import copy
 from functools import cached_property
-from typing import Callable, Optional
+from typing import Callable, ClassVar, Optional
 
 from cltk.core.cltk_logger import bind_context
 from cltk.core.data_types import Doc, Process
 from cltk.core.logging_utils import bind_from_doc
+from cltk.core.process_registry import register_process
 from cltk.core.provenance import add_provenance_record, build_provenance_record
 from cltk.sentence.utils import split_sentences_multilang
 
 __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 
 
+@register_process
 class SentenceSplittingProcess(Process):
     """Base class for sentence splitting processes.
 
@@ -30,6 +32,8 @@ class SentenceSplittingProcess(Process):
         punctuation rules for sentence boundaries.
 
     """
+
+    process_id: ClassVar[str] = "sentence_split"
 
     @cached_property
     def algorithm(self) -> Callable[[str, str], list[tuple[int, int]]]:
