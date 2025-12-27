@@ -5,8 +5,6 @@ languages referenced by pipeline maps and example texts (plus required parent
 languages).
 """
 
-from __future__ import annotations
-
 from datetime import date
 
 from cltk.core.data_types import (

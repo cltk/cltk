@@ -1,7 +1,5 @@
 """Compiler for declarative pipeline specs."""
 
-from __future__ import annotations
-
 from typing import Any
 
 from cltk.core.data_types import Pipeline

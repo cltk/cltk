@@ -1,7 +1,5 @@
 """Preset declarative pipelines."""
 
-from __future__ import annotations
-
 from cltk.pipeline.specs import PipelineSpec, StepSpec
 
 

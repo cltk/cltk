@@ -1,7 +1,5 @@
 """Registry for mapping process IDs to concrete Process classes."""
 
-from __future__ import annotations
-
 import importlib
 from typing import TYPE_CHECKING, ClassVar
 

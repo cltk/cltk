@@ -1,7 +1,5 @@
 """Prompt profile registry for GenAI processes."""
 
-from __future__ import annotations
-
 import hashlib
 import json
 from typing import Any, ClassVar

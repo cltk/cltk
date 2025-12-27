@@ -106,3 +106,58 @@ Use this to round‑trip with UD tools, validators, or treebanks. The function i
 When `include_provenance=True`, the output adds comment lines that embed
 provenance records (`# cltk_provenance_default=...`, `# cltk_prov.<id>=...`).
 When `include_confidence=True`, token confidences appear in the `MISC` column.
+
+## `doc_to_igt_latex(...) -> str` and `doc_to_igt_html(...) -> str`
+
+Render token-level interlinear glossed text (IGT) for each sentence. Both helpers are pure (string return) and keep deterministic ordering and IDs.
+
+**Behavior**
+
+- One table per sentence, with a token row and a gloss/lemma/morph row.
+- Gloss selection priority: `word.enrichment.gloss` → first `lemma_translations` → lemma → token string.
+- Optional translation row per sentence if `sentence_translations` are present.
+
+**Example**
+
+```python
+from cltk.exports import doc_to_igt_latex, doc_to_igt_html
+
+latex = doc_to_igt_latex(doc, include_gloss=True)
+html = doc_to_igt_html(doc, include_morph=True)
+```
+
+## `doc_to_tei_xml(...) -> str`
+
+Produce a TEI‑ish XML document with token annotations in `<w>` elements and dependency arcs in a `<standOff>` section.
+
+**Behavior**
+
+- Tokens are annotated with `lemma`, `pos`, and `msd` (UD features) when available.
+- Dependencies are encoded as `<relation>` entries with stable token IDs.
+- Root dependencies point to a sentence-level root anchor.
+
+**Example**
+
+```python
+from cltk.exports import doc_to_tei_xml
+
+xml = doc_to_tei_xml(doc, include_morph=True, include_translation=True)
+```
+
+## `doc_to_readers_guide_html(...) -> str`
+
+Render a self‑contained HTML reader’s guide with collapsible token cards, tooltips, and inline styling.
+
+**Behavior**
+
+- Each sentence has a surface line, optional translation, and a token strip with hover tooltips.
+- Token cards expose lemma, POS, morphology, gloss, IPA, and dependencies.
+- Output is a single HTML document (no external assets).
+
+**Example**
+
+```python
+from cltk.exports import doc_to_readers_guide_html
+
+html = doc_to_readers_guide_html(doc, include_ipa=True)
+```
