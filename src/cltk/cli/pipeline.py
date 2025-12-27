@@ -1,7 +1,5 @@
 """CLI handler for the ``cltk pipeline`` subcommand."""
 
-from __future__ import annotations
-
 import argparse
 
 from cltk.cli.utils import HelpFormatter

@@ -1,7 +1,5 @@
 """Provenance helpers for reproducible CLTK annotations."""
 
-from __future__ import annotations
-
 import hashlib
 import json
 import platform as _platform

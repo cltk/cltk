@@ -10,8 +10,6 @@ a running local Ollama server (default host ``http://127.0.0.1:11434``) or an
 Ollama Cloud API key.
 """
 
-from __future__ import annotations
-
 import os
 from typing import Any, Optional
 
