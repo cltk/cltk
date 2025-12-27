@@ -54,9 +54,7 @@ def test_conllu_includes_provenance_and_confidence() -> None:
 
 def test_readers_guide_includes_provenance_and_confidence() -> None:
     doc, _ = _doc_with_provenance()
-    guide = format_readers_guide(
-        doc, include_provenance=True, include_confidence=True
-    )
+    guide = format_readers_guide(doc, include_provenance=True, include_confidence=True)
     assert "## Provenance" in guide
     assert "**Confidence:**" in guide
 
@@ -64,9 +62,7 @@ def test_readers_guide_includes_provenance_and_confidence() -> None:
 def test_feature_table_includes_provenance_columns() -> None:
     pytest.importorskip("pyarrow")
     doc, prov_id = _doc_with_provenance()
-    table = doc_to_feature_table(
-        doc, include_provenance=True, include_confidence=True
-    )
+    table = doc_to_feature_table(doc, include_provenance=True, include_confidence=True)
     assert "prov_lemma" in table.column_names
     assert "conf_lemma" in table.column_names
     prov_values = table["prov_lemma"].to_pylist()

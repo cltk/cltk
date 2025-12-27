@@ -42,7 +42,9 @@ def test_provenance_storage_and_helpers() -> None:
     word._doc = doc
     assert get_token_provenance(word, "lemma").id == prov_id
 
-    sentence = Sentence(words=[word], index=0, annotation_sources={"translation": prov_id})
+    sentence = Sentence(
+        words=[word], index=0, annotation_sources={"translation": prov_id}
+    )
     assert get_sentence_provenance(sentence, "translation", doc=doc).id == prov_id
 
     dumped = doc.model_dump()

@@ -799,6 +799,7 @@ def doc_to_feature_table(
             confidences = getattr(word, "confidence", None) or {}
 
             def _conf_val(key: str) -> Optional[float]:
+                """Return a float confidence for a key or None if invalid."""
                 try:
                     val = confidences.get(key)
                     return float(val) if val is not None else None
