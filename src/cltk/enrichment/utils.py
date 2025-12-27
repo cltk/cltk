@@ -250,6 +250,23 @@ def _build_pedagogical_notes(notes: Any) -> list[PedagogicalNote]:
     return out
 
 
+def _apply_token_confidence(word: Word, conf_obj: Any) -> None:
+    """Attach token-level confidence values from a payload object."""
+    if not isinstance(conf_obj, dict):
+        return
+    mapping = {
+        "gloss": "gloss",
+        "lemma_translations": "lemma_translations",
+        "ipa": "ipa",
+        "orthography": "orthography",
+        "pedagogy": "pedagogical_notes",
+    }
+    for key, field in mapping.items():
+        conf_val = _safe_probability(conf_obj.get(key))
+        if conf_val is not None:
+            word.confidence[field] = conf_val
+
+
 def _apply_payload_to_words(
     sent_words: list[Word],
     payload: dict[str, Any],
@@ -310,6 +327,7 @@ def _apply_payload_to_words(
             idiom_span_ids=idiom_ids,
             pedagogical_notes=notes,
         )
+        _apply_token_confidence(word, token_obj.get("confidence"))
         if provenance_id:
             word.annotation_sources["gloss"] = provenance_id
             word.annotation_sources["lemma_translations"] = provenance_id

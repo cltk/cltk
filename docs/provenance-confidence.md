@@ -16,6 +16,9 @@ and runtime metadata (CLTK/Python/platform versions). Prompt digests use
 SHA-256 of the canonical prompt text; config digests use SHA-256 of a
 canonicalized config snapshot.
 
+Confidence values are only populated when a backend returns them (for example,
+LLM prompts that emit `*_CONF` fields or JSON `confidence` fields).
+
 ## How to cite a run
 
 Use the default provenance id plus the key digests and versions:

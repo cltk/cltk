@@ -92,6 +92,17 @@ def _parse_translation_payload(raw: str) -> dict[str, Any]:
     return {"translation": cleaned}
 
 
+def _safe_confidence(val: Any) -> Optional[float]:
+    """Return a confidence score in [0,1] or None if invalid."""
+    try:
+        fval = float(val)
+    except (TypeError, ValueError):
+        return None
+    if fval < 0 or fval > 1:
+        return None
+    return fval
+
+
 def _gloss_summary(word: Word) -> str:
     """Return a compact gloss summary for a word, if available."""
     if not word.enrichment or not word.enrichment.gloss:
@@ -272,11 +283,13 @@ def _build_translation_from_payload(
                 break
     if not translation_text:
         return None
+    confidence = _safe_confidence(payload.get("confidence"))
     return Translation(
         source_lang_id=source_lang_id,
         target_lang_id=target_lang_id or target_language,
         text=str(translation_text).strip(),
         notes=str(notes).strip() if isinstance(notes, str) and notes.strip() else None,
+        confidence=confidence,
     )
 
 

@@ -55,22 +55,52 @@ def _parse_tsv_table(tsv_string: str) -> list[dict[str, str]]:
     """Parse a TSV code block of morphosyntactic tags into dict rows."""
     # TODO: Remove duplicate name -- this is the one being invoked, I think
     lines = [line.strip() for line in tsv_string.strip().splitlines() if line.strip()]
-    header = ["form", "lemma", "upos", "feats"]
-    data = []
+    default_header = [
+        "form",
+        "lemma",
+        "upos",
+        "feats",
+        "lemma_conf",
+        "upos_conf",
+        "feats_conf",
+    ]
+    header: Optional[list[str]] = None
+    data: list[dict[str, str]] = []
     for line in lines:
         # Skip markdown code block markers
         if line.startswith("```"):
             continue
         parts = line.split("\t")
-        if len(parts) == 4:
-            # Skip the header row if present
-            if [p.lower() for p in parts] == header:
+        if header is None:
+            lower = [p.lower() for p in parts]
+            if lower[:4] == ["form", "lemma", "upos", "feats"]:
+                header = lower
                 continue
-            entry = dict(zip(header, parts))
-            data.append(entry)
-        else:
+            header = default_header
+        if len(parts) < 4:
             logger.debug(f"Skipping malformed line: {line}")
+            continue
+        effective_header = header
+        if header == ["form", "lemma", "upos", "feats"] and len(parts) > 4:
+            effective_header = default_header
+        entry: dict[str, str] = {}
+        for idx, key in enumerate(effective_header):
+            if idx >= len(parts):
+                break
+            entry[key] = parts[idx]
+        data.append(entry)
     return data
+
+
+def _safe_confidence(value: Any) -> Optional[float]:
+    """Return a confidence score in [0,1] or None if invalid."""
+    try:
+        fval = float(value)
+    except (TypeError, ValueError):
+        return None
+    if fval < 0 or fval > 1:
+        return None
+    return fval
 
 
 def generate_pos(
@@ -291,6 +321,15 @@ def generate_pos(
             word.annotation_sources["lemma"] = prov_id
             word.annotation_sources["upos"] = prov_id
             word.annotation_sources["features"] = prov_id
+        lemma_conf = _safe_confidence(pos_dict.get("lemma_conf"))
+        upos_conf = _safe_confidence(pos_dict.get("upos_conf"))
+        feats_conf = _safe_confidence(pos_dict.get("feats_conf"))
+        if lemma_conf is not None:
+            word.confidence["lemma"] = lemma_conf
+        if upos_conf is not None:
+            word.confidence["upos"] = upos_conf
+        if feats_conf is not None:
+            word.confidence["features"] = feats_conf
         # Add morphology features to each Word object
         feats_raw: Optional[str] = pos_dict.get("feats", None)
         log.debug(f"feats_raw: {feats_raw}")
@@ -689,6 +728,15 @@ async def generate_gpt_morphosyntax_async(
                 word.annotation_sources["lemma"] = prov_id
                 word.annotation_sources["upos"] = prov_id
                 word.annotation_sources["features"] = prov_id
+            lemma_conf = _safe_confidence(pos_dict.get("lemma_conf"))
+            upos_conf = _safe_confidence(pos_dict.get("upos_conf"))
+            feats_conf = _safe_confidence(pos_dict.get("feats_conf"))
+            if lemma_conf is not None:
+                word.confidence["lemma"] = lemma_conf
+            if upos_conf is not None:
+                word.confidence["upos"] = upos_conf
+            if feats_conf is not None:
+                word.confidence["features"] = feats_conf
             feats_raw = pos_dict.get("feats")
             if feats_raw:
                 try:

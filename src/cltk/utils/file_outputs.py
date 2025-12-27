@@ -1026,6 +1026,12 @@ def format_readers_guide(
             lines.append("")
         if translation and getattr(translation, "notes", None):
             lines.append(f"> Notes: {translation.notes}")
+        if (
+            include_confidence
+            and translation
+            and getattr(translation, "confidence", None) is not None
+        ):
+            lines.append(f"> Confidence: {translation.confidence:.2f}")
         lines.append("")
         lines.append("### Word-by-word")
         lines.append("")

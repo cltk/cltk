@@ -47,31 +47,51 @@ def _get_backend_config(doc: Doc) -> Optional[ModelConfig]:
 
 
 def _parse_dep_tsv_table(tsv_string: str) -> list[dict[str, str]]:
-    """Parse a minimal dependency TSV with columns FORM, HEAD, DEPREL.
+    """Parse a dependency TSV with optional confidence columns.
 
-    The function is intentionally strict to keep parsing predictable. It accepts
-    an optional header row (case‑insensitive) and ignores Markdown code fences.
+    The function accepts an optional header row (case‑insensitive) and ignores
+    Markdown code fences.
     """
     lines = [line.strip() for line in tsv_string.strip().splitlines() if line.strip()]
-    header = ["form", "head", "deprel"]
+    default_header = ["form", "head", "deprel", "head_conf", "deprel_conf"]
+    header: Optional[list[str]] = None
     out: list[dict[str, str]] = []
     for line in lines:
         if line.startswith("```"):
             continue
         parts = line.split("\t")
-        # Allow extra columns but only take the first three in order
+        if header is None:
+            lower = [p.lower() for p in parts]
+            if lower[:3] == ["form", "head", "deprel"]:
+                header = lower
+                continue
+            header = default_header
         if len(parts) < 3:
             logger.debug(
                 "[dep] Skipping malformed line (expected 3+ columns): %s", line
             )
             continue
-        maybe_header = [p.lower() for p in parts[:3]]
-        if maybe_header == header:
-            # Skip header row
-            continue
-        entry = dict(zip(header, parts[:3]))
+        effective_header = header
+        if header == ["form", "head", "deprel"] and len(parts) > 3:
+            effective_header = default_header
+        entry: dict[str, str] = {}
+        for idx, key in enumerate(effective_header):
+            if idx >= len(parts):
+                break
+            entry[key] = parts[idx]
         out.append(entry)
     return out
+
+
+def _safe_confidence(value: Any) -> Optional[float]:
+    """Return a confidence score in [0,1] or None if invalid."""
+    try:
+        fval = float(value)
+    except (TypeError, ValueError):
+        return None
+    if fval < 0 or fval > 1:
+        return None
+    return fval
 
 
 def _format_feats(feats: Optional[UDFeatureTagSet]) -> str:
@@ -340,6 +360,8 @@ def generate_dependency_tree(
         form_val: Optional[str] = row.get("form")
         head_raw: Optional[str] = row.get("head")
         deprel_raw: Optional[str] = row.get("deprel")
+        head_conf_raw: Optional[str] = row.get("head_conf")
+        deprel_conf_raw: Optional[str] = row.get("deprel_conf")
         if not form_val or head_raw is None or deprel_raw is None:
             log.error("[dep] Missing fields in row: %s", row)
             continue
@@ -371,6 +393,12 @@ def generate_dependency_tree(
             if prov_id:
                 w.annotation_sources["dependency_relation"] = prov_id
                 w.annotation_sources["governor"] = prov_id
+            head_conf = _safe_confidence(head_conf_raw)
+            deprel_conf = _safe_confidence(deprel_conf_raw)
+            if head_conf is not None:
+                w.confidence["governor"] = head_conf
+            if deprel_conf is not None:
+                w.confidence["dependency_relation"] = deprel_conf
             words[i] = w
         else:
             word = Word(
@@ -382,6 +410,12 @@ def generate_dependency_tree(
             if prov_id:
                 word.annotation_sources["dependency_relation"] = prov_id
                 word.annotation_sources["governor"] = prov_id
+            head_conf = _safe_confidence(head_conf_raw)
+            deprel_conf = _safe_confidence(deprel_conf_raw)
+            if head_conf is not None:
+                word.confidence["governor"] = head_conf
+            if deprel_conf is not None:
+                word.confidence["dependency_relation"] = deprel_conf
             words.append(word)
     log.debug("[dep] Created %d Word objects with dependency info.", len(words))
     if not doc.words:
@@ -810,6 +844,8 @@ async def generate_gpt_dependency_async(
             form_val: Optional[str] = row.get("form")
             head_raw: Optional[str] = row.get("head")
             deprel_raw: Optional[str] = row.get("deprel")
+            head_conf_raw: Optional[str] = row.get("head_conf")
+            deprel_conf_raw: Optional[str] = row.get("deprel_conf")
             if not form_val or head_raw is None or deprel_raw is None:
                 log_i.error("[async-dep] Missing fields in row: %s", row)
                 continue
@@ -842,6 +878,12 @@ async def generate_gpt_dependency_async(
                 if prov_id:
                     w.annotation_sources["dependency_relation"] = prov_id
                     w.annotation_sources["governor"] = prov_id
+                head_conf = _safe_confidence(head_conf_raw)
+                deprel_conf = _safe_confidence(deprel_conf_raw)
+                if head_conf is not None:
+                    w.confidence["governor"] = head_conf
+                if deprel_conf is not None:
+                    w.confidence["dependency_relation"] = deprel_conf
                 words[word_idx] = w
             else:
                 word = Word(
@@ -853,6 +895,12 @@ async def generate_gpt_dependency_async(
                 if prov_id:
                     word.annotation_sources["dependency_relation"] = prov_id
                     word.annotation_sources["governor"] = prov_id
+                head_conf = _safe_confidence(head_conf_raw)
+                deprel_conf = _safe_confidence(deprel_conf_raw)
+                if head_conf is not None:
+                    word.confidence["governor"] = head_conf
+                if deprel_conf is not None:
+                    word.confidence["dependency_relation"] = deprel_conf
                 words.append(word)
 
         # Character offsets within the sentence string

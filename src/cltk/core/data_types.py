@@ -150,6 +150,7 @@ class Translation(BaseModel):
     target_lang_id: Optional[str] = None
     text: str
     notes: Optional[str] = None
+    confidence: Optional[float] = Field(default=None, ge=0.0, le=1.0)
 
 
 class NameVariant(BaseModel):
