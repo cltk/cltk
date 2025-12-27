@@ -92,7 +92,7 @@ The above outputs:
 
 ```
 Translation: Toute la Gaule est divisée en trois parties.
-Notes: «omnis» rendered as «toute» to convey ‘all/whole’; «divisa» is a perfect passive participle agreeing with «Gallia», hence passive French «est divisée». Word order follows natural French syntax.
+Notes: J'ai rendu 'Gallia omnis' par «Toute la Gaule» (on pourrait aussi dire «La Gaule tout entière»). Le participe passif 'divisa ... est' devient «est divisée» et 'partes tres' = «trois parties».
 ```
 
 

@@ -141,14 +141,14 @@ def translation_prompt(
 ) -> PromptInfo:
     """Build a translation prompt that leverages prior annotations."""
     kind: str = "translation"
-    version: str = "1.0"
+    version: str = "1.1"
     text: str = (
         f"Translate the following {lang_or_dialect_name} sentence into {target_language}. "
         "Use the provided morphosyntax, dependency relations, glosses, lemma translations, idiom hints, and pedagogy notes instead of translating from scratch. "
         "Rely on those annotations as much as possible; adjust only when a gloss or valence appears inaccurate.\n\n"
         "Return a JSON object inside a markdown code block with:\n"
         "- `translation`: the final fluent translation.\n"
-        "- `notes`: 1-3 sentences highlighting difficult or non-obvious decisions (e.g., idioms, ambiguous morphology, pragmatic nuance).\n\n"
+        f"- `notes`: 1-3 sentences (in {target_language}) highlighting difficult or non-obvious decisions (e.g., idioms, ambiguous morphology, pragmatic nuance).\n\n"
         f"Context:\n\n{context}\n"
     )
     return PromptInfo(
