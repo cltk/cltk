@@ -1,10 +1,9 @@
 """Utility functions for keeping track of languages."""
 
 from cltk.core.data_types import Language
-from cltk.languages.glottolog import load_languages
+from cltk.languages.languages import LANGUAGES
 
 # Build a fast lookup for dialect codes like "egy-dem" → (iso, dialect)
-LANGUAGES = load_languages()
 _DIALECT_INDEX: dict[str, Language] = {}
 for iso_key, lang in LANGUAGES.items():
     for dialect in lang.dialects:

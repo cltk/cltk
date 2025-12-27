@@ -23,7 +23,7 @@ from cltk.core.data_types import (
 from cltk.core.exceptions import UnimplementedAlgorithmError
 from cltk.core.logging_utils import bind_from_doc
 from cltk.enrichment.processes import GenAIEnrichmentProcess
-from cltk.languages.glottolog import resolve_languoid
+from cltk.languages.glottolog import get_language
 from cltk.languages.pipelines import (  # MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE_LOCAL,
     MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE,
     MAP_LANGUAGE_CODE_TO_SPACY_PIPELINE,
@@ -101,10 +101,10 @@ class NLP:
         bind_context(glottolog_id=language_code).info(
             f"Initializing NLP for language: {language_code}"
         )
-        # self.language: Language = get_language(key=language_code)
+        # self.language: Language = get_language(lang_id=language_code)
         self.language: Language
         self.dialect: Optional[Dialect]
-        self.language, self.dialect = resolve_languoid(key=language_code)
+        self.language, self.dialect = get_language(lang_id=language_code)
         self.language_code: str
         if self.dialect:
             self.language_code = self.dialect.glottolog_id

@@ -1,6 +1,6 @@
 [project]
 name = "cltk"
-version = "2.3.3"
+version = "2.3.5"
 description = "The Classical Language Toolkit"
 authors = [
     {name = "Kyle P. Johnson", email = "kyle@kyle-p-johnson.com"},
@@ -126,7 +126,7 @@ namespace_packages = true
 explicit_package_bases = true
 mypy_path = "src"
 plugins = ["pydantic.mypy"]
-exclude = 'temp_.*'
+exclude = 'temp_.*|^scripts/tlg_example\.py$'
 
 # Interrogate: docstring coverage (non-blocking; run locally or in optional CI job)
 [tool.interrogate]

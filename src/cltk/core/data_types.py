@@ -158,12 +158,14 @@ class NameVariant(BaseModel):
       value: The display string for the name.
       source: Optional provenance or catalogue name.
       script: Optional script tag (e.g., ISO 15924).
+      language: Optional language code for the label text.
 
     """
 
     value: str
     source: Optional[str] = None
     script: Optional[str] = None
+    language: Optional[str] = None
 
 
 class Identifier(BaseModel):
@@ -742,9 +744,9 @@ class Pipeline(BaseModel):
         if (self.language is None or self.dialect is None) and self.glottolog_id:
             try:
                 # Late import to avoid core<->languages circular import at module import time
-                from cltk.languages.glottolog import resolve_languoid
+                from cltk.languages.glottolog import get_language
 
-                lang, dia = resolve_languoid(self.glottolog_id)
+                lang, dia = get_language(self.glottolog_id)
                 if self.language is None:
                     self.language = lang
                 if self.dialect is None:

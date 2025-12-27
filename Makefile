@@ -66,7 +66,7 @@ publishPyPITestConfig:
 
 simplee2eCheck:
 	@echo "Running simple e2e check..."
-	uv run scripts/example_greek_nlp.py
+	uv run scripts/example_greek_readers_guide.py
 
 testSnapshot:
 	uv run pytest -k test_public_api_snapshot --snapshot-update

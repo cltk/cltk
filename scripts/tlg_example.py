@@ -11,8 +11,12 @@ from tlg_indices.file_utils import (  # type: ignore[import-not-found, unused-ig
     assemble_tlg_works_filepaths,  # noqa: F401
     assemble_tlg_works_filepaths_for_author,
 )
-from tlg_indices.text_cleaning import tlg_plaintext_cleanup  # type: ignore[import-not-found, unused-ignore]
-from tlg_indices.tlgu import tlgu_convert_corpus  # type: ignore[import-not-found, unused-ignore]
+from tlg_indices.text_cleaning import (  # type: ignore[import-not-found, unused-ignore]
+    tlg_plaintext_cleanup,  # type: ignore[import-not-found, unused-ignore]
+)
+from tlg_indices.tlgu import (  # type: ignore[import-not-found, unused-ignore]
+    tlgu_convert_corpus,  # type: ignore[import-not-found, unused-ignore]
+)
 
 from cltk import NLP
 from cltk.core.data_types import BACKEND_TYPES
