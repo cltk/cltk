@@ -297,7 +297,7 @@ def _serialize_upos(word: Word) -> Optional[dict[str, Optional[str]]]:
 
 def _serialize_translation(
     translation: Optional[Translation],
-) -> Optional[dict[str, Optional[str]]]:
+) -> Optional[dict[str, Any]]:
     """Serialize translation metadata for JSON output."""
     if translation is None:
         return None
@@ -306,4 +306,5 @@ def _serialize_translation(
         "target_lang_id": translation.target_lang_id,
         "text": translation.text,
         "notes": translation.notes,
+        "confidence": translation.confidence,
     }

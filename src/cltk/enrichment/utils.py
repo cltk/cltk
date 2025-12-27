@@ -29,6 +29,11 @@ from cltk.core.data_types import (
 )
 from cltk.core.exceptions import CLTKException
 from cltk.core.logging_utils import bind_from_doc
+from cltk.core.provenance import (
+    add_provenance_record,
+    build_provenance_record,
+    extract_doc_config,
+)
 from cltk.genai.mistral import MistralConnection
 from cltk.genai.ollama import OllamaConnection
 from cltk.genai.openai import OpenAIConnection
@@ -245,10 +250,28 @@ def _build_pedagogical_notes(notes: Any) -> list[PedagogicalNote]:
     return out
 
 
+def _apply_token_confidence(word: Word, conf_obj: Any) -> None:
+    """Attach token-level confidence values from a payload object."""
+    if not isinstance(conf_obj, dict):
+        return
+    mapping = {
+        "gloss": "gloss",
+        "lemma_translations": "lemma_translations",
+        "ipa": "ipa",
+        "orthography": "orthography",
+        "pedagogy": "pedagogical_notes",
+    }
+    for key, field in mapping.items():
+        conf_val = _safe_probability(conf_obj.get(key))
+        if conf_val is not None:
+            word.confidence[field] = conf_val
+
+
 def _apply_payload_to_words(
     sent_words: list[Word],
     payload: dict[str, Any],
     sentence_idx: int,
+    provenance_id: Optional[str] = None,
 ) -> tuple[list[Word], list[IdiomSpan]]:
     """Attach enrichment fields to sentence words and return idiom spans."""
     idioms_out: list[IdiomSpan] = []
@@ -304,6 +327,13 @@ def _apply_payload_to_words(
             idiom_span_ids=idiom_ids,
             pedagogical_notes=notes,
         )
+        _apply_token_confidence(word, token_obj.get("confidence"))
+        if provenance_id:
+            word.annotation_sources["gloss"] = provenance_id
+            word.annotation_sources["lemma_translations"] = provenance_id
+            word.annotation_sources["ipa"] = provenance_id
+            word.annotation_sources["orthography"] = provenance_id
+            word.annotation_sources["pedagogical_notes"] = provenance_id
         # Optionally propagate syllables/IPA to existing fields for convenience
         if orth and orth.syllables:
             word.syllables = orth.syllables
@@ -385,6 +415,7 @@ def generate_enrichment_for_sentence(
     ipa_mode: IPA_PRONUNCIATION_MODE,
     max_retries: int,
     prompt_builder: Optional[PromptBuilder],
+    provenance_process: Optional[str] = None,
 ) -> tuple[list[Word], list[IdiomSpan], dict[str, int]]:
     """Call the LLM for a single sentence worth of tokens."""
     lang_or_dialect_name = doc.dialect.name if doc.dialect else doc.language.name
@@ -406,9 +437,39 @@ def generate_enrichment_for_sentence(
     if _os.getenv("CLTK_LOG_CONTENT", "").strip().lower() in {"1", "true", "yes", "on"}:
         log.debug(prompt)
 
+    lang_id = None
+    try:
+        if doc.dialect and doc.dialect.glottolog_id:
+            lang_id = doc.dialect.glottolog_id
+        else:
+            lang_id = doc.language.glottolog_id
+    except Exception:
+        lang_id = None
+    config_snapshot = extract_doc_config(doc)
+    prov_record = build_provenance_record(
+        language=lang_id,
+        backend=doc.backend,
+        process=provenance_process or "enrichment",
+        model=str(doc.model) if doc.model else None,
+        provider=str(doc.backend) if doc.backend else None,
+        prompt_version=str(pinfo.version),
+        prompt_text=prompt,
+        config=config_snapshot,
+        notes={
+            "prompt_kind": pinfo.kind,
+            "sentence_idx": sentence_idx,
+            "ipa_mode": ipa_mode,
+        },
+    )
+    prov_id = add_provenance_record(
+        doc, prov_record, set_default=doc.default_provenance_id is None
+    )
+
     res_obj: CLTKGenAIResponse = client.generate(prompt=prompt, max_retries=max_retries)
     payload = _parse_enrichment_payload(res_obj.response)
-    updated_words, idioms = _apply_payload_to_words(words, payload, sentence_idx)
+    updated_words, idioms = _apply_payload_to_words(
+        words, payload, sentence_idx, provenance_id=prov_id
+    )
     return updated_words, idioms, res_obj.usage
 
 
@@ -418,6 +479,7 @@ def generate_gpt_enrichment(
     ipa_mode: IPA_PRONUNCIATION_MODE = "attic_5c_bce",
     prompt_builder: Optional[PromptBuilder] = None,
     max_retries: int = 2,
+    provenance_process: Optional[str] = None,
 ) -> Doc:
     """Sequential enrichment across sentences (gloss, IPA, idioms)."""
     log = bind_from_doc(doc)
@@ -517,6 +579,7 @@ def generate_gpt_enrichment(
             ipa_mode=ipa_mode,
             max_retries=max_retries,
             prompt_builder=prompt_builder,
+            provenance_process=provenance_process,
         )
         # updated_words are references into doc.words via doc.sentences; no reassignment needed
         all_idioms.extend(idioms)
@@ -543,6 +606,7 @@ def generate_gpt_enrichment_concurrent(
     ipa_mode: IPA_PRONUNCIATION_MODE = "attic_5c_bce",
     prompt_builder: Optional[PromptBuilder] = None,
     max_retries: int = 2,
+    provenance_process: Optional[str] = None,
 ) -> Doc:
     """Safely call enrichment even when an event loop is running."""
     log = bind_from_doc(doc)
@@ -555,6 +619,7 @@ def generate_gpt_enrichment_concurrent(
             ipa_mode=ipa_mode,
             prompt_builder=prompt_builder,
             max_retries=max_retries,
+            provenance_process=provenance_process,
         )
 
     def _runner() -> Doc:
@@ -564,6 +629,7 @@ def generate_gpt_enrichment_concurrent(
             ipa_mode=ipa_mode,
             prompt_builder=prompt_builder,
             max_retries=max_retries,
+            provenance_process=provenance_process,
         )
 
     with concurrent.futures.ThreadPoolExecutor(max_workers=1) as ex:

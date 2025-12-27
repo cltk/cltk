@@ -58,9 +58,10 @@ def morphosyntax_prompt(lang_or_dialect_name: str, normalized_text: str) -> Prom
         "- If full accuracy is not possible, always provide a best‑effort output without asking for clarification.\n"
         "- Never request to perform the task in multiple stages; always deliver the final TSV in one step.\n"
         "- Do not ask for confirmation, do not explain your reasoning, and do not include any commentary. Output only the TSV table.\n"
-        "- Always output all four fields: FORM, LEMMA, UPOS, FEATS.\n"
+        "- Always output all fields: FORM, LEMMA, UPOS, FEATS, LEMMA_CONF, UPOS_CONF, FEATS_CONF.\n"
+        "- Confidence fields must be floats in [0,1] or '_' if unknown.\n"
         "- The result must be a markdown code block containing only a tab‑delimited table (TSV) with the header row:\n\n"
-        "FORM\tLEMMA\tUPOS\tFEATS\n\n"
+        "FORM\tLEMMA\tUPOS\tFEATS\tLEMMA_CONF\tUPOS_CONF\tFEATS_CONF\n\n"
         f"Text:\n\n{normalized_text}\n"
     )
     return PromptInfo(
@@ -81,7 +82,8 @@ def dependency_prompt_from_tokens(token_table: str) -> PromptInfo:
         "- Use strict UD dependency relations only (e.g., nsubj, obj, obl:tmod, root).\n"
         "- Do not change, split, merge, or reorder tokens. Use the tokens as given.\n"
         "- HEAD refers to the 1-based index of the head token in the given token order (0 for root).\n"
-        "- Output must be a Markdown code block containing only a tab‑delimited table with the header: FORM\tHEAD\tDEPREL.\n\n"
+        "- Include HEAD_CONF and DEPREL_CONF as floats in [0,1] or '_' if unknown.\n"
+        "- Output must be a Markdown code block containing only a tab‑delimited table with the header: FORM\tHEAD\tDEPREL\tHEAD_CONF\tDEPREL_CONF.\n\n"
         f"Tokens:\n\n{token_table}\n\n"
         "Output only the dependency table."
     )
@@ -100,7 +102,8 @@ def dependency_prompt_from_text(lang_or_dialect_name: str, sentence: str) -> Pro
         "Rules:\n"
         "- Use strict UD dependency relations only (e.g., nsubj, obj, obl:tmod, root).\n"
         "- HEAD is 1‑based index of the token's head in this sentence (0 for root).\n"
-        "- Output must be a Markdown code block with the header: FORM\tHEAD\tDEPREL.\n\n"
+        "- Include HEAD_CONF and DEPREL_CONF as floats in [0,1] or '_' if unknown.\n"
+        "- Output must be a Markdown code block with the header: FORM\tHEAD\tDEPREL\tHEAD_CONF\tDEPREL_CONF.\n\n"
         f"Text:\n\n{sentence}\n"
     )
     return PromptInfo(
@@ -122,6 +125,7 @@ def enrichment_prompt(
         f"- Each entry in `tokens` must include: index (1-based, matching the table), gloss (with optional dictionary/context), lemma_translations (list with optional probabilities), "
         f"ipa (use pronunciation mode {ipa_mode} and provide `value`), orthography (syllables list, stress or accent class, phonology_trace of rules), idiom_span_ids (if part of an idiom), "
         "and pedagogy (short learner-facing notes such as case usage or disambiguation hints).\n"
+        "- Optionally include `confidence` with keys gloss, lemma_translations, ipa, orthography, pedagogy as floats in [0,1]. Omit or use null if unknown.\n"
         "- `gloss.dictionary` MUST be a single string (not a list). If there are multiple senses, join with '; ' or put alternates in `gloss.alternatives`.\n"
         '- `orthography.stress` MUST be a single string (e.g., "unstressed"), not a dict or object.\n'
         "- `idioms` is a list of span objects with: id, token_indices (1-based indices matching the table), phrase_gloss (single string, not a dict), kind (idiom/fixed-expression/particle-chain), and confidence.\n"
@@ -148,7 +152,8 @@ def translation_prompt(
         "Rely on those annotations as much as possible; adjust only when a gloss or valence appears inaccurate.\n\n"
         "Return a JSON object inside a markdown code block with:\n"
         "- `translation`: the final fluent translation.\n"
-        f"- `notes`: 1-3 sentences (in {target_language}) highlighting difficult or non-obvious decisions (e.g., idioms, ambiguous morphology, pragmatic nuance).\n\n"
+        f"- `notes`: 1-3 sentences (in {target_language}) highlighting difficult or non-obvious decisions (e.g., idioms, ambiguous morphology, pragmatic nuance).\n"
+        "- `confidence`: float in [0,1] for overall translation confidence (or null if unknown).\n\n"
         f"Context:\n\n{context}\n"
     )
     return PromptInfo(

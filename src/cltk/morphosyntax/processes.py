@@ -51,6 +51,7 @@ class GenAIMorphosyntaxProcess(MorphosyntaxProcess):
         output_doc = self.algorithm(
             output_doc,
             prompt_builder=self.prompt_builder,
+            provenance_process=self.__class__.__name__,
         )
         return output_doc
 

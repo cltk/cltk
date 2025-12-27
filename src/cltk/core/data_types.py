@@ -13,9 +13,10 @@ from datetime import date
 from typing import Any, Literal, Optional, TypeAlias, Union
 
 import numpy as np
-from pydantic import AnyUrl, BaseModel, Field, model_validator
+from pydantic import AnyUrl, BaseModel, Field, PrivateAttr, model_validator
 
 from cltk.core.cltk_logger import logger
+from cltk.core.provenance import ProvenanceRecord
 from cltk.morphosyntax.ud_deprels import UDDeprelTag
 from cltk.morphosyntax.ud_features import UDFeatureTagSet
 from cltk.morphosyntax.ud_pos import UDPartOfSpeechTag
@@ -149,6 +150,7 @@ class Translation(BaseModel):
     target_lang_id: Optional[str] = None
     text: str
     notes: Optional[str] = None
+    confidence: Optional[float] = Field(default=None, ge=0.0, le=1.0)
 
 
 class NameVariant(BaseModel):
@@ -333,6 +335,8 @@ class CLTKBaseModel(BaseModel):
 class Word(CLTKBaseModel):
     """Contains attributes of each processed word in a list of words."""
 
+    _doc: Any = PrivateAttr(default=None)
+
     index_char_start: Optional[int] = None
     index_char_stop: Optional[int] = None
     index_token: Optional[int] = None
@@ -354,6 +358,8 @@ class Word(CLTKBaseModel):
     phonetic_transcription: Optional[str] = None
     definition: Optional[str] = None
     enrichment: Optional[WordEnrichment] = None
+    annotation_sources: dict[str, str] = Field(default_factory=dict)
+    confidence: dict[str, float] = Field(default_factory=dict)
 
     # def __getitem__(self, feature_name: Union[str, type[MorphosyntacticFeature]]) -> list[MorphosyntacticFeature]:
     #     return self.features[feature_name]
@@ -369,10 +375,13 @@ class Word(CLTKBaseModel):
 class Sentence(CLTKBaseModel):
     """A sentence containing words and optional embedding."""
 
+    _doc: Any = PrivateAttr(default=None)
+
     words: Optional[list[Word]] = Field(default_factory=list)
     index: Optional[int] = None
     embedding: Optional[np.ndarray] = None
     translation: Optional[Translation] = None
+    annotation_sources: dict[str, str] = Field(default_factory=dict)
 
     # def __getitem__(self, item: int) -> Word:
     #     if not self.words:
@@ -571,6 +580,9 @@ class Doc(CLTKBaseModel):
     model: Optional[Union[BACKEND_TYPES, str]] = None
     dialect: Optional[Dialect] = None
     metadata: dict[str, Any] = Field(default_factory=dict)
+    provenance: dict[str, ProvenanceRecord] = Field(default_factory=dict)
+    default_provenance_id: Optional[str] = None
+    sentence_annotation_sources: dict[int, dict[str, str]] = Field(default_factory=dict)
 
     @property
     def sentence_strings(self) -> list[str]:
@@ -612,15 +624,26 @@ class Doc(CLTKBaseModel):
             )
         if self.sentence_embeddings is None:
             self.sentence_embeddings = dict()
-        return [
-            Sentence(
+        sentences: list[Sentence] = []
+        for key, val in sorted(sents.items(), key=lambda x: x[0]):
+            for w in val:
+                try:
+                    w._doc = self
+                except Exception:
+                    pass
+            sentence = Sentence(
                 words=val,
                 index=key,
                 embedding=self.sentence_embeddings.get(key),
                 translation=self.sentence_translations.get(key),
+                annotation_sources=self.sentence_annotation_sources.get(key, {}),
             )
-            for key, val in sorted(sents.items(), key=lambda x: x[0])
-        ]
+            try:
+                sentence._doc = self
+            except Exception:
+                pass
+            sentences.append(sentence)
+        return sentences
 
     # @property
     # def sentences_tokens(self) -> list[list[str]]:

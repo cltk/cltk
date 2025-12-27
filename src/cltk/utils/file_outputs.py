@@ -14,11 +14,21 @@ else:
     type Table = Any
 
 
-def doc_to_conllu(doc: Doc) -> str:
+def doc_to_conllu(
+    doc: Doc,
+    *,
+    include_provenance: bool = False,
+    include_confidence: bool = False,
+) -> str:
     """Return a CONLL-U formatted string for the word annotations in ``doc``.
 
     Args:
         doc: CLTK ``Doc`` instance containing annotated words.
+
+    Args:
+        doc: CLTK ``Doc`` instance containing annotated words.
+        include_provenance: When true, add provenance comment lines and MISC keys.
+        include_confidence: When true, add confidence keys to the MISC column.
 
     Returns:
         A string in CONLL-U format representing the document's word annotations.
@@ -69,6 +79,54 @@ def doc_to_conllu(doc: Doc) -> str:
             return "_"
         return f"{code}:{subtype}" if subtype else str(code)
 
+    def _format_conf(value: Any) -> Optional[str]:
+        """Format confidence values as compact decimals."""
+        try:
+            fval = float(value)
+        except (TypeError, ValueError):
+            return None
+        if fval < 0 or fval > 1:
+            return None
+        return f"{fval:.3f}".rstrip("0").rstrip(".")
+
+    def _format_misc(word: "Word") -> str:
+        """Build a compact MISC column with provenance/confidence."""
+        if not include_provenance and not include_confidence:
+            return "_"
+        items: list[str] = []
+        sources = getattr(word, "annotation_sources", None) or {}
+        confidences = getattr(word, "confidence", None) or {}
+        if include_provenance:
+            src_map = {
+                "lemma": "SrcLemma",
+                "upos": "SrcUpos",
+                "features": "SrcFeats",
+                "governor": "SrcHead",
+                "dependency_relation": "SrcDeprel",
+                "gloss": "SrcGloss",
+                "lemma_translations": "SrcLemmaTranslations",
+                "ipa": "SrcIPA",
+                "orthography": "SrcOrthography",
+            }
+            for field, key in src_map.items():
+                prov_id = sources.get(field)
+                if prov_id:
+                    items.append(f"{key}={prov_id}")
+        if include_confidence:
+            conf_map = {
+                "lemma": "ConfLemma",
+                "upos": "ConfUpos",
+                "features": "ConfFeats",
+                "governor": "ConfHead",
+                "dependency_relation": "ConfDeprel",
+                "gloss": "ConfGloss",
+            }
+            for field, key in conf_map.items():
+                conf_val = _format_conf(confidences.get(field))
+                if conf_val is not None:
+                    items.append(f"{key}={conf_val}")
+        return "|".join(items) if items else "_"
+
     words: list["Word"] = getattr(doc, "words", []) or []
     if not words:
         return ""
@@ -81,6 +139,22 @@ def doc_to_conllu(doc: Doc) -> str:
         grouped[sent_idx].append((order_idx, word))
 
     output_lines: list[str] = []
+    if include_provenance:
+        default_id = getattr(doc, "default_provenance_id", None)
+        if default_id:
+            output_lines.append(f"# cltk_provenance_default={default_id}")
+        prov_map = getattr(doc, "provenance", None) or {}
+        for prov_id, record in prov_map.items():
+            try:
+                payload = json.dumps(
+                    record.model_dump(exclude_none=True, mode="json"),
+                    ensure_ascii=True,
+                    sort_keys=True,
+                    separators=(",", ":"),
+                )
+            except Exception:
+                payload = json.dumps({"id": prov_id}, ensure_ascii=True, sort_keys=True)
+            output_lines.append(f"# cltk_prov.{prov_id}={payload}")
     for _, sentence_entries in grouped.items():
 
         def _sentence_sort_key(item: tuple[int, "Word"]) -> int:
@@ -104,7 +178,7 @@ def doc_to_conllu(doc: Doc) -> str:
                 _format_head(word),
                 _format_deprel(word),
                 "_",
-                "_",
+                _format_misc(word),
             ]
             output_lines.append("\t".join(columns))
         output_lines.append("")
@@ -112,7 +186,12 @@ def doc_to_conllu(doc: Doc) -> str:
     return "\n".join(output_lines)
 
 
-def doc_to_feature_table(doc: Doc) -> Table:
+def doc_to_feature_table(
+    doc: Doc,
+    *,
+    include_provenance: bool = False,
+    include_confidence: bool = False,
+) -> Table:
     """Return a ``pyarrow.Table`` of POS, morphology, and dependency features.
 
     - Raises ValueError when ``Doc.words`` is missing or empty.
@@ -500,6 +579,24 @@ def doc_to_feature_table(doc: Doc) -> Table:
         "head",
         "deprel",
     ]
+    prov_header: list[str] = []
+    if include_provenance:
+        prov_header = [
+            "prov_lemma",
+            "prov_upos",
+            "prov_feats",
+            "prov_head",
+            "prov_deprel",
+        ]
+    conf_header: list[str] = []
+    if include_confidence:
+        conf_header = [
+            "conf_lemma",
+            "conf_upos",
+            "conf_feats",
+            "conf_head",
+            "conf_deprel",
+        ]
     metadata_header = [f"metadata_{key}" for key in metadata_keys]
     feat_header = [f"feat_{key}" for key in sorted_feature_keys]
     # Dependency feature columns (token-level)
@@ -534,7 +631,14 @@ def doc_to_feature_table(doc: Doc) -> Table:
         "sent_is_projective",
         "sent_len",
     ]
-    header = base_header + metadata_header + feat_header + dep_extra_header
+    header = (
+        base_header
+        + prov_header
+        + conf_header
+        + metadata_header
+        + feat_header
+        + dep_extra_header
+    )
 
     try:
         import pyarrow as pa
@@ -555,6 +659,28 @@ def doc_to_feature_table(doc: Doc) -> Table:
             pa.field("head", pa.int64()),
             pa.field("deprel", pa.string()),
         ]
+        prov_fields = (
+            [
+                pa.field("prov_lemma", pa.string()),
+                pa.field("prov_upos", pa.string()),
+                pa.field("prov_feats", pa.string()),
+                pa.field("prov_head", pa.string()),
+                pa.field("prov_deprel", pa.string()),
+            ]
+            if include_provenance
+            else []
+        )
+        conf_fields = (
+            [
+                pa.field("conf_lemma", pa.float64()),
+                pa.field("conf_upos", pa.float64()),
+                pa.field("conf_feats", pa.float64()),
+                pa.field("conf_head", pa.float64()),
+                pa.field("conf_deprel", pa.float64()),
+            ]
+            if include_confidence
+            else []
+        )
         metadata_fields = [
             pa.field(f"metadata_{key}", pa.string()) for key in metadata_keys
         ]
@@ -589,7 +715,14 @@ def doc_to_feature_table(doc: Doc) -> Table:
             pa.field("sent_is_projective", pa.int8()),
             pa.field("sent_len", pa.int64()),
         ]
-        return pa.schema(base_fields + metadata_fields + feat_fields + dep_fields)
+        return pa.schema(
+            base_fields
+            + prov_fields
+            + conf_fields
+            + metadata_fields
+            + feat_fields
+            + dep_fields
+        )
 
     schema = _build_schema(sorted_feature_keys, metadata_keys)
     columns: dict[str, list[Any]] = {name: [] for name in header}
@@ -651,6 +784,37 @@ def doc_to_feature_table(doc: Doc) -> Table:
             head_value,
             deprel_value,
         ]
+        if include_provenance:
+            sources = getattr(word, "annotation_sources", None) or {}
+            row.extend(
+                [
+                    sources.get("lemma"),
+                    sources.get("upos"),
+                    sources.get("features"),
+                    sources.get("governor"),
+                    sources.get("dependency_relation"),
+                ]
+            )
+        if include_confidence:
+            confidences = getattr(word, "confidence", None) or {}
+
+            def _conf_val(key: str) -> Optional[float]:
+                """Return a float confidence for a key or None if invalid."""
+                try:
+                    val = confidences.get(key)
+                    return float(val) if val is not None else None
+                except (TypeError, ValueError):
+                    return None
+
+            row.extend(
+                [
+                    _conf_val("lemma"),
+                    _conf_val("upos"),
+                    _conf_val("features"),
+                    _conf_val("governor"),
+                    _conf_val("dependency_relation"),
+                ]
+            )
         row.extend(
             _serialize_metadata_value(metadata_map.get(key)) for key in metadata_keys
         )
@@ -664,7 +828,12 @@ def doc_to_feature_table(doc: Doc) -> Table:
     return pa.Table.from_arrays(arrays, schema=schema)
 
 
-def format_readers_guide(doc: Doc) -> str:
+def format_readers_guide(
+    doc: Doc,
+    *,
+    include_provenance: bool = False,
+    include_confidence: bool = False,
+) -> str:
     """Render a human-friendly Markdown reader's guide for a Doc."""
 
     def _safe_pos_name(word: Word) -> str:
@@ -754,11 +923,79 @@ def format_readers_guide(doc: Doc) -> str:
             lines.append(" ".join(pieces))
         return lines
 
+    def _confidence_summary(word: Word) -> Optional[str]:
+        """Return a compact confidence string for key fields."""
+        if not include_confidence:
+            return None
+        conf = getattr(word, "confidence", None) or {}
+        parts: list[str] = []
+        key_map = [
+            ("lemma", "lemma"),
+            ("upos", "upos"),
+            ("features", "feats"),
+            ("governor", "head"),
+            ("dependency_relation", "deprel"),
+            ("gloss", "gloss"),
+        ]
+        for key, label in key_map:
+            try:
+                val = conf.get(key)
+                if val is None:
+                    continue
+                fval = float(val)
+            except (TypeError, ValueError):
+                continue
+            parts.append(f"{label}={fval:.2f}")
+        return ", ".join(parts) if parts else None
+
     lines: list[str] = []
     metadata = getattr(doc, "metadata", {}) or {}
     title = metadata.get("title") or metadata.get("reference") or "Reader's Guide"
     lines.append(f"# {title}")
     lines.append("")
+
+    if include_provenance:
+        prov_map = getattr(doc, "provenance", None) or {}
+        default_id = getattr(doc, "default_provenance_id", None)
+        if prov_map:
+            if not default_id:
+                default_id = next(iter(prov_map.keys()), None)
+            lines.append("## Provenance")
+            lines.append("")
+            if default_id:
+                lines.append(f"- Default provenance id: `{default_id}`")
+            record = prov_map.get(default_id) if default_id else None
+            if record:
+                if record.backend:
+                    lines.append(f"- Backend: {record.backend}")
+                if record.model:
+                    lines.append(f"- Model: {record.model}")
+                if record.process:
+                    lines.append(f"- Process: {record.process}")
+                if record.prompt_version or record.prompt_digest:
+                    pv = record.prompt_version or "-"
+                    pd = record.prompt_digest or "-"
+                    lines.append(f"- Prompt: v{pv} (sha256={pd})")
+                if record.config_digest:
+                    lines.append(f"- Config digest: {record.config_digest}")
+                if record.cltk_version:
+                    lines.append(f"- CLTK version: {record.cltk_version}")
+                if record.python_version:
+                    lines.append(f"- Python: {record.python_version}")
+                if record.platform:
+                    lines.append(f"- Platform: {record.platform}")
+                cite_bits = [
+                    default_id or "",
+                    record.backend or "",
+                    record.model or "",
+                    record.prompt_digest or "",
+                    record.config_digest or "",
+                    record.cltk_version or "",
+                ]
+                cite = ", ".join([b for b in cite_bits if b])
+                if cite:
+                    lines.append(f"- Cite: CLTK run ({cite})")
+            lines.append("")
 
     ipa_modes = {
         getattr(getattr(getattr(w, "enrichment", None), "ipa", None), "mode", None)
@@ -789,6 +1026,12 @@ def format_readers_guide(doc: Doc) -> str:
             lines.append("")
         if translation and getattr(translation, "notes", None):
             lines.append(f"> Notes: {translation.notes}")
+        if (
+            include_confidence
+            and translation
+            and getattr(translation, "confidence", None) is not None
+        ):
+            lines.append(f"> Confidence: {translation.confidence:.2f}")
         lines.append("")
         lines.append("### Word-by-word")
         lines.append("")
@@ -848,6 +1091,9 @@ def format_readers_guide(doc: Doc) -> str:
                 for note in notes:
                     lines.append(f"- {note}")
                 lines.append("</details>")
+            conf_line = _confidence_summary(word)
+            if conf_line:
+                lines.append(f"- **Confidence:** {conf_line}")
 
             lines.append("")
 

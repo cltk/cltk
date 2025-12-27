@@ -2,13 +2,12 @@
 
 This page documents the helper functions that turn a processed `Doc` into human‑readable or machine‑readable output. Each function is pure (no file I/O) and returns a string; the caller decides how to persist it.
 
-## `format_readers_guide(doc: Doc) -> str`
+## `format_readers_guide(doc: Doc, *, include_provenance: bool = False, include_confidence: bool = False) -> str`
 
 Render a Markdown “reader’s guide” aimed at students and scholars. The output is UTF‑8 Markdown with headings, blockquotes, and details blocks.
 
 **Structure**
 
-- A
 - H1 title from `doc.metadata["title"]` or `doc.metadata["reference"]`, else “Reader’s Guide”.
 - Optional pronunciation line when all enriched words share the same IPA mode.
 - Per sentence:
@@ -50,7 +49,12 @@ Render a Markdown “reader’s guide” aimed at students and scholars. The out
 
 Use this when you need a study‑friendly breakdown with enrichment fields (gloss, IPA, orthography, pedagogy).
 
-## `doc_to_feature_table(doc: Doc) -> pa.Table`
+**Options**
+
+- `include_provenance=True` adds a short provenance section near the top.
+- `include_confidence=True` adds per-token confidence summaries when present.
+
+## `doc_to_feature_table(doc: Doc, *, include_provenance: bool = False, include_confidence: bool = False) -> pa.Table`
 
 Convert a `Doc` into a tidy `pyarrow.Table` with one row per token, combining morphosyntax, dependencies, UD features, and selected metadata.
 
@@ -73,7 +77,10 @@ print(table.to_pandas().head())
 
 Useful for analytics, export to Parquet/CSV, or downstream ML pipelines.
 
-## `doc_to_conllu(doc: Doc) -> str`
+When `include_provenance=True` or `include_confidence=True`, the table gains
+`prov_*` and `conf_*` columns for key fields (lemma, upos, feats, head, deprel).
+
+## `doc_to_conllu(doc: Doc, *, include_provenance: bool = False, include_confidence: bool = False) -> str`
 
 Render a `Doc` as CoNLL‑U v2 text. One sentence per block, 10 tab‑separated fields per token.
 
@@ -95,3 +102,7 @@ Render a `Doc` as CoNLL‑U v2 text. One sentence per block, 10 tab‑separated 
 ```
 
 Use this to round‑trip with UD tools, validators, or treebanks. The function is deterministic and does no I/O; write the returned string to disk if needed.
+
+When `include_provenance=True`, the output adds comment lines that embed
+provenance records (`# cltk_provenance_default=...`, `# cltk_prov.<id>=...`).
+When `include_confidence=True`, token confidences appear in the `MISC` column.

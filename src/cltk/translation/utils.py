@@ -22,6 +22,11 @@ from cltk.core.data_types import (
 )
 from cltk.core.exceptions import CLTKException
 from cltk.core.logging_utils import bind_from_doc
+from cltk.core.provenance import (
+    add_provenance_record,
+    build_provenance_record,
+    extract_doc_config,
+)
 from cltk.genai.mistral import MistralConnection
 from cltk.genai.ollama import OllamaConnection
 from cltk.genai.openai import OpenAIConnection
@@ -85,6 +90,17 @@ def _parse_translation_payload(raw: str) -> dict[str, Any]:
     except Exception as e:  # pragma: no cover - defensive logging
         logger.error("[translate] Failed to parse translation payload: %s", e)
     return {"translation": cleaned}
+
+
+def _safe_confidence(val: Any) -> Optional[float]:
+    """Return a confidence score in [0,1] or None if invalid."""
+    try:
+        fval = float(val)
+    except (TypeError, ValueError):
+        return None
+    if fval < 0 or fval > 1:
+        return None
+    return fval
 
 
 def _gloss_summary(word: Word) -> str:
@@ -267,11 +283,13 @@ def _build_translation_from_payload(
                 break
     if not translation_text:
         return None
+    confidence = _safe_confidence(payload.get("confidence"))
     return Translation(
         source_lang_id=source_lang_id,
         target_lang_id=target_lang_id or target_language,
         text=str(translation_text).strip(),
         notes=str(notes).strip() if isinstance(notes, str) and notes.strip() else None,
+        confidence=confidence,
     )
 
 
@@ -286,6 +304,7 @@ def generate_translation_for_sentence(
     source_lang_id: Optional[str],
     prompt_builder: Optional[PromptBuilder],
     max_retries: int,
+    provenance_process: Optional[str] = None,
 ) -> tuple[Optional[Translation], dict[str, int]]:
     """Call the LLM for a single sentence translation."""
     lang_or_dialect_name = doc.dialect.name if doc.dialect else doc.language.name
@@ -317,6 +336,35 @@ def generate_translation_for_sentence(
     if _os.getenv("CLTK_LOG_CONTENT", "").strip().lower() in {"1", "true", "yes", "on"}:
         log.debug(prompt)
 
+    lang_id = None
+    try:
+        if doc.dialect and doc.dialect.glottolog_id:
+            lang_id = doc.dialect.glottolog_id
+        else:
+            lang_id = doc.language.glottolog_id
+    except Exception:
+        lang_id = None
+    config_snapshot = extract_doc_config(doc)
+    prov_record = build_provenance_record(
+        language=lang_id,
+        backend=doc.backend,
+        process=provenance_process or "translation",
+        model=str(doc.model) if doc.model else None,
+        provider=str(doc.backend) if doc.backend else None,
+        prompt_version=str(pinfo.version),
+        prompt_text=prompt,
+        config=config_snapshot,
+        notes={
+            "prompt_kind": pinfo.kind,
+            "sentence_idx": sentence_idx,
+            "target_language": target_language,
+            "target_language_id": target_language_id,
+        },
+    )
+    prov_id = add_provenance_record(
+        doc, prov_record, set_default=doc.default_provenance_id is None
+    )
+
     res_obj: CLTKGenAIResponse = client.generate(prompt=prompt, max_retries=max_retries)
     payload = _parse_translation_payload(res_obj.response)
     translation = _build_translation_from_payload(
@@ -327,6 +375,12 @@ def generate_translation_for_sentence(
     )
     if translation is None:
         log.warning("[translate] Empty translation for sentence #%s", sentence_idx + 1)
+    if prov_id and translation is not None:
+        if not doc.sentence_annotation_sources:
+            doc.sentence_annotation_sources = {}
+        entry = doc.sentence_annotation_sources.get(sentence_idx, {})
+        entry["translation"] = prov_id
+        doc.sentence_annotation_sources[sentence_idx] = entry
     return translation, res_obj.usage
 
 
@@ -337,6 +391,7 @@ def generate_gpt_translation(
     target_language_id: Optional[str] = "en-US",
     prompt_builder: Optional[PromptBuilder] = None,
     max_retries: int = 2,
+    provenance_process: Optional[str] = None,
 ) -> Doc:
     """Sequential translation across sentences using prior annotations."""
     log = bind_from_doc(doc)
@@ -443,6 +498,7 @@ def generate_gpt_translation(
             source_lang_id=source_lang_id,
             prompt_builder=prompt_builder,
             max_retries=max_retries,
+            provenance_process=provenance_process,
         )
         if translation_obj is not None:
             translations_map[sent_idx if sent_idx is not None else 0] = translation_obj
@@ -479,6 +535,7 @@ def generate_gpt_translation_concurrent(
     target_language_id: Optional[str] = "en-US",
     prompt_builder: Optional[PromptBuilder] = None,
     max_retries: int = 2,
+    provenance_process: Optional[str] = None,
 ) -> Doc:
     """Safely call translation even when an event loop is running."""
     log = bind_from_doc(doc)
@@ -492,6 +549,7 @@ def generate_gpt_translation_concurrent(
             target_language_id=target_language_id,
             prompt_builder=prompt_builder,
             max_retries=max_retries,
+            provenance_process=provenance_process,
         )
 
     def _runner() -> Doc:
@@ -502,6 +560,7 @@ def generate_gpt_translation_concurrent(
             target_language_id=target_language_id,
             prompt_builder=prompt_builder,
             max_retries=max_retries,
+            provenance_process=provenance_process,
         )
 
     with concurrent.futures.ThreadPoolExecutor(max_workers=1) as ex:

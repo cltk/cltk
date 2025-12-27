@@ -14,6 +14,11 @@ from stanza import DownloadMethod
 
 from cltk.core.cltk_logger import bind_context
 from cltk.core.data_types import Doc, Process, Word
+from cltk.core.provenance import (
+    add_provenance_record,
+    build_provenance_record,
+    extract_doc_config,
+)
 from cltk.morphosyntax.ud_deprels import UDDeprelTag, get_ud_deprel_tag
 from cltk.morphosyntax.ud_features import UDFeatureTagSet, convert_pos_features_to_ud
 from cltk.morphosyntax.ud_pos import UDPartOfSpeechTag
@@ -97,6 +102,29 @@ class StanzaAnalyzeProcess(Process):
             stanza_package = output_doc.metadata.get("stanza_package")
         except Exception:
             stanza_package = None
+
+        config_snapshot = extract_doc_config(output_doc)
+        lang_id = (
+            getattr(self, "glottolog_id", None) or output_doc.language.glottolog_id
+        )
+        prov_record = build_provenance_record(
+            language=lang_id,
+            backend=output_doc.backend or "stanza",
+            process=self.__class__.__name__,
+            model=stanza_package or "stanza",
+            provider="stanza",
+            config=config_snapshot,
+            notes={
+                "stanza_lang": lang,
+                "processors": "tokenize,pos,lemma,depparse",
+                "stanza_package": stanza_package,
+            },
+        )
+        prov_id = add_provenance_record(
+            output_doc,
+            prov_record,
+            set_default=output_doc.default_provenance_id is None,
+        )
 
         # Build Stanza pipeline; let it handle sentence splitting and tagging
         nlp = _get_stanza_pipeline(
@@ -183,6 +211,12 @@ class StanzaAnalyzeProcess(Process):
                     dependency_relation=dep_obj,
                     governor=gov,
                 )
+                if prov_id:
+                    word.annotation_sources["lemma"] = prov_id
+                    word.annotation_sources["upos"] = prov_id
+                    word.annotation_sources["features"] = prov_id
+                    word.annotation_sources["dependency_relation"] = prov_id
+                    word.annotation_sources["governor"] = prov_id
                 if isinstance(start_char, int) and isinstance(end_char, int):
                     word.index_char_start = start_char
                     word.index_char_stop = end_char
@@ -193,6 +227,13 @@ class StanzaAnalyzeProcess(Process):
         output_doc.words = words
         if sent_bounds:
             output_doc.sentence_boundaries = sent_bounds
+        if sent_bounds and prov_id:
+            if not output_doc.sentence_annotation_sources:
+                output_doc.sentence_annotation_sources = {}
+            for idx in range(len(sent_bounds)):
+                entry = output_doc.sentence_annotation_sources.get(idx, {})
+                entry["span"] = prov_id
+                output_doc.sentence_annotation_sources[idx] = entry
         log.info(
             "Stanza annotated %d sentences and %d tokens", len(sent_bounds), len(words)
         )

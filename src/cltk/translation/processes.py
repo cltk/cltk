@@ -55,6 +55,7 @@ class GenAITranslationProcess(Process):
             target_language=target_language,
             target_language_id=target_language_id,
             prompt_builder=self.prompt_builder,
+            provenance_process=self.__class__.__name__,
         )
         return output_doc
 

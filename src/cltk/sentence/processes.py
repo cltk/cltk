@@ -13,6 +13,7 @@ from typing import Callable, Optional
 from cltk.core.cltk_logger import bind_context
 from cltk.core.data_types import Doc, Process
 from cltk.core.logging_utils import bind_from_doc
+from cltk.core.provenance import add_provenance_record, build_provenance_record
 from cltk.sentence.utils import split_sentences_multilang
 
 __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
@@ -209,6 +210,34 @@ class SentenceSplittingProcess(Process):
             output_doc.normalized_text,
             self.glottolog_id,
         )
+        lang_id = None
+        try:
+            if output_doc.dialect and output_doc.dialect.glottolog_id:
+                lang_id = output_doc.dialect.glottolog_id
+            else:
+                lang_id = output_doc.language.glottolog_id
+        except Exception:
+            lang_id = None
+        prov_record = build_provenance_record(
+            language=lang_id,
+            backend=output_doc.backend,
+            process=self.__class__.__name__,
+            model=str(output_doc.model) if output_doc.model else None,
+            provider=str(output_doc.backend) if output_doc.backend else None,
+            notes={"sentence_count": len(output_doc.sentence_boundaries)},
+        )
+        prov_id = add_provenance_record(
+            output_doc,
+            prov_record,
+            set_default=output_doc.default_provenance_id is None,
+        )
+        if prov_id:
+            if not output_doc.sentence_annotation_sources:
+                output_doc.sentence_annotation_sources = {}
+            for idx in range(len(output_doc.sentence_boundaries)):
+                entry = output_doc.sentence_annotation_sources.get(idx, {})
+                entry["span"] = prov_id
+                output_doc.sentence_annotation_sources[idx] = entry
         return output_doc
 
 
