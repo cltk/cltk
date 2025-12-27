@@ -9,7 +9,7 @@ generative annotation.
 
 from typing import TYPE_CHECKING, Any, Optional
 
-from pydantic import Field
+from pydantic import Field, model_validator
 
 from cltk.core.data_types import Pipeline
 from cltk.core.logging_utils import plog
@@ -582,10 +582,21 @@ def ensure_stanza_available() -> None:
         raise ImportError(msg)
 
 
-class LatinStanzaPipeline(Pipeline):
+class StanzaPipeline(Pipeline):
+    """Base class for stanza-backed pipelines.
+
+    Ensures the optional stanza dependency is present at instantiation time.
+    """
+
+    @model_validator(mode="after")
+    def _check_stanza_available(self) -> "StanzaPipeline":
+        ensure_stanza_available()
+        return self
+
+
+class LatinStanzaPipeline(StanzaPipeline):
     """Stanza-backed pipeline for Latin."""
 
-    ensure_stanza_available()
     description: Optional[str] = "Stanza pipeline for the Latin language."
     glottolog_id: Optional[str] = "lati1261"
     processes: Optional[list[Any]] = Field(
@@ -602,10 +613,9 @@ class LatinStanzaPipeline(Pipeline):
         plog(self).info("LatinStanzaPipeline created.")
 
 
-class AncientGreekStanzaPipeline(Pipeline):
+class AncientGreekStanzaPipeline(StanzaPipeline):
     """Stanza-backed pipeline for Ancient Greek."""
 
-    ensure_stanza_available()
     description: Optional[str] = "Stanza pipeline for the Ancient Greek language."
     glottolog_id: Optional[str] = "anci1242"
     processes: Optional[list[Any]] = Field(
@@ -1144,10 +1154,9 @@ class LiteraryChineseGenAIPipeline(Pipeline):
         plog(self).info("LiteraryChineseGenAIPipeline created.")
 
 
-class ChurchSlavonicStanzaPipeline(Pipeline):
+class ChurchSlavonicStanzaPipeline(StanzaPipeline):
     """Stanza-backed pipeline for Church Slavonic."""
 
-    ensure_stanza_available()
     description: Optional[str] = "Stanza pipeline for the Church Slavonic language."
     glottolog_id: Optional[str] = "chur1257"
     processes: Optional[list[Any]] = Field(
@@ -1164,10 +1173,9 @@ class ChurchSlavonicStanzaPipeline(Pipeline):
         plog(self).info("ChurchSlavonicStanzaPipeline created.")
 
 
-class OldFrenchStanzaPipeline(Pipeline):
+class OldFrenchStanzaPipeline(StanzaPipeline):
     """Stanza-backed pipeline for Old French."""
 
-    ensure_stanza_available()
     description: Optional[str] = "Stanza pipeline for the Old French language."
     glottolog_id: Optional[str] = "oldf1239"
     processes: Optional[list[Any]] = Field(
@@ -1184,10 +1192,9 @@ class OldFrenchStanzaPipeline(Pipeline):
         plog(self).info("OldFrenchStanzaPipeline created.")
 
 
-class GothicStanzaPipeline(Pipeline):
+class GothicStanzaPipeline(StanzaPipeline):
     """Stanza-backed pipeline for Gothic."""
 
-    ensure_stanza_available()
     description: Optional[str] = "Stanza pipeline for the Gothic language."
     glottolog_id: Optional[str] = "goth1244"
     processes: Optional[list[Any]] = Field(
@@ -1204,10 +1211,9 @@ class GothicStanzaPipeline(Pipeline):
         plog(self).info("GothicStanzaPipeline created.")
 
 
-class OldEnglishStanzaPipeline(Pipeline):
+class OldEnglishStanzaPipeline(StanzaPipeline):
     """Stanza-backed pipeline for Old English."""
 
-    ensure_stanza_available()
     description: Optional[str] = "Stanza pipeline for the Old English language."
     glottolog_id: Optional[str] = "olde1238"
     processes: Optional[list[Any]] = Field(
@@ -1224,10 +1230,9 @@ class OldEnglishStanzaPipeline(Pipeline):
         plog(self).info("OldEnglishStanzaPipeline created.")
 
 
-class LiteraryChineseStanzaPipeline(Pipeline):
+class LiteraryChineseStanzaPipeline(StanzaPipeline):
     """Stanza-backed pipeline for Literary Chinese."""
 
-    ensure_stanza_available()
     description: Optional[str] = "Stanza pipeline for the Literary Chinese language."
     glottolog_id: Optional[str] = "lite1248"
     processes: Optional[list[Any]] = Field(
@@ -1244,10 +1249,9 @@ class LiteraryChineseStanzaPipeline(Pipeline):
         plog(self).info("LiteraryChineseStanzaPipeline created.")
 
 
-class OttomanTurkishStanzaPipeline(Pipeline):
+class OttomanTurkishStanzaPipeline(StanzaPipeline):
     """Stanza-backed pipeline for Ottoman Turkish."""
 
-    ensure_stanza_available()
     description: Optional[str] = "Stanza pipeline for the Ottoman Turkish language."
     glottolog_id: Optional[str] = "otto1234"
     processes: Optional[list[Any]] = Field(
@@ -1264,10 +1268,9 @@ class OttomanTurkishStanzaPipeline(Pipeline):
         plog(self).info("OttomanTurkishStanzaPipeline created.")
 
 
-class ClassicalArmenianStanzaPipeline(Pipeline):
+class ClassicalArmenianStanzaPipeline(StanzaPipeline):
     """Stanza-backed pipeline for Classical Armenian."""
 
-    ensure_stanza_available()
     description: Optional[str] = "Stanza pipeline for the Classical Armenian language."
     glottolog_id: Optional[str] = "clas1256"
     processes: Optional[list[Any]] = Field(
@@ -1284,10 +1287,9 @@ class ClassicalArmenianStanzaPipeline(Pipeline):
         plog(self).info("ClassicalArmenianStanzaPipeline created.")
 
 
-class CopticStanzaPipeline(Pipeline):
+class CopticStanzaPipeline(StanzaPipeline):
     """Stanza-backed pipeline for Coptic."""
 
-    ensure_stanza_available()
     description: Optional[str] = "Stanza pipeline for the Coptic language."
     glottolog_id: Optional[str] = "copt1239"
     processes: Optional[list[Any]] = Field(
@@ -1305,10 +1307,9 @@ class CopticStanzaPipeline(Pipeline):
         plog(self).info("CopticStanzaPipeline created.")
 
 
-class OldRussianStanzaPipeline(Pipeline):
+class OldRussianStanzaPipeline(StanzaPipeline):
     """Stanza-backed pipeline for Old Russian (Old East Slavic)."""
 
-    ensure_stanza_available()
     description: Optional[str] = "Stanza pipeline for the Old Russian language."
     glottolog_id: Optional[str] = "oldr1238"
     processes: Optional[list[Any]] = Field(

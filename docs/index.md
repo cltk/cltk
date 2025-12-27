@@ -4,15 +4,12 @@ The Classical Language Toolkit (CLTK) is a Python library offering natural langu
 - PyPI: <https://pypi.org/project/cltk/>
 - License: MIT (<https://github.com/cltk/cltk/blob/master/LICENSE>)
 
-Start with the Quickstart, then explore the API Reference.
-
-- [Quickstart](quickstart.md): basic install and minimal examples for each backend.
-- [Reference](reference/index.md): complete, browsable API, generated automatically with mkdocstrings.
+Newcomers may begin with the Quickstart [Quickstart](quickstart.md) for basic install and minimal examples for the available backends.
 
 # Acknowledgements
 
 The CLTK relies heavily upon several free open source projects.
 
-- Universal Dependencies (<https://universaldependencies.org/>): Global language definitions for morphosyntax and syntactic parsing.
 - Glottolog (<https://glottolog.org/>): Language metadata and classification references.
 - Stanza (<https://stanfordnlp.github.io/stanza/>): Neural pipeline components used by many CLTK backends.
+- Universal Dependencies (<https://universaldependencies.org/>): Global language definitions for morphosyntax and syntactic parsing.
