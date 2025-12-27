@@ -30,7 +30,6 @@ jobs:
       - name: Sync dependencies (dev + extras)
         run: |
           uv sync --python 3.13 --frozen --all-extras
-          pip install tlg-indices  # for testing an example script
 
       - name: Run test suite
         run: make test
