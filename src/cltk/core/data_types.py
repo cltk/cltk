@@ -158,12 +158,14 @@ class NameVariant(BaseModel):
       value: The display string for the name.
       source: Optional provenance or catalogue name.
       script: Optional script tag (e.g., ISO 15924).
+      language: Optional language code for the label text.
 
     """
 
     value: str
     source: Optional[str] = None
     script: Optional[str] = None
+    language: Optional[str] = None
 
 
 class Identifier(BaseModel):
