@@ -269,10 +269,10 @@ class Orthography(BaseModel):
 class Dialect(BaseModel):
     """Dialect metadata record from Glottolog‑derived data."""
 
-    glottolog_id: str
-    language_code: str
+    glottolog_id: Optional[str] = None
+    language_code: Optional[str] = None
     name: str
-    status: Status = "unknown"
+    status: Optional[Status] = None
     alt_names: list[NameVariant] = Field(default_factory=list)
     identifiers: list[Identifier] = Field(default_factory=list)
     geo: Optional[GeoArea] = None
@@ -287,16 +287,16 @@ class Language(BaseModel):
     """Language metadata record from Glottolog‑derived data."""
 
     name: str
-    glottolog_id: str
+    glottolog_id: Optional[str] = None
     identifiers: list[Identifier] = Field(default_factory=list)
-    level: Level
-    status: Status = "unknown"
+    level: Optional[Level] = None
+    status: Optional[Status] = None
     type: Optional[str] = None
 
     geo: Optional[GeoArea] = None
     timespan: Optional[Timespan] = None
 
-    classification: Classification
+    classification: Optional[Classification] = None
     family_id: Optional[str] = None
     parent_id: Optional[str] = None
 
