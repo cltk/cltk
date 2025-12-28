@@ -8,6 +8,8 @@ _DIALECT_INDEX: dict[str, Language] = {}
 for iso_key, lang in LANGUAGES.items():
     for dialect in lang.dialects:
         # lang.selected_dialect = dialect
+        if not dialect.language_code:
+            continue
         _DIALECT_INDEX[dialect.language_code] = lang
 
 
@@ -71,5 +73,6 @@ def find_iso_name(common_name: str) -> list[str]:
     for iso_key, language_obj in LANGUAGES.items():
         for d in language_obj.dialects or []:
             if q in d.name.lower():
-                codes.append(f'{d.name} ("{d.language_code}")')
+                if d.language_code:
+                    codes.append(f'{d.name} ("{d.language_code}")')
     return codes
