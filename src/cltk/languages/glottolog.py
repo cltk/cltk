@@ -105,6 +105,8 @@ def _build_indices() -> (
         for nv in L.alt_names:
             by_name_lang.setdefault(nv.value.lower(), []).append(g)
         for d in L.dialects:
+            if not d.glottolog_id:
+                continue
             by_dialect[d.glottolog_id] = g
             by_name_dialect.setdefault(d.name.lower(), []).append(d.glottolog_id)
     logger.info(

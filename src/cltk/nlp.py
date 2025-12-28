@@ -111,10 +111,16 @@ class NLP:
         self.dialect: Optional[Dialect]
         self.language, self.dialect = get_language(lang_id=language_code)
         self.language_code: str
+        resolved_code: Optional[str]
         if self.dialect:
-            self.language_code = self.dialect.glottolog_id
+            resolved_code = self.dialect.glottolog_id
         else:
-            self.language_code = self.language.glottolog_id
+            resolved_code = self.language.glottolog_id
+        if resolved_code is None:
+            raise ValueError(
+                "Resolved language is missing glottolog_id; cannot select a pipeline."
+            )
+        self.language_code = resolved_code
         self.backend: BACKEND_TYPES = backend
         self.model: Optional[str] = model
         self._backend_config: Optional[ModelConfig] = backend_config

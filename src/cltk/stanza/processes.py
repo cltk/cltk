@@ -92,12 +92,15 @@ class StanzaAnalyzeProcess(Process):
                 "Stanza not installed. Install with: pip install 'cltk[stanza]'"
             ) from e
 
-        lang = _GLOTTO_TO_STANZA_LANG.get(
+        lang_id = (
             getattr(self, "glottolog_id", None) or output_doc.language.glottolog_id
         )
+        if lang_id is None:
+            raise ValueError("glottolog_id must be set to run Stanza.")
+        lang = _GLOTTO_TO_STANZA_LANG.get(lang_id)
         if not lang:
             raise ValueError(
-                f"No Stanza language mapping for glottolog_id='{self.glottolog_id}'."
+                f"No Stanza language mapping for glottolog_id='{lang_id}'."
             )
 
         # Optional per-treebank override (e.g., different UD package)
@@ -108,9 +111,6 @@ class StanzaAnalyzeProcess(Process):
             stanza_package = None
 
         config_snapshot = extract_doc_config(output_doc)
-        lang_id = (
-            getattr(self, "glottolog_id", None) or output_doc.language.glottolog_id
-        )
         prov_record = build_provenance_record(
             language=lang_id,
             backend=output_doc.backend or "stanza",
