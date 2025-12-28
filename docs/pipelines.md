@@ -4,7 +4,7 @@ This page reflects the CLTK's pre-defined language `Pipelines`.
 
 ## Stanza
 
-What follows are the languages relevant to the CLTK for which Stanza provides pre-trained models.
+Stanza models (for moprhology syntax labeling) are available for the following languages.
 
 <!-- PIPELINES:STANZA:START -->
 <details>
@@ -33,7 +33,7 @@ MAP_LANGUAGE_CODE_TO_STANZA_PIPELINE: dict[str, type[Pipeline]] = {
 
 ## Generative AI
 
-These may be invoked by any generative LLM backend (i.e., `"openai"`, `"mistral"`, `"ollama"`).
+The CLTK has defined `Pipeline`s for the following languages. These may be invoked by any generative LLM backend (i.e., `"openai"`, `"mistral"`, `"ollama"`).
 
 <!-- PIPELINES:GENAI:START -->
 <details>
@@ -241,3 +241,8 @@ MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, type[Pipeline]] = {
 
 </details>
 <!-- PIPELINES:GENAI:END -->
+
+
+## User-Defined Pipelines
+
+See [User-Defined Pipelines](user-defined-pipelines.md) for documentation on how to create a custom `Pipeline`.

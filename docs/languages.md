@@ -35650,6 +35650,17 @@ LANGUAGES: dict[str, Language] = {
 <!-- LANGUAGES:END -->
 
 
+
+<!-- ## User-Defined Languages
+
+If you want work with a language definition different than those pre-defined by the CLTK, you may define your own, as follows.
+
+
+ ```python
+
+ ``` -->
+
+
 ## Notes
 
 - Glottolog IDs are stable identifiers used throughout CLTK.
