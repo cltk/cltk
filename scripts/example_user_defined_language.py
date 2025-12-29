@@ -3,10 +3,10 @@ from __future__ import annotations
 import os
 import re
 from copy import copy
-from typing import ClassVar
+from typing import ClassVar, cast
 
 from cltk import NLP
-from cltk.core.data_types import Doc, Language, Pipeline, Process
+from cltk.core.data_types import BACKEND_TYPES, Doc, Language, Pipeline, Process
 from cltk.dependency.processes import GenAIDependencyProcess
 from cltk.enrichment.processes import GenAIEnrichmentProcess
 from cltk.languages.languages import LANGUAGES
@@ -83,11 +83,12 @@ TEXT = (
 def main() -> Doc:
     language = _register_language()
     pipeline = _build_pipeline()
-    backend = os.getenv("CLTK_BACKEND", "openai")
-    if backend not in {"openai", "mistral", "ollama", "ollama-cloud"}:
+    backend_env = os.getenv("CLTK_BACKEND", "openai")
+    if backend_env not in ("openai", "mistral", "ollama", "ollama-cloud"):
         raise ValueError(
             "CLTK_BACKEND must be one of: openai, mistral, ollama, ollama-cloud."
         )
+    backend = cast(BACKEND_TYPES, backend_env)
     model = os.getenv("CLTK_MODEL")
     nlp = NLP(
         language_code=language.name,
