@@ -472,7 +472,8 @@ class OllamaBackendConfig(ModelConfig):
 class CLTKConfig(BaseModel):
     """Bundled configuration for initializing :class:`~cltk.nlp.NLP`."""
 
-    language_code: str
+    language_code: Optional[str] = None
+    language: Optional[Language] = None
     backend: BACKEND_TYPES = "stanza"
     model: Optional[str] = None
     custom_pipeline: Optional["Pipeline"] = None
@@ -503,6 +504,14 @@ class CLTKConfig(BaseModel):
     @model_validator(mode="after")
     def _ensure_single_backend_config(self) -> "CLTKConfig":
         """Ensure only one backend config block is provided at a time."""
+        if not self.language_code and not self.language:
+            raise ValueError("Provide language_code or language.")
+        if self.language and not self.language_code:
+            if not self.language.glottolog_id:
+                raise ValueError(
+                    "language.glottolog_id is required when language_code is not set."
+                )
+            self.language_code = self.language.glottolog_id
         configured = [
             name
             for name, cfg in (

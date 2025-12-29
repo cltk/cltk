@@ -82,8 +82,10 @@ class NLP:
             cltk_config.active_backend_config if cltk_config else None
         )
         stanza_model_override: Optional[str] = None
+        config_language: Optional[Language] = None
         if cltk_config:
             language_code = cltk_config.language_code
+            config_language = cltk_config.language
             backend = cltk_config.backend
             suppress_banner = cltk_config.suppress_banner
             if cltk_config.custom_pipeline is not None:
@@ -98,10 +100,12 @@ class NLP:
                 # Preserve stanza restriction against explicit model arg
                 model = None
 
-        if language_code is None:
+        if language_code is None and config_language is None:
             raise ValueError(
                 "language_code is required when no CLTKConfig is provided."
             )
+        if language_code is None and config_language is not None:
+            language_code = config_language.glottolog_id
 
         bind_context(glottolog_id=language_code).info(
             f"Initializing NLP for language: {language_code}"
@@ -109,7 +113,15 @@ class NLP:
         # self.language: Language = get_language(lang_id=language_code)
         self.language: Language
         self.dialect: Optional[Dialect]
-        self.language, self.dialect = get_language(lang_id=language_code)
+        if config_language is not None:
+            self.language = config_language
+            self.dialect = None
+        else:
+            if language_code is None:
+                raise ValueError(
+                    "language_code is required when no CLTKConfig is provided."
+                )
+            self.language, self.dialect = get_language(lang_id=language_code)
         self.language_code: str
         resolved_code: Optional[str]
         if self.dialect:

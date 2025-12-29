@@ -31,6 +31,8 @@ children: dict[str, set[str]] = defaultdict(set)
 nav["Home"] = "index.md"
 nav["Quickstart"] = "quickstart.md"
 nav["Languages"] = "languages.md"
+nav["Pipelines"] = "pipelines.md"
+nav["CLTK Data Types"] = "cltk-data-types.md"
 nav["Command Line Interface"] = "command-line-interface.md"
 nav["User-Defined Pipelines"] = "user-defined-pipelines.md"
 nav["Translation"] = "translation.md"
@@ -40,6 +42,7 @@ nav["Compare Backends"] = "compare-backends.md"
 nav["Advanced Configuration"] = "advanced-model-configuration.md"
 nav["Advanced Prompting"] = "advanced-prompting.md"
 nav["Troubleshooting"] = "troubleshooting.md"
+nav["Acknowledgements"] = "acknowledgements.md"
 
 for dotted, src_path in iter_python_modules(PKG_ROOT):
     parts = dotted.split(".")
