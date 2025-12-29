@@ -5,7 +5,14 @@ from copy import copy
 from typing import ClassVar
 
 from cltk import NLP
-from cltk.core.data_types import BACKEND_TYPES, Doc, Language, Pipeline, Process
+from cltk.core.data_types import (
+    BACKEND_TYPES,
+    CLTKConfig,
+    Doc,
+    Language,
+    Pipeline,
+    Process,
+)
 from cltk.dependency.processes import GenAIDependencyProcess
 from cltk.enrichment.processes import GenAIEnrichmentProcess
 from cltk.languages.languages import LANGUAGES
@@ -56,7 +63,11 @@ TEXT = (
 
 
 def main() -> Doc:
+    lang_code = "oldc1251"  # <-- This is a real Glottolog code for Old Catalan,
+    # but not in CLTK by default.
+
     language: Language = Language(
+        glottolog_id=lang_code,
         name="Old Catalan",
     )
     pipeline = Pipeline(
@@ -70,17 +81,22 @@ def main() -> Doc:
             GenAITranslationProcess,
         ],
     )
-    nlp = NLP(
-        language_code=language.name,
+    cltk_config = CLTKConfig(
+        language=language,
         backend="openai",
         custom_pipeline=pipeline,
         suppress_banner=True,
     )
+    nlp = NLP(cltk_config=cltk_config)
     return nlp.analyze(TEXT)
 
 
 if __name__ == "__main__":
     doc = main()
-    print("Translation:", doc.translation.text)
-    print("Notes:", doc.translation.notes)
-    print("Confidence:", doc.translation.confidence)
+    if doc.translations:
+        translation = doc.translations[0]
+        print("Translation:", translation.text)
+        print("Notes:", translation.notes)
+        print("Confidence:", translation.confidence)
+    else:
+        print("Translation:", doc.translation)
