@@ -135,7 +135,7 @@ u - u u - - u u u u u u
 u u u - u - u - x - u -
 ```
 
-See these examples in <https://github.com/cltk/cltk/tree/master/examples> of the CLTK's repo.
+See these examples in <https://github.com/cltk/cltk/tree/master/scripts> of the CLTK's repo.
 
 ## Process Registry
 
