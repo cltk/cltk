@@ -35653,6 +35653,8 @@ LANGUAGES: dict[str, Language] = {
 
 ## User-Defined Languages
 
+What follows in an example of a user-defined language (Old Catalan), which does not currently have a pre-defined `Pipeline` in the CLTK.
+
 <!-- USER_DEFINED_LANG:START -->
 <details>
 <summary>User-defined language example (generated from `scripts/example_user_defined_language.py`)</summary>
@@ -35762,12 +35764,16 @@ def main() -> Doc:
 
 if __name__ == "__main__":
     doc = main()
-    print(doc.translation or "(no translation returned)")
+    print(doc.translation)
+    print(doc.translation)
 ```
 
 </details>
 <!-- USER_DEFINED_LANG:END -->
 
+This script returns:
+
+> And if William Arnal did such a thing to me that he would neither want nor be able to set it right for me, and if he were to leave me, then Mir Arnall would abandon me just as he had him on the day he ordered it.
 
 
 ## Notes

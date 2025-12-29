@@ -1,9 +1,8 @@
-from __future__ import annotations
+"""Example of a user-defined Language and Pipeline using CLTK and GenAI processes."""
 
-import os
 import re
 from copy import copy
-from typing import ClassVar, cast
+from typing import ClassVar
 
 from cltk import NLP
 from cltk.core.data_types import BACKEND_TYPES, Doc, Language, Pipeline, Process
@@ -14,7 +13,6 @@ from cltk.morphosyntax.processes import GenAIMorphosyntaxProcess
 from cltk.text.processes import MultilingualNormalizeProcess
 from cltk.translation.processes import GenAITranslationProcess
 
-CUSTOM_GLOTTOLOG_ID = "ocat1234"
 _SENTENCE_END_RE = re.compile(r"[.!?]+")
 
 
@@ -50,18 +48,19 @@ def _split_basic(text: str) -> list[tuple[int, int]]:
     return boundaries
 
 
-def _register_language() -> Language:
-    language = Language(name="Old Catalan")
-    # NLP requires a glottolog_id for pipeline resolution; use a local code.
-    language.glottolog_id = CUSTOM_GLOTTOLOG_ID
-    LANGUAGES[CUSTOM_GLOTTOLOG_ID] = language
-    return language
+TEXT = (
+    "Et si Guilelm Arnal me facia tal cosa que dreçar no·m volgués ho no poqués, "
+    "ho ssi·s partia de mi, che Mir Arnall me romasés aisí com lo·m avia al dia "
+    "che ad él lo commanné."
+)
 
 
-def _build_pipeline() -> Pipeline:
-    return Pipeline(
+def main() -> Doc:
+    language: Language = Language(
+        name="Old Catalan",
+    )
+    pipeline = Pipeline(
         description="User-defined GenAI pipeline for Old Catalan.",
-        glottolog_id=CUSTOM_GLOTTOLOG_ID,
         processes=[
             MultilingualNormalizeProcess,
             BasicSentenceSplitProcess,
@@ -71,29 +70,9 @@ def _build_pipeline() -> Pipeline:
             GenAITranslationProcess,
         ],
     )
-
-
-TEXT = (
-    "Et si Guilelm Arnal me facia tal cosa que dreçar no·m volgués ho no poqués, "
-    "ho ssi·s partia de mi, che Mir Arnall me romasés aisí com lo·m avia al dia "
-    "che ad él lo commanné."
-)
-
-
-def main() -> Doc:
-    language = _register_language()
-    pipeline = _build_pipeline()
-    backend_env = os.getenv("CLTK_BACKEND", "openai")
-    if backend_env not in ("openai", "mistral", "ollama", "ollama-cloud"):
-        raise ValueError(
-            "CLTK_BACKEND must be one of: openai, mistral, ollama, ollama-cloud."
-        )
-    backend = cast(BACKEND_TYPES, backend_env)
-    model = os.getenv("CLTK_MODEL")
     nlp = NLP(
         language_code=language.name,
-        backend=backend,
-        model=model,
+        backend="openai",
         custom_pipeline=pipeline,
         suppress_banner=True,
     )
@@ -102,4 +81,6 @@ def main() -> Doc:
 
 if __name__ == "__main__":
     doc = main()
-    print(doc.translation or "(no translation returned)")
+    print("Translation:", doc.translation.text)
+    print("Notes:", doc.translation.notes)
+    print("Confidence:", doc.translation.confidence)
