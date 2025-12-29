@@ -30,8 +30,8 @@ children: dict[str, set[str]] = defaultdict(set)
 # Ensure top-level Home and Reference are present in nav
 nav["Home"] = "index.md"
 nav["Quickstart"] = "quickstart.md"
-nav["Languages"] = "languages.md"
 nav["Pipelines"] = "pipelines.md"
+nav["Languages"] = "languages.md"
 nav["CLTK Data Types"] = "cltk-data-types.md"
 nav["Command Line Interface"] = "command-line-interface.md"
 nav["User-Defined Pipelines"] = "user-defined-pipelines.md"

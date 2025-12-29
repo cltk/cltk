@@ -25,7 +25,7 @@ iambic trimeter and wires it into a TOML pipeline. The scanner is intentionally
 naive (syllable counts + basic long-vowel/diphthong heuristics), but it shows
 how to add a custom process without changing CLTK code.
 
-`examples/pipeline_greek_iambic.toml`:
+`scripts/pipeline_greek_iambic.toml`:
 
 ```toml
 language = "anci1242"
@@ -36,7 +36,7 @@ enabled = true
 output_key = "scansion"
 ```
 
-`scan_iambic_trimeter.py`:
+`scripts/scan_iambic_trimeter.py`:
 
 ```python
 import re
@@ -104,7 +104,7 @@ TEXT = """Εἴθ᾽ ὤφελ᾽ Ἀργοῦς μὴ διαπτάσθαι σκ
 5ἀνδρῶν ἀριστέων οἳ τὸ πάγχρυσον δέρος
 Πελίᾳ μετῆλθον."""
 
-pipeline = Pipeline.from_toml("examples/pipeline_greek_iambic.toml")
+pipeline = Pipeline.from_toml("scripts/pipeline_greek_iambic.toml")
 nlp = NLP(language_code="anci1242", custom_pipeline=pipeline)
 doc = nlp.analyze(TEXT)
 
@@ -113,10 +113,10 @@ for line, scan in zip(TEXT.splitlines(), doc.metadata["scansion"]):
     print(scan)
 ```
 
-Calling `python examples/scan_iambic_trimeter.py` returns:
+Calling `python scripts/scan_iambic_trimeter.py` returns:
 
 ```text
-% python examples/scan_iambic_trimeter.py
+% python scripts/scan_iambic_trimeter.py
 𐤀 CLTK version '2.3.10'. When using the CLTK in research, please cite: https://aclanthology.org/2021.acl-demo.3/
 Selected language "Ionic-Attic Ancient Greek" ("anci1242") without dialect.
 Pipeline for `NLP("anci1242", backend="stanza")`: ['GreekIambicTrimeterProcess']
@@ -184,7 +184,7 @@ Key points:
 - You can enable or disable steps with `enabled = true/false`.
 - Both `[step.dependency.genai]` (nested) and `[step."dependency.genai"]` (quoted) are supported.
 
-Example (`examples/pipeline_latin_genai.toml`):
+Example (`scripts/pipeline_latin_genai.toml`):
 
 ```toml
 language = "lati1261"
@@ -260,7 +260,7 @@ Load a TOML spec and pass it as the `custom_pipeline` for `NLP().analyze()`:
 from cltk import NLP
 from cltk.core.data_types import Pipeline
 
-pipeline = Pipeline.from_toml("examples/pipeline_latin_genai.toml")
+pipeline = Pipeline.from_toml("scripts/pipeline_latin_genai.toml")
 nlp = NLP(language_code="lati1261", backend="openai", custom_pipeline=pipeline)
 doc = nlp.analyze("Gallia est omnis divisa in partes tres.")
 ```
@@ -272,7 +272,7 @@ This keeps the normal `NLP` flow while letting you control step order, enable/di
 Use the CLI to inspect or validate specs:
 
 ```bash
-cltk pipeline describe --toml examples/pipeline_latin_genai.toml
-cltk pipeline validate --toml examples/pipeline_latin_genai.toml
+cltk pipeline describe --toml scripts/pipeline_latin_genai.toml
+cltk pipeline validate --toml scripts/pipeline_latin_genai.toml
 cltk pipeline presets
 ```

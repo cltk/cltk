@@ -65,7 +65,7 @@ TEXT = """Εἴθ᾽ ὤφελ᾽ Ἀργοῦς μὴ διαπτάσθαι σκ
 5ἀνδρῶν ἀριστέων οἳ τὸ πάγχρυσον δέρος
 Πελίᾳ μετῆλθον."""
 
-pipeline = Pipeline.from_toml("examples/pipeline_greek_iambic.toml")
+pipeline = Pipeline.from_toml("scripts/pipeline_greek_iambic.toml")
 nlp = NLP(language_code="anci1242", custom_pipeline=pipeline)
 doc = nlp.analyze(TEXT)
 

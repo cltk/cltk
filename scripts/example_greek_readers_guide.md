@@ -8,24 +8,25 @@
 
 > Translation (en-US): That you, O men of Athens, have suffered at the hands of my accusers I do not know.
 
-> Notes: I rendered ὦ ἄνδρες Ἀθηναῖοι as the vocative "O men of Athens." The ὅτι-clause is the object of οἶδα, so the sentence means "I do not know that..." rather than asserting the suffering as fact. "ὑπὸ τῶν ἐμῶν κατηγόρων" is taken as an agent phrase: "at the hands of my accusers / by my accusers."
+> Notes: ὅτι introduces the content clause; πεπόνθατε (perfect) conveys a present relevance "have suffered." ὦ ἄνδρες Ἀθηναῖοι is the vocative formula "O men of Athens."
 
 ### Word-by-word
 
 #### ὅτι
 
-*subordinating conjunction* · **that, because**
+*subordinating conjunction* · **that; because**
 
 - **Lemma:** ὅτι
-- **Gloss:** that, because
+- **Gloss:** that; because
 - **Dependency Role:** marker (`mark`)
 - **Governor:** token 9
-- **IPA (attic_5c_bce):** `ˈho.ti`
+- **IPA (attic_5c_bce):** `ˈhotì`
 - **Syllables:** ὅ-τι
 <details>
 <summary>Phonology</summary>
-- rough breathing on initial ὅ -> h- onset
-- short vowel in second syllable preserved
+- aspiration of initial ὅ (h-)
+- o short followed by tonic accent on first syllable
+- final -τι pronounced /ti/
 </details>
 
 #### μὲν
@@ -35,71 +36,73 @@
 - **Lemma:** μὲν
 - **Gloss:** on the one hand
 - **Dependency Role:** discourse element (`discourse`)
-- **Governor:** token 3
+- **Governor:** token 9
 - **IPA (attic_5c_bce):** `mèn`
 - **Syllables:** μὲν
 <details>
 <summary>Phonology</summary>
-- short e with grave accent
-- monosyllabic particle, no internal reduction
+- monosyllable with tonic accent on ε
+- final nasal consonant pronounced /n/
 </details>
 
 #### ὑμεῖς
 
 *pronoun* · **you (plural)**
 
-- **Lemma:** ὑμεῖς
+- **Lemma:** σύ
 - **Gloss:** you (plural)
 - **Dependency Role:** nominal subject (`nsubj`)
 - **Governor:** token 9
-- **IPA (attic_5c_bce):** `hy.meîs`
-- **Syllables:** ὑ-μεῖς
+- **IPA (attic_5c_bce):** `hyˈmeːs`
+- **Syllables:** ὑ-μείς
 <details>
 <summary>Phonology</summary>
-- initial ὑ pronounced as y- (palatalized/rounded approximant)
-- diphthong -ει represented as /eî/ in reconstruction
+- initial ὑ as /hy-/
+- diphthong ει pronounced /eː/ (long) with accent on ultima
+- final -ς /s/
 </details>
 
 #### ,
 
-*punctuation* · **comma**
+*punctuation* · **punctuation**
 
 - **Lemma:** ,
-- **Gloss:** comma
+- **Gloss:** punctuation
 - **Dependency Role:** punctuation (`punct`)
 - **Governor:** token 9
 - **IPA (attic_5c_bce):** `,`
 
 #### ὦ
 
-*interjection* · **O (vocative interjection)**
+*interjection* · **O (vocative particle)**
 
 - **Lemma:** ὦ
-- **Gloss:** O (vocative interjection)
+- **Gloss:** O (vocative particle)
 - **Dependency Role:** vocative (`vocative`)
 - **Governor:** token 6
-- **IPA (attic_5c_bce):** `ɔ̂`
+- **IPA (attic_5c_bce):** `ɔ̂ː`
 - **Syllables:** ὦ
 <details>
 <summary>Phonology</summary>
-- circumflex indicates long vowel /ɔ̂/ in reconstructed pronunciation
-- vocative interjection, often followed by a vocative noun phrase
+- long vowel ὦ pronounced /ɔː/ with circumflex (lengthened)
+- vocative particle with tonic accent
 </details>
 
 #### ἄνδρες
 
-*noun* · **men (vocative/plural)**
+*noun* · **men**
 
 - **Lemma:** ἀνήρ
-- **Gloss:** men (vocative/plural)
+- **Gloss:** men
 - **Dependency Role:** vocative (`vocative`)
 - **Governor:** token 9
-- **IPA (attic_5c_bce):** `ˈan.dres`
+- **IPA (attic_5c_bce):** `ˈándres`
 - **Syllables:** ἄν-δρες
 <details>
 <summary>Phonology</summary>
-- acute on first syllable -> stress/primary accent
-- plural formation with -ες preserved
+- short alpha with acute on first syllable
+- cluster -dr- pronounced /dr/
+- final -ες pronounced /es/
 </details>
 
 #### Ἀθηναῖοι
@@ -110,56 +113,56 @@
 - **Gloss:** Athenians
 - **Dependency Role:** appositional modifier (`appos`)
 - **Governor:** token 6
-- **IPA (attic_5c_bce):** `a.thɛ.ˈnai̯.oi`
+- **IPA (attic_5c_bce):** `a.thɛˈnɛː.i.oi`
 - **Syllables:** Ἀ-θη-ναῖ-οι
 <details>
 <summary>Phonology</summary>
-- initial smooth breathing (no h) on Ἀ
-- diphthong -ai in -naῖ preserved as /ai̯/
-- plural ending -οι pronounced as /oi/
+- initial rough breathing Ἀ -> /a/ with aspiration on following consonant
+- diphthong -αῖ pronounced /aiː/ (long diphthong) with accent on the diphthong
+- final -οι pronounced /oi̯/
 </details>
 
 #### ,
 
-*punctuation* · **comma**
+*punctuation* · **punctuation**
 
 - **Lemma:** ,
-- **Gloss:** comma
+- **Gloss:** punctuation
 - **Dependency Role:** punctuation (`punct`)
-- **Governor:** token 6
+- **Governor:** token 9
 - **IPA (attic_5c_bce):** `,`
 
 #### πεπόνθατε
 
-*verb* · **you have suffered**
+*verb* · **you have suffered; you have experienced**
 
 - **Lemma:** πάσχω
-- **Gloss:** you have suffered
+- **Gloss:** you have suffered; you have experienced
 - **Dependency Role:** clausal complement (`ccomp`)
 - **Governor:** token 16
-- **IPA (attic_5c_bce):** `pe.ˈpón.tha.te`
+- **IPA (attic_5c_bce):** `pe.pón.tha.te`
 - **Syllables:** πε-πόν-θα-τε
 <details>
 <summary>Phonology</summary>
-- perfect stem reduplication pe- preserved
-- aspiration on θ -> th
-- second-person plural ending -τε
+- reduplicated perfect stem pe-ponth-
+- aspiration on θ -> /th/
+- ending -ετε second person plural pronounced /ete/
 </details>
 
 #### ὑπὸ
 
-*adposition* · **by (with agent in genitive)**
+*adposition* · **by (agent, with genitive)**
 
 - **Lemma:** ὑπό
-- **Gloss:** by (with agent in genitive)
+- **Gloss:** by (agent, with genitive)
 - **Dependency Role:** case marking (`case`)
 - **Governor:** token 13
 - **IPA (attic_5c_bce):** `hy.pò`
 - **Syllables:** ὑ-πὸ
 <details>
 <summary>Phonology</summary>
-- initial ὑ = y-
-- grave on ultima indicates proclitic/intonation use
+- initial ὑ as /hy-/
+- short o with accent on final syllable
 </details>
 
 #### τῶν
@@ -174,49 +177,49 @@
 - **Syllables:** τῶν
 <details>
 <summary>Phonology</summary>
-- circumflex indicates long vowel /ɔ̂ː/
-- genitive plural masculine/neuter article form
+- long omega with circumflex /ɔː/ plus nasal -ν
+- article in genitive plural agreeing with following noun
 </details>
 
 #### ἐμῶν
 
-*pronoun* · **of me; my (genitive plural)**
+*pronoun* · **of me; my (gen. pl.)**
 
 - **Lemma:** ἐμός
-- **Gloss:** of me; my (genitive plural)
+- **Gloss:** of me; my (gen. pl.)
 - **Dependency Role:** nominal modifier (`nmod`)
 - **Governor:** token 13
 - **IPA (attic_5c_bce):** `e.mɔ̂ːn`
 - **Syllables:** ἐ-μῶν
 <details>
 <summary>Phonology</summary>
-- initial short e preserved
-- circumflex on ῶ indicates long /ɔ̂ː/
-- genitive plural agreeing with τῶν and κατηγόρων
+- omega long with circumflex /ɔː/ in second syllable
+- genitive plural of possessive pronoun with nasal ending
 </details>
 
 #### κατηγόρων
 
-*noun* · **accusers (genitive plural)**
+*noun* · **accusers; prosecutors**
 
 - **Lemma:** κατήγορος
-- **Gloss:** accusers (genitive plural)
+- **Gloss:** accusers; prosecutors
 - **Dependency Role:** oblique nominal (`obl`)
 - **Governor:** token 9
-- **IPA (attic_5c_bce):** `ka.tɛ.ˈgó.rɔːn`
+- **IPA (attic_5c_bce):** `ka.tɛˈɡɔː.rɔːn`
 - **Syllables:** κα-τη-γό-ρων
 <details>
 <summary>Phonology</summary>
-- omicron with acute on γό -> stressed syllable
-- genitive plural ending -ων pronounced /ɔːn/
+- omega lengthening in -ων /ɔːn/
+- accent on penult γό
+- cluster -τρ- simplified to /tr/; final -ων nasalized
 </details>
 
 #### ,
 
-*punctuation* · **comma**
+*punctuation* · **punctuation**
 
 - **Lemma:** ,
-- **Gloss:** comma
+- **Gloss:** punctuation
 - **Dependency Role:** punctuation (`punct`)
 - **Governor:** token 9
 - **IPA (attic_5c_bce):** `,`
@@ -232,8 +235,8 @@
 - **Syllables:** οὐκ
 <details>
 <summary>Phonology</summary>
-- diphthong οὐ pronounced /ou/
-- kappa final preserved as /k/
+- diphthong ου pronounced /uː/
+- final κ pronounced /k/ (negative enclitic before vowel would be οὐ)
 </details>
 
 #### οἶδα
@@ -243,20 +246,21 @@
 - **Lemma:** οἶδα
 - **Gloss:** I know
 - **Dependency Role:** root (`root`)
-- **IPA (attic_5c_bce):** `oî.da`
+- **IPA (attic_5c_bce):** `oː.î.da`
 - **Syllables:** οἶ-δα
 <details>
 <summary>Phonology</summary>
-- diphthong οἶ /oi/ with acute-circumflex pattern reconstructed as /oî/
-- perfect form used with present sense retained
+- diphthong οἶ pronounced /oːi/ (circumflex indicating lengthening)
+- initial vowel long with accent on first syllable
+- final -δα pronounced /da/
 </details>
 
 #### :
 
-*punctuation* · **colon**
+*punctuation* · **punctuation (colon)**
 
 - **Lemma:** :
-- **Gloss:** colon
+- **Gloss:** punctuation (colon)
 - **Dependency Role:** punctuation (`punct`)
 - **Governor:** token 16
 - **IPA (attic_5c_bce):** `:`
@@ -267,13 +271,13 @@
 `-- 16 οἶδα [VERB] <root>
     |-- 9 πεπόνθατε [VERB] <ccomp>
     |   |-- 1 ὅτι [SCONJ] <mark>
+    |   |-- 2 μὲν [PART] <discourse>
     |   |-- 3 ὑμεῖς [PRON] <nsubj>
-    |   |   `-- 2 μὲν [PART] <discourse>
     |   |-- 4 , [PUNCT] <punct>
     |   |-- 6 ἄνδρες [NOUN] <vocative>
     |   |   |-- 5 ὦ [INTJ] <vocative>
-    |   |   |-- 7 Ἀθηναῖοι [PROPN] <appos>
-    |   |   `-- 8 , [PUNCT] <punct>
+    |   |   `-- 7 Ἀθηναῖοι [PROPN] <appos>
+    |   |-- 8 , [PUNCT] <punct>
     |   |-- 13 κατηγόρων [NOUN] <obl:agent>
     |   |   |-- 10 ὑπὸ [ADP] <case>
     |   |   |-- 11 τῶν [DET] <det>
