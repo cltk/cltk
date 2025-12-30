@@ -2,9 +2,9 @@
 
 This page summarizes the core data structures you will work with when using CLTK. The first section covers objects returned by `NLP().analyze()`. The second section covers internal types that can be used to override defaults.
 
-## Objects returned by NLP().analyze()
+## Objects returned by `NLP().analyze()`
 
-### Doc
+### `Doc`
 
 The `Doc` object is the top-level container returned by `NLP().analyze()`.
 
@@ -32,7 +32,7 @@ Notes:
 
 - The `translation` field is an optional string. Structured translations live in `sentence_translations` and `translations`.
 
-### Word
+### `Word`
 
 The `Word` object contains per-token annotations.
 
@@ -43,8 +43,10 @@ Key attributes:
 - `index_sentence`: Sentence index within the doc.
 - `string`: Token surface form.
 - `lemma`, `stem`: Lemma/stem if produced.
-- `upos`, `xpos`, `features`: POS tag and morphosyntactic features.
-- `dependency_relation`, `governor`: Dependency parse attributes.
+- `upos`: Holds `UDPartOfSpeechTag` for a POS tag (e.g., noun, verb) conformant to the Universal Dependencies standard.
+- `features`: Holds `UDFeatureTagSet` Full morphosynatic tags conformant to the Universal Dependencies standard.
+- `dependency_relation`: For `UDDeprelTag`, a dependency relation label conformant to the Universal Dependencies standard.
+- `governor`: An `int` pointing to the dependency head of the parse tree.
 - `embedding`: Optional vector embedding.
 - `stop`: Stopword flag.
 - `named_entity`: Named entity tag if available.
@@ -56,7 +58,40 @@ Notes:
 
 - Internal `_doc` reference may be attached to allow back-references to the parent `Doc`.
 
-### Sentence
+### `UDPartOfSpeechTag`
+
+Universal Dependencies part-of-speech tag enum used for `Word.upos`.
+
+Notes:
+
+- Values follow the UD POS tagset; see `src/cltk/morphosyntax/ud_pos.py` for the full list.
+- See the UD website for full definitions: <https://universaldependencies.org/u/pos/index.html>
+
+### `UDFeatureTagSet`
+
+Bundle of Universal Dependencies morphosyntactic features used for `Word.features`. Consists of one or more `UDDeprelTag`. Example:
+
+```python
+>>> nlp = NLP("lat", suppress_banner=True)
+>>> doc = nlp.analyze("accipe")
+>>> doc.words[0].features
+UDFeatureTagSet([UDFeatureTag(Aspect=Imperfective), UDFeatureTag(Mood=Imperative), UDFeatureTag(Number=Singular), UDFeatureTag(Person=Second person), UDFeatureTag(Tense=Present), UDFeatureTag(VerbForm=Finite), UDFeatureTag(Voice=Active)])
+```
+
+Notes:
+
+- Exposes UD feature keys and values as a structured tag set; see `src/cltk/morphosyntax/ud_features.py`.
+
+### `UDDeprelTag`
+
+Universal Dependencies dependency relation tag used for `Word.dependency_relation`.
+
+Notes:
+
+- Values follow the UD dependency relation set; see `src/cltk/morphosyntax/ud_deprels.py`.
+- See the UD website for full definitions: <https://universaldependencies.org/u/feat/all.html>
+
+### `Sentence`
 
 The `Sentence` object groups words and optional metadata for a sentence.
 
@@ -72,7 +107,7 @@ Notes:
 
 - `Sentence` objects are produced by `Doc.sentences` and are derived from `Word.index_sentence` and `Word.index_token`.
 
-### Translation
+### `Translation`
 
 Structured translation metadata.
 
@@ -84,7 +119,7 @@ Key attributes:
 - `notes`: Optional notes from the translation process.
 - `confidence`: Optional confidence value in `[0, 1]`.
 
-### Gloss
+### `Gloss`
 
 Contextual and dictionary gloss information.
 
@@ -94,9 +129,11 @@ Key attributes:
 - `context`: Contextual gloss (if provided).
 - `alternatives`: List of `ScoredText` alternatives with optional probabilities.
 
-## Internal types (override defaults)
+## Internal types
 
-### Language
+These may be used to override the CLTK's defaults.
+
+### `Language`
 
 Language metadata used for resolution and display.
 
@@ -113,9 +150,9 @@ Notes:
 
 - For user-defined languages, supply a `glottolog_id` and `name` at minimum.
 
-### Dialect
+### `Dialect`
 
-Dialect metadata associated with a parent `Language`.
+`Dialect` metadata associated with a parent `Language`.
 
 Key attributes:
 
@@ -124,7 +161,7 @@ Key attributes:
 - `name`: Dialect name.
 - `status`, `alt_names`, `scripts`, `orthographies`: Descriptive metadata.
 
-### Pipeline
+### `Pipeline`
 
 A pipeline is an ordered set of processes that transforms a `Doc`.
 
@@ -144,9 +181,9 @@ Notes:
 
 - If `glottolog_id` is set, the pipeline can auto-resolve `language`/`dialect`.
 
-### Process
+### `Process`
 
-Abstract base class for a pipeline step. Each process transforms a `Doc`.
+Base class for a pipeline step. Each process accepts, transforms, and finally returns a `Doc`.
 
 Key attributes:
 
@@ -157,7 +194,7 @@ Required method:
 
 - `run(input_doc) -> Doc`: Apply the process and return the modified doc.
 
-### CLTKConfig
+### `CLTKConfig`
 
 Bundled configuration for initializing `NLP()`.
 
