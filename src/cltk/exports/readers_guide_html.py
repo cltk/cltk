@@ -19,6 +19,7 @@ from cltk.exports._helpers import (
 
 
 def _sentence_translation(doc: Doc, sentence_index: int) -> Optional[str]:
+    """Return the sentence translation text or fallback document translation."""
     translation_map = getattr(doc, "sentence_translations", None) or {}
     translation = translation_map.get(sentence_index)
     if translation is not None:

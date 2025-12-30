@@ -22,6 +22,7 @@ def _select_second_line(
     include_lemma: bool,
     include_morph: bool,
 ) -> str:
+    """Return which token annotation to render on the second line."""
     if include_morph:
         return "morph"
     if include_lemma:
@@ -32,6 +33,7 @@ def _select_second_line(
 
 
 def _sentence_translation(doc: Doc, sentence_index: int) -> Optional[str]:
+    """Return the sentence translation text or fallback document translation."""
     translation_map = getattr(doc, "sentence_translations", None) or {}
     translation = translation_map.get(sentence_index)
     if translation is not None:
