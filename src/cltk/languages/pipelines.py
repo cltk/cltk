@@ -590,6 +590,7 @@ class StanzaPipeline(Pipeline):
 
     @model_validator(mode="after")
     def _check_stanza_available(self) -> "StanzaPipeline":
+        """Validate stanza availability for stanza-backed pipelines."""
         ensure_stanza_available()
         return self
 
@@ -607,6 +608,7 @@ class LatinStanzaPipeline(StanzaPipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing LatinStanzaPipeline with language: {self.language}"
         )
@@ -626,6 +628,7 @@ class AncientGreekStanzaPipeline(StanzaPipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing AncientGreekStanzaPipeline with language: {self.language}"
         )
@@ -649,6 +652,7 @@ class AkkadianGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         assert self.language, "Language not found"
         plog(self).debug(
             f"Initializing AkkadianGenAIPipeline with language: {self.language.name}"
@@ -673,6 +677,7 @@ class ClassicalArabicGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing ArabicGenAIPipeline with language: {self.language}"
         )
@@ -697,6 +702,7 @@ class ClassicalSyriacGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         assert self.language, "Language not found"
         plog(self).debug(
             f"Initializing ClassicalSyriacGenAIPipeline with language: {self.language.name}"
@@ -722,6 +728,7 @@ class ClassicalTibetanPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         assert self.language, "Language not found"
         plog(self).debug(
             f"Initializing ClassicalTibetanGenAIPipeline with language: {self.language.name}"
@@ -763,6 +770,7 @@ class GothicGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing GothicGenAIPipeline with language: {self.language}"
         )
@@ -787,6 +795,7 @@ class AncientGreekGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing GreekGenAIPipeline with language: {self.language}"
         )
@@ -810,6 +819,7 @@ class BiblicalHebrewGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(f"Initializing LatinPipeline with language: {self.language}")
         plog(self).info("LatinPipeline created.")
 
@@ -832,6 +842,7 @@ class LatinGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(f"Initializing LatinPipeline with language: {self.language}")
         plog(self).info("LatinPipeline created.")
 
@@ -853,6 +864,7 @@ class MiddleEnglishGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing MiddleEnglishGenAIPipeline with language: {self.language}"
         )
@@ -876,6 +888,7 @@ class MiddleFrenchGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing MiddleFrenchGenAIPipeline with language: {self.language}"
         )
@@ -899,6 +912,7 @@ class MiddlePersianGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing MiddlePersianGenAIPipeline with language: {self.language}"
         )
@@ -939,6 +953,7 @@ class ChurchSlavonicGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing ChurchSlavonicGenAIPipeline with language: {self.language}"
         )
@@ -962,6 +977,7 @@ class OldEnglishGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         assert self.language, "Language not found"
         plog(self).debug(
             f"Initializing OldEnglishGenAIPipeline with language: {self.language.name}"
@@ -986,6 +1002,7 @@ class OldFrenchGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing OldFrenchGenAIPipeline with language: {self.language}"
         )
@@ -1009,6 +1026,7 @@ class OldNorseGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing OldNorseGenAIPipeline with language: {self.language}"
         )
@@ -1032,6 +1050,7 @@ class PaliGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(f"Initializing PaliPipeline with language: {self.language}")
         plog(self).info("PaliPipeline created.")
 
@@ -1053,6 +1072,7 @@ class ClassicalSanskritGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing ClassicalSanskritGenAIPipeline with language: {self.language}"
         )
@@ -1076,6 +1096,7 @@ class VedicSanskritGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing VedicSanskritGenAIPipeline with language: {self.language}"
         )
@@ -1100,6 +1121,7 @@ class OldHighGermanGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing OldHighGermanGenAIPipeline with language: {self.language}"
         )
@@ -1123,6 +1145,7 @@ class MiddleHighGermanGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing MiddleHighGermanGenAIPipeline with language: {self.language}"
         )
@@ -1148,6 +1171,7 @@ class LiteraryChineseGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing LiteraryChineseGenAIPipeline with language: {self.language}"
         )
@@ -1167,6 +1191,7 @@ class ChurchSlavonicStanzaPipeline(StanzaPipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing ChurchSlavonicStanzaPipeline with language: {self.language}"
         )
@@ -1186,6 +1211,7 @@ class OldFrenchStanzaPipeline(StanzaPipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing OldFrenchStanzaPipeline with language: {self.language}"
         )
@@ -1205,6 +1231,7 @@ class GothicStanzaPipeline(StanzaPipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing GothicStanzaPipeline with language: {self.language}"
         )
@@ -1224,6 +1251,7 @@ class OldEnglishStanzaPipeline(StanzaPipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing OldEnglishStanzaPipeline with language: {self.language}"
         )
@@ -1243,6 +1271,7 @@ class LiteraryChineseStanzaPipeline(StanzaPipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing LiteraryChineseStanzaPipeline with language: {self.language}"
         )
@@ -1262,6 +1291,7 @@ class OttomanTurkishStanzaPipeline(StanzaPipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing OttomanTurkishStanzaPipeline with language: {self.language}"
         )
@@ -1281,6 +1311,7 @@ class ClassicalArmenianStanzaPipeline(StanzaPipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing ClassicalArmenianStanzaPipeline with language: {self.language}"
         )
@@ -1301,6 +1332,7 @@ class CopticStanzaPipeline(StanzaPipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing CopticStanzaPipeline with language: {self.language}"
         )
@@ -1320,6 +1352,7 @@ class OldRussianStanzaPipeline(StanzaPipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing OldRussianStanzaPipeline with language: {self.language}"
         )
@@ -1343,6 +1376,7 @@ class DemoticGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing DemoticGenAIPipeline with language: {self.language}"
         )
@@ -1366,6 +1400,7 @@ class HittiteGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing HittiteGenAIPipeline with language: {self.language}"
         )
@@ -1389,6 +1424,7 @@ class TocharianAGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing TocharianAGenAIPipeline with language: {self.language}"
         )
@@ -1412,6 +1448,7 @@ class TocharianBGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing TocharianBGenAIPipeline with language: {self.language}"
         )
@@ -1435,6 +1472,7 @@ class AvestanGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing AvestanGenAIPipeline with language: {self.language}"
         )
@@ -1458,6 +1496,7 @@ class BactrianGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing BactrianGenAIPipeline with language: {self.language}"
         )
@@ -1481,6 +1520,7 @@ class SogdianGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing SogdianGenAIPipeline with language: {self.language}"
         )
@@ -1504,6 +1544,7 @@ class KhotaneseGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing KhotaneseGenAIPipeline with language: {self.language}"
         )
@@ -1527,6 +1568,7 @@ class TumshuqeseGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing TumshuqeseGenAIPipeline with language: {self.language}"
         )
@@ -1550,6 +1592,7 @@ class OldPersianGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing OldPersianGenAIPipeline with language: {self.language}"
         )
@@ -1573,6 +1616,7 @@ class EarlyIrishGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing OldIrishGenAIPipeline with language: {self.language}"
         )
@@ -1596,6 +1640,7 @@ class UgariticGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing UgariticGenAIPipeline with language: {self.language}"
         )
@@ -1619,6 +1664,7 @@ class PhoenicianGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing PhoenicianGenAIPipeline with language: {self.language}"
         )
@@ -1642,6 +1688,7 @@ class GeezGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing GeezGenAIPipeline with language: {self.language}"
         )
@@ -1665,6 +1712,7 @@ class MiddleEgyptianGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing MiddleEgyptianGenAIPipeline with language: {self.language}"
         )
@@ -1688,6 +1736,7 @@ class OldEgyptianGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing OldEgyptianGenAIPipeline with language: {self.language}"
         )
@@ -1711,6 +1760,7 @@ class LateEgyptianGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing LateEgyptianGenAIPipeline with language: {self.language}"
         )
@@ -1734,6 +1784,7 @@ class ParthianGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing LateEgyptianGenAIPipeline with language: {self.language}"
         )
@@ -1757,6 +1808,7 @@ class OldMiddleWelshGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing MiddleWelshGenAIPipeline with language: {self.language}"
         )
@@ -1780,6 +1832,7 @@ class MiddleBretonGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing MiddleBretonGenAIPipeline with language: {self.language}"
         )
@@ -1803,6 +1856,7 @@ class MiddleCornishGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing CornishGenAIPipeline with language: {self.language}"
         )
@@ -1826,6 +1880,7 @@ class OldPrussianGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing OldPrussianGenAIPipeline with language: {self.language}"
         )
@@ -1849,6 +1904,7 @@ class LithuanianGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing LithuanianGenAIPipeline with language: {self.language}"
         )
@@ -1872,6 +1928,7 @@ class LatvianGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing LatvianGenAIPipeline with language: {self.language}"
         )
@@ -1895,6 +1952,7 @@ class AlbanianGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing AlbanianGenAIPipeline with language: {self.language}"
         )
@@ -1918,6 +1976,7 @@ class ClassicalArmenianGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing ClassicalArmenianGenAIPipeline with language: {self.language}"
         )
@@ -1941,6 +2000,7 @@ class MiddleArmenianGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing MiddleArmenianGenAIPipeline with language: {self.language}"
         )
@@ -1963,6 +2023,7 @@ class CuneiformLuwianGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing CuneiformLuwianGenAIPipeline with language: {self.language}"
         )
@@ -1986,6 +2047,7 @@ class HieroglyphicLuwianGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing HieroglyphicLuwianGenAIPipeline with language: {self.language}"
         )
@@ -2009,6 +2071,7 @@ class LycianAGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing LycianGenAIPipeline with language: {self.language}"
         )
@@ -2032,6 +2095,7 @@ class LydianGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing LydianGenAIPipeline with language: {self.language}"
         )
@@ -2055,6 +2119,7 @@ class PalaicGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing PalaicGenAIPipeline with language: {self.language}"
         )
@@ -2078,6 +2143,7 @@ class CarianGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing CarianGenAIPipeline with language: {self.language}"
         )
@@ -2100,6 +2166,7 @@ class SauraseniPrakritGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing SauraseniPrakritGenAIPipeline with language: {self.language}"
         )
@@ -2123,6 +2190,7 @@ class MaharastriPrakritGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing MaharastriPrakritGenAIPipeline with language: {self.language}"
         )
@@ -2146,6 +2214,7 @@ class MagadhiPrakritGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing MagadhiPrakritGenAIPipeline with language: {self.language}"
         )
@@ -2169,6 +2238,7 @@ class GandhariGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing GandhariGenAIPipeline with language: {self.language}"
         )
@@ -2193,6 +2263,7 @@ class HindiGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing HindiGenAIPipeline with language: {self.language}"
         )
@@ -2216,6 +2287,7 @@ class KhariBoliGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing KhariBoliGenAIPipeline with language: {self.language}"
         )
@@ -2239,6 +2311,7 @@ class BrajGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing BrajGenAIPipeline with language: {self.language}"
         )
@@ -2262,6 +2335,7 @@ class AwadhiGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing AwadhiGenAIPipeline with language: {self.language}"
         )
@@ -2285,6 +2359,7 @@ class UrduGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing UrduGenAIPipeline with language: {self.language}"
         )
@@ -2309,6 +2384,7 @@ class BengaliGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing BengaliGenAIPipeline with language: {self.language}"
         )
@@ -2332,6 +2408,7 @@ class OdiaGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing OdiaGenAIPipeline with language: {self.language}"
         )
@@ -2355,6 +2432,7 @@ class AssameseGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing AssameseGenAIPipeline with language: {self.language}"
         )
@@ -2378,6 +2456,7 @@ class GujaratiGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing GujaratiGenAIPipeline with language: {self.language}"
         )
@@ -2401,6 +2480,7 @@ class MarathiGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing MarathiGenAIPipeline with language: {self.language}"
         )
@@ -2424,6 +2504,7 @@ class SinhalaGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing SinhalaGenAIPipeline with language: {self.language}"
         )
@@ -2447,6 +2528,7 @@ class EasternPanjabiGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing EasternPanjabiGenAIPipeline with language: {self.language}"
         )
@@ -2470,6 +2552,7 @@ class SindhiGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing SindhiGenAIPipeline with language: {self.language}"
         )
@@ -2493,6 +2576,7 @@ class KashmiriGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing KashmiriGenAIPipeline with language: {self.language}"
         )
@@ -2721,6 +2805,7 @@ class BagriGenAIPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
+        """Log pipeline initialization details."""
         plog(self).debug(
             f"Initializing BagriGenAIPipeline with language: {self.language}"
         )

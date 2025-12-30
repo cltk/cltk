@@ -25,15 +25,18 @@ ET.register_namespace("", _TEI_NS)
 
 
 def _xml_id_attr(value: str) -> dict[str, str]:
+    """Return a mapping for an XML ID attribute in the TEI namespace."""
     return {f"{{{_XML_NS}}}id": value}
 
 
 def _set_attributes(element: ET.Element, attrs: list[tuple[str, str]]) -> None:
+    """Assign a list of key/value attributes to an element."""
     for key, value in attrs:
         element.set(key, value)
 
 
 def _doc_id(doc: Doc) -> str:
+    """Return a safe XML ID for the document from metadata or a default."""
     metadata = getattr(doc, "metadata", None) or {}
     raw_id = metadata.get("id") or metadata.get("reference") or metadata.get("title")
     if raw_id:
@@ -42,6 +45,7 @@ def _doc_id(doc: Doc) -> str:
 
 
 def _doc_language(doc: Doc) -> tuple[Optional[str], Optional[str]]:
+    """Return (glottolog_id, name) for the document language if present."""
     language = getattr(doc, "language", None)
     if not language:
         return None, None
@@ -51,6 +55,7 @@ def _doc_language(doc: Doc) -> tuple[Optional[str], Optional[str]]:
 
 
 def _app_version() -> Optional[str]:
+    """Return the installed CLTK version or None if unavailable."""
     try:
         return metadata.version("cltk")
     except metadata.PackageNotFoundError:
@@ -58,6 +63,7 @@ def _app_version() -> Optional[str]:
 
 
 def _indent(elem: ET.Element, level: int = 0) -> None:
+    """Pretty-print XML by adding indentation in-place."""
     indent_str = "\n" + "  " * level
     if len(elem):
         if not elem.text or not elem.text.strip():

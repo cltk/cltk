@@ -91,6 +91,7 @@ def format_morph(word: Word) -> str:
 
 
 def _gloss_from_gloss_field(gloss: object) -> Optional[str]:
+    """Extract a gloss string from a Gloss-like object."""
     context = getattr(gloss, "context", None)
     if context:
         return str(context)

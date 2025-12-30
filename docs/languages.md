@@ -35774,7 +35774,9 @@ if __name__ == "__main__":
 This script returns:
 
 > Translation: And if Guilelm Arnal did such a thing that he would not or could not set it right for me, and if he departed from me, then Mir Arnall would remain with me just as he had on the day he gave the order to him.
+
 > Notes: I render tal cosa as “such a thing” and dreçar as “set it right.” romasés is taken as a subjunctive/conditional ‘would remain’ and commanné as ‘gave the order to him’; the exact recipient of the command and some clitics are ambiguous in the source.
+
 > Confidence: 0.7
 
 ## Notes
