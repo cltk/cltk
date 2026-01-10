@@ -5,6 +5,7 @@ import sys
 from pathlib import Path
 from typing import Optional
 
+from cltk import NLP
 from cltk.cli import dispatch
 from cltk.cli.utils import (
     HelpFormatter,
@@ -20,7 +21,6 @@ from cltk.cli.utils import (
     write_text_output,
 )
 from cltk.core.data_types import CLTKConfig, Doc
-from cltk.nlp import NLP
 
 
 def configure_parser(subparsers: argparse._SubParsersAction) -> None:

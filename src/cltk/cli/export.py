@@ -4,6 +4,7 @@ import argparse
 from pathlib import Path
 from typing import Optional
 
+from cltk import NLP
 from cltk.cli import dispatch
 from cltk.cli.utils import (
     HelpFormatter,
@@ -18,7 +19,6 @@ from cltk.cli.utils import (
     write_json_output,
     write_text_output,
 )
-from cltk.nlp import NLP
 
 
 def configure_parser(subparsers: argparse._SubParsersAction) -> None:

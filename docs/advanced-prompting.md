@@ -24,7 +24,7 @@ from cltk.morphosyntax.processes import (
 )
 from cltk.text.processes import MultilingualNormalizeProcess
 from cltk.sentence.processes import SentenceSplittingProcess
-from cltk.nlp import NLP
+from cltk import NLP
 
 def custom_morph_prompt(lang: str, text: str) -> PromptInfo:
     kind = "morphosyntax"
@@ -70,7 +70,7 @@ from cltk.dependency.processes import (
 )
 from cltk.text.processes import MultilingualNormalizeProcess
 from cltk.sentence.processes import SentenceSplittingProcess
-from cltk.nlp import NLP
+from cltk import NLP
 
 def dep_from_tokens(lang: str, table: str) -> PromptInfo:
     kind = "dependency-tokens"

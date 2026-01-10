@@ -41,7 +41,7 @@ OPENAI_API_KEY=<YOUR-SECRET-KEU>
 - See [Languages](languages.md) for languages supported by Stanza models.
 
 ``` python
-from cltk.nlp import NLP
+from cltk import NLP
 nlp = NLP("lati1261", backend="stanza", suppress_banner=True)
 doc = nlp.analyze("Gallia est omnis divisa in partes tres.")
 for w in doc.words[:10]:
@@ -58,7 +58,7 @@ for w in doc.words[:10]:
 import os
 os.environ["OPENAI_API_KEY"] = "..."  # or set in your shell/.env
 
-from cltk.nlp import NLP
+from cltk import NLP
 nlp = NLP("lati1261", backend="openai", suppress_banner=True)
 doc = nlp.analyze("Gallia est omnis divisa in partes tres.")
 print("FORM\tLEMMA\tUPOS\tFEATS")
@@ -84,7 +84,7 @@ for w in doc.words:
 
 
 ```python
-from cltk.nlp import NLP
+from cltk import NLP
 nlp = NLP("lati1261", backend="ollama", suppress_banner=True)
 doc = nlp.analyze("Gallia est omnis divisa in partes tres.")
 print(len(doc.words), "tokens")
@@ -99,7 +99,7 @@ print(len(doc.words), "tokens")
 import os
 os.environ["OLLAMA_CLOUD_API_KEY"] = "oc-..."  # or set in your shell/.env
 
-from cltk.nlp import NLP
+from cltk import NLP
 nlp = NLP("lati1261", backend="ollama-cloud", suppress_banner=True)
 doc = nlp.analyze("Gallia est omnis divisa in partes tres.")
 print("usage:", doc.genai_use)

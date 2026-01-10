@@ -87,6 +87,7 @@ from itertools import combinations
 from pathlib import Path
 from typing import Any, Iterable, Optional, TypedDict
 
+from cltk import NLP
 from cltk.core.cltk_logger import logger
 from cltk.core.data_types import (
     CLTKConfig,
@@ -98,7 +99,6 @@ from cltk.core.data_types import (
     StanzaBackendConfig,
     Word,
 )
-from cltk.nlp import NLP
 from cltk.sentence.utils import (
     extract_sentences_from_boundaries,
     split_sentences_multilang,
