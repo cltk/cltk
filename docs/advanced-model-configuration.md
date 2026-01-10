@@ -8,7 +8,7 @@ For customizing prompts used by GenAI processes (without forking), see [Advanced
 
 ```python
 from cltk.core.data_types import CLTKConfig
-from cltk.nlp import NLP
+from cltk import NLP
 
 cltk_config = CLTKConfig(
     language_code="lati1261",

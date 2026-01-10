@@ -7,7 +7,7 @@ Translations run after morphosyntax, dependency, and enrichment steps so the mod
 ### Example
 
 ```python
-from cltk.nlp import NLP
+from cltk import NLP
 
 # Language with a GenAI pipeline, using OpenAI as backend
 nlp = NLP(language_code="lati1261", backend="openai", model="gpt-5-mini", suppress_banner=True)
@@ -53,7 +53,7 @@ from cltk.languages.pipelines import (
     LatinSentenceSplittingProcess,
     MultilingualNormalizeProcess,
 )
-from cltk.nlp import NLP
+from cltk import NLP
 from cltk.translation.processes import LatinGenAITranslationProcess
 
 
