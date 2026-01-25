@@ -20,7 +20,7 @@ def iter_python_modules(root: Path):
         yield dotted, path
 
 
-nav = mkdocs_gen_files.Nav() # type: ignore
+nav = mkdocs_gen_files.Nav()  # type: ignore
 # Collect top-level subpackages to build a human-friendly Reference index
 top_packages: set[str] = set()
 # Track package vs module and a parent->children mapping for recursive indexes
@@ -64,7 +64,7 @@ for dotted, src_path in iter_python_modules(PKG_ROOT):
         fd.write(f"::: {dotted}\n")
 
     # Map to navigation under the "Reference" section
-    nav[["Reference", *parts]] = out_path.as_posix() # type: ignore
+    nav[["Reference", *parts]] = out_path.as_posix()  # type: ignore
 
     # Link to the source file for edit/view
     mkdocs_gen_files.set_edit_path(out_path, src_path)
@@ -150,7 +150,7 @@ def _write_subclasses_page(dotted_class: str, title: str) -> None:
                 dotted = f"{sub.__module__}.{sub.__qualname__}"
                 fd.write(f"- `{dotted}`\n")
     # Add to nav under the class node
-    nav[["Reference", *parts, "Subclasses"]] = out_path.as_posix() # type: ignore
+    nav[["Reference", *parts, "Subclasses"]] = out_path.as_posix()  # type: ignore
 
 
 # Generate subclass listings for selected bases

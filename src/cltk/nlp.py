@@ -82,12 +82,13 @@ class NLP:
             cltk_config.active_backend_config if cltk_config else None
         )
         stanza_model_override: Optional[str] = None
+        self.suppress_banner: bool = suppress_banner
         config_language: Optional[Language] = None
         if cltk_config:
             language_code = cltk_config.language_code
             config_language = cltk_config.language
             backend = cltk_config.backend
-            suppress_banner = cltk_config.suppress_banner
+            self.suppress_banner = cltk_config.suppress_banner
             if cltk_config.custom_pipeline is not None:
                 custom_pipeline = cltk_config.custom_pipeline
             config_model_value = cltk_config.model
@@ -199,7 +200,7 @@ class NLP:
             glottolog_id=self.language_code,
             model=str(self.model) if getattr(self, "model", None) else None,
         ).debug(f"Pipeline selected: {self.pipeline}")
-        if not suppress_banner:
+        if not self.suppress_banner:
             self._print_cltk_info()
             self._print_pipelines_for_current_lang()
             self._print_special_authorship_messages_for_current_lang()
@@ -264,6 +265,14 @@ class NLP:
             log.error(msg)
             raise RuntimeError(msg)
         for process in processes:
+            # Print Process name before each execution
+            process_name = (
+                process.__name__
+                if isinstance(process, type)
+                else process.__class__.__name__
+            )
+            if not self.suppress_banner:
+                print(Fore.CYAN + f"⸖ Running {process_name} ..." + Style.RESET_ALL)
             process_obj: Process = self._get_process_object(process_object=process)
             try:
                 log.debug(f"Running process: {process_obj.__class__.__name__}")
