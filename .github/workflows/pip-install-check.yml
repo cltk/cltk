@@ -20,7 +20,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: ["3.13"]
+        python-version: ["3.14"]
     steps:
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -52,47 +52,16 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.13"
+          python-version: "3.14"
 
       - name: Upgrade pip
         run: python -m pip install --upgrade pip
 
-      # --- Special path: macOS + stanza ---
-      - name: "macOS stanza: preinstall torch wheel (venv, wheel-only)"
-        if: ${{ runner.os == 'macOS' && matrix.extra == 'stanza' }}
-        run: |
-          python -m venv .venv
-          source .venv/bin/activate
-          python -m pip install --upgrade pip
-          python -m pip install -v --no-cache-dir --only-binary=:all: torch
-
-      - name: "macOS stanza: install CLTK with extra (venv)"
-        if: ${{ runner.os == 'macOS' && matrix.extra == 'stanza' }}
-        run: |
-          source .venv/bin/activate
-          python -m pip install "cltk[${{ matrix.extra }}]"
-
-      - name: "macOS stanza: verify import (venv)"
-        if: ${{ runner.os == 'macOS' && matrix.extra == 'stanza' }}
-        run: |
-          source .venv/bin/activate
-          python -c "import cltk; print('CLTK import with extra OK')"
-
-      - name: "macOS stanza: pip check (venv)"
-        if: ${{ runner.os == 'macOS' && matrix.extra == 'stanza' }}
-        run: |
-          source .venv/bin/activate
-          python -m pip check
-
-      # --- Default path: everything else ---
       - name: Install CLTK with extra
-        if: ${{ !(runner.os == 'macOS' && matrix.extra == 'stanza') }}
         run: python -m pip install "cltk[${{ matrix.extra }}]"
 
       - name: Verify import
-        if: ${{ !(runner.os == 'macOS' && matrix.extra == 'stanza') }}
         run: python -c "import cltk; print('CLTK import with extra OK')"
 
       - name: Check installed dependencies
-        if: ${{ !(runner.os == 'macOS' && matrix.extra == 'stanza') }}
         run: python -m pip check
