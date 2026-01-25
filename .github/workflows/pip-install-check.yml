@@ -63,5 +63,12 @@ jobs:
       - name: Verify import
         run: python -c "import cltk; print('CLTK import with extra OK')"
 
+      - name: Debug torch provenance
+        if: runner.os == 'macOS'
+        run: |
+          python -m pip show torch || true
+          python -m pip install -q pipdeptree
+          python -m pipdeptree -r -p torch || true
+
       - name: Check installed dependencies
         run: python -m pip check
