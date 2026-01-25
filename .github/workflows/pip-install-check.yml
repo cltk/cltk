@@ -73,6 +73,7 @@ jobs:
 
       # debug macos torch; remove
       - name: Show what pip chose for torch
+        if: runner.os == 'macOS'
         run: |
           source .venv/bin/activate
           python -m pip debug -v
@@ -81,6 +82,7 @@ jobs:
 
       # debug macos torch; remove
       - name: Print torch wheel tags + metadata
+        if: runner.os == 'macOS'
         run: |
           source .venv/bin/activate
           python -m pip show -f torch || true
