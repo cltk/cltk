@@ -1,11 +1,17 @@
-from cltk.core.data_types import Classification, Doc, Language, Word
+from cltk.core.data_types import (
+    Classification,
+    Doc,
+    Language,
+    UDFeatureTag,
+    UDFeatureTagSet,
+    Word,
+)
 from cltk.evaluation.compare_backends import (
     _align_tokens,
     _compare_docs,
     _normalize_doc,
 )
 from cltk.morphosyntax.ud_deprels import UDDeprelTag
-from cltk.morphosyntax.ud_features import UDFeatureTag, UDFeatureTagSet
 from cltk.morphosyntax.ud_pos import UDPartOfSpeechTag
 
 

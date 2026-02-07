@@ -10,6 +10,8 @@ from cltk.core.data_types import (
     Language,
     LemmaTranslationCandidate,
     Translation,
+    UDFeatureTag,
+    UDFeatureTagSet,
     Word,
     WordEnrichment,
 )
@@ -20,7 +22,6 @@ from cltk.exports import (
     doc_to_tei_xml,
 )
 from cltk.morphosyntax.ud_deprels import UDDeprelTag
-from cltk.morphosyntax.ud_features import UDFeatureTag, UDFeatureTagSet
 from cltk.morphosyntax.ud_pos import UDPartOfSpeechTag
 
 
