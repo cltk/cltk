@@ -193,4 +193,32 @@ UD_FEATURES_LAT: list[UDFeature] = [
             ),
         },
     ),
+    UDFeature(
+        key="NumValue",
+        category="Lexical",
+        description=(
+            "NumValue is a Latin-specific feature used to mark a small set of determiners/pronominal-like forms "
+            "that imply a specific cardinality but are not treated as numerals. "
+            "UD Latin restricts this feature to the lowest values 1 and 2."
+        ),
+        values={
+            "1": UDFeatureValue(
+                code="1",
+                label="Numeric value 1",
+                description=(
+                    "Marks determiners/pronominal-like forms implying the numeric value 1 (e.g., unus ‘one; a(n)’). "
+                    "In UD Latin this is used for ambivalent ‘one/a(n)’ items that often follow the pronominal inflectional paradigm."
+                ),
+                inflectional_class=None,
+            ),
+            "2": UDFeatureValue(
+                code="2",
+                label="Numeric value 2",
+                description=(
+                    "Marks determiners/pronominal-like forms implying the numeric value 2 (e.g., ambo ‘both’)."
+                ),
+                inflectional_class=None,
+            ),
+        },
+    ),
 ]
