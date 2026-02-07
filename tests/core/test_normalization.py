@@ -1,7 +1,11 @@
 """Tests for UD feature normalization helpers."""
 
 from cltk.core.data_types import UDFeatureTag
-from cltk.morphosyntax.normalization import normalize_ud_feature_pair
+from cltk.morphosyntax.normalization import (
+    UDFeatureRemapReport,
+    convert_pos_features_to_ud,
+    normalize_ud_feature_pair,
+)
 
 
 def test_normalize_ud_feature_pair_remaps_key_only() -> None:
@@ -18,3 +22,39 @@ def test_ud_feature_tag_accepts_key_only_remap() -> None:
 def test_normalize_ud_feature_pair_still_remaps_known_pair() -> None:
     normalized = normalize_ud_feature_pair("Tense", "Perf")
     assert normalized == ("Aspect", "Perf")
+
+
+def test_convert_pos_features_to_ud_populates_remap_report() -> None:
+    report = UDFeatureRemapReport()
+    tag_set = convert_pos_features_to_ud(
+        "Case=Nom|PronType=Con|Form=Emp|PronType=Con",
+        remap_report=report,
+    )
+
+    assert tag_set is not None
+    assert len(tag_set.features) == 1
+    assert tag_set.features[0].key == "Case"
+    assert tag_set.features[0].value == "Nom"
+    assert report.total_count == 3
+    assert report.unique_count == 2
+    assert report.unmapped_pairs[("PronType", "Con")] == 2
+    assert report.unmapped_pairs[("Form", "Emp")] == 1
+
+
+def test_ud_feature_remap_report_renders_suggestions_sorted() -> None:
+    report = UDFeatureRemapReport()
+    report.record("PronType", "Con")
+    report.record("Form", "Emp")
+    report.record("PronType", "Con")
+    report.record("NumValue", "1")
+
+    suggestions = report.as_mapping_suggestions()
+
+    assert "ud_feature_pair_remap" in suggestions
+    assert "('PronType', 'Con'): ('<UD_KEY>', '<UD_VALUE>'),  # seen 2x" in suggestions
+    lines = suggestions.splitlines()
+    pron_idx = next(i for i, line in enumerate(lines) if "('PronType', 'Con')" in line)
+    form_idx = next(i for i, line in enumerate(lines) if "('Form', 'Emp')" in line)
+    num_idx = next(i for i, line in enumerate(lines) if "('NumValue', '1')" in line)
+    assert pron_idx < form_idx
+    assert pron_idx < num_idx

@@ -36,7 +36,10 @@ from cltk.genai.mistral import AsyncMistralConnection, MistralConnection
 from cltk.genai.ollama import AsyncOllamaConnection, OllamaConnection
 from cltk.genai.openai import AsyncOpenAIConnection, OpenAIConnection
 from cltk.genai.prompts import PromptInfo, _hash_prompt, morphosyntax_prompt
-from cltk.morphosyntax.normalization import convert_pos_features_to_ud
+from cltk.morphosyntax.normalization import (
+    UDFeatureRemapReport,
+    convert_pos_features_to_ud,
+)
 from cltk.morphosyntax.ud_pos import UDPartOfSpeechTag
 
 # Prompt override type: callable, PromptInfo, or literal string.
@@ -113,6 +116,7 @@ def generate_pos(
     prompt_profile: Optional[str] = None,
     prompt_digest: Optional[str] = None,
     provenance_process: Optional[str] = None,
+    remap_report: Optional[UDFeatureRemapReport] = None,
 ) -> Doc:
     """Call the configured generative backend and return UD token annotations for a short span.
 
@@ -125,6 +129,9 @@ def generate_pos(
         prompt_profile: Optional prompt profile name for provenance.
         prompt_digest: Optional digest for the prompt template.
         provenance_process: Optional process name to store in provenance records.
+        remap_report: Optional collector for unmapped UD feature pairs. When
+            omitted, this function creates a temporary collector and logs one
+            summary warning for the current call.
 
     Returns:
         The same ``Doc`` instance with ``words`` and per‑call usage appended
@@ -306,6 +313,8 @@ def generate_pos(
         log.debug(f"Cleaned POS tags:\n{cleaned_pos_tags}")
     # Create Word objects from cleaned POS tags
     words: list[Word] = list()
+    local_report = remap_report if remap_report is not None else UDFeatureRemapReport()
+    owns_report = remap_report is None
     for word_idx, pos_dict in enumerate(cleaned_pos_tags):
         upos_val_raw: Optional[str] = pos_dict.get("upos", None)
         udpos: Optional[UDPartOfSpeechTag] = None
@@ -350,7 +359,9 @@ def generate_pos(
             continue
         features_tag_set: Optional[UDFeatureTagSet] = None
         try:
-            features_tag_set = convert_pos_features_to_ud(feats_raw=feats_raw)
+            features_tag_set = convert_pos_features_to_ud(
+                feats_raw=feats_raw, remap_report=local_report
+            )
         except ValueError as e:
             msg: str = f"{word.string}: Failed to create features_tag_set from '{feats_raw}' for '{word.string}': {e}"
             log.error(msg)
@@ -384,6 +395,8 @@ def generate_pos(
             log.debug(f"features_tag_set for {word.string}: {features_tag_set}")
         word.features = features_tag_set
         words.append(word)
+    if owns_report:
+        local_report.log_summary(label="Unmapped UD feature pairs from morphosyntax")
     log.debug(f"Created {len(words)} Word objects from POS tags.")
     if _os.getenv("CLTK_LOG_CONTENT", "").strip().lower() in {"1", "true", "yes", "on"}:
         log.debug("Words: %s", ", ".join([word.string or "" for word in words]))
@@ -478,6 +491,7 @@ def generate_gpt_morphosyntax(
         raise ValueError(msg)
     # POS/morphology
     tmp_docs: list[Doc] = list()
+    remap_report = UDFeatureRemapReport()
     for sent_idx, sentence_string in tqdm(
         enumerate(doc.sentence_strings),
         total=len(doc.sentence_strings),
@@ -502,6 +516,7 @@ def generate_gpt_morphosyntax(
             prompt_profile=prompt_profile,
             prompt_digest=prompt_digest,
             provenance_process=provenance_process,
+            remap_report=remap_report,
         )
         tmp_docs.append(tmp_doc)
         bind_from_doc(doc, sentence_idx=sent_idx).info(
@@ -537,6 +552,7 @@ def generate_gpt_morphosyntax(
     log.debug(
         f"Combined {len(all_words)} words from all tmp_docs and updated token indices."
     )
+    remap_report.log_summary(label="Unmapped UD feature pairs from morphosyntax")
     # Assign to your main Doc
     doc.words = all_words
     log.debug(f"Doc after POS tagging:\n{doc}")
@@ -667,6 +683,7 @@ async def generate_gpt_morphosyntax_async(
         lang_id = None
 
     sem = asyncio.Semaphore(max_concurrency)
+    remap_report = UDFeatureRemapReport()
 
     async def process_one(i: int, sentence: str) -> tuple[int, Doc, dict[str, int]]:
         """Process a single sentence asynchronously and return a Doc plus usage."""
@@ -761,7 +778,9 @@ async def generate_gpt_morphosyntax_async(
             feats_raw = pos_dict.get("feats")
             if feats_raw:
                 try:
-                    word.features = convert_pos_features_to_ud(feats_raw=feats_raw)
+                    word.features = convert_pos_features_to_ud(
+                        feats_raw=feats_raw, remap_report=remap_report
+                    )
                 except ValueError as e:  # pragma: no cover - defensive
                     log_i.error(
                         "[async] %s: Failed to parse features '%s': %s",
@@ -825,6 +844,7 @@ async def generate_gpt_morphosyntax_async(
         len(all_words),
         len(doc.sentence_strings),
     )
+    remap_report.log_summary(label="Unmapped UD feature pairs from async morphosyntax")
     return doc
 
 

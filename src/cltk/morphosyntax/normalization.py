@@ -1,9 +1,64 @@
 """Normalization of text for morphosyntactic analysis."""
 
+from collections import Counter
+from dataclasses import dataclass, field
 from typing import Optional
 
 from cltk.core.cltk_logger import logger
 from cltk.core.data_types import UDFeatureTag, UDFeatureTagSet
+
+
+@dataclass
+class UDFeatureRemapReport:
+    """Collect unmapped UD feature pairs and render mapping suggestions."""
+
+    unmapped_pairs: Counter[tuple[str, str]] = field(default_factory=Counter)
+
+    def record(self, key: str, value: str) -> None:
+        """Track one unmapped ``(key, value)`` occurrence."""
+        self.unmapped_pairs[(key, value)] += 1
+
+    @property
+    def total_count(self) -> int:
+        """Return total unmapped pair occurrences."""
+        return sum(self.unmapped_pairs.values())
+
+    @property
+    def unique_count(self) -> int:
+        """Return number of unique unmapped pairs."""
+        return len(self.unmapped_pairs)
+
+    def has_entries(self) -> bool:
+        """Return whether any unmapped pairs were collected."""
+        return bool(self.unmapped_pairs)
+
+    def iter_sorted_pairs(self) -> list[tuple[tuple[str, str], int]]:
+        """Return deterministic ordering (most frequent first)."""
+        return sorted(
+            self.unmapped_pairs.items(),
+            key=lambda item: (-item[1], item[0][0], item[0][1]),
+        )
+
+    def as_mapping_suggestions(self) -> str:
+        """Render copy-paste-friendly remap candidates."""
+        lines = [
+            "# Candidate additions for `ud_feature_pair_remap` in `normalize_ud_feature_pair()`.",
+            "# Replace placeholders with canonical UD key/value pairs.",
+        ]
+        for (key, value), count in self.iter_sorted_pairs():
+            lines.append(
+                f"({key!r}, {value!r}): ('<UD_KEY>', '<UD_VALUE>'),  # seen {count}x"
+            )
+        return "\n".join(lines)
+
+    def log_summary(self, *, label: str = "UD feature remap misses") -> None:
+        """Log one consolidated summary warning for unmapped pairs."""
+        if not self.has_entries():
+            return
+        logger.warning(
+            f"{label}: {self.unique_count} unique / {self.total_count} total.\n"
+            f"{self.as_mapping_suggestions()}"
+        )
 
 
 # TODO: Remove this? Not called anymore
@@ -367,20 +422,26 @@ def normalize_ud_feature_pair(key: str, value: str) -> Optional[tuple[str, str]]
             f"Remapped feature key {original_key} to {key} (value kept: {value})"
         )
         return key, value
-    logger.warning(f"Failed to normalize UD feature pair: {key}={value}.")
+    logger.debug(f"Failed to normalize UD feature pair: {key}={value}.")
     return None
 
 
-def convert_pos_features_to_ud(feats_raw: str) -> Optional[UDFeatureTagSet]:
+def convert_pos_features_to_ud(
+    feats_raw: str,
+    *,
+    remap_report: Optional[UDFeatureRemapReport] = None,
+) -> Optional[UDFeatureTagSet]:
     """Parse a raw feature string into a validated ``UDFeatureTagSet``.
 
     The input is expected in the common CoNLL‑U style, e.g.,
     ``"Case=Nom|Number=Sing|Gender=Masc"``. Unknown or unmappable pairs are
-    skipped with a warning.
+    skipped and optionally recorded in ``remap_report``.
 
     Args:
         feats_raw: Raw feature string containing ``key=value`` pairs separated by
             ``|``.
+        remap_report: Optional collector used to aggregate unmapped pairs and
+            emit one summary at a higher level.
 
     Returns:
         A ``UDFeatureTagSet`` containing validated features (possibly empty).
@@ -405,9 +466,12 @@ def convert_pos_features_to_ud(feats_raw: str) -> Optional[UDFeatureTagSet]:
             )
             features_tag_set.features.append(feature_tag)
             logger.debug(f"feature_tag: {feature_tag}")
-        except ValueError as e:
-            logger.warning(
-                f"Skipping invalid feature: {raw_feature_key}={raw_feature_value} ({e})"
-            )
+        except ValueError:
+            if remap_report is not None:
+                remap_report.record(raw_feature_key, raw_feature_value)
+            else:
+                logger.warning(
+                    f"Skipping invalid feature: {raw_feature_key}={raw_feature_value}"
+                )
             continue  # Skip this feature and move on
     return features_tag_set

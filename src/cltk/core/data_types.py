@@ -160,12 +160,10 @@ class UDFeatureTag(BaseModel):
                 data["value"] = value
             else:
                 msg = f"Invalid value '{value}' for feature key '{key}'"
-                logger.error(msg)
                 raise ValueError(msg)
         feature = UD_FEATURES_MAP[key]
         if value not in feature.values:
             msg = f"Value '{value}' is not valid for feature key '{key}' even after normalization."
-            logger.error(msg)
             raise ValueError(msg)
         data["category"] = feature.category
         data["value_label"] = feature.values[value].label
