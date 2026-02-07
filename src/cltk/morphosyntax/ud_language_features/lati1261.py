@@ -221,4 +221,23 @@ UD_FEATURES_LAT: list[UDFeature] = [
             ),
         },
     ),
+    UDFeature(
+        key="PronType",
+        category="Lexical",
+        description=(
+            "Latin-specific extensions to the universal PronType inventory. "
+            "These values occur in Latin treebanks and are documented on the UD Latin feature pages."
+        ),
+        values={
+            "Con": UDFeatureValue(
+                code="Con",
+                label="Contrastive",
+                description=(
+                    "Contrastive pronoun/determiner type, contrasting other referred entities. "
+                    "Example: alter ‘other’."
+                ),
+                inflectional_class=None,
+            ),
+        },
+    ),
 ]
