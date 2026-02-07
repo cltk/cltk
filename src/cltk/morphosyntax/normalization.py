@@ -435,6 +435,8 @@ def normalize_ud_feature_pair(key: str, value: str) -> Optional[tuple[str, str]]
         #     add_feature(("VerbForm","Fin"))
         # ("", ""): ("", ""),
         # ("", ""): ("", ""),
+        # Latin docs spell this out; canonical UD code is 'Arch'
+        ("Variant", "Archaic"): ("Variant", "Arch"),
     }
     original_key = key
     key = ud_feature_name_map.get(key, key)

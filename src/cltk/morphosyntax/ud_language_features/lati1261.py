@@ -240,4 +240,35 @@ UD_FEATURES_LAT: list[UDFeature] = [
             ),
         },
     ),
+    # --- Proper name marker (Latin-specific) ---
+    UDFeature(
+        key="Proper",
+        category="Lexical",
+        description=(
+            "Proper=Yes marks expressions that function as proper names only "
+            "in specific contexts (e.g., titles, epithets)."
+        ),
+        values={
+            "Yes": UDFeatureValue(
+                code="Yes",
+                label="Proper-like",
+                description="Common-nominal form functioning as a proper name in context.",
+            ),
+        },
+    ),
+    # --- Variant: Greek morphology (Latin-specific value) ---
+    UDFeature(
+        key="Variant",
+        category="Other",
+        description=(
+            "Latin-specific extensions to the Variant feature, including Greek morphology."
+        ),
+        values={
+            "Greek": UDFeatureValue(
+                code="Greek",
+                label="Greek variant",
+                description="Form shows Greek morphological or inflectional traits.",
+            ),
+        },
+    ),
 ]

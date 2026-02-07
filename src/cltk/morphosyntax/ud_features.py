@@ -1235,6 +1235,72 @@ UD_FEATURES_BASE: list[UDFeature] = [
             ),
         },
     ),
+    # --- Named entity types ---
+    UDFeature(
+        key="NameType",
+        category="Lexical",
+        description=(
+            "NameType classifies named entities (token-based) by broad category. "
+            "Typically used with PROPN."
+        ),
+        values={
+            "Prs": UDFeatureValue(
+                code="Prs", label="Person", description="Personal name."
+            ),
+            "Giv": UDFeatureValue(
+                code="Giv",
+                label="Given name",
+                description="Given (first) name of a person.",
+            ),
+            "Sur": UDFeatureValue(
+                code="Sur", label="Surname", description="Family name."
+            ),
+            "Nat": UDFeatureValue(
+                code="Nat", label="Nationality", description="Nationality or ethnonym."
+            ),
+            "Geo": UDFeatureValue(
+                code="Geo",
+                label="Geographical name",
+                description="Name of a place or region.",
+            ),
+            "Com": UDFeatureValue(
+                code="Com",
+                label="Organization",
+                description="Organization or institution.",
+            ),
+            "Oth": UDFeatureValue(
+                code="Oth", label="Other", description="Other named-entity type."
+            ),
+        },
+    ),
+    # --- Adverb semantic types ---
+    UDFeature(
+        key="AdvType",
+        category="Lexical",
+        description=(
+            "AdvType classifies adverbs by semantic type, such as time or location."
+        ),
+        values={
+            "Tim": UDFeatureValue(
+                code="Tim", label="Time", description="Adverb of time."
+            ),
+            "Loc": UDFeatureValue(
+                code="Loc", label="Location", description="Adverb of location."
+            ),
+            "Man": UDFeatureValue(
+                code="Man", label="Manner", description="Adverb of manner."
+            ),
+            "Deg": UDFeatureValue(
+                code="Deg", label="Degree", description="Adverb of degree or intensity."
+            ),
+            "Cau": UDFeatureValue(
+                code="Cau", label="Cause", description="Adverb of cause."
+            ),
+            "Mod": UDFeatureValue(
+                code="Mod", label="Modal", description="Modal adverb."
+            ),
+        },
+    ),
 ]
 
 
