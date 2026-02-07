@@ -13,15 +13,15 @@ from typing import Any, ClassVar, Optional
 from stanza import DownloadMethod
 
 from cltk.core.cltk_logger import bind_context
-from cltk.core.data_types import Doc, Process, Word
+from cltk.core.data_types import Doc, Process, UDFeatureTagSet, Word
 from cltk.core.process_registry import register_process
 from cltk.core.provenance import (
     add_provenance_record,
     build_provenance_record,
     extract_doc_config,
 )
+from cltk.morphosyntax.normalization import convert_pos_features_to_ud
 from cltk.morphosyntax.ud_deprels import UDDeprelTag, get_ud_deprel_tag
-from cltk.morphosyntax.ud_features import UDFeatureTagSet, convert_pos_features_to_ud
 from cltk.morphosyntax.ud_pos import UDPartOfSpeechTag
 
 _GLOTTO_TO_STANZA_LANG = {

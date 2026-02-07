@@ -18,7 +18,6 @@ from pydantic import AnyUrl, BaseModel, Field, PrivateAttr, model_validator
 from cltk.core.cltk_logger import logger
 from cltk.core.provenance import ProvenanceRecord
 from cltk.morphosyntax.ud_deprels import UDDeprelTag
-from cltk.morphosyntax.ud_features import UDFeatureTagSet
 from cltk.morphosyntax.ud_pos import UDPartOfSpeechTag
 
 # --- Type aliases (mark with TypeAlias to appease linters/IDEs) ---------------
@@ -58,6 +57,174 @@ IPA_PRONUNCIATION_MODE: TypeAlias = Literal[
     "koine_1c_ce",
     "byzantine_medieval",
 ]
+
+
+################# UD types below #################
+
+# TODO: This will probably need to be expanded
+InflectionalDomain = Literal["Nominal", "Verbal"]
+
+
+class UDFeatureValue(BaseModel):
+    """Canonical value for a UD feature key.
+
+    Attributes:
+        code: Short code for the value (e.g., ``"Masc"``).
+        label: Human‑readable label (e.g., ``"Masculine"``).
+        description: Longer explanation of the value.
+        inflectional_class: Optional class of inflectional features this value belongs to (e.g., ``"Nominal"``, ``"Verbal"``).
+        is_deprecated: Whether the value is deprecated in UD.
+
+    """
+
+    code: str  # e.g., "Masc"
+    label: str  # e.g., "Masculine"
+    description: str  # Full explanation
+    inflectional_class: Optional[InflectionalDomain] = None
+    is_deprecated: Optional[bool] = False
+
+
+class UDFeature(BaseModel):
+    """Canonical UD feature definition.
+
+    Attributes:
+        key: Feature key (e.g., ``"Case"``).
+        category: High‑level category (lexical/inflectional/other).
+        description: Description of the feature semantics.
+        values: Mapping from value codes to their definitions.
+
+    """
+
+    key: str  # e.g., "Case"
+    category: Literal["Lexical", "Inflectional", "Other"]
+    description: str
+    values: dict[str, UDFeatureValue]
+
+
+class UDFeatureTag(BaseModel):
+    """A single UD feature key/value tag.
+
+    Validates a pair (``key``, ``value``) against the registry, attempting to
+    normalize known variants via ``normalize_ud_feature_pair``.
+
+    Attributes:
+        key: UD feature key (e.g., ``"Case"``).
+        value: UD feature value code (e.g., ``"Nom"``).
+        value_label: Human‑readable label resolved from the registry.
+        category: Feature category populated from the canonical definition.
+        inflectional_class: Optional inflectional class for the feature.
+
+    """
+
+    # Use this when instantiated a tagged word
+    key: str
+    value: str
+    value_label: str = ""
+    category: Literal["Lexical", "Inflectional", "Other"] = "Lexical"
+    inflectional_class: Optional[Literal["Nominal", "Verbal"]] = None
+
+    @model_validator(mode="before")
+    @classmethod
+    def fill_fields(cls, data: dict) -> dict:
+        """Pre-validate and enrich tag data using the feature registry.
+
+        Attempts to normalize ``(key, value)`` pairs that are not found. On
+        success, populates ``category``, ``inflectional_class``, and
+        ``value_label`` based on the canonical ``UD_FEATURES_MAP`` entry.
+
+        Args:
+            data: Input dictionary with at least ``key`` and ``value``.
+
+        Raises:
+            ValueError: If required fields are missing or normalization fails.
+
+        Returns:
+            The enriched data dictionary for model construction.
+
+        """
+        from cltk.morphosyntax.normalization import normalize_ud_feature_pair
+        from cltk.morphosyntax.ud_features import UD_FEATURES_MAP
+
+        key = data.get("key")
+        value = data.get("value")
+        if not isinstance(key, str) or not isinstance(value, str):
+            msg = "UDFeatureTag requires 'key' and 'value' as strings."
+            logger.error(msg)
+            raise ValueError(msg)
+        if key not in UD_FEATURES_MAP or value not in UD_FEATURES_MAP[key].values:
+            # Try to normalize
+            normalized = normalize_ud_feature_pair(key, value)
+            if normalized:
+                key, value = normalized
+                data["key"] = key
+                data["value"] = value
+            else:
+                msg = f"Invalid value '{value}' for feature key '{key}'"
+                logger.error(msg)
+                raise ValueError(msg)
+        feature = UD_FEATURES_MAP[key]
+        if value not in feature.values:
+            msg = f"Value '{value}' is not valid for feature key '{key}' even after normalization."
+            logger.error(msg)
+            raise ValueError(msg)
+        data["category"] = feature.category
+        data["value_label"] = feature.values[value].label
+        return data
+
+    def __str__(self) -> str:
+        """Return a short, readable representation of the feature tag."""
+        return f"UDFeatureTag({self.key}={self.value_label}" + ")"
+
+    def __repr__(self) -> str:
+        """Alias for ``__str__`` to aid debugging and logging."""
+        return self.__str__()
+
+
+class UDFeatureTagSet(BaseModel):
+    """A collection of feature tags for a token.
+
+    Attributes:
+        features: Ordered list of ``UDFeatureTag`` entries.
+
+    Notes:
+        This uses a list to retain insertion order. A dictionary keyed by
+        feature "key" may be more efficient for lookups in some contexts.
+
+    """
+
+    # `add_feature` would be a little faster if this were a dict
+    # `features: dict[str, UDFeatureTag] = {}`
+    features: list[UDFeatureTag] = []
+
+    def add_feature(self, feature: UDFeatureTag) -> None:
+        """Add a feature to the set if the key is not already present.
+
+        Args:
+            feature: Feature tag to add.
+
+        Returns:
+            None
+
+        """
+        if any(f.key == feature.key for f in self.features):
+            logger.error(
+                f"Feature with key '{feature.key}' already exists in the tag set."
+            )
+            return None
+        self.features.append(feature)
+        logger.debug(f"Added feature {feature.key} to UDFeatureTagSet.")
+
+    def __str__(self) -> str:
+        """Return a compact, readable representation of the tag set."""
+        features_str = ", ".join(str(f) for f in self.features)
+        return f"UDFeatureTagSet([{features_str}])"
+
+    def __repr__(self) -> str:
+        """Alias for ``__str__`` to aid debugging and logging."""
+        return self.__str__()
+
+
+################# UD types above #################
 
 
 class CLTKGenAIResponse(BaseModel):
@@ -361,16 +528,6 @@ class Word(CLTKBaseModel):
     annotation_sources: dict[str, str] = Field(default_factory=dict)
     confidence: dict[str, float] = Field(default_factory=dict)
 
-    # def __getitem__(self, feature_name: Union[str, type[MorphosyntacticFeature]]) -> list[MorphosyntacticFeature]:
-    #     return self.features[feature_name]
-
-    # def __getattr__(self, item: str):
-    #     feature_name = pascal_case(item)
-    #     if feature_name in ud_mod.__dict__:
-    #         return self.features[feature_name]
-    #     else:
-    #         raise AttributeError(item)
-
 
 class Sentence(CLTKBaseModel):
     """A sentence containing words and optional embedding."""
@@ -382,16 +539,6 @@ class Sentence(CLTKBaseModel):
     embedding: Optional[np.ndarray] = None
     translation: Optional[Translation] = None
     annotation_sources: dict[str, str] = Field(default_factory=dict)
-
-    # def __getitem__(self, item: int) -> Word:
-    #     if not self.words:
-    #         raise IndexError("No words in sentence.")
-    #     return self.words[item]
-
-    # def __len__(self) -> int:
-    #     if not self.words:
-    #         return 0
-    #     return len(self.words)
 
 
 class ModelConfig(BaseModel):

@@ -3,13 +3,14 @@
 from typing import Iterable, Optional
 
 from cltk.core.cltk_logger import logger
-from cltk.core.data_types import Doc, Word
-from cltk.core.logging_utils import bind_from_doc
-from cltk.morphosyntax.ud_features import (
+from cltk.core.data_types import (
+    Doc,
     UDFeatureTag,
     UDFeatureTagSet,
-    convert_pos_features_to_ud,
+    Word,
 )
+from cltk.core.logging_utils import bind_from_doc
+from cltk.morphosyntax.normalization import convert_pos_features_to_ud
 from cltk.morphosyntax.ud_pos import UDPartOfSpeechTag
 
 # Normalization of common UD values from long names to codes

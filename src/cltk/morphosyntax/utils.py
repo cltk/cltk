@@ -22,6 +22,7 @@ from cltk.core.data_types import (
     ModelConfig,
     OllamaBackendConfig,
     OpenAIBackendConfig,
+    UDFeatureTagSet,
     Word,
 )
 from cltk.core.exceptions import CLTKException
@@ -35,7 +36,7 @@ from cltk.genai.mistral import AsyncMistralConnection, MistralConnection
 from cltk.genai.ollama import AsyncOllamaConnection, OllamaConnection
 from cltk.genai.openai import AsyncOpenAIConnection, OpenAIConnection
 from cltk.genai.prompts import PromptInfo, _hash_prompt, morphosyntax_prompt
-from cltk.morphosyntax.ud_features import UDFeatureTagSet, convert_pos_features_to_ud
+from cltk.morphosyntax.normalization import convert_pos_features_to_ud
 from cltk.morphosyntax.ud_pos import UDPartOfSpeechTag
 
 # Prompt override type: callable, PromptInfo, or literal string.

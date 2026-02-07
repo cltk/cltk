@@ -24,6 +24,7 @@ from cltk.core.data_types import (
     PedagogicalNote,
     ScoredText,
     Sentence,
+    UDFeatureTagSet,
     Word,
     WordEnrichment,
 )
@@ -38,7 +39,6 @@ from cltk.genai.mistral import MistralConnection
 from cltk.genai.ollama import OllamaConnection
 from cltk.genai.openai import OpenAIConnection
 from cltk.genai.prompts import PromptInfo, _hash_prompt, enrichment_prompt
-from cltk.morphosyntax.ud_features import UDFeatureTagSet
 from cltk.morphosyntax.utils import _update_doc_genai_stage
 
 # Prompt override type: callable, PromptInfo, or literal string.
