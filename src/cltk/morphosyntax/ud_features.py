@@ -1165,6 +1165,28 @@ UD_FEATURES_BASE: list[UDFeature] = [
             ),
         },
     ),
+    UDFeature(
+        key="NumForm",
+        category="Other",
+        description="NumForm is a lexical feature of numerals that marks whether the number is expressed by digits or letters.",
+        values={
+            "Word": UDFeatureValue(
+                code="Word",
+                label="Word",
+                description="Number expressed as word",
+            ),
+            "Digit": UDFeatureValue(
+                code="Digit",
+                label="Digit",
+                description="number expressed using digits",
+            ),
+            "Roman": UDFeatureValue(
+                code="Roman",
+                label="Roman numeral",
+                description="roman numeral",
+            ),
+        },
+    ),
 ]
 
 
