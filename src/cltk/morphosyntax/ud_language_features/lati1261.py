@@ -157,4 +157,40 @@ UD_FEATURES_LAT: list[UDFeature] = [
             ),
         },
     ),
+    UDFeature(
+        key="Compound",
+        category="Lexical",
+        description=(
+            "This is a binary (yes/no) morphological feature that is only annotated when its value is Yes."
+        ),
+        values={
+            "Yes": UDFeatureValue(
+                code="Yes",
+                label="Yes",
+                description="Univerbation of two or more words. When two or more otherwise independent words (i.e. not considering clitics or bound morphemes) have become fused and crystallised into a single word that is no more the “sum of its parts”, and this word is set down as such in writing, the corresponding token is marked with Compound=Yes.",
+                inflectional_class=None,
+            ),
+        },
+    ),
+    UDFeature(
+        key="Form",
+        category="Lexical",
+        description=(
+            "Form is a Latin-specific morphological feature used to mark certain emphatic or expanded word forms. "
+            "It is only annotated when it has a non-empty value."
+        ),
+        values={
+            "Emp": UDFeatureValue(
+                code="Emp",
+                label="Emphatic",
+                description=(
+                    "Emphatic form of a word: a token appears in an expanded/emphatic form with respect to a more basic form, "
+                    "or incorporates common emphatic elements and can no longer be analyzed as a compound (if it ever was). "
+                    "Examples include enim (vs. nam), equidem (vs. quidem), ecce (presentative particle with -ce), "
+                    "namque (vs. nam), and possessives with -pte (e.g., meopte)."
+                ),
+                inflectional_class=None,
+            ),
+        },
+    ),
 ]
