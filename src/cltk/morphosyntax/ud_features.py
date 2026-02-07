@@ -1187,6 +1187,54 @@ UD_FEATURES_BASE: list[UDFeature] = [
             ),
         },
     ),
+    UDFeature(
+        key="Person[psor]",
+        category="Inflectional",
+        description=(
+            "Person[psor] is the possessor’s person (layered feature). "
+            "Used with possessive determiners/pronouns (and in some languages on nouns) "
+            "to encode the person of the possessor."
+        ),
+        values={
+            "1": UDFeatureValue(
+                code="1",
+                label="1st person possessor",
+                description="First person possessor.",
+            ),
+            "2": UDFeatureValue(
+                code="2",
+                label="2nd person possessor",
+                description="Second person possessor.",
+            ),
+            "3": UDFeatureValue(
+                code="3",
+                label="3rd person possessor",
+                description="Third person possessor.",
+            ),
+        },
+    ),
+    UDFeature(
+        key="Number[psor]",
+        category="Inflectional",
+        description=(
+            "Number[psor] is the possessor’s number (layered feature). "
+            "Possessives may mark both the number of the possessed entity and the possessor."
+        ),
+        values={
+            "Sing": UDFeatureValue(
+                code="Sing",
+                label="Singular possessor",
+                description="Singular possessor.",
+            ),
+            "Plur": UDFeatureValue(
+                code="Plur", label="Plural possessor", description="Plural possessor."
+            ),
+            # Optional but UD-valid:
+            "Dual": UDFeatureValue(
+                code="Dual", label="Dual possessor", description="Dual possessor."
+            ),
+        },
+    ),
 ]
 
 
