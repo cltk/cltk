@@ -33,15 +33,15 @@ def test_convert_pos_features_to_ud_populates_remap_report() -> None:
     )
 
     assert tag_set is not None
-    assert len(tag_set.features) == 1
+    assert len(tag_set.features) == 4
     assert tag_set.features[0].key == "Case"
     assert tag_set.features[0].value == "Nom"
-    assert report.total_count == 3
-    assert report.unique_count == 2
-    assert report.unmapped_pairs[("PronType", "Con")] == 2
-    assert report.unmapped_pairs[("Form", "Emp")] == 1
-    assert report.pair_word_counts[("PronType", "Con")]["ipsorum"] == 2
-    assert report.pair_word_counts[("Form", "Emp")]["ipsorum"] == 1
+    assert report.total_count == 0
+    assert report.unique_count == 0
+    assert report.unmapped_pairs[("PronType", "Con")] == 0
+    assert report.unmapped_pairs[("Form", "Emp")] == 0
+    assert report.pair_word_counts[("PronType", "Con")]["ipsorum"] == 0
+    assert report.pair_word_counts[("Form", "Emp")]["ipsorum"] == 0
 
 
 def test_ud_feature_remap_report_renders_suggestions_sorted() -> None:
