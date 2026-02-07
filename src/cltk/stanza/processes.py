@@ -183,7 +183,9 @@ class StanzaAnalyzeProcess(Process):
                 if isinstance(feats_s, str) and feats_s and feats_s != "_":
                     try:
                         feats_obj = convert_pos_features_to_ud(
-                            feats_raw=feats_s, remap_report=remap_report
+                            feats_raw=feats_s,
+                            remap_report=remap_report,
+                            source_word=form if isinstance(form, str) else None,
                         )
                     except Exception:
                         feats_obj = None

@@ -295,7 +295,9 @@ def conllu_to_words(conllu: str) -> list[Word]:
         if feats_raw and feats_raw != "_":
             try:
                 feats_obj = convert_pos_features_to_ud(
-                    feats_raw=feats_raw, remap_report=remap_report
+                    feats_raw=feats_raw,
+                    remap_report=remap_report,
+                    source_word=None if form == "_" else form,
                 )
             except Exception as e:
                 logger.debug("Could not parse FEATS %r: %s", feats_raw, e)

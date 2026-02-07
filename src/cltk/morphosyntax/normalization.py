@@ -1,6 +1,6 @@
 """Normalization of text for morphosyntactic analysis."""
 
-from collections import Counter
+from collections import Counter, defaultdict
 from dataclasses import dataclass, field
 from typing import Optional
 
@@ -13,10 +13,20 @@ class UDFeatureRemapReport:
     """Collect unmapped UD feature pairs and render mapping suggestions."""
 
     unmapped_pairs: Counter[tuple[str, str]] = field(default_factory=Counter)
+    pair_word_counts: dict[tuple[str, str], Counter[str]] = field(
+        default_factory=lambda: defaultdict(Counter)
+    )
 
-    def record(self, key: str, value: str) -> None:
+    def record(
+        self, key: str, value: str, *, source_word: Optional[str] = None
+    ) -> None:
         """Track one unmapped ``(key, value)`` occurrence."""
-        self.unmapped_pairs[(key, value)] += 1
+        pair = (key, value)
+        self.unmapped_pairs[pair] += 1
+        if source_word:
+            word = source_word.strip()
+            if word:
+                self.pair_word_counts[pair][word] += 1
 
     @property
     def total_count(self) -> int:
@@ -46,10 +56,27 @@ class UDFeatureRemapReport:
             "# Replace placeholders with canonical UD key/value pairs.",
         ]
         for (key, value), count in self.iter_sorted_pairs():
+            words_str = self._format_words(pair=(key, value))
+            comment = f"seen {count}x"
+            if words_str:
+                comment = f"{comment}; words: {words_str}"
             lines.append(
-                f"({key!r}, {value!r}): ('<UD_KEY>', '<UD_VALUE>'),  # seen {count}x"
+                f"({key!r}, {value!r}): ('<UD_KEY>', '<UD_VALUE>'),  # {comment}"
             )
         return "\n".join(lines)
+
+    def _format_words(self, *, pair: tuple[str, str], max_words: int = 5) -> str:
+        """Return a stable preview of words that produced a remap miss."""
+        words = self.pair_word_counts.get(pair)
+        if not words:
+            return ""
+        ranked_words = sorted(words.items(), key=lambda item: (-item[1], item[0]))
+        shown = ranked_words[:max_words]
+        parts = [f"{word!r}({count}x)" for word, count in shown]
+        hidden = len(ranked_words) - len(shown)
+        if hidden > 0:
+            parts.append(f"+{hidden} more")
+        return ", ".join(parts)
 
     def log_summary(self, *, label: str = "UD feature remap misses") -> None:
         """Log one consolidated summary warning for unmapped pairs."""
@@ -430,6 +457,7 @@ def convert_pos_features_to_ud(
     feats_raw: str,
     *,
     remap_report: Optional[UDFeatureRemapReport] = None,
+    source_word: Optional[str] = None,
 ) -> Optional[UDFeatureTagSet]:
     """Parse a raw feature string into a validated ``UDFeatureTagSet``.
 
@@ -442,6 +470,7 @@ def convert_pos_features_to_ud(
             ``|``.
         remap_report: Optional collector used to aggregate unmapped pairs and
             emit one summary at a higher level.
+        source_word: Optional token text from which the feature string came.
 
     Returns:
         A ``UDFeatureTagSet`` containing validated features (possibly empty).
@@ -468,7 +497,9 @@ def convert_pos_features_to_ud(
             logger.debug(f"feature_tag: {feature_tag}")
         except ValueError:
             if remap_report is not None:
-                remap_report.record(raw_feature_key, raw_feature_value)
+                remap_report.record(
+                    raw_feature_key, raw_feature_value, source_word=source_word
+                )
             else:
                 logger.warning(
                     f"Skipping invalid feature: {raw_feature_key}={raw_feature_value}"

@@ -360,7 +360,9 @@ def generate_pos(
         features_tag_set: Optional[UDFeatureTagSet] = None
         try:
             features_tag_set = convert_pos_features_to_ud(
-                feats_raw=feats_raw, remap_report=local_report
+                feats_raw=feats_raw,
+                remap_report=local_report,
+                source_word=word.string,
             )
         except ValueError as e:
             msg: str = f"{word.string}: Failed to create features_tag_set from '{feats_raw}' for '{word.string}': {e}"
@@ -779,7 +781,9 @@ async def generate_gpt_morphosyntax_async(
             if feats_raw:
                 try:
                     word.features = convert_pos_features_to_ud(
-                        feats_raw=feats_raw, remap_report=remap_report
+                        feats_raw=feats_raw,
+                        remap_report=remap_report,
+                        source_word=word.string,
                     )
                 except ValueError as e:  # pragma: no cover - defensive
                     log_i.error(

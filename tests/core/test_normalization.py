@@ -29,6 +29,7 @@ def test_convert_pos_features_to_ud_populates_remap_report() -> None:
     tag_set = convert_pos_features_to_ud(
         "Case=Nom|PronType=Con|Form=Emp|PronType=Con",
         remap_report=report,
+        source_word="ipsorum",
     )
 
     assert tag_set is not None
@@ -39,19 +40,29 @@ def test_convert_pos_features_to_ud_populates_remap_report() -> None:
     assert report.unique_count == 2
     assert report.unmapped_pairs[("PronType", "Con")] == 2
     assert report.unmapped_pairs[("Form", "Emp")] == 1
+    assert report.pair_word_counts[("PronType", "Con")]["ipsorum"] == 2
+    assert report.pair_word_counts[("Form", "Emp")]["ipsorum"] == 1
 
 
 def test_ud_feature_remap_report_renders_suggestions_sorted() -> None:
     report = UDFeatureRemapReport()
-    report.record("PronType", "Con")
-    report.record("Form", "Emp")
-    report.record("PronType", "Con")
-    report.record("NumValue", "1")
+    report.record("PronType", "Con", source_word="quod")
+    report.record("Form", "Emp", source_word="ipsorum")
+    report.record("PronType", "Con", source_word="qui")
+    report.record("NumValue", "1", source_word="unum")
 
     suggestions = report.as_mapping_suggestions()
 
     assert "ud_feature_pair_remap" in suggestions
-    assert "('PronType', 'Con'): ('<UD_KEY>', '<UD_VALUE>'),  # seen 2x" in suggestions
+    assert (
+        "('PronType', 'Con'): ('<UD_KEY>', '<UD_VALUE>'),  # seen 2x; words:"
+        in suggestions
+    )
+    assert "'quod'(1x)" in suggestions
+    assert "'qui'(1x)" in suggestions
+    assert (
+        "('Form', 'Emp'): ('<UD_KEY>', '<UD_VALUE>'),  # seen 1x; words: 'ipsorum'(1x)"
+    ) in suggestions
     lines = suggestions.splitlines()
     pron_idx = next(i for i, line in enumerate(lines) if "('PronType', 'Con')" in line)
     form_idx = next(i for i, line in enumerate(lines) if "('Form', 'Emp')" in line)
