@@ -18,6 +18,7 @@ from cltk.core.data_types import (
     OpenAIBackendConfig,
     Sentence,
     Translation,
+    UDFeatureTagSet,
     Word,
 )
 from cltk.core.exceptions import CLTKException
@@ -31,7 +32,6 @@ from cltk.genai.mistral import MistralConnection
 from cltk.genai.ollama import OllamaConnection
 from cltk.genai.openai import OpenAIConnection
 from cltk.genai.prompts import PromptInfo, _hash_prompt, translation_prompt
-from cltk.morphosyntax.ud_features import UDFeatureTagSet
 from cltk.morphosyntax.utils import _update_doc_genai_stage
 
 PromptBuilder = Callable[[str, str, str], PromptInfo] | PromptInfo | str

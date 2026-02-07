@@ -13,15 +13,18 @@ from typing import Any, ClassVar, Optional
 from stanza import DownloadMethod
 
 from cltk.core.cltk_logger import bind_context
-from cltk.core.data_types import Doc, Process, Word
+from cltk.core.data_types import Doc, Process, UDFeatureTagSet, Word
 from cltk.core.process_registry import register_process
 from cltk.core.provenance import (
     add_provenance_record,
     build_provenance_record,
     extract_doc_config,
 )
+from cltk.morphosyntax.normalization import (
+    UDFeatureRemapReport,
+    convert_pos_features_to_ud,
+)
 from cltk.morphosyntax.ud_deprels import UDDeprelTag, get_ud_deprel_tag
-from cltk.morphosyntax.ud_features import UDFeatureTagSet, convert_pos_features_to_ud
 from cltk.morphosyntax.ud_pos import UDPartOfSpeechTag
 
 _GLOTTO_TO_STANZA_LANG = {
@@ -140,6 +143,7 @@ class StanzaAnalyzeProcess(Process):
         sdoc = nlp(output_doc.normalized_text)
 
         words: list[Word] = []
+        remap_report = UDFeatureRemapReport()
         sent_bounds: list[tuple[int, int]] = []
         token_counter = 0
         for s_idx, sent in enumerate(getattr(sdoc, "sentences", []) or []):
@@ -178,7 +182,11 @@ class StanzaAnalyzeProcess(Process):
                 feats_obj: Optional[UDFeatureTagSet] = None
                 if isinstance(feats_s, str) and feats_s and feats_s != "_":
                     try:
-                        feats_obj = convert_pos_features_to_ud(feats_raw=feats_s)
+                        feats_obj = convert_pos_features_to_ud(
+                            feats_raw=feats_s,
+                            remap_report=remap_report,
+                            source_word=form if isinstance(form, str) else None,
+                        )
                     except Exception:
                         feats_obj = None
 
@@ -229,6 +237,7 @@ class StanzaAnalyzeProcess(Process):
                 token_counter += 1
 
         output_doc.words = words
+        remap_report.log_summary(label="Unmapped UD feature pairs from stanza")
         if sent_bounds:
             output_doc.sentence_boundaries = sent_bounds
         if sent_bounds and prov_id:

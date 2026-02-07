@@ -3,11 +3,15 @@
 from typing import Iterable, Optional
 
 from cltk.core.cltk_logger import logger
-from cltk.core.data_types import Doc, Word
-from cltk.core.logging_utils import bind_from_doc
-from cltk.morphosyntax.ud_features import (
+from cltk.core.data_types import (
+    Doc,
     UDFeatureTag,
     UDFeatureTagSet,
+    Word,
+)
+from cltk.core.logging_utils import bind_from_doc
+from cltk.morphosyntax.normalization import (
+    UDFeatureRemapReport,
     convert_pos_features_to_ud,
 )
 from cltk.morphosyntax.ud_pos import UDPartOfSpeechTag
@@ -245,6 +249,7 @@ def conllu_to_words(conllu: str) -> list[Word]:
     - Sets Word.index_token as 0-based (ID-1).
     """
     out: list[Word] = []
+    remap_report = UDFeatureRemapReport()
     for raw_line in conllu.splitlines():
         line = raw_line.strip()
         if not line or line.startswith("#"):
@@ -289,7 +294,11 @@ def conllu_to_words(conllu: str) -> list[Word]:
         feats_obj: Optional[UDFeatureTagSet] = None
         if feats_raw and feats_raw != "_":
             try:
-                feats_obj = convert_pos_features_to_ud(feats_raw=feats_raw)
+                feats_obj = convert_pos_features_to_ud(
+                    feats_raw=feats_raw,
+                    remap_report=remap_report,
+                    source_word=None if form == "_" else form,
+                )
             except Exception as e:
                 logger.debug("Could not parse FEATS %r: %s", feats_raw, e)
 
@@ -339,4 +348,5 @@ def conllu_to_words(conllu: str) -> list[Word]:
 
         out.append(w)
 
+    remap_report.log_summary(label="Unmapped UD feature pairs from CoNLL-U")
     return out
