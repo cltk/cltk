@@ -48,6 +48,9 @@ def normalize_ud_feature_pair(key: str, value: str) -> Optional[tuple[str, str]]
         ``None``.
 
     """
+    ud_feature_name_map: dict[str, str] = {
+        "InflClass[nominal]": "InflClass",
+    }
     ud_feature_pair_remap: dict[tuple[str, str], tuple[str, str]] = {
         ("Tense", "Perf"): ("Aspect", "Perf"),
         ("Tense", "Aor"): ("Tense", "Past"),
@@ -349,12 +352,21 @@ def normalize_ud_feature_pair(key: str, value: str) -> Optional[tuple[str, str]]
         # if "Mood" in {"Opt","Imp"} and not has_feature("VerbForm"):
         #     add_feature(("VerbForm","Fin"))
         # ("", ""): ("", ""),
+        # ("", ""): ("", ""),
     }
+    original_key = key
+    key = ud_feature_name_map.get(key, key)
+
     remap: Optional[tuple[str, str]] = ud_feature_pair_remap.get((key, value))
     if remap:
         norm_key, norm_value = remap
         logger.info(f"Remapped {key}={value} to {norm_key}={norm_value}")
         return norm_key, norm_value
+    if key != original_key:
+        logger.info(
+            f"Remapped feature key {original_key} to {key} (value kept: {value})"
+        )
+        return key, value
     logger.warning(f"Failed to normalize UD feature pair: {key}={value}.")
     return None
 
