@@ -166,6 +166,7 @@ class UDFeatureTag(BaseModel):
             msg = f"Value '{value}' is not valid for feature key '{key}' even after normalization."
             raise ValueError(msg)
         data["category"] = feature.category
+        data["inflectional_class"] = feature.values[value].inflectional_class
         data["value_label"] = feature.values[value].label
         return data
 
