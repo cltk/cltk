@@ -17,11 +17,17 @@ def test_ud_feature_tag_accepts_key_only_remap() -> None:
     feature_tag = UDFeatureTag(key="InflClass[nominal]", value="IndEurA")
     assert feature_tag.key == "InflClass"
     assert feature_tag.value == "IndEurA"
+    assert feature_tag.inflectional_class == "Nominal"
 
 
 def test_normalize_ud_feature_pair_still_remaps_known_pair() -> None:
     normalized = normalize_ud_feature_pair("Tense", "Perf")
     assert normalized == ("Aspect", "Perf")
+
+
+def test_ud_feature_tag_sets_inflectional_class_for_inflclass() -> None:
+    feature_tag = UDFeatureTag(key="InflClass", value="LatX")
+    assert feature_tag.inflectional_class == "Verbal"
 
 
 def test_convert_pos_features_to_ud_populates_remap_report() -> None:
