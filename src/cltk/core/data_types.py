@@ -39,8 +39,8 @@ ISOType: TypeAlias = Literal["639-1", "639-2", "639-3"]
 ScriptDir: TypeAlias = Literal["ltr", "rtl", "ttb", "btt"]
 
 
-BACKEND_TYPES: TypeAlias = Literal[
-    "openai", "stanza", "spacy", "ollama", "ollama-cloud", "mistral"
+BACKEND_TYPES: TypeAlias = Union[
+    Literal["openai", "stanza", "spacy", "ollama", "ollama-cloud", "mistral"], str
 ]
 AVAILABLE_OPENAI_MODELS: TypeAlias = Literal["gpt-5-mini", "gpt-5"]
 
