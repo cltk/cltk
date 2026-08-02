@@ -40,7 +40,10 @@ ScriptDir: TypeAlias = Literal["ltr", "rtl", "ttb", "btt"]
 
 
 BACKEND_TYPES: TypeAlias = Union[
-    Literal["openai", "stanza", "spacy", "ollama", "ollama-cloud", "mistral"], str
+    Literal[
+        "openai", "litellm", "stanza", "spacy", "ollama", "ollama-cloud", "mistral"
+    ],
+    str,
 ]
 AVAILABLE_OPENAI_MODELS: TypeAlias = Literal["gpt-5-mini", "gpt-5"]
 
@@ -568,6 +571,16 @@ class OpenAIBackendConfig(ModelConfig):
     api_key: Optional[str] = None
 
 
+class LiteLLMBackendConfig(ModelConfig):
+    """Options for an OpenAI-compatible LiteLLM proxy."""
+
+    model: Optional[str] = None
+    temperature: float = Field(default=1.0, ge=0, le=2)
+    max_retries: int = Field(default=2, ge=0)
+    api_key: Optional[str] = None
+    base_url: Optional[str] = None
+
+
 class MistralBackendConfig(ModelConfig):
     """Options specific to the Mistral backend."""
 
@@ -627,6 +640,7 @@ class CLTKConfig(BaseModel):
 
     stanza: Optional[StanzaBackendConfig] = None
     openai: Optional[OpenAIBackendConfig] = None
+    litellm: Optional[LiteLLMBackendConfig] = None
     mistral: Optional[MistralBackendConfig] = None
     ollama: Optional[OllamaBackendConfig] = None
 
@@ -640,6 +654,7 @@ class CLTKConfig(BaseModel):
         mapping: dict[str, Optional[ModelConfig]] = {
             "stanza": self.stanza,
             "openai": self.openai,
+            "litellm": self.litellm,
             "mistral": self.mistral,
             "ollama": self.ollama,
             "ollama-cloud": self.ollama,
@@ -663,6 +678,7 @@ class CLTKConfig(BaseModel):
             for name, cfg in (
                 ("stanza", self.stanza),
                 ("openai", self.openai),
+                ("litellm", self.litellm),
                 ("mistral", self.mistral),
                 ("ollama", self.ollama),
             )
@@ -676,6 +692,7 @@ class CLTKConfig(BaseModel):
             allowed_for_backend: dict[str, set[str]] = {
                 "stanza": {"stanza"},
                 "openai": {"openai"},
+                "litellm": {"litellm"},
                 "mistral": {"mistral"},
                 "ollama": {"ollama"},
                 "ollama-cloud": {"ollama"},
