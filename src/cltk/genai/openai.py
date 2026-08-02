@@ -14,6 +14,7 @@ __license__ = "MIT License. See LICENSE."
 
 import os
 import re
+from types import SimpleNamespace
 from typing import Any, Optional, cast
 
 from cltk.core.cltk_logger import bind_context
@@ -62,6 +63,19 @@ def _resolve_openai_classes() -> (
 OpenAI, AsyncOpenAI, OpenAIError = _resolve_openai_classes()
 
 
+def _litellm_output_text(response: Any) -> str:
+    """Extract non-empty text from an OpenAI-compatible chat response."""
+    try:
+        content = response.choices[0].message.content
+    except (AttributeError, IndexError, TypeError) as error:
+        raise CLTKException(
+            "LiteLLM returned an empty or malformed response."
+        ) from error
+    if not isinstance(content, str) or not content.strip():
+        raise CLTKException("LiteLLM returned an empty or malformed response.")
+    return content
+
+
 class OpenAIConnection:
     """Thin wrapper around the OpenAI client for CLTK use cases.
 
@@ -80,6 +94,7 @@ class OpenAIConnection:
         model: AVAILABLE_OPENAI_MODELS,
         api_key: Optional[str] = None,
         temperature: float = 1.0,
+        _base_url: Optional[str] = None,
     ):
         """Initialize the client and resolve language/dialect metadata."""
         self.api_key = api_key
@@ -103,7 +118,11 @@ class OpenAIConnection:
                     "OpenAI client not installed. Install with: pip install 'cltk[openai]'"
                 ) from e
             openai_cls = runtime_openai
-        self.client = openai_cls(api_key=self.api_key)
+        client_kwargs: dict[str, Any] = {"api_key": self.api_key}
+        if _base_url:
+            client_kwargs["base_url"] = _base_url.rstrip("/")
+        self.client = openai_cls(**client_kwargs)
+        self._is_litellm = _base_url is not None
         # Structured logger bound with model identifier
         self.log = bind_context(model=str(self.model))
 
@@ -112,7 +131,9 @@ class OpenAIConnection:
         prompt: str,
         max_retries: int = 2,
     ) -> CLTKGenAIResponse:
-        """Call the OpenAI responses API synchronously with retries and code-block parsing."""
+        """Generate text through OpenAI Responses or LiteLLM Chat Completions."""
+        if max_retries < 1:
+            raise ValueError("max_retries must be at least 1")
         # Avoid logging full prompt contents unless explicitly enabled
         import os as _os
 
@@ -132,7 +153,17 @@ class OpenAIConnection:
             self.log.debug(f"Attempt {attempt} of {max_retries}")
             try:
                 # TODO: Disable 4.1
-                if "4.1" in self.model:
+                if self._is_litellm:
+                    chat_response = self.client.chat.completions.create(
+                        model=self.model,
+                        messages=[{"role": "user", "content": prompt}],
+                        temperature=self.temperature,
+                    )
+                    content = _litellm_output_text(chat_response)
+                    openai_response = SimpleNamespace(
+                        output_text=content, usage=chat_response.usage
+                    )
+                elif "4.1" in self.model:
                     openai_response = self.client.responses.create(
                         model=self.model, input=prompt, temperature=self.temperature
                     )
@@ -185,6 +216,9 @@ class OpenAIConnection:
                     raise CLTKException(final_err)
                     # return doc
                 # Optionally, you could modify the prompt or add a delay here
+
+        if not code_block:
+            raise CLTKException("No code blocks found in response after retries.")
         assert openai_response
         # Use the accumulated usage across all attempts
         openai_usage: dict[str, int] = agg_tokens
@@ -300,6 +334,7 @@ class AsyncOpenAIConnection:
         model: AVAILABLE_OPENAI_MODELS,
         api_key: Optional[str] = None,
         temperature: float = 1.0,
+        _base_url: Optional[str] = None,
     ) -> None:
         self.api_key = api_key
         self.model: str = model
@@ -320,7 +355,11 @@ class AsyncOpenAIConnection:
                     "OpenAI client not installed. Install with: pip install 'cltk[openai]'"
                 ) from e
             async_openai_cls = runtime_async_openai
-        self.client = async_openai_cls(api_key=self.api_key)
+        client_kwargs: dict[str, Any] = {"api_key": self.api_key}
+        if _base_url:
+            client_kwargs["base_url"] = _base_url.rstrip("/")
+        self.client = async_openai_cls(**client_kwargs)
+        self._is_litellm = _base_url is not None
         # Structured logger bound with model identifier
         self.log = bind_context(model=str(self.model))
 
@@ -329,7 +368,9 @@ class AsyncOpenAIConnection:
         prompt: str,
         max_retries: int = 2,
     ) -> CLTKGenAIResponse:
-        """Call the OpenAI responses API asynchronously with retries."""
+        """Generate text asynchronously through OpenAI or LiteLLM."""
+        if max_retries < 1:
+            raise ValueError("max_retries must be at least 1")
         import os as _os
 
         if _os.getenv("CLTK_LOG_CONTENT", "").strip().lower() in {
@@ -345,7 +386,17 @@ class AsyncOpenAIConnection:
         for attempt in range(1, max_retries + 1):
             self.log.debug("[async] Attempt %s of %s", attempt, max_retries)
             try:
-                if "4.1" in self.model:
+                if self._is_litellm:
+                    chat_response = await self.client.chat.completions.create(
+                        model=self.model,
+                        messages=[{"role": "user", "content": prompt}],
+                        temperature=self.temperature,
+                    )
+                    content = _litellm_output_text(chat_response)
+                    openai_response = SimpleNamespace(
+                        output_text=content, usage=chat_response.usage
+                    )
+                elif "4.1" in self.model:
                     openai_response = await self.client.responses.create(
                         model=self.model,
                         input=prompt,
@@ -391,6 +442,9 @@ class AsyncOpenAIConnection:
                 "[async] Attempt %s: No code block found in response. Retrying...",
                 attempt,
             )
+
+        if not code_block:
+            raise CLTKException("No code blocks found in response after retries.")
 
         assert openai_response is not None
         usage = agg_tokens
@@ -455,3 +509,66 @@ class AsyncOpenAIConnection:
         }:
             self.log.debug("[async] Extracted code block:\n%s", code_block)
         return code_block
+
+
+class LiteLLMConnection(OpenAIConnection):
+    """Synchronous connection to models exposed by a LiteLLM proxy.
+
+    Uses ``LITELLM_API_KEY`` and defaults ``LITELLM_BASE_URL`` to the local
+    LiteLLM proxy. Requests use the provider-neutral Chat Completions endpoint;
+    model names are proxy aliases and are not restricted to OpenAI identifiers.
+    """
+
+    def __init__(
+        self,
+        model: str,
+        api_key: Optional[str] = None,
+        base_url: Optional[str] = None,
+        temperature: float = 1.0,
+    ) -> None:
+        model = model.strip()
+        if not model:
+            raise ValueError("LiteLLM model alias cannot be empty.")
+        resolved_key = api_key or os.environ.get("LITELLM_API_KEY")
+        if not resolved_key:
+            raise ValueError(
+                "LiteLLM API key required. Set LITELLM_API_KEY or pass api_key."
+            )
+        resolved_url = base_url or os.environ.get(
+            "LITELLM_BASE_URL", "http://localhost:4000/v1"
+        )
+        super().__init__(
+            model=cast(AVAILABLE_OPENAI_MODELS, model),
+            api_key=resolved_key,
+            temperature=temperature,
+            _base_url=resolved_url,
+        )
+
+
+class AsyncLiteLLMConnection(AsyncOpenAIConnection):
+    """Asynchronous connection to models exposed by a LiteLLM proxy."""
+
+    def __init__(
+        self,
+        model: str,
+        api_key: Optional[str] = None,
+        base_url: Optional[str] = None,
+        temperature: float = 1.0,
+    ) -> None:
+        model = model.strip()
+        if not model:
+            raise ValueError("LiteLLM model alias cannot be empty.")
+        resolved_key = api_key or os.environ.get("LITELLM_API_KEY")
+        if not resolved_key:
+            raise ValueError(
+                "LiteLLM API key required. Set LITELLM_API_KEY or pass api_key."
+            )
+        resolved_url = base_url or os.environ.get(
+            "LITELLM_BASE_URL", "http://localhost:4000/v1"
+        )
+        super().__init__(
+            model=cast(AVAILABLE_OPENAI_MODELS, model),
+            api_key=resolved_key,
+            temperature=temperature,
+            _base_url=resolved_url,
+        )

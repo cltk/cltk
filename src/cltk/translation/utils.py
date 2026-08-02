@@ -12,6 +12,7 @@ from cltk.core.data_types import (
     CLTKGenAIResponse,
     Doc,
     IdiomSpan,
+    LiteLLMBackendConfig,
     MistralBackendConfig,
     ModelConfig,
     OllamaBackendConfig,
@@ -30,7 +31,7 @@ from cltk.core.provenance import (
 )
 from cltk.genai.mistral import MistralConnection
 from cltk.genai.ollama import OllamaConnection
-from cltk.genai.openai import OpenAIConnection
+from cltk.genai.openai import LiteLLMConnection, OpenAIConnection
 from cltk.genai.prompts import PromptInfo, _hash_prompt, translation_prompt
 from cltk.morphosyntax.utils import _update_doc_genai_stage
 
@@ -436,6 +437,16 @@ def generate_gpt_translation(
             model=cast(AVAILABLE_OPENAI_MODELS, doc.model),
             api_key=getattr(openai_cfg, "api_key", None),
             temperature=getattr(openai_cfg, "temperature", 1.0),
+        )
+    elif doc.backend == "litellm":
+        litellm_cfg = (
+            backend_config if isinstance(backend_config, LiteLLMBackendConfig) else None
+        )
+        client = LiteLLMConnection(
+            model=str(doc.model),
+            api_key=getattr(litellm_cfg, "api_key", None),
+            base_url=getattr(litellm_cfg, "base_url", None),
+            temperature=getattr(litellm_cfg, "temperature", 1.0),
         )
     elif doc.backend in ("ollama", "ollama-cloud"):
         ollama_cfg = (

@@ -58,6 +58,17 @@ nlp_big = NLP('lati1261', backend='openai', model='gpt-5')
 # (e.g., via a .env file or shell env var)
 ```
 
+- LiteLLM proxy (any model configured behind the gateway):
+
+Install the OpenAI client extra with `pip install "cltk[openai]"`, then:
+
+```python
+from cltk import NLP
+
+# Set LITELLM_API_KEY and optionally LITELLM_BASE_URL
+nlp_proxy = NLP('lati1261', backend='litellm', model='your-proxy-model-alias')
+```
+
 - Ollama backend (local LLMs):
 
 ```python

@@ -35,6 +35,28 @@ cltk_config = CLTKConfig(
 nlp = NLP(cltk_config=cltk_config)
 ```
 
+## LiteLLM: proxy URL and model alias
+
+This backend uses the OpenAI client extra (`pip install "cltk[openai]"`). If
+`base_url` is omitted, CLTK reads `LITELLM_BASE_URL` and otherwise defaults to
+`http://localhost:4000/v1`.
+
+```python
+from cltk.core.data_types import CLTKConfig, LiteLLMBackendConfig
+
+cltk_config = CLTKConfig(
+    language_code="lati1261",
+    backend="litellm",
+    litellm=LiteLLMBackendConfig(
+        model="your-proxy-model-alias",
+        base_url="https://litellm.example.com/v1",
+        temperature=0.4,
+        # api_key="sk-...",  # overrides LITELLM_API_KEY if provided
+    ),
+)
+nlp = NLP(cltk_config=cltk_config)
+```
+
 ## OpenAI / ChatGPT: temperature and retries
 
 ```python
@@ -119,9 +141,10 @@ nlp = NLP(cltk_config=cltk_config)
 
 - Only one backend config block should be provided at a time; Pydantic validation will raise if more than one is set.
 - When `cltk_config` is supplied, its values override the individual `NLP()` arguments (`language_code`, `backend`, `model`, `custom_pipeline`, `suppress_banner`).
-- API keys in the config blocks take precedence over environment variables like `OPENAI_API_KEY`, `MISTRAL_API_KEY`, and `OLLAMA_CLOUD_API_KEY`.
+- API keys in the config blocks take precedence over environment variables like `OPENAI_API_KEY`, `LITELLM_API_KEY`, `MISTRAL_API_KEY`, and `OLLAMA_CLOUD_API_KEY`.
 - Currently applied knobs per backend:
   - Stanza: `stanza.model` selects the UD package/treebank (`package` in Stanza).
   - OpenAI: `temperature`, `api_key`, `max_retries`.
+  - LiteLLM: `model`, `base_url`, `temperature`, `api_key`, `max_retries`.
   - Mistral: `temperature`, `api_key`, `max_retries`.
   - Ollama: `temperature`, `top_p`, `num_ctx`, `num_predict`, `options`, `host`/`port`, `api_key`, `max_retries`.

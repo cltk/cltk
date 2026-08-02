@@ -46,11 +46,11 @@ class NLP:
     Args:
       language_code: Language key (Glottolog code, ISO code, or exact name).
         Required unless ``cltk_config`` is provided.
-      backend: One of ``"stanza"`` (default), ``"openai"``, ``"ollama"``,
+      backend: One of ``"stanza"`` (default), ``"openai"``, ``"litellm"``, ``"ollama"``,
         ``"ollama-cloud"``, or ``mistral``. The ``"spacy"`` backend is not
         yet implemented and will raise ``NotImplementedError``.
       model: Optional model name when using generative backends
-        (``"openai"``, ``"ollama"``, ``"ollama-cloud"``, ``mistral``). Ignored for
+        (``"openai"``, ``"litellm"``, ``"ollama"``, ``"ollama-cloud"``, ``mistral``). Ignored for
         ``"stanza"``.
       custom_pipeline: Optional pipeline to use instead of the default mapping.
       suppress_banner: If true, suppresses informational console output.
@@ -60,6 +60,9 @@ class NLP:
     Notes:
       - When ``backend == "openai"`` and no ``model`` is provided, defaults to
         ``"gpt-5-mini"``. Requires ``OPENAI_API_KEY`` in the environment.
+      - The ``"litellm"`` backend requires a proxy model alias and
+        ``LITELLM_API_KEY``. ``LITELLM_BASE_URL`` defaults to
+        ``http://localhost:4000/v1``.
       - When ``backend`` is ``"ollama"`` or ``"ollama-cloud"`` and no ``model``
         is provided, defaults to ``"llama3.1:8b"``. ``"ollama-cloud"`` requires
         ``OLLAMA_CLOUD_API_KEY`` in the environment.
@@ -153,6 +156,19 @@ class NLP:
             # Default model if none provided
             self.model = self.model or getattr(backend_config, "model", None)
             self.model = self.model or "gpt-5-mini"
+        elif self.backend == "litellm":
+            self.api_key = getattr(backend_config, "api_key", None)
+            if not self.api_key:
+                load_env_file()
+                self.api_key = os.getenv("LITELLM_API_KEY")
+            if not self.api_key:
+                raise ValueError("API key for LiteLLM not found.")
+            self.model = self.model or getattr(backend_config, "model", None)
+            self.model = self.model or os.getenv("LITELLM_MODEL")
+            if not self.model:
+                raise ValueError(
+                    "LiteLLM model not found. Pass model or set LITELLM_MODEL."
+                )
         elif self.backend in ("ollama", "ollama-cloud"):
             if self.backend == "ollama-cloud":
                 # Prefer API key from config when provided
@@ -381,7 +397,13 @@ class NLP:
 
     def _maybe_attach_enrichment_process(self) -> None:
         """Append GenAI enrichment to generative pipelines if missing."""
-        if self.backend not in ("openai", "ollama", "ollama-cloud", "mistral"):
+        if self.backend not in (
+            "openai",
+            "litellm",
+            "ollama",
+            "ollama-cloud",
+            "mistral",
+        ):
             return
         try:
             processes = (
@@ -445,7 +467,7 @@ class NLP:
         If a custom pipeline was not provided, this looks up the mapping for
         the chosen backend and glottolog code and returns an instance. The
         ``"stanza"`` backend uses ``MAP_LANGUAGE_CODE_TO_STANZA_PIPELINE``.
-        The generative backends (``"openai"``, ``"ollama"``, ``"ollama-cloud"``)
+        The generative backends (``"openai"``, ``"litellm"``, ``"ollama"``, ``"ollama-cloud"``)
         use ``MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE``; the underlying client
         is selected later based on ``doc.backend``. The ``"spacy"`` backend is
         currently not implemented and raises ``NotImplementedError``.
@@ -472,7 +494,7 @@ class NLP:
             raise NotImplementedError(
                 f"Discriminative backend '{self.backend}' not yet reimplemented."
             )
-        elif self.backend == "openai":
+        elif self.backend in ("openai", "litellm"):
             mapping = MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE
         elif self.backend in ("ollama", "ollama-cloud"):
             # Reuse the same generative pipelines; lower layers pick the client by backend

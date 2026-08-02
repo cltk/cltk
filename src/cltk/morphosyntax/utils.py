@@ -18,6 +18,7 @@ from cltk.core.data_types import (
     AVAILABLE_OPENAI_MODELS,
     CLTKGenAIResponse,
     Doc,
+    LiteLLMBackendConfig,
     MistralBackendConfig,
     ModelConfig,
     OllamaBackendConfig,
@@ -34,7 +35,12 @@ from cltk.core.provenance import (
 )
 from cltk.genai.mistral import AsyncMistralConnection, MistralConnection
 from cltk.genai.ollama import AsyncOllamaConnection, OllamaConnection
-from cltk.genai.openai import AsyncOpenAIConnection, OpenAIConnection
+from cltk.genai.openai import (
+    AsyncLiteLLMConnection,
+    AsyncOpenAIConnection,
+    LiteLLMConnection,
+    OpenAIConnection,
+)
 from cltk.genai.prompts import PromptInfo, _hash_prompt, morphosyntax_prompt
 from cltk.morphosyntax.normalization import (
     UDFeatureRemapReport,
@@ -246,6 +252,19 @@ def generate_pos(
                 model=openai_model,
                 api_key=getattr(openai_cfg, "api_key", None),
                 temperature=getattr(openai_cfg, "temperature", 1.0),
+            )
+    elif doc.backend == "litellm":
+        if not client:
+            litellm_cfg = (
+                backend_config
+                if isinstance(backend_config, LiteLLMBackendConfig)
+                else None
+            )
+            client = LiteLLMConnection(
+                model=str(doc.model),
+                api_key=getattr(litellm_cfg, "api_key", None),
+                base_url=getattr(litellm_cfg, "base_url", None),
+                temperature=getattr(litellm_cfg, "temperature", 1.0),
             )
     elif doc.backend == "mistral":
         if doc.model not in get_args(AVAILABLE_MISTRAL_MODELS):
@@ -467,6 +486,8 @@ def generate_gpt_morphosyntax(
             )
         openai_model: AVAILABLE_OPENAI_MODELS = cast(AVAILABLE_OPENAI_MODELS, doc.model)
         client = OpenAIConnection(model=openai_model)
+    elif doc.backend == "litellm":
+        client = LiteLLMConnection(model=str(doc.model))
     elif doc.backend in ("ollama", "ollama-cloud"):
         client = OllamaConnection(
             model=str(doc.model),
@@ -632,6 +653,16 @@ async def generate_gpt_morphosyntax_async(
             model=openai_model,
             api_key=getattr(openai_cfg, "api_key", None),
             temperature=getattr(openai_cfg, "temperature", 1.0),
+        )
+    elif doc.backend == "litellm":
+        litellm_cfg = (
+            backend_config if isinstance(backend_config, LiteLLMBackendConfig) else None
+        )
+        conn = AsyncLiteLLMConnection(
+            model=str(doc.model),
+            api_key=getattr(litellm_cfg, "api_key", None),
+            base_url=getattr(litellm_cfg, "base_url", None),
+            temperature=getattr(litellm_cfg, "temperature", 1.0),
         )
     elif doc.backend in ("ollama", "ollama-cloud"):
         ollama_cfg = (
