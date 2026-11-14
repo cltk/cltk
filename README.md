@@ -73,7 +73,7 @@ nlp_qwen = NLP('lati1261', backend='ollama', model='qwen2.5:14b')
 # and choose backend='ollama-cloud'. The same model strings apply.
 ```
 
-For more information, see [Installation docs](https://docs.cltk.org/en/latest/installation.html) or, to install from source, [Development](https://docs.cltk.org/en/latest/development.html).
+For more information, see Installation docs or, to install from source, [Development](https://docs.cltk.org/en/latest/development.html).
 
 Pre-1.0 software remains available on the [branch v0.1.x](https://github.com/cltk/cltk/tree/v0.1.x) and docs at <https://legacy.cltk.org>. Install it with `pip install "cltk<1.0"`.
 
