@@ -48,11 +48,11 @@ By default, when using `backend='ollama'`, CLTK uses the model `llama3.1:8b`. To
 ```python
 from cltk import NLP
 
-# Default model is "gpt-5-mini" when backend='openai'
+# Default model is "gpt-6.1-terra" when backend='openai'
 nlp = NLP('lati1261', backend='openai')
 
 # Choose a specific model
-nlp_big = NLP('lati1261', backend='openai', model='gpt-5')
+nlp_big = NLP('lati1261', backend='openai', model='gpt-6.1-sol')
 
 # Requires OPENAI_API_KEY to be set in the environment
 # (e.g., via a .env file or shell env var)

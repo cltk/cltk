@@ -10,7 +10,7 @@ Translations run after morphosyntax, dependency, and enrichment steps so the mod
 from cltk import NLP
 
 # Language with a GenAI pipeline, using OpenAI as backend
-nlp = NLP(language_code="lati1261", backend="openai", model="gpt-5-mini", suppress_banner=True)
+nlp = NLP(language_code="lati1261", backend="openai", model="gpt-6.1-terra", suppress_banner=True)
 
 doc = nlp.analyze("Gallia est omnis divisa in partes tres.")
 
@@ -77,7 +77,7 @@ class LatinFrenchPipeline(Pipeline):
 nlp = NLP(
     language_code="lati1261",
     backend="openai",
-    model="gpt-5-mini",
+    model="gpt-6.1-terra",
     custom_pipeline=LatinFrenchPipeline(),
     suppress_banner=True
 )

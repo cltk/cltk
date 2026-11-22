@@ -53,7 +53,7 @@ pipeline = Pipeline(
         LatinCustomMorph,
     ],
 )
-nlp = NLP(language_code="lati1261", backend="openai", model="gpt-5-mini", custom_pipeline=pipeline)
+nlp = NLP(language_code="lati1261", backend="openai", model="gpt-6.1-terra", custom_pipeline=pipeline)
 doc = nlp.analyze("arma virumque cano")
 print(doc.words)
 ```
@@ -105,7 +105,7 @@ pipeline = Pipeline(
         LatinCustomDep,
     ],
 )
-nlp = NLP(language_code="lati1261", backend="openai", model="gpt-5-mini", custom_pipeline=pipeline)
+nlp = NLP(language_code="lati1261", backend="openai", model="gpt-6.1-terra", custom_pipeline=pipeline)
 doc = nlp.analyze("arma virumque cano")
 print(doc.words)
 ```

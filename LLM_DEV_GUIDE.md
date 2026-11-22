@@ -15,7 +15,7 @@ This guide tells humans and LLM-based helpers how to extend or modify CLTK's Gen
 
 ## Runtime, configuration, dependencies
 - Supported extras: `cltk[openai]` and `cltk[ollama]`. Env vars: `OPENAI_API_KEY`, `OLLAMA_CLOUD_API_KEY`. Use `.env` loading via `load_env_file()` when needed.
-- Default models: OpenAI backend uses `gpt-5-mini` by default; Ollama backend uses `llama3.1:8b`. Override via the `model` parameter; document any non-default you hardcode.
+- Default models: OpenAI backend uses `gpt-6.1-terra` by default; Ollama backend uses `llama3.1:8b`. Override via the `model` parameter; document any non-default you hardcode.
 - Keep temperature, top_p, and timeouts explicit; set conservative defaults (e.g., low temperature) for reproducibility.
 - Do not add new network calls outside the existing clients; prefer dependency-free utilities from `src/cltk/utils/` and `src/cltk/text/`.
 

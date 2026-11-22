@@ -136,7 +136,7 @@ class OpenAIConnection:
                     openai_response = self.client.responses.create(
                         model=self.model, input=prompt, temperature=self.temperature
                     )
-                elif "-5" in self.model:
+                elif "-5" in self.model or self.model.startswith("gpt-6"):
                     openai_response = self.client.responses.create(
                         model=self.model,
                         input=prompt,
@@ -351,7 +351,7 @@ class AsyncOpenAIConnection:
                         input=prompt,
                         temperature=self.temperature,
                     )
-                elif "-5" in self.model:
+                elif "-5" in self.model or self.model.startswith("gpt-6"):
                     openai_response = await self.client.responses.create(
                         model=self.model,
                         input=prompt,

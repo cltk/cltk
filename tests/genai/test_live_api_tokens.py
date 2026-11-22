@@ -5,7 +5,7 @@ from typing import Callable
 import pytest
 
 from cltk import NLP
-from cltk.core.data_types import BACKEND_TYPES, CLTKGenAIResponse
+from cltk.core.data_types import BACKEND_TYPES, DEFAULT_OPENAI_MODEL, CLTKGenAIResponse
 from cltk.utils.utils import load_env_file
 
 load_env_file()
@@ -31,7 +31,7 @@ def _require_module(module_name: str) -> None:
 def _run_openai() -> CLTKGenAIResponse:
     from cltk.genai.openai import OpenAIConnection
 
-    conn = OpenAIConnection(model="gpt-5-mini")
+    conn = OpenAIConnection(model=DEFAULT_OPENAI_MODEL)
     return conn.generate(prompt=PROMPT, max_retries=1)
 
 
