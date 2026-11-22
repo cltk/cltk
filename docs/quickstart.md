@@ -52,7 +52,7 @@ for w in doc.words[:10]:
 
 - Install `cltk[openai]`.
 - Requires `OPENAI_API_KEY`.
-- Defaults to model `gpt-5-mini` if not specified.
+- Defaults to model `gpt-6.1-terra` if not specified.
 
 ```python
 import os

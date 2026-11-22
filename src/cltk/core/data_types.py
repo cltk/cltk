@@ -42,7 +42,10 @@ ScriptDir: TypeAlias = Literal["ltr", "rtl", "ttb", "btt"]
 BACKEND_TYPES: TypeAlias = Union[
     Literal["openai", "stanza", "spacy", "ollama", "ollama-cloud", "mistral"], str
 ]
-AVAILABLE_OPENAI_MODELS: TypeAlias = Literal["gpt-5-mini", "gpt-5"]
+AVAILABLE_OPENAI_MODELS: TypeAlias = Literal[
+    "gpt-6.1-terra", "gpt-6.1-sol", "gpt-5-mini", "gpt-5"
+]
+DEFAULT_OPENAI_MODEL: AVAILABLE_OPENAI_MODELS = "gpt-6.1-terra"
 
 AVAILABLE_MISTRAL_MODELS: TypeAlias = Literal[
     "mistral-large-latest",

@@ -11,6 +11,7 @@ from cltk.core.cltk_logger import bind_context, logger
 from cltk.core.data_types import (
     AVAILABLE_OPENAI_MODELS,
     BACKEND_TYPES,
+    DEFAULT_OPENAI_MODEL,
     CLTKConfig,
     Dialect,
     Doc,
@@ -59,7 +60,7 @@ class NLP:
 
     Notes:
       - When ``backend == "openai"`` and no ``model`` is provided, defaults to
-        ``"gpt-5-mini"``. Requires ``OPENAI_API_KEY`` in the environment.
+        ``"gpt-6.1-terra"``. Requires ``OPENAI_API_KEY`` in the environment.
       - When ``backend`` is ``"ollama"`` or ``"ollama-cloud"`` and no ``model``
         is provided, defaults to ``"llama3.1:8b"``. ``"ollama-cloud"`` requires
         ``OLLAMA_CLOUD_API_KEY`` in the environment.
@@ -152,7 +153,7 @@ class NLP:
                 raise ValueError(openai_msg)
             # Default model if none provided
             self.model = self.model or getattr(backend_config, "model", None)
-            self.model = self.model or "gpt-5-mini"
+            self.model = self.model or DEFAULT_OPENAI_MODEL
         elif self.backend in ("ollama", "ollama-cloud"):
             if self.backend == "ollama-cloud":
                 # Prefer API key from config when provided

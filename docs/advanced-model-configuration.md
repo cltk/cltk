@@ -43,7 +43,7 @@ from cltk.core.data_types import CLTKConfig, OpenAIBackendConfig
 cltk_config = CLTKConfig(
     language_code="lati1261",
     backend="openai",
-    model="gpt-5-mini",  # optional, defaults to gpt-5-mini
+    model="gpt-6.1-terra",  # optional, defaults to gpt-6.1-terra
     openai=OpenAIBackendConfig(
         temperature=0.4,
         max_retries=1,
